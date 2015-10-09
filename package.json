@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "npm run serve | npm run dev",
-    "serve": "./node_modules/.bin/http-server -p 8080",
+    "serve": "http-server -p 8080",
     "dev": "webpack-dev-server --progress --colors --port 8090"
   },
   "name": "Shift",
@@ -16,5 +16,17 @@
     "jsx-loader": "^0.13.2",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.0"
-  }
+  },
+  "description": "Simple web app for laying dietary menus",
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sheldarr/Shift.git"
+  },
+  "author": "kewin.polok@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sheldarr/Shift/issues"
+  },
+  "homepage": "https://github.com/sheldarr/Shift"
 }
