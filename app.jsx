@@ -6,6 +6,6 @@ var ReactDOM = require('react-dom');
 var Shift = require('./shift');
 
 ReactDOM.render(
-	React.createElement(Shift, null),
+	<Shift />,
 	document.getElementById('content')
 );
