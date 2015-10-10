@@ -31,17 +31,19 @@ module.exports = React.createClass({
 			filteredProducts: []
 		}
 	},
-    searchExpressionChanged: function(searchExpression) {
+    searchExpressionChanged(searchExpression) {
     	console.log(_);
     	console.log(searchExpression)
 
-    	this.state.filteredProducts = _.where(this.state.products, function(product) {
-    		return product.name.toLowerCase().indexOf(searchExpression.toLowerCase()) > -1;
-    	})
-    	
+    	this.setState({
+    		filteredProducts: _.where(this.state.products, function(product) {
+    			return product.name.toLowerCase().indexOf(searchExpression.toLowerCase()) > -1;
+    		})
+    	});
+
     	console.log(this.state.filteredProducts);
     },
-    render: function() {
+    render() {
         return (
         	<div>
 	        	<NavigationBar />

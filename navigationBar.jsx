@@ -7,8 +7,7 @@ var Nav = require('react-bootstrap').Nav;
 var NavItem = require('react-bootstrap').NavItem;
 
 module.exports = React.createClass({
-	displayName: 'NavigationBar',
-	render: function() {
+	render() {
 		return (
 	 		<Navbar inverse toggleNavKey={0}>
     			<NavBrand>Shift</NavBrand>

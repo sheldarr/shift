@@ -4,7 +4,7 @@ var React = require('react');
 var Table = require('react-bootstrap').Table;
 
 module.exports = React.createClass({
-	getDefaultProps: function() {
+	getDefaultProps() {
 		return {
 			products: []
 		}
@@ -12,8 +12,7 @@ module.exports = React.createClass({
 	propTypes: {
 		products: React.PropTypes.array
 	},
-	displayName: 'ProductsList',
-	render: function() {
+	render() {
 		return (
 			<Table>
 				<thead>

@@ -15,13 +15,13 @@ module.exports = React.createClass({
 	propTypes: {
 	    onChange: React.PropTypes.func.isRequired
 	},
-	handleChange: function(event) {
+	handleChange(event) {
 		this.setState({
       		searchExpression: event.target.value
     	});
     	this.props.onChange(this.state.searchExpression);
 	},
-	render: function() {
+	render() {
 		return (
 			<Input type="text" 
 				addonBefore={innerGlyphicon} 
