@@ -12,20 +12,21 @@ module.exports = React.createClass({
       		searchExpression: ''
 	    };
 	},
-	handleChange: function() {
+	propTypes: {
+	    onChange: React.PropTypes.func.isRequired
+	},
+	handleChange: function(event) {
 		this.setState({
-      		searchExpression: 'abs'
+      		searchExpression: event.target.value
     	});
+    	this.props.onChange(this.state.searchExpression);
 	},
 	render: function() {
 		return (
-			<div>
-			{this.state.searchExpression}
 			<Input type="text" 
 				addonBefore={innerGlyphicon} 
-				placeholder="Search product"
-				onChange={this.handleChange}/>
-			</div>
+				onChange={this.handleChange}
+				placeholder="Search product" />
 		)
 	}
 })
