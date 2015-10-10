@@ -7,8 +7,8 @@
   "name": "Shift",
   "version": "0.0.1",
   "dependencies": {
-    "elemental": "^0.4.8",
     "react": "^0.14.0",
+    "react-bootstrap": "^0.27.1",
     "react-dom": "^0.14.0"
   },
   "devDependencies": {

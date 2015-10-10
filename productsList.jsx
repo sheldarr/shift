@@ -1,10 +1,7 @@
 'use string'
 
 var React = require('react');
-var Table = require('elemental').Table;
-var Button = require('elemental').Button;
-
-require.context('./node_modules/elemental/less/', true, /\.less$/);
+var Table = require('react-bootstrap').Table;
 
 module.exports = React.createClass({
 	getDefaultProps: function() {
@@ -22,7 +19,7 @@ module.exports = React.createClass({
 				<thead>
 					<tr>
 						<td>Id</td>
-						<td>Nazwa</td>
+						<td>Name</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,7 +31,6 @@ module.exports = React.createClass({
 							<td>
 								{product.name}
 							</td>
-							<Button type="success">Success</Button>
 						</tr>
 					)}
 				</tbody>

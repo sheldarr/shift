@@ -1,6 +1,10 @@
 'use strict'
 
 var React = require('react');
+var Panel = require('react-bootstrap').Panel;
+var NavigationBar = require('./navigationBar');
+var SearchBar = require('./SearchBar');
+
 var ProductsList = require('./productsList');
 
 var products = [
@@ -22,6 +26,18 @@ var products = [
 module.exports = React.createClass({
     displayName: 'Shift',
     render: function() {
-        return <ProductsList products={products} />
+        return (
+        	<div>
+	        	<NavigationBar />
+	        	<div className="row" style={{marginTop: 100}}>
+	        		<div className='col-md-6 col-md-offset-3'>
+			        	<Panel>
+			        		<SearchBar />
+			        		<ProductsList products={products} />
+			        	</Panel>
+		        	</div>
+	        	</div>
+        	</div>
+    	)
     }
 });
