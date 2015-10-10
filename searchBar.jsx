@@ -7,10 +7,25 @@ var Glyphicon = require('react-bootstrap').Glyphicon;
 var innerGlyphicon = <Glyphicon glyph="search" />;
 
 module.exports = React.createClass({
-	displayName: 'searchBar',
+	getInitialState() {
+	    return {
+      		searchExpression: ''
+	    };
+	},
+	handleChange: function() {
+		this.setState({
+      		searchExpression: 'abs'
+    	});
+	},
 	render: function() {
 		return (
-			<Input type="text" addonBefore={innerGlyphicon}  placeholder="Search product"/>
+			<div>
+			{this.state.searchExpression}
+			<Input type="text" 
+				addonBefore={innerGlyphicon} 
+				placeholder="Search product"
+				onChange={this.handleChange}/>
+			</div>
 		)
 	}
 })
