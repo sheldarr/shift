@@ -14,6 +14,11 @@ module.exports = React.createClass({
 					<tr>
 						<td>Id</td>
 						<td>Name</td>
+						<td>Caloric value [kcal]</td>
+						<td>Protein [g]</td>
+						<td>Fat [g]</td>
+						<td>Carbohydrates [g]</td>
+						<td>Roughage [g]</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -24,6 +29,21 @@ module.exports = React.createClass({
 							</td>
 							<td>
 								{product.name}
+							</td>
+							<td>
+								{product.calorie}
+							</td>
+							<td>
+								{product.protein}
+							</td>
+							<td>
+								{product.fat}
+							</td>
+							<td>
+								{product.carbohydrates}
+							</td>
+							<td>
+								{product.roughage}
 							</td>
 						</tr>
 					)}

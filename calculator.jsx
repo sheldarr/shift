@@ -45,17 +45,17 @@ module.exports = React.createClass({
 		})
 	},
 	calculateBmi() {
-		return IndexCalculator.calculateBmi(this.state.weight,
-			this.state.height);
+		return (IndexCalculator.calculateBmi(this.state.weight,
+			this.state.height)).toFixed(2);
 	},
 	calculateBmr(weight, height, age, gender) {	
-		return IndexCalculator.calculateBmr(this.state.weight,
-			this.state.height, this.state.age, this.state.gender);
+		return (IndexCalculator.calculateBmr(this.state.weight,
+			this.state.height, this.state.age, this.state.gender)).toFixed(2);
 	},
 	calculateCpr(weight, height, age, gender, factor) {
-		return IndexCalculator.calculateCpr(this.state.weight,
+		return (IndexCalculator.calculateCpr(this.state.weight,
 			this.state.height, this.state.age, this.state.gender,
-			this.state.factor);
+			this.state.factor)).toFixed(2);
 	},
 	getBmiCategory(weight, height) {
 		return IndexCalculator.getBmiCategory(this.state.weight,
@@ -65,12 +65,12 @@ module.exports = React.createClass({
 		return(
 			<Panel header="Calculator">
 				<Panel header="Data">
-					<Input type="number" label="Weight" addonAfter="kg" value={this.state.weight} onChange={this.weightChanged} />
-					<Input type="number" label="Height" addonAfter="cm" value={this.state.height} onChange={this.heightChanged} />
-					<Input type="number" label="Age" addonAfter="years" value={this.state.age} onChange={this.ageChanged} />
+					<Input type="number" label="Weight" addonAfter="kg" value={this.state.weight} onChange={this.weightChanged} min="1" />
+					<Input type="number" label="Height" addonAfter="cm" value={this.state.height} onChange={this.heightChanged} min="1" />
+					<Input type="number" label="Age" addonAfter="years" value={this.state.age} onChange={this.ageChanged} min="1" />
 	      	  		<Input type="radio" label="Man" value={IndexCalculator.genders.Man} name="gender" onChange={this.genderChanged} defaultChecked={true}/>
 	       	 		<Input type="radio" label="Woman" value={IndexCalculator.genders.Woman} name="gender" onChange={this.genderChanged} />
-					<Input type="number" label="Factor" addonAfter=".1" value={this.state.factor} onChange={this.factorChanged} step="0.1" />
+					<Input type="number" label="Factor" addonAfter=".1" value={this.state.factor} onChange={this.factorChanged} step="0.1"  min="0.1"/>
 				</Panel>
 				<Panel header="Results">
 					<Input type="number" label="BMI (Body Mass Index)" readOnly value={this.calculateBmi()} />

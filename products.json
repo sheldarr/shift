@@ -1,15 +1,27 @@
 [
 	{
 		"id": 1,
-		"name": "Woda",
-		"kcal": 1024
+		"name": "Bagietki francuskie",
+		"calorie": 283.00,
+		"protein": 8.70,
+		"fat": 1.70,
+		"carbohydrates": 59.20,
+		"roughage": 2.00
 	}, {
 		"id": 2,
-		"name": "Jajka",
-		"kcal": 1024
+		"name": "Bułeczki do hot-dogów",
+		"calorie": 341.00,
+		"protein": 9.50,
+		"fat": 7.50,
+		"carbohydrates": 59.80,
+		"roughage": 2.0
 	}, {
 		"id": 3,
-		"name": "Mleko",
-		"kcal": 1024
+		"name": "Bułka tarta",
+		"calorie": 347.00,
+		"protein": 9.70,
+		"fat": 1.90,
+		"carbohydrates": 77.60,
+		"roughage": 6.10
 	}
 ]
