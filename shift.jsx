@@ -4,31 +4,18 @@ var React = require('react');
 var _ = require('lodash');
 
 var Panel = require('react-bootstrap').Panel;
+
 var NavigationBar = require('./navigationBar');
-
-var SearchBar = require('./SearchBar');
-
+var SearchBar = require('./searchBar');
 var ProductsList = require('./productsList');
+
+var ProductsService = require('./productsService');
 
 module.exports = React.createClass({
 	getInitialState() {
 		return {
-			products: [
-				{
-					id: 1,
-					name: 'Woda',
-					kcal: 1024
-				}, {
-					id: 2,
-					name: 'Jajka',
-					kcal: 1024
-				}, {
-					id: 3,
-					name: 'Mleko',
-					kcal: 1024
-				}
-			],
-			filteredProducts: [],
+			products: ProductsService.getAll(),
+			filteredProducts: ProductsService.getAll(),
 		}
 	},
     searchExpressionChanged(searchExpression) {
@@ -42,7 +29,7 @@ module.exports = React.createClass({
         	<div>
 	        	<NavigationBar />
 	        	<div className="row" style={{marginTop: 100}}>
-	        		<div className='col-md-6 col-md-offset-3'>
+	        		<div className='col-md-8 col-md-offset-2'>
 			        	<Panel>
 			        		{this.state.searchExpression}
 			        		<SearchBar searchExpression={this.state.searchExpression} onChange={this.searchExpressionChanged}/>
