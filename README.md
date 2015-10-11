@@ -2,10 +2,10 @@
 
 Utility program for dieticians. 
 
-## Provided functionalities:
+### Provided functionalities:
 - Searchable list of nutritional values for common foods and products
 - BMI, BMR and CPR calculator
 
-## TO DO:
+### TO DO:
  - Patients management.
  - Menu's management.
