@@ -8,12 +8,12 @@ var Nav = require('react-bootstrap').Nav;
 var NavItem = require('react-bootstrap').NavItem;
 
 var FilterableProductsList = require('./filterableProductsList');
-var IndexesCalculator = require('./indexesCalculator');
+var Calculator = require('./calculator');
 
 module.exports = React.createClass({
 	availableModules: {
 		filterableProductsList: 'List',
-		indexesCalculator: 'Calculator'
+		calculator: 'Calculator'
 	},
 	propTypes: {
 	    onChange: React.PropTypes.func.isRequired
@@ -23,8 +23,8 @@ module.exports = React.createClass({
 			case this.availableModules.filterableProductsList:
 				this.props.onChange(<FilterableProductsList />);
 				break;
-			case this.availableModules.indexesCalculator:
-				this.props.onChange(<IndexesCalculator />);
+			case this.availableModules.calculator:
+				this.props.onChange(<Calculator />);
 				break;
 		};
 	},
@@ -34,7 +34,7 @@ module.exports = React.createClass({
     			<NavBrand>Shift</NavBrand>
 				<Nav right> 
   					<NavItem href="#" onClick={this.handleChange.bind(null, this.availableModules.filterableProductsList)}>Products</NavItem>
-  					<NavItem href="#" onClick={this.handleChange.bind(null, this.availableModules.indexesCalculator)}>BMI/BMR/CPR</NavItem>
+  					<NavItem href="#" onClick={this.handleChange.bind(null, this.availableModules.calculator)}>BMI/BMR/CPR</NavItem>
 				</Nav>
   			</Navbar>
 		)

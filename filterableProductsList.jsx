@@ -27,7 +27,7 @@ module.exports = React.createClass({
     },
 	render() {
 		return (
-			<Panel header="Products list">
+			<Panel header="Products">
         		<SearchBar searchExpression={this.state.searchExpression}
     		 		onChange={this.searchExpressionChanged}/>
         		<ProductsList products={this.state.filteredProducts} />
