@@ -4,13 +4,8 @@ var React = require('react');
 var Table = require('react-bootstrap').Table;
 
 module.exports = React.createClass({
-	getDefaultProps() {
-		return {
-			products: []
-		}
-	},
 	propTypes: {
-		products: React.PropTypes.array
+		products: React.PropTypes.array.isRequired
 	},
 	render() {
 		return (
