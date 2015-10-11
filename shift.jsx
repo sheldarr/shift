@@ -22,7 +22,7 @@ module.exports = React.createClass({
         return (
         	<div>
 	        	<NavigationBar onChange={this.moduleChanged}/>
-	        	<div className="row col-md-8 col-md-offset-2" style={{marginTop: 100}}>
+	        	<div className="row col-md-8 col-md-offset-2" style={{marginTop: 20}}>
         			{this.state.activeModule}
 	        	</div>
         	</div>
