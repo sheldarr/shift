@@ -28,20 +28,14 @@ module.exports = React.createClass({
 					kcal: 1024
 				}
 			],
-			filteredProducts: []
+			filteredProducts: [],
 		}
 	},
     searchExpressionChanged(searchExpression) {
-    	console.log(_);
-    	console.log(searchExpression)
-
-    	this.setState({
-    		filteredProducts: _.where(this.state.products, function(product) {
-    			return product.name.toLowerCase().indexOf(searchExpression.toLowerCase()) > -1;
-    		})
-    	});
-
-    	console.log(this.state.filteredProducts);
+		this.setState({
+			filteredProducts: _.filter(this.state.products, product =>
+				product.name.toLowerCase().indexOf(searchExpression.toLowerCase()) > -1)
+		});
     },
     render() {
         return (
@@ -50,7 +44,8 @@ module.exports = React.createClass({
 	        	<div className="row" style={{marginTop: 100}}>
 	        		<div className='col-md-6 col-md-offset-3'>
 			        	<Panel>
-			        		<SearchBar onChange={this.searchExpressionChanged}/>
+			        		{this.state.searchExpression}
+			        		<SearchBar searchExpression={this.state.searchExpression} onChange={this.searchExpressionChanged}/>
 			        		<ProductsList products={this.state.filteredProducts} />
 			        	</Panel>
 		        	</div>
