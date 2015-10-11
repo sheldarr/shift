@@ -34,7 +34,7 @@ module.exports = React.createClass({
     			<NavBrand>Shift</NavBrand>
 				<Nav right> 
   					<NavItem href="#" onClick={this.handleChange.bind(null, this.availableModules.filterableProductsList)}>Products</NavItem>
-  					<NavItem href="#" onClick={this.handleChange.bind(null, this.availableModules.calculator)}>BMI/BMR/CPR</NavItem>
+  					<NavItem href="#" onClick={this.handleChange.bind(null, this.availableModules.calculator)}>Calculator</NavItem>
 				</Nav>
   			</Navbar>
 		)
