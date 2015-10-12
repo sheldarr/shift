@@ -2,10 +2,33 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
+var Router = require('react-router').Router;
+var Route = require('react-router').Route;
 
-var Shift = require('./shift');
+var NavigationBar = require('./navigationBar')
+var Calculator = require('./calculator');
+var Products = require('./products');
+var Home = require('./home');
 
-ReactDOM.render(
-	<Shift />,
-	document.getElementById('content')
-);
+const App = React.createClass({
+  render() {
+    return (
+      <div>
+      	<NavigationBar />
+      	<div className="row col-md-8 col-md-offset-2" style={{marginTop: 20}}>
+  	 		{this.props.children}
+    	</div>
+      </div>
+    )
+  }
+})
+
+ReactDOM.render((
+  <Router>
+    <Route path="/" component={App}>
+      <Route path="products" component={Products} />
+      <Route path="calculator" component={Calculator} />
+      <Route path="*" component={Home}/>
+    </Route>
+  </Router>
+), document.getElementById('content'))
