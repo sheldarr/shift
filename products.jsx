@@ -11,6 +11,8 @@ var SearchBar = require('./searchBar');
 var ProductsList = require('./productsList');
 var ProductsService = require('./productsService');
 
+var Header = <span><Glyphicon glyph="list" /> Products</span>
+
 module.exports = React.createClass({
 	getInitialState() {
 		return {
@@ -28,7 +30,7 @@ module.exports = React.createClass({
     },
 	render() {
 		return (
-			<Panel header="Products">
+			<Panel header={Header}>
     		 	<Button bsStyle="success" className="pull-right" style={{marginLeft: 20}}>
     		 		<Glyphicon glyph="plus" /> Add product
 		 		</Button>

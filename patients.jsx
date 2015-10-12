@@ -8,6 +8,8 @@ var Glyphicon = require('react-bootstrap').Glyphicon;
 var SearchBar = require('./searchBar');
 var PatientsList = require('./patientsList');
 
+var Header = <span><Glyphicon glyph="list" /> Patients</span>
+
 module.exports = React.createClass({
 	getInitialState() {
 	    return {
@@ -49,7 +51,7 @@ module.exports = React.createClass({
     },
 	render() {
 		return(
-			<Panel header="Patients">
+			<Panel header={Header}>
 				<Button className="pull-right" bsStyle="success" style={{marginLeft: 20}}>
 					<Glyphicon glyph="plus"/> Add patient
 				</Button>

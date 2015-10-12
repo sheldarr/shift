@@ -6,8 +6,11 @@ var Panel = require('react-bootstrap').Panel;
 var Input = require('react-bootstrap').Input;
 var Col = require('react-bootstrap').Col;
 var Row = require('react-bootstrap').Row;
+var Glyphicon = require('react-bootstrap').Glyphicon;
 
 var IndexCalculator = require('./logic/indexCalculator');
+
+var Header = <span><Glyphicon glyph="heart" /> Calculator</span>;
 
 module.exports = React.createClass({
 	getInitialState() {
@@ -63,7 +66,7 @@ module.exports = React.createClass({
 	},
 	render() {
 		return(
-			<Panel header="Calculator">
+			<Panel header={Header}>
 				<Panel header="Data">
 					<Input type="number" label="Weight" addonAfter="kg" value={this.state.weight} onChange={this.weightChanged} min="1" />
 					<Input type="number" label="Height" addonAfter="cm" value={this.state.height} onChange={this.heightChanged} min="1" />
