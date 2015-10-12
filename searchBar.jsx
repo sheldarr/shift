@@ -8,7 +8,8 @@ var innerGlyphicon = <Glyphicon glyph="search" />;
 
 module.exports = React.createClass({
 	propTypes: {
-	    onChange: React.PropTypes.func.isRequired
+	    onChange: React.PropTypes.func.isRequired,
+	    placeholder: React.PropTypes.string.isRequired
 	},
 	handleChange(event) {
     	this.props.onChange(event.target.value);
@@ -19,7 +20,7 @@ module.exports = React.createClass({
 				addonBefore={innerGlyphicon}
 				value={this.props.searchExpression} 
 				onChange={this.handleChange}
-				placeholder="Search product" />
+				placeholder={this.props.placeholder} />
 		)
 	}
 })

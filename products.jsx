@@ -4,10 +4,11 @@ var React = require('react');
 var _ = require('lodash');
 
 var Panel = require('react-bootstrap').Panel;
+var Button = require('react-bootstrap').Button;
+var Glyphicon = require('react-bootstrap').Glyphicon;
 
 var SearchBar = require('./searchBar');
 var ProductsList = require('./productsList');
-
 var ProductsService = require('./productsService');
 
 module.exports = React.createClass({
@@ -28,8 +29,12 @@ module.exports = React.createClass({
 	render() {
 		return (
 			<Panel header="Products">
+    		 	<Button bsStyle="success" className="pull-right" style={{marginLeft: 20}}>
+    		 		<Glyphicon glyph="plus" /> Add product
+		 		</Button>
         		<SearchBar searchExpression={this.state.searchExpression}
-    		 		onChange={this.searchExpressionChanged}/>
+        			placeholder="Search product"
+    		 		onChange={this.searchExpressionChanged} />
         		<ProductsList products={this.state.filteredProducts} />
 			</Panel>
 		)

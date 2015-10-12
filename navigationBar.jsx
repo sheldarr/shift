@@ -15,6 +15,7 @@ module.exports = React.createClass({
 	 		<Navbar>
     			<NavBrand>Shift</NavBrand>
 				<Nav right> 
+					<NavItem href="#/patients">Patients</NavItem>
   					<NavItem href="#/products">Products</NavItem>
   					<NavItem href="#/calculator">Calculator</NavItem>
 				</Nav>

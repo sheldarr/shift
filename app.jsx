@@ -6,8 +6,9 @@ var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 
 var NavigationBar = require('./navigationBar')
-var Calculator = require('./calculator');
+var Patients = require('./patients');
 var Products = require('./products');
+var Calculator = require('./calculator');
 var Home = require('./home');
 
 const App = React.createClass({
@@ -24,11 +25,12 @@ const App = React.createClass({
 })
 
 ReactDOM.render((
-  <Router>
-    <Route path="/" component={App}>
-      <Route path="products" component={Products} />
-      <Route path="calculator" component={Calculator} />
-      <Route path="*" component={Home}/>
-    </Route>
-  </Router>
+	<Router>
+		<Route path="/" component={App}>
+			<Route path="patients" component={Patients} />
+	  		<Route path="products" component={Products} />
+	  		<Route path="calculator" component={Calculator} />
+	  		<Route path="*" component={Home}/>
+		</Route>
+  	</Router>
 ), document.getElementById('content'))
