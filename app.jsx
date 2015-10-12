@@ -7,6 +7,7 @@ var Route = require('react-router').Route;
 
 var NavigationBar = require('./navigationBar')
 var Patients = require('./patients');
+var Patient = require('./patient');
 var Products = require('./products');
 var Calculator = require('./calculator');
 var Home = require('./home');
@@ -28,6 +29,7 @@ ReactDOM.render((
 	<Router>
 		<Route path="/" component={App}>
 			<Route path="patients" component={Patients} />
+				<Route path="/patient/:patientId" component={Patient} />
 	  		<Route path="products" component={Products} />
 	  		<Route path="calculator" component={Calculator} />
 	  		<Route path="*" component={Home}/>

@@ -9,7 +9,7 @@ var Glyphicon = require('react-bootstrap').Glyphicon;
 
 var SearchBar = require('./searchBar');
 var ProductsList = require('./productsList');
-var ProductsService = require('./productsService');
+var ProductsStore = require('./productsStore');
 
 var Header = <span><Glyphicon glyph="list" /> Products</span>
 
@@ -17,8 +17,8 @@ module.exports = React.createClass({
 	getInitialState() {
 		return {
 			searchExpression: '',
-			products: ProductsService.getAll(),
-			filteredProducts: ProductsService.getAll(),
+			products: ProductsStore.getAll(),
+			filteredProducts: ProductsStore.getAll(),
 		}
 	},
 	searchExpressionChanged(searchExpression) {

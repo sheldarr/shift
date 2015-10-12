@@ -8,37 +8,15 @@ var Glyphicon = require('react-bootstrap').Glyphicon;
 var SearchBar = require('./searchBar');
 var PatientsList = require('./patientsList');
 
+var PatientsStore = require('./patientsStore');
+
 var Header = <span><Glyphicon glyph="list" /> Patients</span>
 
 module.exports = React.createClass({
 	getInitialState() {
 	    return {
-	        patients: [{ 
-	        	id: 1,
-	        	name: "John Smith",
-	        	age: 32
-        	}, { 
-	        	id: 2,
-	        	name: "Anne Smith",
-	        	age: 30
-        	}, { 
-	        	id: 3,
-	        	name: "William Blazkowicz",
-	        	age: 34
-        	}],
-    	  	filteredPatients: [{ 
-	        	id: 1,
-	        	name: "John Smith",
-	        	age: 32
-        	}, { 
-	        	id: 2,
-	        	name: "Anne Smith",
-	        	age: 30
-        	}, { 
-	        	id: 3,
-	        	name: "William Blazkowicz",
-	        	age: 34
-        	}],
+	        patients: PatientsStore.getAll(),
+    	  	filteredPatients: PatientsStore.getAll(),
         	searchExpression: ''
 	    };
 	},

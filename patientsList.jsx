@@ -34,7 +34,7 @@ module.exports = React.createClass({
 							</td>
 							<td>
 								<div className="pull-right">
-									 <Button bsStyle="primary" style={{marginRight: 10}}>
+									 <Button bsStyle="primary" style={{marginRight: 10}} href={`#/patient/${patient.id}`}>
 									 	<Glyphicon glyph="option-horizontal" /> Details
 								 	</Button>
 								 	 <Button bsStyle="danger">
