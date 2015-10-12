@@ -3,13 +3,13 @@
 var React = require('react');
 var _ = require('lodash');
 
-var Panel = require('react-bootstrap').Panel;
 var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
+var Panel = require('react-bootstrap').Panel;
 
-var SearchBar = require('./searchBar');
 var ProductsList = require('./productsList');
 var ProductsStore = require('./productsStore');
+var SearchBar = require('./searchBar');
 
 var Header = <span><Glyphicon glyph="list" /> Products</span>
 

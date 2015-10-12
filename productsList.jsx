@@ -1,6 +1,7 @@
 'use string'
 
 var React = require('react');
+
 var Table = require('react-bootstrap').Table;
 
 module.exports = React.createClass({

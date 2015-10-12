@@ -1,14 +1,14 @@
 'use strict'
 
 var React = require('react');
-var Panel = require('react-bootstrap').Panel;
+
 var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
+var Panel = require('react-bootstrap').Panel;
 
-var SearchBar = require('./searchBar');
 var PatientsList = require('./patientsList');
-
 var PatientsStore = require('./patientsStore');
+var SearchBar = require('./searchBar');
 
 var Header = <span><Glyphicon glyph="list" /> Patients</span>
 

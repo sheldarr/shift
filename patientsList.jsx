@@ -1,9 +1,10 @@
 'use string'
 
 var React = require('react');
-var Table = require('react-bootstrap').Table;
+
 var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
+var Table = require('react-bootstrap').Table;
 
 module.exports = React.createClass({
 	propTypes: {

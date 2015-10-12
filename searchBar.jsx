@@ -1,8 +1,9 @@
 'use strict'
 
 var React = require('react');
-var Input = require('react-bootstrap').Input;
+
 var Glyphicon = require('react-bootstrap').Glyphicon;
+var Input = require('react-bootstrap').Input;
 
 var innerGlyphicon = <Glyphicon glyph="search" />;
 

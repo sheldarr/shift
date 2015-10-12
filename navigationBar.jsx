@@ -3,11 +3,10 @@
 var React = require('react');
 var Link = require('react-router').Link;
 
+var Nav = require('react-bootstrap').Nav;
 var Navbar = require('react-bootstrap').Navbar;
 var NavBrand = require('react-bootstrap').NavBrand;
-var Nav = require('react-bootstrap').Nav;
 var NavItem = require('react-bootstrap').NavItem;
-
 
 module.exports = React.createClass({
 	render() {

@@ -2,11 +2,11 @@
 
 var React = require('react');
 
-var Panel = require('react-bootstrap').Panel;
-var Input = require('react-bootstrap').Input;
 var Col = require('react-bootstrap').Col;
-var Row = require('react-bootstrap').Row;
 var Glyphicon = require('react-bootstrap').Glyphicon;
+var Input = require('react-bootstrap').Input;
+var Panel = require('react-bootstrap').Panel;
+var Row = require('react-bootstrap').Row;
 
 var IndexCalculator = require('./logic/indexCalculator');
 

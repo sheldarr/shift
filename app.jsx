@@ -5,12 +5,12 @@ var ReactDOM = require('react-dom');
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 
+var Calculator = require('./calculator');
+var Home = require('./home');
 var NavigationBar = require('./navigationBar')
 var Patients = require('./patients');
 var Patient = require('./patient');
 var Products = require('./products');
-var Calculator = require('./calculator');
-var Home = require('./home');
 
 const App = React.createClass({
   render() {
