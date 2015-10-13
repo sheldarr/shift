@@ -10,7 +10,7 @@ module.exports = React.createClass({
 	},
 	render() {
 		return (
-			<Table>
+			<Table striped hover>
 				<thead>
 					<tr>
 						<td>Id</td>
