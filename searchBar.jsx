@@ -19,7 +19,6 @@ module.exports = React.createClass({
 		return (
 			<Input type="text" 
 				addonBefore={innerGlyphicon}
-				value={this.props.searchExpression} 
 				onChange={this.handleChange}
 				placeholder={this.props.placeholder} />
 		)

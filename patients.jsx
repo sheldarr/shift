@@ -6,6 +6,7 @@ var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Panel = require('react-bootstrap').Panel;
 
+var AddPatient = require('./addPatient');
 var PatientsList = require('./patientsList');
 var PatientsStore = require('./patientsStore');
 var SearchBar = require('./searchBar');
@@ -15,24 +16,31 @@ var Header = <span><Glyphicon glyph="list" /> Patients</span>
 module.exports = React.createClass({
 	getInitialState() {
 	    return {
+	    	searchExpression: '',
 	        patients: PatientsStore.getAll(),
     	  	filteredPatients: PatientsStore.getAll(),
-        	searchExpression: ''
 	    };
 	},
 	searchExpressionChanged(searchExpression) {
 		this.setState({
 			searchExpression: searchExpression,
+		});
+		this.refreshFilter();
+    },
+    patientCreated(patient) {
+		this.state.patients.push(patient);
+		this.refreshFilter();
+    },
+    refreshFilter() {
+    	this.setState({
 			filteredPatients: _.filter(this.state.patients, patient =>
-				patient.name.toLowerCase().indexOf(searchExpression.toLowerCase()) > -1)
+				patient.name.toLowerCase().indexOf(this.state.searchExpression.toLowerCase()) > -1)
 		});
     },
 	render() {
 		return(
 			<Panel header={Header}>
-				<Button className="pull-right" bsStyle="success" style={{marginLeft: 20}}>
-					<Glyphicon glyph="plus"/> Add patient
-				</Button>
+				<AddPatient onHide={this.patientCreated}/>
 				<SearchBar searchExpression={this.state.searchExpression}
 					placeholder="Search patient"
     		 		onChange={this.searchExpressionChanged} />

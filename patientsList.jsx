@@ -17,7 +17,9 @@ module.exports = React.createClass({
 					<tr>
 						<td>Id</td>
 						<td>Name</td>
-						<td>Age</td>
+						<td>Weight [kg]</td>
+						<td>Height [cm]</td>
+						<td>Age [years]</td>
 						<td></td>
 					</tr>
 				</thead>
@@ -29,6 +31,12 @@ module.exports = React.createClass({
 							</td>
 							<td>
 								{patient.name}
+							</td>
+							<td>
+								{patient.weight}
+							</td>
+							<td>
+								{patient.height}
 							</td>
 							<td>
 								{patient.age}
