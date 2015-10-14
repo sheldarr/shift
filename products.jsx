@@ -1,7 +1,8 @@
 'use strict'
 
-var React = require('react');
 var _ = require('lodash');
+var React = require('react');
+var Request = require('superagent');
 
 var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
@@ -26,6 +27,21 @@ module.exports = React.createClass({
 				product.name.toLowerCase().indexOf(searchExpression.toLowerCase()) > -1)
 		});
     },
+	componentDidMount() {
+    var component = this;
+    Request
+   		.get('http://localhost:8088/api/product')
+	   	.end(function(err, res){
+	     	if (res.ok) {
+			   	component.setState({
+		   			products: res.body,
+   			   		filteredProducts: res.body
+		   		});
+			} else {
+	       		alert('Api error' + res.text);
+	     	}
+   		});
+  	},
 	render() {
 		return (
 			<Panel header={Header}>
