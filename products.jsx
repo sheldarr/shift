@@ -8,17 +8,15 @@ var Glyphicon = require('react-bootstrap').Glyphicon;
 var Panel = require('react-bootstrap').Panel;
 
 var ProductsList = require('./productsList');
-var ProductsStore = require('./productsStore');
 var SearchBar = require('./searchBar');
-
 var Header = <span><Glyphicon glyph="list" /> Products</span>
 
 module.exports = React.createClass({
 	getInitialState() {
 		return {
 			searchExpression: '',
-			products: ProductsStore.getAll(),
-			filteredProducts: ProductsStore.getAll(),
+			products: [],
+			filteredProducts: [],
 		}
 	},
 	searchExpressionChanged(searchExpression) {

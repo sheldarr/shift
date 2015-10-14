@@ -6,8 +6,7 @@ var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Input = require('react-bootstrap').Input;
 var Panel = require('react-bootstrap').Panel;
-
-var PatientsStore = require('./patientsStore');
+var request = require('superagent');
 
 module.exports = React.createClass({
 	getInitialState() {
@@ -21,11 +20,6 @@ module.exports = React.createClass({
 	        }  
 	    };
 	},
-  	componentDidMount() {
-    	this.setState({
-      		patient: PatientsStore.getById(this.props.params.patientId)
-    	});
-  	},
 	header: <Glyphicon glyph="user" />,
 	render() {
 		return (

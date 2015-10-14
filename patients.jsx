@@ -1,6 +1,7 @@
 'use strict'
 
 var React = require('react');
+var Request = require('superagent');
 
 var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
@@ -8,7 +9,6 @@ var Panel = require('react-bootstrap').Panel;
 
 var AddPatient = require('./addPatient');
 var PatientsList = require('./patientsList');
-var PatientsStore = require('./patientsStore');
 var SearchBar = require('./searchBar');
 
 var Header = <span><Glyphicon glyph="list" /> Patients</span>
@@ -17,10 +17,25 @@ module.exports = React.createClass({
 	getInitialState() {
 	    return {
 	    	searchExpression: '',
-	        patients: PatientsStore.getAll(),
-    	  	filteredPatients: PatientsStore.getAll(),
+	        patients: [],
+    	  	filteredPatients: []
 	    };
 	},
+	componentDidMount() {
+    var component = this;
+    Request
+   		.get('http://localhost:8088/api/patient')
+	   	.end(function(err, res){
+	     	if (res.ok) {
+			   	component.setState({
+		   			patients: res.body,
+   			   		filteredPatients: res.body
+		   		});
+			} else {
+	       		alert('Api error' + res.text);
+	     	}
+   		});
+  	},
 	searchExpressionChanged(searchExpression) {
 		this.setState({
 			searchExpression: searchExpression,
