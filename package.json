@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "start": "npm run serve | npm run dev",
-    "serve": "http-server -p 8080",
-    "dev": "webpack-dev-server --progress --colors --port 8090"
+    "start": "npm run client | npm run webpack",
+    "client": "http-server -p 8080",
+    "webpack": "webpack-dev-server --progress --colors --port 8090"
   },
   "name": "Shift",
   "version": "0.0.1",
@@ -22,7 +22,7 @@
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.0"
   },
-  "description": "Simple web app for laying dietary menus",
+  "description": "Simple utility application for dieticians",
   "main": "webpack.config.js",
   "repository": {
     "type": "git",

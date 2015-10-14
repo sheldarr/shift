@@ -1,6 +1,6 @@
 # Shift
 
-Utility program for dieticians. 
+Simple utility application for dieticians
 
 ### Provided functionalities:
 - Searchable list of nutritional values for common foods and products

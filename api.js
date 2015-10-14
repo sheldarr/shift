@@ -17,4 +17,4 @@ router.get('/', function(req, res) {
 app.use('/api', router);
 
 app.listen(port);
-console.log('Shift api server is running on port: ' + port);
+console.log('Shift api is running on port: ' + port);
