@@ -8,8 +8,9 @@ var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Panel = require('react-bootstrap').Panel;
 
-var ProductsList = require('./productsList');
-var SearchBar = require('./searchBar');
+var ProductsList = require('../components/productsList');
+var SearchBar = require('../components/searchBar');
+
 var Header = <span><Glyphicon glyph="list" /> Products</span>
 
 module.exports = React.createClass({
@@ -28,19 +29,19 @@ module.exports = React.createClass({
 		});
     },
 	componentDidMount() {
-    var component = this;
-    Request
-   		.get('http://localhost:8088/api/product')
-	   	.end(function(err, res){
-	     	if (res.ok) {
-			   	component.setState({
-		   			products: res.body,
-   			   		filteredProducts: res.body
-		   		});
-			} else {
-	       		alert('Api error' + res.text);
-	     	}
-   		});
+	    var component = this;
+	    Request
+	   		.get('http://localhost:8088/api/product')
+		   	.end(function(err, res){
+		     	if (res.ok) {
+				   	component.setState({
+			   			products: res.body,
+	   			   		filteredProducts: res.body
+			   		});
+				} else {
+		       		alert('Api error' + res.text);
+		     	}
+	   		});
   	},
 	render() {
 		return (

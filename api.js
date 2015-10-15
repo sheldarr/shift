@@ -8,8 +8,8 @@ var port = 8088;
 
 var router = express.Router();
 
-var patients = require('./patients.json');
-var products = require('./products.json');
+var patients = require('./data/patients.json');
+var products = require('./data/products.json');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

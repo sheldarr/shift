@@ -8,9 +8,9 @@ var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Panel = require('react-bootstrap').Panel;
 
-var AddPatient = require('./addPatient');
-var PatientsList = require('./patientsList');
-var SearchBar = require('./searchBar');
+var AddPatient = require('../components/addPatient');
+var PatientsList = require('../components/patientsList');
+var SearchBar = require('../components/searchBar');
 
 var Header = <span><Glyphicon glyph="list" /> Patients</span>
 

@@ -6,7 +6,7 @@ var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Input = require('react-bootstrap').Input;
 var Panel = require('react-bootstrap').Panel;
-var request = require('superagent');
+var Request = require('superagent');
 
 module.exports = React.createClass({
 	getInitialState() {
@@ -20,6 +20,22 @@ module.exports = React.createClass({
 	        }  
 	    };
 	},
+	componentDidMount() {
+	    var component = this;
+	    var patientId = this.props.params.patientId;
+	    Request
+	   		.get(`http://localhost:8088/api/patient/${patientId}`)
+		   	.end(function(err, res){
+		     	if (res.ok) {
+		     		console.log(res.body);
+				   	component.setState({
+			   			patient: res.body,
+			   		});
+				} else {
+		       		alert('Api error' + res.text);
+		     	}
+	   		});
+  	},
 	header: <Glyphicon glyph="user" />,
 	render() {
 		return (
