@@ -2,13 +2,14 @@
 
 var React = require('react');
 
+var Panel = require('react-bootstrap').Panel;
+
 module.exports = React.createClass({
 	render() {
 		return(
-			<div>
-				<h1>Home</h1>
-				<p>Welcome to shift</p>
-			</div>
+			<Panel header="404">
+				Page not found :(
+			</Panel>
 		);
 	}
 })
