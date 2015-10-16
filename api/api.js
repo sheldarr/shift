@@ -20,10 +20,13 @@ app.use(function(req, res, next) {
 });
 
 router.get('/', function(req, res) {
+	console.log('GET: /');
 	res.sendStatus(200);  
 });
 
 router.get('/patient', function(req, res) {
+	console.log('GET: /patient');
+
 	fs.readFile('./data/patients.json', 'utf8', function (err, data) {
 		if(err) {
 			console.log(err);
@@ -34,6 +37,8 @@ router.get('/patient', function(req, res) {
 });
 
 router.get('/patient/:id', function(req, res) {
+	console.log(`GET: /patient/${req.params.id}`);
+
 	fs.readFile('./data/patients.json', 'utf8', function (err, data) {
 		if(err) {
 			console.log(err);
@@ -50,7 +55,7 @@ router.get('/patient/:id', function(req, res) {
 });
 
 router.post('/patient/', function(req, res) {
-	console.log(`POST: ${JSON.stringify(req.body)}`);
+	console.log(`POST: /patient/${JSON.stringify(req.body)}`);
 
 	fs.readFile('./data/patients.json', 'utf8', function (err, data) {
 		if(err) {
@@ -68,7 +73,7 @@ router.post('/patient/', function(req, res) {
 });
 
 router.delete('/patient/', function(req, res) {
-	console.log(`DELETE: ${JSON.stringify(req.body)}`);
+	console.log(`DELETE: /patient/${JSON.stringify(req.body.id)}`);
 
 	fs.readFile('./data/patients.json', 'utf8', function (err, data) {
 		if(err) {
@@ -88,6 +93,8 @@ router.delete('/patient/', function(req, res) {
 
 
 router.get('/product', function(req, res) {
+	console.log('GET: /product');
+
     fs.readFile('./data/products.json', 'utf8', function (err, data) {
 		if(err) {
 			console.log(err);
