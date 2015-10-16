@@ -39,7 +39,9 @@ module.exports = React.createClass({
 		});
 	},
 	addPatient() {
-		 Request
+		var self = this;
+
+		Request
 			.post('http://localhost:8088/api/patient')
 			.send({
 				id: Math.floor((Math.random() * 65535) + 1),
@@ -49,13 +51,13 @@ module.exports = React.createClass({
 				age: this.state.age,
 				sex: this.state.sex
 			})
-		   	.end(function(err, res){
-		     	if (res.ok) {
-	     			this.hideModal();
-	     			this.props.onHide();
+			.end(function(err, res){
+			 	if (res.ok) {
+					self.props.onHide();
+					self.hideModal();
 				} else {
-		       		alert('Api error' + res.text);
-		     	}
+			   		alert('Api error' + res.text);
+			 	}
 			});
 	},
 	nameChanged(event) {

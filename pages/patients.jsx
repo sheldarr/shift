@@ -10,6 +10,7 @@ var Panel = require('react-bootstrap').Panel;
 
 var AddPatient = require('../components/addPatient');
 var PatientsList = require('../components/patientsList');
+var PatientsService = require('../services/patientsService');
 var SearchBar = require('../components/searchBar');
 
 var Header = <span><Glyphicon glyph="list" /> Patients</span>
@@ -23,19 +24,19 @@ module.exports = React.createClass({
 	    };
 	},
 	componentDidMount() {
-    var component = this;
-    Request
-   		.get('http://localhost:8088/api/patient')
-	   	.end(function(err, res){
-	     	if (res.ok) {
-			   	component.setState({
-		   			patients: res.body,
-   			   		filteredPatients: res.body
-		   		});
-			} else {
-	       		alert('Api error' + res.text);
-	     	}
-   		});
+	    var self = this;
+	    Request
+	   		.get('http://localhost:8088/api/patient')
+		   	.end(function(err, res){
+		     	if (res.ok) {
+				   	self.setState({
+			   			patients: res.body,
+	   			   		filteredPatients: res.body
+			   		});
+				} else {
+		       		alert('Api error' + res.text);
+		     	}
+	   		});
   	},
 	searchExpressionChanged(searchExpression) {
 		this.setState({
@@ -44,17 +45,17 @@ module.exports = React.createClass({
 		this.refreshFilter();
     },
     refreshList() {
-    	console.log('refresh')
+    	var self = this;
 	 	Request
 	   		.get('http://localhost:8088/api/patient')
 		   	.end(function(err, res){
 		     	if (res.ok) {
-				   	component.setState({
+				   	self.setState({
 			   			patients: res.body,
 	   			   		filteredPatients: res.body
 			   		});
-					this.refreshFilter();
 
+					self.refreshFilter();
 				} else {
 		       		alert('Api error' + res.text);
 		     	}

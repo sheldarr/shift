@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
 });
 
 router.get('/', function(req, res) {
-	res.json({ message: 'OK' });   
+	res.sendStatus(200);  
 });
 
 router.get('/patient', function(req, res) {
@@ -62,6 +62,8 @@ router.post('/patient/', function(req, res) {
 		patients.push(req.body);
 
 		fs.writeFile('./data/patients.json', JSON.stringify(patients));
+
+		res.sendStatus(200);
 	});
 });
 
@@ -78,6 +80,8 @@ router.delete('/patient/', function(req, res) {
 		_.remove(data, {id: req.body.id});
 
 		fs.writeFile('./data/patients.json', JSON.stringify(patients));
+
+		res.sendStatus(200);
 	});
 
 });
