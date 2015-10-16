@@ -9,6 +9,8 @@ var Modal = require('react-bootstrap').Modal;
 
 var Request = require('superagent');
 
+var PatientsService = require('../services/patientsService');
+
 module.exports = React.createClass({
 	getInitialState() {
 	    return {
@@ -39,26 +41,21 @@ module.exports = React.createClass({
 		});
 	},
 	addPatient() {
-		var self = this;
-
-		Request
-			.post('http://localhost:8088/api/patient')
-			.send({
-				id: Math.floor((Math.random() * 65535) + 1),
-				name: this.state.name,
-				weight: this.state.weight,
-				height: this.state.height,
-				age: this.state.age,
-				sex: this.state.sex
-			})
-			.end(function(err, res){
-			 	if (res.ok) {
-					self.props.onHide();
-					self.hideModal();
-				} else {
-			   		alert('Api error' + res.text);
-			 	}
-			});
+		PatientsService.create({
+			id: Math.floor((Math.random() * 65535) + 1),
+			name: this.state.name,
+			weight: this.state.weight,
+			height: this.state.height,
+			age: this.state.age,
+			sex: this.state.sex
+		})
+		.then(response => {
+			this.props.onHide();
+			this.hideModal();
+		})
+		.catch(error => { 
+			alert('Api error ' + error)
+		});
 	},
 	nameChanged(event) {
 		this.setState({

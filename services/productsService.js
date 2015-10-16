@@ -28,5 +28,18 @@ module.exports = {
 					}
 				});
 		});
+	},
+	create(product) {
+		return new Promise(function(resolve, reject) {
+			Request
+				.post('http://localhost:8088/api/product')
+				.end((err, res) => {
+					if (res.ok) {
+						resolve();
+					} else {
+						reject(res.text);
+					}
+				});
+		});
 	}
 }
