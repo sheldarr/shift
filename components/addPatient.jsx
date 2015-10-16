@@ -7,6 +7,8 @@ var Glyphicon = require('react-bootstrap').Glyphicon;
 var Input = require('react-bootstrap').Input;
 var Modal = require('react-bootstrap').Modal;
 
+var Request = require('superagent');
+
 module.exports = React.createClass({
 	getInitialState() {
 	    return {
@@ -37,16 +39,24 @@ module.exports = React.createClass({
 		});
 	},
 	addPatient() {
-		this.hideModal();
-
-		this.props.onHide({
-			id: Math.floor((Math.random() * 65535) + 1),
-			name: this.state.name,
-			weight: this.state.weight,
-			height: this.state.height,
-			age: this.state.age,
-			sex: this.state.sex
-		});
+		 Request
+			.post('http://localhost:8088/api/patient')
+			.send({
+				id: Math.floor((Math.random() * 65535) + 1),
+				name: this.state.name,
+				weight: this.state.weight,
+				height: this.state.height,
+				age: this.state.age,
+				sex: this.state.sex
+			})
+		   	.end(function(err, res){
+		     	if (res.ok) {
+	     			this.hideModal();
+	     			this.props.onHide();
+				} else {
+		       		alert('Api error' + res.text);
+		     	}
+			});
 	},
 	nameChanged(event) {
 		this.setState({

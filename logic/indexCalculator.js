@@ -44,6 +44,7 @@ module.exports = {
 		if(bmi < 40) {
 			return 'Obese Class II (Severely obese)';
 		}
+		
 		return 'Obese Class III (Very severely obese)';
 	}
 };

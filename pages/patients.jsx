@@ -43,9 +43,22 @@ module.exports = React.createClass({
 		});
 		this.refreshFilter();
     },
-    patientCreated(patient) {
-		this.state.patients.push(patient);
-		this.refreshFilter();
+    refreshList() {
+    	console.log('refresh')
+	 	Request
+	   		.get('http://localhost:8088/api/patient')
+		   	.end(function(err, res){
+		     	if (res.ok) {
+				   	component.setState({
+			   			patients: res.body,
+	   			   		filteredPatients: res.body
+			   		});
+					this.refreshFilter();
+
+				} else {
+		       		alert('Api error' + res.text);
+		     	}
+	   		});
     },
     refreshFilter() {
     	this.setState({
@@ -56,7 +69,7 @@ module.exports = React.createClass({
 	render() {
 		return(
 			<Panel header={Header}>
-				<AddPatient onHide={this.patientCreated}/>
+				<AddPatient onHide={this.refreshList}/>
 				<SearchBar searchExpression={this.state.searchExpression}
 					placeholder="Search patient"
     		 		onChange={this.searchExpressionChanged} />
