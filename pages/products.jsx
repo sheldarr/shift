@@ -11,8 +11,6 @@ var Panel = require('react-bootstrap').Panel;
 var ProductsList = require('../components/productsList');
 var SearchBar = require('../components/searchBar');
 
-var Header = <span><Glyphicon glyph="list" /> Products</span>
-
 module.exports = React.createClass({
 	getInitialState() {
 		return {
@@ -45,7 +43,7 @@ module.exports = React.createClass({
   	},
 	render() {
 		return (
-			<Panel header={Header}>
+			<Panel header={<span><Glyphicon glyph="list" /> Products</span>}>
     		 	<Button bsStyle="success" className="pull-right" style={{marginLeft: 20}}>
     		 		<Glyphicon glyph="plus" /> Add product
 		 		</Button>

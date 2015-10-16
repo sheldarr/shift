@@ -24,42 +24,26 @@ module.exports = React.createClass({
 	    };
 	},
 	componentDidMount() {
-	    var self = this;
-	    Request
-	   		.get('http://localhost:8088/api/patient')
-		   	.end(function(err, res){
-		     	if (res.ok) {
-				   	self.setState({
-			   			patients: res.body,
-	   			   		filteredPatients: res.body
-			   		});
-				} else {
-		       		alert('Api error' + res.text);
-		     	}
-	   		});
+	    this.refreshList();
   	},
 	searchExpressionChanged(searchExpression) {
 		this.setState({
 			searchExpression: searchExpression,
 		});
+		
 		this.refreshFilter();
     },
     refreshList() {
-    	var self = this;
-	 	Request
-	   		.get('http://localhost:8088/api/patient')
-		   	.end(function(err, res){
-		     	if (res.ok) {
-				   	self.setState({
-			   			patients: res.body,
-	   			   		filteredPatients: res.body
-			   		});
-
-					self.refreshFilter();
-				} else {
-		       		alert('Api error' + res.text);
-		     	}
-	   		});
+    	PatientsService.getAll()
+			.then(response => {
+				this.setState({
+		   			patients: response,
+   			   		filteredPatients: response
+		   		})
+			})
+			.catch(error => { 
+				alert('Api error ' + error)
+			});
     },
     refreshFilter() {
     	this.setState({

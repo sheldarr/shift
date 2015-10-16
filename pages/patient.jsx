@@ -8,6 +8,8 @@ var Input = require('react-bootstrap').Input;
 var Panel = require('react-bootstrap').Panel;
 var Request = require('superagent');
 
+var PatientsService = require('../services/patientsService');
+
 module.exports = React.createClass({
 	getInitialState() {
 	    return {
@@ -21,22 +23,16 @@ module.exports = React.createClass({
 	    };
 	},
 	componentDidMount() {
-	    var component = this;
-	    var patientId = this.props.params.patientId;
-	    Request
-	   		.get(`http://localhost:8088/api/patient/${patientId}`)
-		   	.end(function(err, res){
-		     	if (res.ok) {
-		     		console.log(res.body);
-				   	component.setState({
-			   			patient: res.body,
-			   		});
-				} else {
-		       		alert('Api error' + res.text);
-		     	}
-	   		});
+	    PatientsService.getById(this.props.params.patientId)
+			.then(response => {
+				this.setState({
+		   			patient: response,
+		   		});
+			})
+			.catch(error => { 
+				alert('Api error ' + error)
+			});
   	},
-	header: <Glyphicon glyph="user" />,
 	render() {
 		return (
 			<Panel header={<span><Glyphicon glyph="user" /> {this.state.patient.name}</span>}>
