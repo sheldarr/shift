@@ -25,33 +25,37 @@ module.exports = React.createClass({
 	    };
 	},
 	weightChanged(event) {
+		var weight = Math.min(Math.max(event.target.value, 0), 400);
+
 		this.setState({
-			weight: event.target.value
+			weight: weight
 		})
 	},
 	heightChanged(event) {
+		var height = Math.min(Math.max(event.target.value, 0), 272);
+
 		this.setState({
-			height: event.target.value
+			height: height
 		})
 	},
 	ageChanged(event) {
+		var age = Math.min(Math.max(event.target.value, 0), 122);
+
 		this.setState({
-			age: event.target.value
+			age: age
 		})
 	},
 	factorChanged(event) {
+		var factor = Math.min(Math.max(event.target.value, 0), 16);
+
 		this.setState({
-			factor: event.target.value
+			factor: factor
 		})
 	},
 	sexChanged(event) {
-		console.log(event.target.value);
-
 		this.setState({
 			sex: event.target.value
 		})
-
-		console.log(this.state.sex);
 	},
 	calculateBmi() {
 		return (IndexCalculator.calculateBmi(this.state.weight,
