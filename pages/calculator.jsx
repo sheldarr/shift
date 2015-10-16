@@ -6,6 +6,8 @@ var Col = require('react-bootstrap').Col;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Input = require('react-bootstrap').Input;
 var Panel = require('react-bootstrap').Panel;
+var Col = require('react-bootstrap').Col;
+var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
 
 var IndexCalculator = require('../logic/indexCalculator');
@@ -67,20 +69,29 @@ module.exports = React.createClass({
 	render() {
 		return(
 			<Panel header={Header}>
-				<Panel header="Data">
-					<Input type="number" label="Weight" addonAfter="kg" value={this.state.weight} onChange={this.weightChanged} min="1" />
-					<Input type="number" label="Height" addonAfter="cm" value={this.state.height} onChange={this.heightChanged} min="1" />
-					<Input type="number" label="Age" addonAfter="years" value={this.state.age} onChange={this.ageChanged} min="1" />
-	      	  		<Input type="radio" label="Man" value={IndexCalculator.genders.Man} name="gender" onChange={this.genderChanged} defaultChecked={true}/>
-	       	 		<Input type="radio" label="Woman" value={IndexCalculator.genders.Woman} name="gender" onChange={this.genderChanged} />
-					<Input type="number" label="Factor" addonAfter=".1" value={this.state.factor} onChange={this.factorChanged} step="0.1"  min="0.1"/>
-				</Panel>
-				<Panel header="Results">
-					<Input type="number" label="BMI (Body Mass Index)" readOnly value={this.calculateBmi()} />
-					<Input type="text" label="Category" readOnly value={this.getBmiCategory()} />
-					<Input type="number" label="BMR (Basal Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateBmr()} />
-					<Input type="number" label="CPR (Cosmic Power Regeneration)" addonAfter="kcal / day" readOnly value={this.calculateCpr()} />
-				</Panel>
+				<Row>
+					<Col md={6}>
+						<Panel header="Data">
+							<Input type="number" label="Weight" addonAfter="kg" value={this.state.weight} onChange={this.weightChanged} min="1" />
+							<Input type="number" label="Height" addonAfter="cm" value={this.state.height} onChange={this.heightChanged} min="1" />
+							<Input type="number" label="Age" addonAfter="years" value={this.state.age} onChange={this.ageChanged} min="1" />
+							<Input type="number" label="Factor" addonAfter=".1" value={this.state.factor} onChange={this.factorChanged} step="0.1"  min="0.1"/>
+		      	  			<div className="input-group">
+		      	  				<label>Gender</label>
+		      	  				<Input type="radio" label="Man" value={IndexCalculator.genders.Man} name="gender" onChange={this.genderChanged} defaultChecked={true}/>
+		       	 				<Input type="radio" label="Woman" value={IndexCalculator.genders.Woman} name="gender" onChange={this.genderChanged} />
+							</div>
+						</Panel>
+					</Col>
+					<Col md={6}>
+						<Panel header="Results">
+							<Input type="number" label="BMI (Body Mass Index)" readOnly value={this.calculateBmi()} />
+							<Input type="text" label="Category" readOnly value={this.getBmiCategory()} />
+							<Input type="number" label="BMR (Basal Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateBmr()} />
+							<Input type="number" label="CPR (Cosmic Power Regeneration)" addonAfter="kcal / day" readOnly value={this.calculateCpr()} />
+						</Panel>
+					</Col>
+				</Row>
 			</Panel>
 		)
 	}
