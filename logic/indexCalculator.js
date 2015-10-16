@@ -1,15 +1,13 @@
 'use strict'
 
+var Enums = require('../api/enums');
+
 module.exports = {
-	genders: {
-		Man: "0",
-		Woman: "1"
-	},
 	calculateBmi(weight, height) {
 		return weight / Math.pow(height/100, 2);
 	},
-	calculateBmr(weight, height, age, gender) {	
-		if(gender === this.genders.Man) {
+	calculateBmr(weight, height, age, sex) {	
+		if(sex == Enums.sex.male) {
 			return 66.4730 + ((13.7516 * weight) + 
 				(5.0033 * height) -
 				(6.7550 * age));
@@ -19,8 +17,8 @@ module.exports = {
 			(1.8496 * height) - 
 			(4.6756 * age));
 	},
-	calculateCpr(weight, height, age, gender, factor) {
-		return this.calculateBmr(weight, height, age, gender, factor) * factor;
+	calculateCpr(weight, height, age, sex, factor) {
+		return this.calculateBmr(weight, height, age, sex, factor) * factor;
 	},
 	getBmiCategory(weight, height) {
 		var bmi = this.calculateBmi(weight, height);

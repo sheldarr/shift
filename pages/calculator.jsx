@@ -4,12 +4,12 @@ var React = require('react');
 
 var Col = require('react-bootstrap').Col;
 var Glyphicon = require('react-bootstrap').Glyphicon;
+var Grid = require('react-bootstrap').Grid;
 var Input = require('react-bootstrap').Input;
 var Panel = require('react-bootstrap').Panel;
-var Col = require('react-bootstrap').Col;
-var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
 
+var Enums = require('../api/enums');
 var IndexCalculator = require('../logic/indexCalculator');
 
 var Header = <span><Glyphicon glyph="heart" /> Calculator</span>;
@@ -20,7 +20,7 @@ module.exports = React.createClass({
 	        weight: 65,
 	        height: 180,
 	        age: 23,
-	        gender: IndexCalculator.genders.Man,
+	        sex: Enums.sex.male,
 	        factor: 1.6  
 	    };
 	},
@@ -44,25 +44,29 @@ module.exports = React.createClass({
 			factor: event.target.value
 		})
 	},
-	genderChanged(event) {
+	sexChanged(event) {
+		console.log(event.target.value);
+
 		this.setState({
-			gender: event.target.value
+			sex: event.target.value
 		})
+
+		console.log(this.state.sex);
 	},
 	calculateBmi() {
 		return (IndexCalculator.calculateBmi(this.state.weight,
 			this.state.height)).toFixed(2);
 	},
-	calculateBmr(weight, height, age, gender) {	
+	calculateBmr() {	
 		return (IndexCalculator.calculateBmr(this.state.weight,
-			this.state.height, this.state.age, this.state.gender)).toFixed(2);
+			this.state.height, this.state.age, this.state.sex)).toFixed(2);
 	},
-	calculateCpr(weight, height, age, gender, factor) {
+	calculateCpr() {
 		return (IndexCalculator.calculateCpr(this.state.weight,
-			this.state.height, this.state.age, this.state.gender,
+			this.state.height, this.state.age, this.state.sex,
 			this.state.factor)).toFixed(2);
 	},
-	getBmiCategory(weight, height) {
+	getBmiCategory() {
 		return IndexCalculator.getBmiCategory(this.state.weight,
 			this.state.height);
 	},
@@ -78,8 +82,8 @@ module.exports = React.createClass({
 							<Input type="number" label="Factor" addonAfter=".1" value={this.state.factor} onChange={this.factorChanged} step="0.1"  min="0.1"/>
 		      	  			<div className="input-group">
 		      	  				<label>Gender</label>
-		      	  				<Input type="radio" label="Man" value={IndexCalculator.genders.Man} name="gender" onChange={this.genderChanged} defaultChecked={true}/>
-		       	 				<Input type="radio" label="Woman" value={IndexCalculator.genders.Woman} name="gender" onChange={this.genderChanged} />
+		      	  				<Input type="radio" label="Male" value={Enums.sex.male} checked={this.state.sex == Enums.sex.male} name="sex" onChange={this.sexChanged} />
+		       	 				<Input type="radio" label="Female" value={Enums.sex.female} checked={this.state.sex == Enums.sex.female} name="sex" onChange={this.sexChanged} />
 							</div>
 						</Panel>
 					</Col>

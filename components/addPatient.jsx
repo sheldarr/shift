@@ -15,7 +15,7 @@ module.exports = React.createClass({
 	        weight: 0,
 	        height: 0,
 	        age: 0,
-	        gender: 0
+	        sex: 0
 	    };
 	},
 	propTypes: {
@@ -28,7 +28,7 @@ module.exports = React.createClass({
 			weight: 0,
 			height: 0,
 			age: 0,
-			gender: 0
+			sex: 0
 		});
 	},
 	hideModal() {
@@ -45,7 +45,7 @@ module.exports = React.createClass({
 			weight: this.state.weight,
 			height: this.state.height,
 			age: this.state.age,
-			gender: this.state.gender
+			sex: this.state.sex
 		});
 	},
 	nameChanged(event) {
@@ -75,7 +75,7 @@ module.exports = React.createClass({
 	},
 	genderChanged(event) {
 		this.setState({
-			gender: event.target.value
+			sex: event.target.value
 		})
 	},
 	render() {
