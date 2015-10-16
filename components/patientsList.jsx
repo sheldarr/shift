@@ -6,9 +6,21 @@ var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Table = require('react-bootstrap').Table;
 
+var PatientsService = require('../services/patientsService');
+
 module.exports = React.createClass({
 	propTypes: {
-		patients: React.PropTypes.array.isRequired
+		patients: React.PropTypes.array.isRequired,
+		onChange: React.PropTypes.func.isRequired
+	},
+	removePatient(id) {
+		PatientsService.delete(id)
+			.then(response => {
+				this.props.onChange();
+			})
+			.catch(error => { 
+				alert('Api error ' + error)
+			});
 	},
 	render() {
 		return (
@@ -46,7 +58,7 @@ module.exports = React.createClass({
 									 <Button bsStyle="primary" style={{marginRight: 10}} href={`#/patient/${patient.id}`}>
 									 	<Glyphicon glyph="option-horizontal" /> Details
 								 	</Button>
-								 	 <Button bsStyle="danger">
+								 	 <Button bsStyle="danger" onClick={this.removePatient.bind(null, patient.id)}>
 									 	<Glyphicon glyph="remove" /> Remove
 								 	</Button>
 							 	</div>

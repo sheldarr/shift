@@ -13,8 +13,6 @@ var PatientsList = require('../components/patientsList');
 var PatientsService = require('../services/patientsService');
 var SearchBar = require('../components/searchBar');
 
-var Header = <span><Glyphicon glyph="list" /> Patients</span>
-
 module.exports = React.createClass({
 	getInitialState() {
 	    return {
@@ -30,7 +28,7 @@ module.exports = React.createClass({
 		this.setState({
 			searchExpression: searchExpression,
 		});
-		
+
 		this.refreshFilter();
     },
     refreshList() {
@@ -53,12 +51,12 @@ module.exports = React.createClass({
     },
 	render() {
 		return(
-			<Panel header={Header}>
+			<Panel header={<span><Glyphicon glyph="list" /> Patients</span>}>
 				<AddPatient onHide={this.refreshList}/>
 				<SearchBar searchExpression={this.state.searchExpression}
 					placeholder="Search patient"
     		 		onChange={this.searchExpressionChanged} />
-				<PatientsList patients={this.state.filteredPatients} />
+				<PatientsList patients={this.state.filteredPatients} onChange={this.refreshList}/>
 			</Panel>
 		);
 	}

@@ -30,17 +30,30 @@ module.exports = {
 		});
 	},
 	create(patient) {
-	return new Promise(function(resolve, reject) {
-		Request
-			.post('http://localhost:8088/api/patient')
-			.send(patient)
-			.end((err, res) => {
-				if (res.ok) {
-					resolve();
-				} else {
-					reject(res.text);
-				}
-			});
+		return new Promise(function(resolve, reject) {
+			Request
+				.post('http://localhost:8088/api/patient')
+				.send(patient)
+				.end((err, res) => {
+					if (res.ok) {
+						resolve();
+					} else {
+						reject(res.text);
+					}
+				});
+		});
+	},
+	delete(id) {
+		return new Promise(function(resolve, reject) {
+			Request
+				.del(`http://localhost:8088/api/patient/${id}`)
+				.end(function(err, res){
+					if (res.ok) {
+						resolve(res.body);
+					} else {
+						reject(res.text);
+					}
+				});
 		});
 	}
 }

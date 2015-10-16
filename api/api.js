@@ -46,9 +46,7 @@ router.get('/patient/:id', function(req, res) {
 
 		var patients = JSON.parse(data);
 
-		var patient = _.find(patients, function(patient) {
-			return patient.id == req.params.id;
-		});
+		var patient = _.find(patients, patient => patient.id == req.params.id);
 
 		res.json(patient);
 	});
@@ -72,8 +70,8 @@ router.post('/patient/', function(req, res) {
 	});
 });
 
-router.delete('/patient/', function(req, res) {
-	console.log(`DELETE: /patient/${JSON.stringify(req.body.id)}`);
+router.delete('/patient/:id', function(req, res) {
+	console.log(`DELETE: /patient/${req.params.id}`);
 
 	fs.readFile('./data/patients.json', 'utf8', function (err, data) {
 		if(err) {
@@ -82,7 +80,7 @@ router.delete('/patient/', function(req, res) {
 		
 		var patients = JSON.parse(data);
 
-		_.remove(data, {id: req.body.id});
+		_.remove(patients, patient => patient.id == req.params.id);
 
 		fs.writeFile('./data/patients.json', JSON.stringify(patients));
 
