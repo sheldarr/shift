@@ -83,7 +83,7 @@ module.exports = React.createClass({
 							<Input type="number" label="Weight" addonAfter="kg" value={this.state.weight} onChange={this.weightChanged} min="1" />
 							<Input type="number" label="Height" addonAfter="cm" value={this.state.height} onChange={this.heightChanged} min="1" />
 							<Input type="number" label="Age" addonAfter="years" value={this.state.age} onChange={this.ageChanged} min="1" />
-							<Input type="number" label="Factor" addonAfter=".1" value={this.state.factor} onChange={this.factorChanged} step="0.1"  min="0.1"/>
+							<Input type="number" label="Factor" value={this.state.factor} onChange={this.factorChanged} step="0.1"  min="0.1"/>
 		      	  			<div className="input-group">
 		      	  				<label>Gender</label>
 		      	  				<Input type="radio" label="Male" value={Enums.sex.male} checked={this.state.sex == Enums.sex.male} name="sex" onChange={this.sexChanged} />

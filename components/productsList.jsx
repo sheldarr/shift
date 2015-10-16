@@ -32,7 +32,7 @@ module.exports = React.createClass({
 								{product.name}
 							</td>
 							<td>
-								{product.calorie}
+								{product.calories}
 							</td>
 							<td>
 								{product.protein}

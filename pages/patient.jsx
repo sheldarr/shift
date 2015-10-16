@@ -40,9 +40,9 @@ module.exports = React.createClass({
 	render() {
 		return (
 			<Panel header={<span><Glyphicon glyph="user" /> {this.state.patient.name}</span>}>
-				<Input type="number" label="Weight" readOnly value={this.state.patient.weight} />
-				<Input type="number" label="Height" readOnly value={this.state.patient.height} />
-				<Input type="number" label="Age" readOnly value={this.state.patient.age} />
+				<Input type="number" label="Weight" addonAfter="kg" readOnly value={this.state.patient.weight} />
+				<Input type="number" label="Height" addonAfter="cm" readOnly value={this.state.patient.height} />
+				<Input type="number" label="Age" addonAfter="years" readOnly value={this.state.patient.age} />
 				<Button bsStyle="primary" href="#/patients">
     		 		<Glyphicon glyph="arrow-left" /> Back
 		 		</Button>
