@@ -1,1 +1,51 @@
-[{"id":1,"name":"John Smith","weight":60,"height":160,"age":32},{"id":2,"name":"Anne Smith","weight":80,"height":168,"age":30},{"id":3,"name":"William Blazkowicz","weight":70,"height":150,"age":34}]
+[
+  {
+    "id": 1,
+    "name": "Mario",
+    "weight": 60,
+    "height": 160,
+    "age": 32
+  },
+  {
+    "id": 2,
+    "name": "Solid Snake",
+    "weight": 80,
+    "height": 168,
+    "age": 30
+  },
+  {
+    "id": 3,
+    "name": "William Blazkowicz",
+    "weight": 70,
+    "height": 150,
+    "age": 34
+  },
+  {
+    "id": 4,
+    "name": "Pip Boy",
+    "weight": 70,
+    "height": 150,
+    "age": 34
+  },
+  {
+    "id": 5,
+    "name": "Minsc",
+    "weight": 70,
+    "height": 150,
+    "age": 34
+  },
+  {
+    "id": 6,
+    "name": "Jaheira",
+    "weight": 70,
+    "height": 150,
+    "age": 34
+  },
+  {
+    "id": 7,
+    "name": "Imoen",
+    "weight": 70,
+    "height": 150,
+    "age": 34
+  }
+]
