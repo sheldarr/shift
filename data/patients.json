@@ -4,104 +4,134 @@
     "name": "Mario",
     "weight": 60,
     "height": 160,
-    "age": 32
+    "age": 32,
+    "factor": 1.0,
+    "sex": 0
   },
   {
     "id": 2,
     "name": "Solid Snake",
     "weight": 82,
     "height": 178,
-    "age": 42
+    "age": 42,
+    "factor": 1.0,
+    "sex": 0
   },
   {
     "id": 3,
     "name": "William Blazkowicz",
     "weight": 86,
     "height": 178,
-    "age": 37
+    "age": 37,
+    "factor": 1.0,
+    "sex": 0
   },
   {
     "id": 4,
     "name": "Pip Boy",
     "weight": 60,
     "height": 144,
-    "age": 18
+    "age": 18,
+    "factor": 1.0,
+    "sex": 0
   },
   {
     "id": 5,
     "name": "Minsc",
     "weight": 70,
     "height": 150,
-    "age": 34
+    "age": 34,
+    "factor": 1.0,
+    "sex": 0
   },
   {
     "id": 6,
     "name": "Jaheira",
     "weight": 70,
     "height": 150,
-    "age": 34
+    "age": 34,
+    "factor": 1.0,
+    "sex": 1
   },
   {
     "id": 7,
     "name": "Imoen",
     "weight": 62,
     "height": 167,
-    "age": 25
+    "age": 25,
+    "factor": 1.0,
+    "sex": 1
   },
   {
     "id": 8,
     "name": "Geralt",
     "weight": 84,
     "height": 184,
-    "age": 39
+    "age": 39,
+    "factor": 1.0,
+    "sex": 0
   },
   {
     "id": 9,
     "name": "Jaskier",
     "weight": 74,
     "height": 166,
-    "age": 37
+    "age": 37,
+    "factor": 1.0,
+    "sex": 0
   },
   {
     "id": 10,
     "name": "Triss",
     "weight": 71,
     "height": 170,
-    "age": 35
+    "age": 35,
+    "factor": 1.0,
+    "sex": 1
   },
   {
     "id": 11,
     "name": "Yennefer",
     "weight": 72,
     "height": 172,
-    "age": 36
+    "age": 36,
+    "factor": 1.0,
+    "sex": 1
   },
   {
     "id": 12,
     "name": "Horned Reaper",
     "weight": 165,
     "height": 220,
-    "age": 116
+    "age": 116,
+    "factor": 1.0,
+    "sex": 0
   },
   {
     "id": 13,
     "name": "Duke Nukem",
     "weight": 95,
     "height": 180,
-    "age": 33
+    "age": 33,
+    "factor": 1.0,
+    "sex": 0
   },
   {
     "id": 14,
     "name": "Diablo",
     "weight": 323,
     "height": 250,
-    "age": 160
+    "age": 160,
+    "factor": 1.0,
+    "sex": 0
   },
   {
     "id": 15,
     "name": "Stalker",
     "weight": 75,
     "height": 180,
-    "age": 32
+    "age": 32,
+    "factor": 1.0,
+    "sex": 0
   }
 ]
