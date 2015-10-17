@@ -33,7 +33,10 @@ module.exports = React.createClass({
 	    };
 	},
 	componentDidMount() {
-	    PatientsService.getById(this.props.params.patientId)
+	    this.reloadPatient();
+  	},
+  	reloadPatient() {
+   		PatientsService.getById(this.props.params.patientId)
 			.then(response => {
 				this.setState({
 		   			patient: response,
@@ -91,7 +94,7 @@ module.exports = React.createClass({
 					<Col md={12}>
 						<Panel header="Menus">
 							<MenusList menus={this.state.patient.menus} />
-							<CreateMenu onHide={() => 0} />
+							<CreateMenu onHide={this.reloadPatient} patientId={this.state.patient.id} />
 						</Panel>
 		 			</Col>
 				</Row>

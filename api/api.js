@@ -102,6 +102,27 @@ router.get('/product', function(req, res) {
 	});
 });
 
+router.post('/patient/:id/menu', function(req, res) {
+	console.log(`POST: /patient/${req.params.id}/menu`);
+
+	fs.readFile('./data/patients.json', 'utf8', function (err, data) {
+		if(err) {
+			console.log(err);
+		}
+		
+		var patients = JSON.parse(data);
+
+		var patient = _.find(patients, patient => patient.id == req.params.id);
+		
+		patient.menus.push(req.body);
+
+		fs.writeFile('./data/patients.json', JSON.stringify(patients));
+
+		res.sendStatus(200);
+	});
+});
+
+
 app.use('/api', router);
 
 app.listen(port);

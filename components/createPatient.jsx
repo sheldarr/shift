@@ -40,7 +40,7 @@ module.exports = React.createClass({
 			showModal: false
 		});
 	},
-	addPatient() {
+	createPatient() {
 		PatientsService.create({
 			id: Math.floor((Math.random() * 65535) + 1),
 			name: this.state.name,
@@ -104,7 +104,7 @@ module.exports = React.createClass({
 						<Input type="number" label="Age" addonAfter="years" value={this.state.age} onChange={this.ageChanged} min="1" />
 					</Modal.Body>
 					<Modal.Footer>
-						<Button bsStyle="success" onClick={this.addPatient}>
+						<Button bsStyle="success" onClick={this.createPatient}>
 							<Glyphicon glyph="plus"/> Create
 						</Button>
 						<Button bsStyle="danger" style={{marginLeft: 20}} onClick={this.hideModal}>

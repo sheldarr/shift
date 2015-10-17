@@ -11,7 +11,7 @@ var Modal = require('react-bootstrap').Modal;
 var Request = require('superagent');
 
 var IndexCalculator = require('../logic/indexCalculator');
-var PatientsService = require('../services/patientsService');
+var MenuService = require('../services/menuService');
 
 module.exports = React.createClass({
 	getInitialState() {
@@ -24,6 +24,7 @@ module.exports = React.createClass({
 	},
 	propTypes: {
 	    onHide: React.PropTypes.func.isRequired,
+	    patientId: React.PropTypes.number.isRequired
 	},
 	showModal() {
 		this.setState({
@@ -49,6 +50,21 @@ module.exports = React.createClass({
 		this.setState({
 			startDate: startDate
 		})
+	},
+	createMenu() {
+		MenuService.create(this.props.patientId, {
+			id: Math.floor((Math.random() * 65535) + 1),
+			name: this.state.name,
+			days: this.state.days,
+			startDate: this.state.startDate,
+		})
+		.then(response => {
+			this.props.onHide();
+			this.hideModal();
+		})
+		.catch(error => { 
+			alert('Api error ' + error)
+		});
 	},
 	calculateCpr() {
 		return (IndexCalculator.calculateCpr(this.props.patient.weight,
