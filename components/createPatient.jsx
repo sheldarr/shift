@@ -105,7 +105,7 @@ module.exports = React.createClass({
 					</Modal.Body>
 					<Modal.Footer>
 						<Button bsStyle="success" onClick={this.addPatient}>
-							<Glyphicon glyph="plus"/> Add
+							<Glyphicon glyph="plus"/> Create
 						</Button>
 						<Button bsStyle="danger" style={{marginLeft: 20}} onClick={this.hideModal}>
 							<Glyphicon glyph="remove"/> Cancel

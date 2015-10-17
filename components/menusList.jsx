@@ -6,12 +6,9 @@ var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Table = require('react-bootstrap').Table;
 
-var RemovePatient = require('./removePatient');
-
 module.exports = React.createClass({
 	propTypes: {
-		patients: React.PropTypes.array.isRequired,
-		onChange: React.PropTypes.func.isRequired
+		menus: React.PropTypes.array.isRequired,
 	},
 	render() {
 		return (
@@ -20,36 +17,31 @@ module.exports = React.createClass({
 					<tr>
 						<td>Id</td>
 						<td>Name</td>
-						<td>Weight [kg]</td>
-						<td>Height [cm]</td>
-						<td>Age [years]</td>
+						<td>Days</td>
+						<td>Start date</td>
 						<td></td>
 					</tr>
 				</thead>
 				<tbody>
-					{this.props.patients.map(patient => 
-						<tr key={patient.id}>
+					{this.props.menus.map(menu => 
+						<tr key={menu.id}>
 							<td>
-								{patient.id}
+								{menu.id}
 							</td>
 							<td>
-								{patient.name}
+								{menu.name}
 							</td>
 							<td>
-								{patient.weight}
+								{menu.days}
 							</td>
 							<td>
-								{patient.height}
-							</td>
-							<td>
-								{patient.age}
+								{new Date(menu.startDate).toDateString()}
 							</td>
 							<td>
 								<div className="pull-right">
-									 <Button bsStyle="primary" style={{marginRight: 10}} href={`#/patient/${patient.id}`}>
-									 	<Glyphicon glyph="option-horizontal" /> Details
+									 <Button bsStyle="primary" style={{marginRight: 10}}>
+									 	<Glyphicon glyph="pencil" /> Edit
 								 	</Button>
-								 	<RemovePatient onRemove={this.props.onChange} patient={patient}/>
 							 	</div>
 							</td>
 						</tr>

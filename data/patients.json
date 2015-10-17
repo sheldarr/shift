@@ -6,7 +6,21 @@
     "height": 160,
     "age": 32,
     "factor": 1,
-    "sex": 0
+    "sex": 0,
+    "menus": [
+      {
+        "id": 1,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 2,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 2,
@@ -15,7 +29,21 @@
     "height": 178,
     "age": 42,
     "factor": 1,
-    "sex": 0
+    "sex": 0,
+    "menus": [
+      {
+        "id": 3,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 4,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 3,
@@ -24,7 +52,21 @@
     "height": 178,
     "age": 37,
     "factor": 1,
-    "sex": 0
+    "sex": 0,
+    "menus": [
+      {
+        "id": 5,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 6,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 4,
@@ -33,7 +75,21 @@
     "height": 144,
     "age": 18,
     "factor": 1,
-    "sex": 0
+    "sex": 0,
+    "menus": [
+      {
+        "id": 7,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 8,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 5,
@@ -42,7 +98,21 @@
     "height": 150,
     "age": 34,
     "factor": 1,
-    "sex": 0
+    "sex": 0,
+    "menus": [
+      {
+        "id": 9,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 10,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 6,
@@ -51,7 +121,21 @@
     "height": 150,
     "age": 34,
     "factor": 1,
-    "sex": 1
+    "sex": 1,
+    "menus": [
+      {
+        "id": 11,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 12,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 7,
@@ -60,7 +144,21 @@
     "height": 167,
     "age": 25,
     "factor": 1,
-    "sex": 1
+    "sex": 1,
+    "menus": [
+      {
+        "id": 13,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 14,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 8,
@@ -69,7 +167,21 @@
     "height": 184,
     "age": 39,
     "factor": 1,
-    "sex": 0
+    "sex": 0,
+    "menus": [
+      {
+        "id": 15,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 16,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 9,
@@ -78,7 +190,21 @@
     "height": 166,
     "age": 37,
     "factor": 1,
-    "sex": 0
+    "sex": 0,
+    "menus": [
+      {
+        "id": 17,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 18,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 10,
@@ -87,7 +213,21 @@
     "height": 170,
     "age": 35,
     "factor": 1,
-    "sex": 1
+    "sex": 1,
+    "menus": [
+      {
+        "id": 19,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 20,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 11,
@@ -96,7 +236,21 @@
     "height": 172,
     "age": 36,
     "factor": 1,
-    "sex": 1
+    "sex": 1,
+    "menus": [
+      {
+        "id": 21,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 22,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 12,
@@ -105,7 +259,21 @@
     "height": 220,
     "age": 116,
     "factor": 1,
-    "sex": 0
+    "sex": 0,
+    "menus": [
+      {
+        "id": 23,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 24,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 13,
@@ -114,7 +282,21 @@
     "height": 180,
     "age": 33,
     "factor": 1,
-    "sex": 0
+    "sex": 0,
+    "menus": [
+      {
+        "id": 25,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 26,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 14,
@@ -123,7 +305,21 @@
     "height": 250,
     "age": 160,
     "factor": 1,
-    "sex": 0
+    "sex": 0,
+    "menus": [
+      {
+        "id": 27,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 28,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   },
   {
     "id": 15,
@@ -132,6 +328,20 @@
     "height": 180,
     "age": 32,
     "factor": 1,
-    "sex": 0
+    "sex": 0,
+    "menus": [
+      {
+        "id": 29,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 30,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
   }
 ]

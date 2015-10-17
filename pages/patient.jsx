@@ -11,8 +11,10 @@ var Panel = require('react-bootstrap').Panel;
 var Request = require('superagent');
 var Row = require('react-bootstrap').Row;
 
+var CreateMenu = require('../components/createMenu');
 var Enums = require('../api/enums');
 var IndexCalculator = require('../logic/indexCalculator');
+var MenusList = require('../components/menusList');
 var PatientsService = require('../services/patientsService');
 
 module.exports = React.createClass({
@@ -25,7 +27,8 @@ module.exports = React.createClass({
 	        	height: 0,
 	        	age: 0,
 	        	factor: 0,
-	        	sex: Enums.sex.male
+	        	sex: Enums.sex.male,
+	        	menus: []
 	        }  
 	    };
 	},
@@ -87,9 +90,8 @@ module.exports = React.createClass({
 				<Row>
 					<Col md={12}>
 						<Panel header="Menus">
-							<Button bsStyle="success">
-		    		 			<Glyphicon glyph="add" /> Create menu
-				 			</Button>
+							<MenusList menus={this.state.patient.menus} />
+							<CreateMenu onHide={() => 0} />
 						</Panel>
 		 			</Col>
 				</Row>
