@@ -8,7 +8,7 @@ var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Panel = require('react-bootstrap').Panel;
 
-var AddPatient = require('../components/addPatient');
+var CreatePatient = require('../components/createPatient');
 var PatientsList = require('../components/patientsList');
 var PatientsService = require('../services/patientsService');
 var SearchBar = require('../components/searchBar');
@@ -52,7 +52,7 @@ module.exports = React.createClass({
 	render() {
 		return(
 			<Panel header={<span><Glyphicon glyph="list" /> Patients</span>}>
-				<AddPatient onHide={this.refreshList}/>
+				<CreatePatient onHide={this.refreshList}/>
 				<SearchBar searchExpression={this.state.searchExpression}
 					placeholder="Search patient"
     		 		onChange={this.searchExpressionChanged} />
