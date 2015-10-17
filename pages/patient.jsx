@@ -86,6 +86,15 @@ module.exports = React.createClass({
 				</Row>
 				<Row>
 					<Col md={12}>
+						<Panel header="Menus">
+							<Button bsStyle="success">
+		    		 			<Glyphicon glyph="add" /> Create menu
+				 			</Button>
+						</Panel>
+		 			</Col>
+				</Row>
+				<Row>
+					<Col md={12}>
 						<Button bsStyle="primary" href="#/patients">
 	    		 			<Glyphicon glyph="arrow-left" /> Back
 			 			</Button>

@@ -12,8 +12,6 @@ var Row = require('react-bootstrap').Row;
 var Enums = require('../api/enums');
 var IndexCalculator = require('../logic/indexCalculator');
 
-var Header = <span><Glyphicon glyph="heart" /> Calculator</span>;
-
 module.exports = React.createClass({
 	getInitialState() {
 	    return {
@@ -76,7 +74,7 @@ module.exports = React.createClass({
 	},
 	render() {
 		return(
-			<Panel header={Header}>
+			<Panel header={<span><Glyphicon glyph="heart" /> Calculator</span>}>
 				<Row>
 					<Col md={6}>
 						<Panel header="Data">
