@@ -91,7 +91,7 @@ module.exports = React.createClass({
 		return (
 			<div className="pull-right">
 				<Button bsStyle="success" style={{marginLeft: 20}} onClick={this.showModal}>
-						<Glyphicon glyph="plus"/> New patient
+						<Glyphicon glyph="plus"/> Create patient
 				</Button>
 				<Modal show={this.state.showModal} onHide={this.hideModal}>
 					<Modal.Header closeButton>
