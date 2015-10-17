@@ -19,7 +19,7 @@ module.exports = React.createClass({
 	},
 	propTypes: {
 	    onRemove: React.PropTypes.func.isRequired,
-	    patientId: React.PropTypes.number.isRequired,
+	    patient: React.PropTypes.object.isRequired,
 	},
 	showModal() {
 		this.setState({
@@ -36,7 +36,7 @@ module.exports = React.createClass({
 		});
 	},
 	removePatient() {
-		PatientsService.delete(this.props.patientId)
+		PatientsService.delete(this.props.patient.id)
 			.then(response => {
 				this.props.onRemove();
 			})
@@ -53,7 +53,7 @@ module.exports = React.createClass({
 				<ConfirmationModal show={this.state.showModal} 
 					onHide={this.hideModal}
 					title="Remove patient"
-					body="Do you really want to remove patient?" />
+					body={`Do you really want to remove patient ${this.props.patient.name}?`} />
 			</div>
 		);
 	}

@@ -9,23 +9,23 @@
   {
     "id": 2,
     "name": "Solid Snake",
-    "weight": 80,
-    "height": 168,
-    "age": 30
+    "weight": 82,
+    "height": 178,
+    "age": 42
   },
   {
     "id": 3,
     "name": "William Blazkowicz",
-    "weight": 70,
-    "height": 150,
-    "age": 34
+    "weight": 86,
+    "height": 178,
+    "age": 37
   },
   {
     "id": 4,
     "name": "Pip Boy",
-    "weight": 70,
-    "height": 150,
-    "age": 34
+    "weight": 60,
+    "height": 144,
+    "age": 18
   },
   {
     "id": 5,
@@ -44,8 +44,64 @@
   {
     "id": 7,
     "name": "Imoen",
-    "weight": 70,
-    "height": 150,
-    "age": 34
+    "weight": 62,
+    "height": 167,
+    "age": 25
+  },
+  {
+    "id": 8,
+    "name": "Geralt",
+    "weight": 84,
+    "height": 184,
+    "age": 39
+  },
+  {
+    "id": 9,
+    "name": "Jaskier",
+    "weight": 74,
+    "height": 166,
+    "age": 37
+  },
+  {
+    "id": 10,
+    "name": "Triss",
+    "weight": 71,
+    "height": 170,
+    "age": 35
+  },
+  {
+    "id": 11,
+    "name": "Yennefer",
+    "weight": 72,
+    "height": 172,
+    "age": 36
+  },
+  {
+    "id": 12,
+    "name": "Horned Reaper",
+    "weight": 165,
+    "height": 220,
+    "age": 116
+  },
+  {
+    "id": 13,
+    "name": "Duke Nukem",
+    "weight": 95,
+    "height": 180,
+    "age": 33
+  },
+  {
+    "id": 14,
+    "name": "Diablo",
+    "weight": 323,
+    "height": 250,
+    "age": 160
+  },
+  {
+    "id": 15,
+    "name": "Stalker",
+    "weight": 75,
+    "height": 180,
+    "age": 32
   }
 ]

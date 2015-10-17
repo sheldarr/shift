@@ -50,7 +50,7 @@ module.exports = React.createClass({
 									 <Button bsStyle="primary" style={{marginRight: 10}} href={`#/patient/${patient.id}`}>
 									 	<Glyphicon glyph="option-horizontal" /> Details
 								 	</Button>
-								 	<RemovePatient onRemove={this.props.onChange} patientId={patient.id}/>
+								 	<RemovePatient onRemove={this.props.onChange} patient={patient}/>
 							 	</div>
 							</td>
 						</tr>
