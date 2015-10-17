@@ -16,7 +16,10 @@ var PatientsService = require('../services/patientsService');
 module.exports = React.createClass({
 	getInitialState() {
 	    return {
-	        showModal: false
+	        showModal: false,
+	        name: '',
+	        days: 0,
+	        startDate: 0
 	    }
 	},
 	propTypes: {
@@ -31,6 +34,21 @@ module.exports = React.createClass({
 		this.setState({
 			showModal: false
 		});
+	},
+	nameChanged(event) {
+		this.setState({
+			name: event.target.value
+		})
+	},
+	daysChanged(event) {
+		this.setState({
+			days: event.target.value
+		})
+	},
+	startDateChanged(startDate) {
+		this.setState({
+			startDate: startDate
+		})
 	},
 	calculateCpr() {
 		return (IndexCalculator.calculateCpr(this.props.patient.weight,
@@ -48,10 +66,10 @@ module.exports = React.createClass({
 						<Modal.Title>Create menu</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-      	  				<Input type="text" label="Name" onChange={() => 0} />
-						<Input type="number" label="Days" onChange={() => 0} min="1" />
+      	  				<Input type="text" label="Name" onChange={this.nameChanged} value={this.state.name} />
+						<Input type="number" label="Days" onChange={this.daysChanged} value={this.state.days} min="1" />
       	  				<label>Start date</label>
-      	  				<DateTimeField mode="date" />
+      	  				<DateTimeField mode="date" onChange={this.startDateChanged} value={this.state.startDate} />
 					</Modal.Body>
 					<Modal.Footer>
 						<Button bsStyle="success" onClick={this.createMenu}>
