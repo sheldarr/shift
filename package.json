@@ -2,7 +2,8 @@
   "scripts": {
     "start": "npm run client | npm run webpack",
     "client": "http-server -p 8080",
-    "webpack": "webpack-dev-server --progress --colors --port 8090"
+    "webpack": "webpack-dev-server --progress --colors --port 8090",
+    "api": "node ./api/api.js"
   },
   "name": "Shift",
   "version": "0.0.1",
