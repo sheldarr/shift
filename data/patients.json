@@ -12,13 +12,41 @@
         "id": 1,
         "name": "Standard Diet",
         "days": 7,
-        "startDate": 1444478040000
+        "startDate": 1444478040000,
+        "meals": [
+          {
+            "id": 1,
+            "name": "Breakfast"
+          },
+          {
+            "id": 2,
+            "name": "Lunch"
+          },
+          {
+            "id": 3,
+            "name": "Dinner"
+          }
+        ]
       },
       {
         "id": 2,
         "name": "Sport Diet",
         "days": 14,
-        "startDate": 1444478040000
+        "startDate": 1444478040000,
+        "meals": [
+          {
+            "id": 1,
+            "name": "Breakfast"
+          },
+          {
+            "id": 2,
+            "name": "Lunch"
+          },
+          {
+            "id": 3,
+            "name": "Dinner"
+          }
+        ]
       }
     ]
   },
