@@ -16,5 +16,18 @@ module.exports = {
 					}
 				});
 		});
+	},
+	getById(patientId, menuId) {
+		return new Promise(function(resolve, reject) {
+			Request
+				.get(`http://localhost:8088/api/patient/${patientId}/menu/${menuId}`)
+				.end((err, res) => {
+					if (res.ok) {
+						resolve(res.body);
+					} else {
+						reject(res.text);
+					}
+				});
+		});
 	}
 }

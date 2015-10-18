@@ -93,7 +93,8 @@ module.exports = React.createClass({
 				<Row>
 					<Col md={12}>
 						<Panel header="Menus">
-							<MenusList menus={this.state.patient.menus} />
+							<MenusList menus={this.state.patient.menus}
+								patientId={this.state.patient.id} />
 							<CreateMenu onHide={this.reloadPatient} patientId={this.state.patient.id} />
 						</Panel>
 		 			</Col>

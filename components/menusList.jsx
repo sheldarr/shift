@@ -9,6 +9,7 @@ var Table = require('react-bootstrap').Table;
 module.exports = React.createClass({
 	propTypes: {
 		menus: React.PropTypes.array.isRequired,
+		patientId: React.PropTypes.number.isRequired
 	},
 	render() {
 		return (
@@ -39,7 +40,8 @@ module.exports = React.createClass({
 							</td>
 							<td>
 								<div className="pull-right">
-									 <Button bsStyle="primary" style={{marginRight: 10}}>
+									 <Button bsStyle="primary" style={{marginRight: 10}} 
+									 	href={`#/patient/${this.props.patientId}/menu/${menu.id}`}>
 									 	<Glyphicon glyph="pencil" /> Edit
 								 	</Button>
 							 	</div>

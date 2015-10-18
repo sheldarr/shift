@@ -10,6 +10,7 @@ var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
 
 var Calculator = require('./pages/calculator');
+var Menu = require('./pages/menu');
 var NotFound = require('./pages/notFound');
 var Patients = require('./pages/patients');
 var Patient = require('./pages/patient');
@@ -38,7 +39,8 @@ ReactDOM.render((
     <Router>
         <Route path="/" component={App}>
             <Route path="/patients" component={Patients} />
-                <Route path="/patient/:patientId" component={Patient} />
+            <Route path="/patient/:patientId" component={Patient} />
+            <Route path="/patient/:patientId/menu/:menuId" component={Menu} />
             <Route path="/products" component={Products} />
             <Route path="/calculator" component={Calculator} />
             <Route path="*" component={NotFound}/>
