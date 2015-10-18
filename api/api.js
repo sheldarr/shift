@@ -122,6 +122,23 @@ router.post('/patient/:id/menu', function(req, res) {
 	});
 });
 
+router.get('/patient/:patientId/menu/:menuId', function(req, res) {
+	console.log(`GET: /patient/${req.params.patientId}/menu/${req.params.menuId}`);
+
+	fs.readFile('./data/patients.json', 'utf8', function (err, data) {
+		if(err) {
+			console.log(err);
+		}
+		
+		var patients = JSON.parse(data);
+
+		var patient = _.find(patients, patient => patient.id == req.params.patientId);
+		
+		var menu = _.find(patient.menus, menu => menu.id == req.params.menuId);
+
+		res.json(menu);
+	});
+});
 
 app.use('/api', router);
 
