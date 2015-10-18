@@ -13,7 +13,7 @@ var MenuService = require('../services/menuService');
 var PatientService = require('../services/patientsService');
 
 var IndexCalculator = require('../logic/indexCalculator');
-var MealsList = require('../components/mealsList');
+var MealDetails = require('../components/mealDetails');
 
 module.exports = React.createClass({
 	getInitialState() {
@@ -68,9 +68,9 @@ module.exports = React.createClass({
 		return(
 			<Panel header={<span><Glyphicon glyph="list" /> {this.state.menu.name}</span>}>
 				<Panel header="Settings">
-					<Input type="number" label="CPR (Cosmic Power Regeneration)" addonAfter="kcal / day" readOnly value={this.calculateCpr()} />
+					<Input type="number" label="CPR" addonAfter="kcal / day" readOnly value={this.calculateCpr()} />
 				</Panel>
-				<MealsList meals={this.state.menu.meals} />
+				{this.state.menu.meals.map(meal => <MealDetails meal={meal} key={meal.id} />)}
 			</Panel>
 		);
 	}
