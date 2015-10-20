@@ -19,9 +19,9 @@ module.exports = React.createClass({
 				<Input type="number" label="Age" addonAfter="years" readOnly value={this.props.patient.age} />
 				<Input type="number" label="Factor" readOnly value={this.props.patient.factor} />
 				<div className="input-group">
-		  				<label>Gender</label>
-		  				<Input type="radio" label="Male" disabled value={Enums.sex.male} checked={this.props.patient.sex == Enums.sex.male} name="sex" />
-		 				<Input type="radio" label="Female" disabled value={Enums.sex.female} checked={this.props.patient.sex == Enums.sex.female} name="sex" />
+	  				<label>Gender</label>
+	  				<Input type="radio" label="Male" disabled value={Enums.sex.male} checked={this.props.patient.sex == Enums.sex.male} name="sex" />
+	 				<Input type="radio" label="Female" disabled value={Enums.sex.female} checked={this.props.patient.sex == Enums.sex.female} name="sex" />
 				</div>
 			</Panel>
 		);
