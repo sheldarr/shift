@@ -71,6 +71,9 @@ module.exports = React.createClass({
 					<Input type="number" label="CPR" addonAfter="kcal / day" readOnly value={this.calculateCpr()} />
 				</Panel>
 				{this.state.menu.meals.map(meal => <MealDetails meal={meal} key={meal.id} />)}
+				<Button bsStyle="success" block>
+					<Glyphicon glyph="plus" /> Add meal
+				</Button>
 			</Panel>
 		);
 	}

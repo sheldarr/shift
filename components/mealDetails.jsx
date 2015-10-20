@@ -14,11 +14,9 @@ module.exports = React.createClass({
 	},
 	render() {
 		return (
-			<div key={this.props.meal.id}>
-				<Panel header={this.props.meal.name} >
-					<Input type="number" label="Calories" addonAfter="kcal / 0.5%" />
-				</ Panel>
-			</div>
+			<Panel header={this.props.meal.name} >
+				<Input type="number" label="Calories" addonAfter="kcal / 0.5%" />
+			</ Panel>
 		);
 	}
 });

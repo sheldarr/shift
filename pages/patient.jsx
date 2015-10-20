@@ -16,6 +16,7 @@ var Enums = require('../api/enums');
 var IndexCalculator = require('../logic/indexCalculator');
 var MenusList = require('../components/menusList');
 var PatientsService = require('../services/patientsService');
+var PatientInformation = require('../components/patient/information');
 
 module.exports = React.createClass({
 	getInitialState() {
@@ -69,17 +70,7 @@ module.exports = React.createClass({
 			<Panel header={<span><Glyphicon glyph="user" /> {this.state.patient.name}</span>}>
 				<Row>
 					<Col md={6}>
-						<Panel header="Information">
-							<Input type="number" label="Weight" addonAfter="kg" readOnly value={this.state.patient.weight} />
-							<Input type="number" label="Height" addonAfter="cm" readOnly value={this.state.patient.height} />
-							<Input type="number" label="Age" addonAfter="years" readOnly value={this.state.patient.age} />
-							<Input type="number" label="Factor" readOnly value={this.state.patient.factor} />
-							<div className="input-group">
-		      	  				<label>Gender</label>
-		      	  				<Input type="radio" label="Male" disabled value={Enums.sex.male} checked={this.state.patient.sex == Enums.sex.male} name="sex" />
-		       	 				<Input type="radio" label="Female" disabled value={Enums.sex.female} checked={this.state.patient.sex == Enums.sex.female} name="sex" />
-							</div>
-						</Panel>
+						<PatientInformation patient={this.state.patient} />
 					</Col>
 					<Col md={6}>
 						<Panel header="Status">
