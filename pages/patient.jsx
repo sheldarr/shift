@@ -11,6 +11,8 @@ var Panel = require('react-bootstrap').Panel;
 var Request = require('superagent');
 var Row = require('react-bootstrap').Row;
 
+var Enums = require('../api/enums');
+
 var CreateMenu = require('../components/createMenu');
 var IndexCalculator = require('../logic/indexCalculator');
 var MenusList = require('../components/menusList');
