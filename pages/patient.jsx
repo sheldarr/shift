@@ -12,7 +12,6 @@ var Request = require('superagent');
 var Row = require('react-bootstrap').Row;
 
 var CreateMenu = require('../components/createMenu');
-var Enums = require('../api/enums');
 var IndexCalculator = require('../logic/indexCalculator');
 var MenusList = require('../components/menusList');
 var PatientsService = require('../services/patientsService');

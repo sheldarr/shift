@@ -9,9 +9,9 @@
   "version": "0.0.1",
   "dependencies": {
     "lodash": "^3.10.1",
+    "moment": "^2.10.6",
     "react": "^0.14.0",
-    "react-bootstrap": "^0.27.1",
-    "react-bootstrap-datetimepicker": "0.0.21",
+    "react-bootstrap": "^0.27.2",
     "react-dom": "^0.14.0",
     "react-router": "^1.0.0-rc3",
     "superagent": "^1.4.0"

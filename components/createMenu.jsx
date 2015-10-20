@@ -3,12 +3,11 @@
 var React = require('react');
 
 var Button = require('react-bootstrap').Button;
-var DateTimeField = require('react-bootstrap-datetimepicker');
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Input = require('react-bootstrap').Input;
 var Modal = require('react-bootstrap').Modal;
 
-var Request = require('superagent');
+var moment = require('moment');
 
 var IndexCalculator = require('../logic/indexCalculator');
 var MenuService = require('../services/menuService');
@@ -19,7 +18,7 @@ module.exports = React.createClass({
 	        showModal: false,
 	        name: '',
 	        days: 0,
-	        startDate: 0
+	        startDate: moment()
 	    }
 	},
 	propTypes: {
@@ -46,9 +45,9 @@ module.exports = React.createClass({
 			days: event.target.value
 		})
 	},
-	startDateChanged(startDate) {
+	startDateChanged(event) {
 		this.setState({
-			startDate: startDate
+			startDate: moment(event.target.value)
 		})
 	},
 	createMenu() {
@@ -85,7 +84,7 @@ module.exports = React.createClass({
       	  				<Input type="text" label="Name" onChange={this.nameChanged} value={this.state.name} />
 						<Input type="number" label="Days" onChange={this.daysChanged} value={this.state.days} min="1" />
       	  				<label>Start date</label>
-      	  				<DateTimeField mode="date" onChange={this.startDateChanged} value={this.state.startDate} />
+      	  				<Input mode="date" onChange={this.startDateChanged} value={this.state.startDate} />
 					</Modal.Body>
 					<Modal.Footer>
 						<Button bsStyle="success" onClick={this.createMenu}>

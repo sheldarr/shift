@@ -7,7 +7,7 @@ var Glyphicon = require('react-bootstrap').Glyphicon;
 var Input = require('react-bootstrap').Input;
 var Modal = require('react-bootstrap').Modal;
 
-var Request = require('superagent');
+var moment = require('moment');
 
 var PatientsService = require('../services/patientsService');
 
@@ -16,9 +16,10 @@ module.exports = React.createClass({
 	    return {
 	        showModal: false,
 	        name: '',
-	        weight: 0,
-	        height: 0,
-	        age: 0,
+	        surname: '',
+	       	dateOfBirth: moment(),
+	      	telephone: '',
+	      	email: '', 	
 	        sex: 0
 	    };
 	},
@@ -27,12 +28,13 @@ module.exports = React.createClass({
 	},
 	showModal() {
 		this.setState({
-			showModal: true,
-			name: '',
-			weight: 0,
-			height: 0,
-			age: 0,
-			sex: 0
+		   showModal: true,
+	        name: '',
+	        surname: '',
+	       	dateOfBirth: moment(),
+	      	telephone: '',
+	      	email: '', 	
+	        sex: 0
 		});
 	},
 	hideModal() {
@@ -44,9 +46,10 @@ module.exports = React.createClass({
 		PatientsService.create({
 			id: Math.floor((Math.random() * 65535) + 1),
 			name: this.state.name,
-			weight: this.state.weight,
-			height: this.state.height,
-			age: this.state.age,
+			surname: this.state.surname,
+			dateOfBirth: this.state.dateOfBirth,
+			telephone: this.state.telephone,
+			email: this.state.email,
 			sex: this.state.sex
 		})
 		.then(response => {
@@ -62,30 +65,33 @@ module.exports = React.createClass({
 			name: event.target.value
 		})
 	},
-	weightChanged(event) {
+	surnameChanged(event) {
 		this.setState({
-			weight: event.target.value
+			surname: event.target.value
 		})
 	},
-	heightChanged(event) {
+	dateOfBirthChanged(event) {
 		this.setState({
-			height: event.target.value
+			dateOfBirth: moment(event.target.value)
 		})
 	},
-	ageChanged(event) {
+	telephoneChanged(event) {
 		this.setState({
-			age: event.target.value
+			telephone: event.target.value
 		})
 	},
-	factorChanged(event) {
+	emailChanged(event) {
 		this.setState({
-			factor: event.target.value
+			email: event.target.value
 		})
 	},
 	genderChanged(event) {
 		this.setState({
 			sex: event.target.value
 		})
+	},
+	calculateAge() {
+		return this.state.dateOfBirth.year();
 	},
 	render() {
 		return (
@@ -98,10 +104,13 @@ module.exports = React.createClass({
 						<Modal.Title>Create patient</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-						<Input type="text" label="Name" value={this.state.name} onChange={this.nameChanged}/>
-						<Input type="number" label="Weight" addonAfter="kg" value={this.state.weight} onChange={this.weightChanged} min="1" />
-						<Input type="number" label="Height" addonAfter="cm" value={this.state.height} onChange={this.heightChanged} min="1" />
-						<Input type="number" label="Age" addonAfter="years" value={this.state.age} onChange={this.ageChanged} min="1" />
+						<Input type="text" label="Name" value={this.state.name} onChange={this.nameChanged} />
+						<Input type="text" label="Surname" value={this.state.surname} onChange={this.surnameChanged} />
+	  					<label>Date of birth</label>
+						<Input type="date" selected={this.state.dateOfBirth} onChange={this.dateOfBirthChanged} />
+						<Input type="text" label="Age" addonAfter="years" readOnly value={this.calculateAge()} />
+						<Input type="text" label="Telephone" value={this.state.telephone} onChange={this.telephoneChanged} />
+						<Input type="email" label="Email" value={this.state.email} onChange={this.emailChanged} />
 					</Modal.Body>
 					<Modal.Footer>
 						<Button bsStyle="success" onClick={this.createPatient}>
