@@ -1,1 +1,84 @@
-[{"id":1,"name":"Mario","weight":60,"height":160,"age":32,"factor":1,"sex":0,"menus":[{"id":1,"name":"Standard Diet","days":7,"startDate":1444478040000,"meals":[{"id":1,"name":"Breakfast"},{"id":2,"name":"Lunch"},{"id":3,"name":"Dinner"}]},{"id":2,"name":"Sport Diet","days":14,"startDate":1444478040000,"meals":[{"id":1,"name":"Breakfast"},{"id":2,"name":"Lunch"},{"id":3,"name":"Dinner"}]}]},{"id":2,"name":"Clayman","weight":82,"height":178,"age":42,"factor":1,"sex":0,"menus":[{"id":3,"name":"Standard Diet","days":7,"startDate":1444478040000},{"id":4,"name":"Sport Diet","days":14,"startDate":1444478040000}]},{"id":6925,"name":"","surname":"","dateOfBirth":"2015-10-15T22:00:00.000Z","telephone":"","email":"","sex":0}]
+[
+  {
+    "id": 1,
+    "name": "Mario",
+    "surname": "Marian",
+    "dateOfBirth": "1/01/1970",
+    "telephone": "123 456 789",
+    "email": "mario@dot.net",
+    "weight": 60,
+    "height": 160,
+    "age": 32,
+    "factor": 1,
+    "sex": 0,
+    "menus": [
+      {
+        "id": 1,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000,
+        "meals": [
+          {
+            "id": 1,
+            "name": "Breakfast"
+          },
+          {
+            "id": 2,
+            "name": "Lunch"
+          },
+          {
+            "id": 3,
+            "name": "Dinner"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000,
+        "meals": [
+          {
+            "id": 1,
+            "name": "Breakfast"
+          },
+          {
+            "id": 2,
+            "name": "Lunch"
+          },
+          {
+            "id": 3,
+            "name": "Dinner"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Clayman",
+  	"surname": "Surname",
+    "dateOfBirth": "1/01/1970",
+    "telephone": "123 456 789",
+    "email": "clayman@dot.net",
+    "weight": 82,
+    "height": 178,
+    "age": 42,
+    "factor": 1,
+    "sex": 0,
+    "menus": [
+      {
+        "id": 3,
+        "name": "Standard Diet",
+        "days": 7,
+        "startDate": 1444478040000
+      },
+      {
+        "id": 4,
+        "name": "Sport Diet",
+        "days": 14,
+        "startDate": 1444478040000
+      }
+    ]
+  }
+]

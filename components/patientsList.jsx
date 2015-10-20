@@ -20,9 +20,10 @@ module.exports = React.createClass({
 					<tr>
 						<td>Id</td>
 						<td>Name</td>
-						<td>Weight [kg]</td>
-						<td>Height [cm]</td>
-						<td>Age [years]</td>
+						<td>Surname</td>
+						<td>Date of birth</td>
+						<td>Telephone</td>
+						<td>Email</td>
 						<td></td>
 					</tr>
 				</thead>
@@ -36,13 +37,16 @@ module.exports = React.createClass({
 								{patient.name}
 							</td>
 							<td>
-								{patient.weight}
+								{patient.surname}
 							</td>
 							<td>
-								{patient.height}
+								{patient.dateOfBirth}
 							</td>
 							<td>
-								{patient.age}
+								{patient.telephone}
+							</td>
+							<td>
+								{patient.email}
 							</td>
 							<td>
 								<div className="pull-right">
