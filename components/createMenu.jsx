@@ -9,7 +9,6 @@ var Modal = require('react-bootstrap').Modal;
 
 var moment = require('moment');
 
-var IndexCalculator = require('../logic/indexCalculator');
 var MenuService = require('../services/menuService');
 
 module.exports = React.createClass({
@@ -64,11 +63,6 @@ module.exports = React.createClass({
 		.catch(error => { 
 			alert('Api error ' + error)
 		});
-	},
-	calculateCpr() {
-		return (IndexCalculator.calculateCpr(this.props.patient.weight,
-			this.props.patient.height, this.props.patient.age,
-			this.props.patient.sex, this.props.patient.factor)).toFixed(2);
 	},
 	render() {
 		return (

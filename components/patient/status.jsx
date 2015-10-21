@@ -9,8 +9,6 @@ var Input = require('react-bootstrap').Input;
 var Panel = require('react-bootstrap').Panel;
 var Row = require('react-bootstrap').Row;
 
-
-
 var IndexCalculator = require('../../logic/indexCalculator');
 
 module.exports = React.createClass({
@@ -27,13 +25,21 @@ module.exports = React.createClass({
 			this.props.patient.sex)).toFixed(2);
 	},
 	calculateTmr() {
-		return (IndexCalculator.calculateCpr(this.props.patient.weight,
+		return (IndexCalculator.calculateTmr(this.props.patient.weight,
 			this.props.patient.height, this.props.patient.age,
 			this.props.patient.sex, this.props.patient.physicalActivityRate)).toFixed(2);
 	},
 	getBmiCategory() {
 		return IndexCalculator.getBmiCategory(this.props.patient.weight,
 			this.props.patient.height);
+	},
+	calculateWhr() {
+		return (IndexCalculator.calculateWhr(this.props.patient.waistCircumference,
+			this.props.patient.hipCircumference)).toFixed(2);
+	},
+	getObesityType() {
+		return IndexCalculator.getObesityType(this.props.patient.waistCircumference,
+			this.props.patient.hipCircumference, this.props.patient.sex);
 	},
 	render() {
 		return (
@@ -43,11 +49,15 @@ module.exports = React.createClass({
 						<Input type="number" label="Weight" addonAfter="kg" readOnly value={this.props.patient.weight} />
 						<Input type="number" label="Height" addonAfter="cm" readOnly value={this.props.patient.height} />
 						<Input type="number" label="Physical activity rate" readOnly value={this.props.patient.physicalActivityRate} />
+						<Input type="number" label="Waist Circumference" addonAfter="cm" readOnly value={this.props.patient.waistCircumference} />
+						<Input type="number" label="Hip Circumference" addonAfter="cm" readOnly value={this.props.patient.hipCircumference} />
 					</Col>
 					<Col md={6}>
 						<Input type="number" label="BMI (Body Mass Index)" readOnly value={this.calculateBmi()} />
 						<Input type="number" label="BMR (Basal Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateBmr()} />
 						<Input type="number" label="TMR (Total Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateTmr()} />
+						<Input type="number" label="WHR (Waist to Hip Ratio)" readOnly value={this.calculateWhr()} />
+						<Input type="text" label="Obesity Type" readOnly value={this.getObesityType()} />
 					</Col>
 				</Row>
 			</Panel>

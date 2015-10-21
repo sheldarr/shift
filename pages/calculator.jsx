@@ -63,8 +63,8 @@ module.exports = React.createClass({
 		return (IndexCalculator.calculateBmr(this.state.weight,
 			this.state.height, this.state.age, this.state.sex)).toFixed(2);
 	},
-	calculateCpr() {
-		return (IndexCalculator.calculateCpr(this.state.weight,
+	calculateTmr() {
+		return (IndexCalculator.calculateTmr(this.state.weight,
 			this.state.height, this.state.age, this.state.sex,
 			this.state.factor)).toFixed(2);
 	},
@@ -94,7 +94,7 @@ module.exports = React.createClass({
 							<Input type="number" label="BMI (Body Mass Index)" readOnly value={this.calculateBmi()} />
 							<Input type="text" label="Category" readOnly value={this.getBmiCategory()} />
 							<Input type="number" label="BMR (Basal Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateBmr()} />
-							<Input type="number" label="CPR (Cosmic Power Regeneration)" addonAfter="kcal / day" readOnly value={this.calculateCpr()} />
+							<Input type="number" label="TMR (Total Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateTmr()} />
 						</Panel>
 					</Col>
 				</Row>

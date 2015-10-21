@@ -36,11 +36,6 @@ module.exports = React.createClass({
     	  	}
 	    };
 	},
-	calculateCpr() {
-		return (IndexCalculator.calculateCpr(this.state.patient.weight,
-			this.state.patient.height, this.state.patient.age, 
-			this.state.patient.sex, this.state.patient.factor)).toFixed(2);
-	},
 	componentDidMount() {
 	    this.refreshMenu();
   	},
@@ -68,12 +63,7 @@ module.exports = React.createClass({
 		return(
 			<Panel header={<span><Glyphicon glyph="list" /> {this.state.menu.name}</span>}>
 				<Panel header="Settings">
-					<Input type="number" label="CPR" addonAfter="kcal / day" readOnly value={this.calculateCpr()} />
 				</Panel>
-				{this.state.menu.meals.map(meal => <MealDetails meal={meal} key={meal.id} />)}
-				<Button bsStyle="success" block>
-					<Glyphicon glyph="plus" /> Add meal
-				</Button>
 			</Panel>
 		);
 	}

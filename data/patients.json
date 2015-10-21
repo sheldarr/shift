@@ -6,11 +6,12 @@
     "dateOfBirth": "1970-01-01",
     "telephone": "123 456 789",
     "email": "mario@dot.net",
+    "sex": 0,
     "weight": 60,
     "height": 160,
-    "age": 32,
     "physicalActivityRate": 1.5,
-    "sex": 0,
+    "waistCircumference": 50,
+    "hipCircumference": 100,
     "menus": [
       {
         "id": 1,
@@ -61,11 +62,12 @@
     "dateOfBirth": "1970-01-01",
     "telephone": "123 456 789",
     "email": "clayman@dot.net",
+    "sex": 0,
     "weight": 82,
     "height": 178,
-    "age": 42,
     "physicalActivityRate": 1.2,
-    "sex": 0,
+    "waistCircumference": 100,
+    "hipCircumference": 100,
     "menus": [
       {
         "id": 3,

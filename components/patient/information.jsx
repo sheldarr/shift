@@ -21,7 +21,7 @@ module.exports = React.createClass({
 						<Input type="text" label="Name" readOnly value={this.props.patient.name} />
 						<label>Date of birth</label>
 						<Input type="date" readOnly value={this.props.patient.dateOfBirth} />
-							<Input type="text" label="Telephone" readOnly value={this.props.patient.telephone} />
+						<Input type="text" label="Telephone" readOnly value={this.props.patient.telephone} />
 					</Col>
 					<Col md={6}>
 						<Input type="text" label="Surname" readOnly value={this.props.patient.surname} />
