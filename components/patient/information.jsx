@@ -14,10 +14,13 @@ module.exports = React.createClass({
 	render() {
 		return (
 			<Panel header="Information">
-				<Input type="number" label="Weight" addonAfter="kg" readOnly value={this.props.patient.weight} />
-				<Input type="number" label="Height" addonAfter="cm" readOnly value={this.props.patient.height} />
-				<Input type="number" label="Age" addonAfter="years" readOnly value={this.props.patient.age} />
-				<Input type="number" label="Factor" readOnly value={this.props.patient.factor} />
+				<Input type="text" label="Name" readOnly value={this.props.patient.name} />
+				<Input type="text" label="Surname" readOnly value={this.props.patient.surname} />
+				<label>Date of birth</label>
+				<Input type="date" readOnly value={this.props.patient.dateOfBirth} />
+				<Input type="text" label="Age" addonAfter="years" readOnly value={0} />
+				<Input type="text" label="Telephone" readOnly value={this.props.patient.telephone} />
+				<Input type="email" label="Email" readOnly value={this.props.patient.email} />
 				<div className="input-group">
 	  				<label>Gender</label>
 	  				<Input type="radio" label="Male" disabled value={Enums.sex.male} checked={this.props.patient.sex == Enums.sex.male} name="sex" />
