@@ -68,10 +68,6 @@ module.exports = React.createClass({
 			this.state.height, this.state.age, this.state.sex,
 			this.state.factor)).toFixed(2);
 	},
-	getBmiCategory() {
-		return IndexCalculator.getBmiCategory(this.state.weight,
-			this.state.height);
-	},
 	render() {
 		return(
 			<Panel header={<span><Glyphicon glyph="heart" /> Calculator</span>}>
@@ -92,7 +88,6 @@ module.exports = React.createClass({
 					<Col md={6}>
 						<Panel header="Results">
 							<Input type="number" label="BMI (Body Mass Index)" readOnly value={this.calculateBmi()} />
-							<Input type="text" label="Category" readOnly value={this.getBmiCategory()} />
 							<Input type="number" label="BMR (Basal Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateBmr()} />
 							<Input type="number" label="TMR (Total Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateTmr()} />
 						</Panel>
