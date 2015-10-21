@@ -19,7 +19,9 @@ module.exports = React.createClass({
 	        height: 180,
 	        age: 23,
 	        sex: Enums.sex.male,
-	        factor: 1.6  
+	        physicalActivityRate: 1.6,
+	        waistCircumference: 0.5,
+	        hipCircumference: 1
 	    };
 	},
 	weightChanged(event) {
@@ -43,16 +45,26 @@ module.exports = React.createClass({
 			age: age
 		})
 	},
-	factorChanged(event) {
-		var factor = Math.min(Math.max(event.target.value, 0), 16);
+	physicalActivityRateChanged(event) {
+		var physicalActivityRate = Math.min(Math.max(event.target.value, 0), 16);
 
 		this.setState({
-			factor: factor
+			physicalActivityRate: physicalActivityRate
 		})
 	},
 	sexChanged(event) {
 		this.setState({
 			sex: event.target.value
+		})
+	},
+	waistCircumferenceChanged(event) {
+		this.setState({
+			waistCircumference: event.target.value
+		})
+	},
+	hipCircumferenceChanged(event) {
+		this.setState({
+			hipCircumference: event.target.value
 		})
 	},
 	calculateBmi() {
@@ -66,7 +78,15 @@ module.exports = React.createClass({
 	calculateTmr() {
 		return (IndexCalculator.calculateTmr(this.state.weight,
 			this.state.height, this.state.age, this.state.sex,
-			this.state.factor)).toFixed(2);
+			this.state.physicalActivityRate)).toFixed(2);
+	},
+	calculateWhr() {
+		return (IndexCalculator.calculateWhr(this.state.waistCircumference,
+			this.state.hipCircumference)).toFixed(2);
+	},
+	getObesityType() {
+		return IndexCalculator.getObesityType(this.state.waistCircumference,
+			this.state.hipCircumference, this.state.sex);
 	},
 	render() {
 		return(
@@ -77,7 +97,9 @@ module.exports = React.createClass({
 							<Input type="number" label="Weight" addonAfter="kg" value={this.state.weight} onChange={this.weightChanged} min="1" />
 							<Input type="number" label="Height" addonAfter="cm" value={this.state.height} onChange={this.heightChanged} min="1" />
 							<Input type="number" label="Age" addonAfter="years" value={this.state.age} onChange={this.ageChanged} min="1" />
-							<Input type="number" label="Factor" value={this.state.factor} onChange={this.factorChanged} step="0.1"  min="0.1"/>
+							<Input type="number" label="Physical Activity Rate" value={this.state.physicalActivityRate} onChange={this.physicalActivityRateChanged} step="0.1" min="0.1"/>
+							<Input type="number" label="Waist Circumference" addonAfter="cm" value={this.state.waistCircumference} onChange={this.waistCircumferenceChanged} step="0.1" />
+							<Input type="number" label="Hip Circumference" addonAfter="cm" value={this.state.hipCircumference} onChange={this.hipCircumferenceChanged} step="0.1" />
 		      	  			<div className="input-group">
 		      	  				<label>Gender</label>
 		      	  				<Input type="radio" label="Male" value={Enums.sex.male} checked={this.state.sex == Enums.sex.male} name="sex" onChange={this.sexChanged} />
@@ -90,6 +112,8 @@ module.exports = React.createClass({
 							<Input type="number" label="BMI (Body Mass Index)" readOnly value={this.calculateBmi()} />
 							<Input type="number" label="BMR (Basal Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateBmr()} />
 							<Input type="number" label="TMR (Total Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateTmr()} />
+							<Input type="number" label="WHR (Waist to Hip Ratio)" readOnly value={this.calculateWhr()} />
+							<Input type="text" label="Obesity Type" readOnly value={this.getObesityType()} />
 						</Panel>
 					</Col>
 				</Row>
