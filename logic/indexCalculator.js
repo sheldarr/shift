@@ -17,8 +17,8 @@ module.exports = {
 			(1.8496 * height) - 
 			(4.6756 * age));
 	},
-	calculateCpr(weight, height, age, sex, factor) {
-		return this.calculateBmr(weight, height, age, sex, factor) * factor;
+	calculateCpr(weight, height, age, sex, physicalActivityRate) {
+		return this.calculateBmr(weight, height, age, sex, physicalActivityRate) * physicalActivityRate;
 	},
 	getBmiCategory(weight, height) {
 		var bmi = this.calculateBmi(weight, height);

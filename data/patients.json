@@ -9,7 +9,7 @@
     "weight": 60,
     "height": 160,
     "age": 32,
-    "factor": 1,
+    "physicalActivityRate": 1.5,
     "sex": 0,
     "menus": [
       {
@@ -64,7 +64,7 @@
     "weight": 82,
     "height": 178,
     "age": 42,
-    "factor": 1,
+    "physicalActivityRate": 1.2,
     "sex": 0,
     "menus": [
       {

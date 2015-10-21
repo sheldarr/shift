@@ -14,10 +14,10 @@ var Row = require('react-bootstrap').Row;
 var Enums = require('../api/enums');
 
 var CreateMenu = require('../components/createMenu');
-var IndexCalculator = require('../logic/indexCalculator');
 var MenusList = require('../components/menusList');
 var PatientsService = require('../services/patientsService');
 var PatientInformation = require('../components/patient/information');
+var PatientStatus = require('../components/patient/status')
 
 module.exports = React.createClass({
 	getInitialState() {
@@ -48,24 +48,6 @@ module.exports = React.createClass({
 				alert('Api error ' + error)
 			});
   	},
-	calculateBmi() {
-		return (IndexCalculator.calculateBmi(this.state.patient.weight,
-			this.state.patient.height)).toFixed(2);
-	},
-	calculateBmr() {	
-		return (IndexCalculator.calculateBmr(this.state.patient.weight,
-			this.state.patient.height, this.state.patient.age, 
-			this.state.patient.sex)).toFixed(2);
-	},
-	calculateCpr() {
-		return (IndexCalculator.calculateCpr(this.state.patient.weight,
-			this.state.patient.height, this.state.patient.age,
-			this.state.patient.sex, this.state.patient.factor)).toFixed(2);
-	},
-	getBmiCategory() {
-		return IndexCalculator.getBmiCategory(this.state.patient.weight,
-			this.state.patient.height);
-	},
 	render() {
 		return (
 			<Panel header={<span><Glyphicon glyph="user" /> {this.state.patient.name}</span>}>
@@ -74,12 +56,7 @@ module.exports = React.createClass({
 						<PatientInformation patient={this.state.patient} />
 					</Col>
 					<Col md={6}>
-						<Panel header="Status">
-							<Input type="number" label="BMI (Body Mass Index)" readOnly value={this.calculateBmi()} />
-							<Input type="text" label="Category" readOnly value={this.getBmiCategory()} />
-							<Input type="number" label="BMR (Basal Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateBmr()} />
-							<Input type="number" label="CPR (Cosmic Power Regeneration)" addonAfter="kcal / day" readOnly value={this.calculateCpr()} />
-						</Panel>
+						<PatientStatus patient={this.state.patient} />
 					</Col>
 				</Row>
 				<Row>
