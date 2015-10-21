@@ -3,6 +3,7 @@
 var React = require('react');
 
 var Enums = require('../../api/enums');
+var moment = require('moment');
 
 var Col = require('react-bootstrap').Col;
 var Input = require('react-bootstrap').Input;
@@ -20,13 +21,17 @@ module.exports = React.createClass({
 			this.props.patient.height)).toFixed(2);
 	},
 	calculateBmr() {	
+		var age = this.calculateAge();
+
 		return (IndexCalculator.calculateBmr(this.props.patient.weight,
-			this.props.patient.height, this.props.patient.age, 
+			this.props.patient.height, age, 
 			this.props.patient.sex)).toFixed(2);
 	},
 	calculateTmr() {
+		var age = this.calculateAge();
+
 		return (IndexCalculator.calculateTmr(this.props.patient.weight,
-			this.props.patient.height, this.props.patient.age,
+			this.props.patient.height, age,
 			this.props.patient.sex, this.props.patient.physicalActivityRate)).toFixed(2);
 	},
 	getBmiCategory() {
@@ -40,6 +45,9 @@ module.exports = React.createClass({
 	getObesityType() {
 		return IndexCalculator.getObesityType(this.props.patient.waistCircumference,
 			this.props.patient.hipCircumference, this.props.patient.sex);
+	},
+	calculateAge() {
+		return moment().diff(this.props.patient.dateOfBirth, 'years');
 	},
 	render() {
 		return (

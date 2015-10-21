@@ -3,6 +3,7 @@
 var React = require('react');
 
 var Enums = require('../../api/enums');
+var moment = require('moment');
 
 var Col = require('react-bootstrap').Col;
 var Input = require('react-bootstrap').Input;
@@ -12,6 +13,9 @@ var Row = require('react-bootstrap').Row;
 module.exports = React.createClass({
 	propTypes() {
 		patient: React.PropTypes.object.isRequired
+	},
+	calculateAge() {
+		return moment().diff(this.props.patient.dateOfBirth, 'years');
 	},
 	render() {
 		return (
@@ -25,7 +29,7 @@ module.exports = React.createClass({
 					</Col>
 					<Col md={6}>
 						<Input type="text" label="Surname" readOnly value={this.props.patient.surname} />
-						<Input type="text" label="Age" addonAfter="years" readOnly value={0} />
+						<Input type="text" label="Age" addonAfter="years" readOnly value={this.calculateAge()} />
 						<Input type="email" label="Email" readOnly value={this.props.patient.email} />
 					</Col>
 				</Row>
