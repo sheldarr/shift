@@ -98,7 +98,7 @@ module.exports = React.createClass({
 				</Button>
 				<Modal show={this.state.showModal} onHide={this.hideModal}>
 					<Modal.Header closeButton>
-						<Modal.Title>Create patient</Modal.Title>
+						<Modal.Title>Create product</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
 						<Row>
