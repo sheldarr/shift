@@ -207,27 +207,29 @@ module.exports = React.createClass({
 					<Modal.Body>
 						<Input type="text" label="Name" value={this.state.name} onChange={this.nameChanged} />
 						<Row>
-							<Col md={6}>
+							<Col md={4}>
 								<Input type="number" label="Energy Value" addonAfter="kcal" value={this.state.energyValue} onChange={this.energyValueChanged} />
 								<Input type="number" label="Protein" addonAfter="g" value={this.state.protein} onChange={this.proteinChanged} />
 								<Input type="number" label="Fat" addonAfter="g" value={this.state.fat} onChange={this.fatChanged} />
 								<Input type="number" label="Carbohydrates" addonAfter="g" value={this.state.carbohydrates} onChange={this.carbohydratesChanged} />
 								<Input type="number" label="Fiber" addonAfter="g" value={this.state.fiber} onChange={this.fiberChanged} />
 								<Input type="number" label="Sodium" addonAfter="mg" value={this.state.sodium} onChange={this.sodiumChanged} />
+							</Col>
+							<Col md={4}>
 								<Input type="number" label="Potassium" addonAfter="mg" value={this.state.potassium} onChange={this.potassiumChanged} />
 								<Input type="number" label="Calcium" addonAfter="mg" value={this.state.calcium} onChange={this.calciumChanged} />
 								<Input type="number" label="Phosphorus" addonAfter="mg" value={this.state.phosphorus} onChange={this.phosphorusChanged} />
-							</Col>
-							<Col md={6}>
 								<Input type="number" label="Iron" addonAfter="mg" value={this.state.iron} onChange={this.ironChanged} />
 								<Input type="number" label="Magnesium" addonAfter="mg" value={this.state.magnesium} onChange={this.magnesiumChanged} />
 								<Input type="number" label="Vitamin A" addonAfter="μg" value={this.state.vitaminA} onChange={this.vitaminAChanged} />
+							</Col>
+							<Col md={4}>
 								<Input type="number" label="Beta Carotene" addonAfter="μg" value={this.state.betaCarotene} onChange={this.betaCaroteneChanged} />
 								<Input type="number" label="Vitamin E" addonAfter="mg" value={this.state.vitaminE} onChange={this.vitaminEChanged} />
 								<Input type="number" label="Thiamine" addonAfter="mg" value={this.state.thiamine} onChange={this.thiamineChanged} />
 								<Input type="number" label="Riboflavin" addonAfter="mg" value={this.state.riboflavin} onChange={this.riboflavinChanged} />
 								<Input type="number" label="Niacin" addonAfter="mg" value={this.state.niacin} onChange={this.niacinChanged} />
-								<Input type="number" label="Vitamin C" addonAfter="mg" value={this.state.vitaminC} onChange={this.vitaminCChanged} />
+								<Input type="number" label="Vitamin C" addonAfter="mg" value={this.state.vitaminC} onChange={this.vitaminCChanged} /> 
 							</Col>
 						</Row>
 					</Modal.Body>
