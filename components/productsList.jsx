@@ -15,11 +15,24 @@ module.exports = React.createClass({
 					<tr>
 						<td>Id</td>
 						<td>Name</td>
-						<td>Caloric value [kcal]</td>
+						<td>Energy Value [kcal]</td>
 						<td>Protein [g]</td>
 						<td>Fat [g]</td>
 						<td>Carbohydrates [g]</td>
-						<td>Roughage [g]</td>
+						<td>Fiber [g]</td>
+						<td>Sodium [mg]</td>
+						<td>Potasium [mg]</td>
+						<td>Calcium [mg]</td>
+						<td>Phosphorus [mg]</td>
+						<td>Iron [mg]</td>
+						<td>Magnesium [mg]</td>
+						<td>Vitamin A [μg]</td>
+						<td>Beta Carotene [μg]</td>
+						<td>Vitamin E [mg]</td>
+						<td>Thiamine [mg]</td>
+						<td>Riboflavin [mg]</td>
+						<td>Niacin [mg]</td>
+						<td>Vitamin C [mg]</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -32,7 +45,7 @@ module.exports = React.createClass({
 								{product.name}
 							</td>
 							<td>
-								{product.caloricValue}
+								{product.energyValue}
 							</td>
 							<td>
 								{product.protein}
@@ -44,7 +57,46 @@ module.exports = React.createClass({
 								{product.carbohydrates}
 							</td>
 							<td>
-								{product.roughage}
+								{product.fiber}
+							</td>
+							<td>
+								{product.sodium}
+							</td>
+							<td>
+								{product.potassium}
+							</td>
+							<td>
+								{product.calcium}
+							</td>
+							<td>
+								{product.phosphorus}
+							</td>
+							<td>
+								{product.iron}
+							</td>
+							<td>
+								{product.magnesium}
+							</td>
+							<td>
+								{product.vitaminA}
+							</td>
+							<td>
+								{product.betaCarotene}
+							</td>
+							<td>
+								{product.vitaminE}
+							</td>
+							<td>
+								{product.thiamine}
+							</td>
+							<td>
+								{product.riboflavin}
+							</td>
+							<td>
+								{product.niacin}
+							</td>
+							<td>
+								{product.vitaminC}
 							</td>
 						</tr>
 					)}
