@@ -20,7 +20,7 @@ module.exports = React.createClass({
 	        showModal: false,
 	        name: '',
 	        surname: '',
-	       	dateOfBirth: moment(),
+	       	dateOfBirth: moment().format("YYYY-MM-DD"),
 	      	telephone: '',
 	      	email: '', 	
 	        sex: 0
@@ -34,7 +34,7 @@ module.exports = React.createClass({
 		   showModal: true,
 	        name: '',
 	        surname: '',
-	       	dateOfBirth: moment(),
+	       	dateOfBirth: moment().format("YYYY-MM-DD"),
 	      	telephone: '',
 	      	email: '', 	
 	        sex: 0
@@ -50,7 +50,7 @@ module.exports = React.createClass({
 			id: Math.floor((Math.random() * 65535) + 1),
 			name: this.state.name,
 			surname: this.state.surname,
-			dateOfBirth: this.state.dateOfBirth.format("YYYY-MM-DD"),
+			dateOfBirth: this.state.dateOfBirth,
 			telephone: this.state.telephone,
 			email: this.state.email,
 			sex: this.state.sex
@@ -75,7 +75,7 @@ module.exports = React.createClass({
 	},
 	dateOfBirthChanged(event) {
 		this.setState({
-			dateOfBirth: moment(event.target.value)
+			dateOfBirth: moment(event.target.value).format("YYYY-MM-DD")
 		})
 	},
 	telephoneChanged(event) {
