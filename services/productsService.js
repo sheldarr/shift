@@ -33,6 +33,7 @@ module.exports = {
 		return new Promise(function(resolve, reject) {
 			Request
 				.post('http://localhost:8088/api/product')
+				.send(product)
 				.end((err, res) => {
 					if (res.ok) {
 						resolve();

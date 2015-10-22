@@ -8,6 +8,7 @@ var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Panel = require('react-bootstrap').Panel;
 
+var CreateProduct = require('../components/product/create');
 var ProductsList = require('../components/productsList');
 var ProductsService = require('../services/productsService');
 var SearchBar = require('../components/searchBar');
@@ -23,12 +24,15 @@ module.exports = React.createClass({
 	searchExpressionChanged(searchExpression) {
 		this.setState({
 			searchExpression: searchExpression,
-			filteredProducts: _.filter(this.state.products, product =>
-				product.name.toLowerCase().indexOf(searchExpression.toLowerCase()) > -1)
 		});
+
+		this.refreshFilter();
     },
 	componentDidMount() {
-		ProductsService.getAll()
+		this.refreshList();
+  	},
+    refreshList() {
+    	ProductsService.getAll()
 			.then(response => {
 				this.setState({
 		   			products: response,
@@ -38,13 +42,17 @@ module.exports = React.createClass({
 			.catch(error => { 
 				alert('Api error ' + error)
 			});
-  	},
+    },
+    refreshFilter() {
+    	this.setState({
+			filteredProducts: _.filter(this.state.products, product =>
+				product.name.toLowerCase().indexOf(this.state.searchExpression.toLowerCase()) > -1)
+		});
+    },
 	render() {
 		return (
 			<Panel header={<span><Glyphicon glyph="list" /> Products</span>}>
-    		 	<Button bsStyle="success" className="pull-right" style={{marginLeft: 20}}>
-    		 		<Glyphicon glyph="plus" /> Add product
-		 		</Button>
+    		 	<CreateProduct onHide={this.refreshList} />
         		<SearchBar searchExpression={this.state.searchExpression}
         			placeholder="Search product"
     		 		onChange={this.searchExpressionChanged} />

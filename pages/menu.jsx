@@ -13,7 +13,6 @@ var MenuService = require('../services/menuService');
 var PatientService = require('../services/patientsService');
 
 var IndexCalculator = require('../logic/indexCalculator');
-var MealDetails = require('../components/mealDetails');
 
 module.exports = React.createClass({
 	getInitialState() {
@@ -32,7 +31,6 @@ module.exports = React.createClass({
     	  		name: '',
     	  		days: 0,
     	  		startDate: 0,
-    	  		meals: []
     	  	}
 	    };
 	},

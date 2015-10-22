@@ -52,7 +52,7 @@ module.exports = React.createClass({
 	render() {
 		return(
 			<Panel header={<span><Glyphicon glyph="list" /> Patients</span>}>
-				<CreatePatient onHide={this.refreshList}/>
+				<CreatePatient onHide={this.refreshList} />
 				<SearchBar searchExpression={this.state.searchExpression}
 					placeholder="Search patient"
     		 		onChange={this.searchExpressionChanged} />

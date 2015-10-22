@@ -102,6 +102,24 @@ router.get('/product', function(req, res) {
 	});
 });
 
+router.post('/product/', function(req, res) {
+	console.log(`POST: /product/${JSON.stringify(req.body)}`);
+
+	fs.readFile('./data/products.json', 'utf8', function (err, data) {
+		if(err) {
+			console.log(err);
+		}
+		
+		var products = JSON.parse(data);
+		
+		products.push(req.body);
+
+		fs.writeFile('./data/products.json', JSON.stringify(products));
+
+		res.sendStatus(200);
+	});
+});
+
 router.post('/patient/:id/menu', function(req, res) {
 	console.log(`POST: /patient/${req.params.id}/menu`);
 

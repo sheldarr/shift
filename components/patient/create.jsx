@@ -109,15 +109,15 @@ module.exports = React.createClass({
 					<Modal.Body>
 						<Row>
 							<Col md={6}>
-								<Input type="text" label="Name" value={this.props.name} onChange={this.nameChanged} />
+								<Input type="text" label="Name" value={this.state.name} onChange={this.nameChanged} />
 								<label>Date of birth</label>
-								<Input type="date" value={this.props.dateOfBirth} onChange={this.dateOfBirthChanged} />
-								<Input type="text" label="Telephone" value={this.props.telephone} onChange={this.telephoneChanged} />
+								<Input type="date" value={this.state.dateOfBirth} onChange={this.dateOfBirthChanged} />
+								<Input type="text" label="Telephone" value={this.state.telephone} onChange={this.telephoneChanged} />
 							</Col>
 							<Col md={6}>
-								<Input type="text" label="Surname" value={this.props.surname} onChange={this.surnameChanged} />
+								<Input type="text" label="Surname" value={this.state.surname} onChange={this.surnameChanged} />
 								<Input type="text" label="Age" addonAfter="years" readOnly value={this.calculateAge()} />
-								<Input type="email" label="Email" value={this.props.email} onChange={this.emailChanged}/>
+								<Input type="email" label="Email" value={this.state.email} onChange={this.emailChanged}/>
 							</Col>
 						</Row>
 						<div className="input-group">
