@@ -8,7 +8,7 @@ var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Panel = require('react-bootstrap').Panel;
 
-var CreatePatient = require('../components/createPatient');
+var CreatePatient = require('../components/patient/create');
 var PatientsList = require('../components/patientsList');
 var PatientsService = require('../services/patientsService');
 var SearchBar = require('../components/searchBar');

@@ -2,14 +2,17 @@
 
 var React = require('react');
 
+var Enums = require('../../api/enums');
+var moment = require('moment');
+
 var Button = require('react-bootstrap').Button;
+var Col = require('react-bootstrap').Col;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 var Input = require('react-bootstrap').Input;
 var Modal = require('react-bootstrap').Modal;
+var Row = require('react-bootstrap').Row;
 
-var moment = require('moment');
-
-var PatientsService = require('../services/patientsService');
+var PatientsService = require('../../services/patientsService');
 
 module.exports = React.createClass({
 	getInitialState() {
@@ -47,7 +50,7 @@ module.exports = React.createClass({
 			id: Math.floor((Math.random() * 65535) + 1),
 			name: this.state.name,
 			surname: this.state.surname,
-			dateOfBirth: this.state.dateOfBirth,
+			dateOfBirth: this.state.dateOfBirth.format("YYYY-MM-DD"),
 			telephone: this.state.telephone,
 			email: this.state.email,
 			sex: this.state.sex
@@ -85,13 +88,13 @@ module.exports = React.createClass({
 			email: event.target.value
 		})
 	},
-	genderChanged(event) {
+	sexChanged(event) {
 		this.setState({
 			sex: event.target.value
 		})
 	},
 	calculateAge() {
-		return this.state.dateOfBirth.year();
+		return moment().diff(this.state.dateOfBirth, 'years');
 	},
 	render() {
 		return (
@@ -104,13 +107,24 @@ module.exports = React.createClass({
 						<Modal.Title>Create patient</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-						<Input type="text" label="Name" value={this.state.name} onChange={this.nameChanged} />
-						<Input type="text" label="Surname" value={this.state.surname} onChange={this.surnameChanged} />
-	  					<label>Date of birth</label>
-						<Input type="date" selected={this.state.dateOfBirth} onChange={this.dateOfBirthChanged} />
-						<Input type="text" label="Age" addonAfter="years" readOnly value={this.calculateAge()} />
-						<Input type="text" label="Telephone" value={this.state.telephone} onChange={this.telephoneChanged} />
-						<Input type="email" label="Email" value={this.state.email} onChange={this.emailChanged} />
+						<Row>
+							<Col md={6}>
+								<Input type="text" label="Name" value={this.props.name} onChange={this.nameChanged} />
+								<label>Date of birth</label>
+								<Input type="date" value={this.props.dateOfBirth} onChange={this.dateOfBirthChanged} />
+								<Input type="text" label="Telephone" value={this.props.telephone} onChange={this.telephoneChanged} />
+							</Col>
+							<Col md={6}>
+								<Input type="text" label="Surname" value={this.props.surname} onChange={this.surnameChanged} />
+								<Input type="text" label="Age" addonAfter="years" readOnly value={this.calculateAge()} />
+								<Input type="email" label="Email" value={this.props.email} onChange={this.emailChanged}/>
+							</Col>
+						</Row>
+						<div className="input-group">
+			  				<label>Gender</label>
+			  				<Input type="radio" label="Male" value={Enums.sex.male} checked={this.state.sex == Enums.sex.male} name="sex" onChange={this.sexChanged} />
+			 				<Input type="radio" label="Female" value={Enums.sex.female} checked={this.state.sex == Enums.sex.female} name="sex" onChange={this.sexChanged} />
+						</div>
 					</Modal.Body>
 					<Modal.Footer>
 						<Button bsStyle="success" onClick={this.createPatient}>
