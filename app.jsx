@@ -25,7 +25,7 @@ const App = React.createClass({
                 <NavigationBar />
                 <Grid>
                     <Row>
-                        <Col md={12}>
+                        <Col>
                             {this.props.children}
                         </Col>
                     </Row>

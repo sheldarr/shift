@@ -13,7 +13,6 @@ module.exports = React.createClass({
 			<Table striped hover>
 				<thead>
 					<tr>
-						<td>Id</td>
 						<td>Name</td>
 						<td>Energy Value [kcal]</td>
 						<td>Protein [g]</td>
@@ -29,18 +28,11 @@ module.exports = React.createClass({
 						<td>Vitamin A [μg]</td>
 						<td>Beta Carotene [μg]</td>
 						<td>Vitamin E [mg]</td>
-						<td>Thiamine [mg]</td>
-						<td>Riboflavin [mg]</td>
-						<td>Niacin [mg]</td>
-						<td>Vitamin C [mg]</td>
 					</tr>
 				</thead>
 				<tbody>
 					{this.props.products.map(product => 
 						<tr key={product.id}>
-							<td>
-								{product.id}
-							</td>
 							<td>
 								{product.name}
 							</td>
@@ -85,18 +77,6 @@ module.exports = React.createClass({
 							</td>
 							<td>
 								{product.vitaminE}
-							</td>
-							<td>
-								{product.thiamine}
-							</td>
-							<td>
-								{product.riboflavin}
-							</td>
-							<td>
-								{product.niacin}
-							</td>
-							<td>
-								{product.vitaminC}
 							</td>
 						</tr>
 					)}
