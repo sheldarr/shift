@@ -3,9 +3,11 @@
 Simple utility application for dieticians
 
 ### Provided functionalities:
-- Searchable list of nutritional values for common foods and products
-- BMI, BMR and CPR calculator
+- Creating and listing products.
+- Creating, deleting and listing patients.
+- BMI, BMR and TMR calculator.
 
 ### TO DO:
- - Patients management.
- - Menu's management.
+- Patients management.
+- Menu's management.
+- Measurements management.
