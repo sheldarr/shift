@@ -10,7 +10,7 @@
     "measurements": [
       {
         "id": 1,
-        "date": "2015-01-01",
+        "date": "01-01-2015",
         "weight": 60,
         "height": 160,
         "physicalActivityRate": 1.5,
@@ -19,7 +19,7 @@
       },
       {
         "id": 2,
-        "date": "2015-10-10",
+        "date": "10-10-2015",
         "weight": 65,
         "height": 162,
         "physicalActivityRate": 1.3,
@@ -83,10 +83,10 @@
     "physicalActivityRate": 1.2,
     "waistCircumference": 100,
     "hipCircumference": 100,
-     "measurements": [
+    "measurements": [
       {
         "id": 3,
-        "date": "2015-01-01",
+        "date": "01-01-2015",
         "weight": 60,
         "height": 160,
         "physicalActivityRate": 1.5,
@@ -95,7 +95,7 @@
       },
       {
         "id": 4,
-        "date": "2015-10-10",
+        "date": "10-10-2015",
         "weight": 65,
         "height": 162,
         "physicalActivityRate": 1.3,

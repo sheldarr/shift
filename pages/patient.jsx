@@ -17,7 +17,7 @@ var CreateMenu = require('../components/createMenu');
 var MenusList = require('../components/menusList');
 var PatientsService = require('../services/patientsService');
 var PatientInformation = require('../components/patient/information');
-var PatientStatus = require('../components/patient/status')
+var PatientMeasurement = require('../components/patient/measurement')
 
 module.exports = React.createClass({
 	getInitialState() {
@@ -30,6 +30,15 @@ module.exports = React.createClass({
 	        	age: 0,
 	        	factor: 0,
 	        	sex: Enums.sex.male,
+	        	measurements: [{
+		        	id: 0,
+	       	 		date: '01-01.1970',
+		        	weight: 0,
+		        	height: 0,
+	       	 		physicalActivityRate: 1.0,
+		        	waistCircumference: 0,
+	        		hipCircumference: 0
+	        	}],
 	        	menus: []
 	        }  
 	    };
@@ -55,8 +64,8 @@ module.exports = React.createClass({
 					<Col md={6}>
 						<PatientInformation patient={this.state.patient} />
 					</Col>
-					<Col md={6}>
-						<PatientStatus patient={this.state.patient} />
+					<Col md={6}>						
+						<PatientMeasurement measurement={_.last(this.state.patient.measurements)} />
 					</Col>
 				</Row>
 				<Row>
