@@ -11,18 +11,18 @@
       {
         "id": 1,
         "date": "01-01-2015",
-        "weight": 60,
-        "height": 160,
+        "weight": 70,
+        "height": 180,
         "physicalActivityRate": 1.5,
-        "waistCircumference": 50,
-        "hipCircumference": 100
+        "waistCircumference": 65,
+        "hipCircumference": 115
       },
       {
         "id": 2,
         "date": "10-10-2015",
         "weight": 65,
-        "height": 162,
-        "physicalActivityRate": 1.3,
+        "height": 180,
+        "physicalActivityRate": 1.6,
         "waistCircumference": 55,
         "hipCircumference": 110
       }
@@ -87,20 +87,20 @@
       {
         "id": 3,
         "date": "01-01-2015",
-        "weight": 60,
+        "weight": 105,
         "height": 160,
-        "physicalActivityRate": 1.5,
-        "waistCircumference": 50,
-        "hipCircumference": 100
+        "physicalActivityRate": 1.2,
+        "waistCircumference": 105,
+        "hipCircumference": 98
       },
       {
         "id": 4,
         "date": "10-10-2015",
-        "weight": 65,
+        "weight": 110,
         "height": 162,
-        "physicalActivityRate": 1.3,
-        "waistCircumference": 55,
-        "hipCircumference": 110
+        "physicalActivityRate": 1.2,
+        "waistCircumference": 106,
+        "hipCircumference": 99
       }
     ],
     "menus": [
