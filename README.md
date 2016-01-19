@@ -1,6 +1,6 @@
 # Shift
 
-Simple utility application for dieticians
+Utility application for dieticians
 
 ### Provided functionalities:
 - Creating and listing products.
