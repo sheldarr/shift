@@ -58,16 +58,11 @@
 
 	var _reactRouter = __webpack_require__(38);
 
+	var _navigationBar = __webpack_require__(493);
+
+	var _navigationBar2 = _interopRequireDefault(_navigationBar);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	// import Calculator from './pages/calculator.jsx';
-	// var Menu = require('./pages/menu.jsx');
-	// var NotFound = require('./pages/notFound.jsx');
-	// var Patients = require('./pages/patients.jsx');
-	// var Patient = require('./pages/patient.jsx');
-	// var Products = require('./pages/products.jsx');
-
-	var NavigationBar = __webpack_require__(493);
 
 	var App = _react2.default.createClass({
 	    displayName: 'App',
@@ -75,7 +70,6 @@
 	        return _react2.default.createElement(
 	            'div',
 	            null,
-	            _react2.default.createElement(NavigationBar, null),
 	            _react2.default.createElement(
 	                _reactBootstrap.Grid,
 	                null,
@@ -92,6 +86,14 @@
 	        );
 	    }
 	});
+
+	// import Calculator from './pages/calculator.jsx';
+	// var Menu = require('./pages/menu.jsx');
+	// var NotFound = require('./pages/notFound.jsx');
+	// var Patients = require('./pages/patients.jsx');
+	// var Patient = require('./pages/patient.jsx');
+	// var Products = require('./pages/products.jsx');
+
 
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRouter.Router,
@@ -45136,40 +45138,46 @@
 
 	'use strict';
 
-	var React = __webpack_require__(1);
-	var Link = __webpack_require__(38).Link;
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
 
-	var Nav = __webpack_require__(230).Nav;
-	var Navbar = __webpack_require__(230).Navbar;
-	var NavBrand = __webpack_require__(230).NavBrand;
-	var NavItem = __webpack_require__(230).NavItem;
+	var _react = __webpack_require__(1);
 
-	module.exports = React.createClass({
-		displayName: 'exports',
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(38);
+
+	var _reactBootstrap = __webpack_require__(230);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var NavigationBar = _react2.default.createClass({
+		displayName: 'NavigationBar',
 		render: function render() {
-			return React.createElement(
-				Navbar,
+			return _react2.default.createElement(
+				_reactBootstrap.Navbar,
 				null,
-				React.createElement(
-					NavBrand,
+				_react2.default.createElement(
+					_reactBootstrap.NavBrand,
 					null,
 					'Shift'
 				),
-				React.createElement(
-					Nav,
+				_react2.default.createElement(
+					_reactBootstrap.Nav,
 					{ right: true },
-					React.createElement(
-						NavItem,
+					_react2.default.createElement(
+						_reactBootstrap.NavItem,
 						{ href: '#/patients' },
 						'Patients'
 					),
-					React.createElement(
-						NavItem,
+					_react2.default.createElement(
+						_reactBootstrap.NavItem,
 						{ href: '#/products' },
 						'Products'
 					),
-					React.createElement(
-						NavItem,
+					_react2.default.createElement(
+						_reactBootstrap.NavItem,
 						{ href: '#/calculator' },
 						'Calculator'
 					)
@@ -45177,6 +45185,8 @@
 			);
 		}
 	});
+
+	exports.default = NavigationBar;
 
 /***/ }
 /******/ ]);

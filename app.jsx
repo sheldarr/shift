@@ -12,14 +12,13 @@ import { Router, Route, browserHistory } from 'react-router'
 // var Patients = require('./pages/patients.jsx');
 // var Patient = require('./pages/patient.jsx');
 // var Products = require('./pages/products.jsx');
-
-var NavigationBar = require('./components/navigationBar.jsx')
+import NavigationBar from './components/navigationBar.jsx';
 
 const App = React.createClass({
     render() {
         return (
             <div>
-                <NavigationBar />
+                {/*<NavigationBar />*/}
                 <Grid>
                     <Row>
                         <Col>

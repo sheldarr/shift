@@ -1,19 +1,16 @@
 'use strict'
 
-var React = require('react');
-var Link = require('react-router').Link;
+import React from 'react';
 
-var Nav = require('react-bootstrap').Nav;
-var Navbar = require('react-bootstrap').Navbar;
-var NavBrand = require('react-bootstrap').NavBrand;
-var NavItem = require('react-bootstrap').NavItem;
+import { Link } from 'react-router';
+import { Nav, Navbar, NavBrand, NavItem } from 'react-bootstrap';
 
-module.exports = React.createClass({
+const NavigationBar = React.createClass({
 	render() {
 		return (
 	 		<Navbar>
     			<NavBrand>Shift</NavBrand>
-				<Nav right> 
+				<Nav right>
 					<NavItem href="#/patients">Patients</NavItem>
   					<NavItem href="#/products">Products</NavItem>
   					<NavItem href="#/calculator">Calculator</NavItem>
@@ -22,3 +19,5 @@ module.exports = React.createClass({
 		)
 	}
 })
+
+export default NavigationBar;
