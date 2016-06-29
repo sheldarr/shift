@@ -8,22 +8,22 @@
   "name": "Shift",
   "version": "0.0.1",
   "dependencies": {
-    "lodash": "^3.10.1",
-    "moment": "^2.10.6",
-    "react": "^0.14.0",
-    "react-bootstrap": "^0.27.2",
-    "react-dom": "^0.14.0",
-    "react-router": "^1.0.0-rc3",
-    "superagent": "^1.4.0"
+    "lodash": "^4.13.1",
+    "moment": "^2.13.0",
+    "react": "^15.1.0",
+    "react-bootstrap": "^0.29.5",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.5.1",
+    "superagent": "^2.0.0"
   },
   "devDependencies": {
-    "body-parser": "^1.14.1",
-    "express": "^4.13.3",
-    "http-server": "^0.8.5",
-    "json-loader": "^0.5.3",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "http-server": "^0.9.0",
+    "json-loader": "^0.5.4",
     "jsx-loader": "^0.13.2",
-    "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.12.0"
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   },
   "description": "Simple utility application for dieticians",
   "main": "webpack.config.js",
