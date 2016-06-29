@@ -1,10 +1,10 @@
 'use strict'
 
 import React from 'react';
-import { Route, Router } from 'react-router';
 import ReactDOM from 'react-dom';
 
 import { Col, Grid, Row } from 'react-bootstrap';
+import { Router, Route, browserHistory } from 'react-router'
 
 // import Calculator from './pages/calculator.jsx';
 // var Menu = require('./pages/menu.jsx');
@@ -12,8 +12,6 @@ import { Col, Grid, Row } from 'react-bootstrap';
 // var Patients = require('./pages/patients.jsx');
 // var Patient = require('./pages/patient.jsx');
 // var Products = require('./pages/products.jsx');
-
-console.log(React);
 
 var NavigationBar = require('./components/navigationBar.jsx')
 
@@ -35,7 +33,7 @@ const App = React.createClass({
 });
 
 ReactDOM.render((
-    <Router>
+    <Router history={browserHistory}>
         <Route path="/" component={App}>
             {/*<Route path="/patients" component={Patients} />
             <Route path="/patient/:patientId" component={Patient} />
@@ -45,4 +43,4 @@ ReactDOM.render((
             <Route path="*" component={NotFound}/>*/}
         </Route>
     </Router>
-), document.getElementById('content'));
+), document.getElementById('root'));

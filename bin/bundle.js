@@ -50,13 +50,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRouter = __webpack_require__(38);
-
 	var _reactDom = __webpack_require__(100);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	var _reactBootstrap = __webpack_require__(230);
+
+	var _reactRouter = __webpack_require__(38);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -66,8 +66,6 @@
 	// var Patients = require('./pages/patients.jsx');
 	// var Patient = require('./pages/patient.jsx');
 	// var Products = require('./pages/products.jsx');
-
-	console.log(_react2.default);
 
 	var NavigationBar = __webpack_require__(493);
 
@@ -97,9 +95,9 @@
 
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRouter.Router,
-	    null,
+	    { history: _reactRouter.browserHistory },
 	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: App })
-	), document.getElementById('content'));
+	), document.getElementById('root'));
 
 /***/ },
 /* 1 */
