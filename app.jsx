@@ -18,7 +18,7 @@ const App = React.createClass({
     render() {
         return (
             <div>
-                {/*<NavigationBar />*/}
+                <NavigationBar />
                 <Grid>
                     <Row>
                         <Col>

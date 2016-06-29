@@ -3,13 +3,17 @@
 import React from 'react';
 
 import { Link } from 'react-router';
-import { Nav, Navbar, NavBrand, NavItem } from 'react-bootstrap';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
 const NavigationBar = React.createClass({
 	render() {
 		return (
 	 		<Navbar>
-    			<NavBrand>Shift</NavBrand>
+                <Navbar.Header>
+                  <Navbar.Brand>
+                    <a href="#">Shift</a>
+                  </Navbar.Brand>
+                </Navbar.Header>
 				<Nav right>
 					<NavItem href="#/patients">Patients</NavItem>
   					<NavItem href="#/products">Products</NavItem>

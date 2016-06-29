@@ -70,6 +70,7 @@
 	        return _react2.default.createElement(
 	            'div',
 	            null,
+	            _react2.default.createElement(_navigationBar2.default, null),
 	            _react2.default.createElement(
 	                _reactBootstrap.Grid,
 	                null,
@@ -45139,7 +45140,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(1);
@@ -45153,37 +45154,45 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var NavigationBar = _react2.default.createClass({
-		displayName: 'NavigationBar',
-		render: function render() {
-			return _react2.default.createElement(
-				_reactBootstrap.Navbar,
-				null,
-				_react2.default.createElement(
-					_reactBootstrap.NavBrand,
-					null,
-					'Shift'
-				),
-				_react2.default.createElement(
-					_reactBootstrap.Nav,
-					{ right: true },
-					_react2.default.createElement(
-						_reactBootstrap.NavItem,
-						{ href: '#/patients' },
-						'Patients'
-					),
-					_react2.default.createElement(
-						_reactBootstrap.NavItem,
-						{ href: '#/products' },
-						'Products'
-					),
-					_react2.default.createElement(
-						_reactBootstrap.NavItem,
-						{ href: '#/calculator' },
-						'Calculator'
-					)
-				)
-			);
-		}
+	  displayName: 'NavigationBar',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      _reactBootstrap.Navbar,
+	      null,
+	      _react2.default.createElement(
+	        _reactBootstrap.Navbar.Header,
+	        null,
+	        _react2.default.createElement(
+	          _reactBootstrap.Navbar.Brand,
+	          null,
+	          _react2.default.createElement(
+	            'a',
+	            { href: '#' },
+	            'Shift'
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        _reactBootstrap.Nav,
+	        { right: true },
+	        _react2.default.createElement(
+	          _reactBootstrap.NavItem,
+	          { href: '#/patients' },
+	          'Patients'
+	        ),
+	        _react2.default.createElement(
+	          _reactBootstrap.NavItem,
+	          { href: '#/products' },
+	          'Products'
+	        ),
+	        _react2.default.createElement(
+	          _reactBootstrap.NavItem,
+	          { href: '#/calculator' },
+	          'Calculator'
+	        )
+	      )
+	    );
+	  }
 	});
 
 	exports.default = NavigationBar;
