@@ -1,10 +1,11 @@
-'use strict'
+'use strict';
 
+import {Col, Grid, Row} from 'react-bootstrap';
+import {Route, Router, browserHistory} from 'react-router';
+
+import NavigationBar from './components/navigationBar.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import { Col, Grid, Row } from 'react-bootstrap';
-import { Router, Route, browserHistory } from 'react-router'
 
 // import Calculator from './pages/calculator.jsx';
 // var Menu = require('./pages/menu.jsx');
@@ -12,10 +13,9 @@ import { Router, Route, browserHistory } from 'react-router'
 // var Patients = require('./pages/patients.jsx');
 // var Patient = require('./pages/patient.jsx');
 // var Products = require('./pages/products.jsx');
-import NavigationBar from './components/navigationBar.jsx';
 
 const App = React.createClass({
-    render() {
+    render () {
         return (
             <div>
                 <NavigationBar />
@@ -33,8 +33,8 @@ const App = React.createClass({
 
 ReactDOM.render((
     <Router history={browserHistory}>
-        <Route path="/" component={App}>
-            {/*<Route path="/patients" component={Patients} />
+        <Route component={App} path="/" >
+            {/* <Route path="/patients" component={Patients} />
             <Route path="/patient/:patientId" component={Patient} />
             <Route path="/patient/:patientId/menu/:menuId" component={Menu} />
             <Route path="/products" component={Products} />
