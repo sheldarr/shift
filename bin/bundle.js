@@ -50,6 +50,10 @@
 
 	var _reactRouter = __webpack_require__(433);
 
+	var _calculator = __webpack_require__(495);
+
+	var _calculator2 = _interopRequireDefault(_calculator);
+
 	var _navigationBar = __webpack_require__(493);
 
 	var _navigationBar2 = _interopRequireDefault(_navigationBar);
@@ -68,7 +72,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// import Calculator from './pages/calculator.jsx';
 	// var Menu = require('./pages/menu.jsx');
 	// var Patients = require('./pages/patients.jsx');
 	// var Patient = require('./pages/patient.jsx');
@@ -104,7 +107,8 @@
 	    _react2.default.createElement(
 	        _reactRouter.Route,
 	        { component: App, path: '/' },
-	        _react2.default.createElement(_reactRouter.Route, { path: '*', component: _notFound2.default })
+	        _react2.default.createElement(_reactRouter.Route, { component: _calculator2.default, path: '/calculator' }),
+	        _react2.default.createElement(_reactRouter.Route, { component: _notFound2.default, path: '*' })
 	    )
 	), document.getElementById('root'));
 
@@ -45146,59 +45150,71 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
+
+	var _reactBootstrap = __webpack_require__(168);
+
+	var _reactRouter = __webpack_require__(433);
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRouter = __webpack_require__(433);
-
-	var _reactBootstrap = __webpack_require__(168);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var NavigationBar = _react2.default.createClass({
-	  displayName: 'NavigationBar',
-	  render: function render() {
-	    return _react2.default.createElement(
-	      _reactBootstrap.Navbar,
-	      null,
-	      _react2.default.createElement(
-	        _reactBootstrap.Navbar.Header,
-	        null,
-	        _react2.default.createElement(
-	          _reactBootstrap.Navbar.Brand,
-	          null,
-	          _react2.default.createElement(
-	            'a',
-	            { href: '#' },
-	            'Shift'
-	          )
-	        )
-	      ),
-	      _react2.default.createElement(
-	        _reactBootstrap.Nav,
-	        { right: true },
-	        _react2.default.createElement(
-	          _reactBootstrap.NavItem,
-	          { href: '#/patients' },
-	          'Patients'
-	        ),
-	        _react2.default.createElement(
-	          _reactBootstrap.NavItem,
-	          { href: '#/products' },
-	          'Products'
-	        ),
-	        _react2.default.createElement(
-	          _reactBootstrap.NavItem,
-	          { href: '#/calculator' },
-	          'Calculator'
-	        )
-	      )
-	    );
-	  }
+	    displayName: 'NavigationBar',
+	    render: function render() {
+	        return _react2.default.createElement(
+	            _reactBootstrap.Navbar,
+	            null,
+	            _react2.default.createElement(
+	                _reactBootstrap.Navbar.Header,
+	                null,
+	                _react2.default.createElement(
+	                    _reactBootstrap.Navbar.Brand,
+	                    null,
+	                    _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { to: '/' },
+	                        'Shift'
+	                    )
+	                )
+	            ),
+	            _react2.default.createElement(
+	                _reactBootstrap.Nav,
+	                null,
+	                _react2.default.createElement(
+	                    _reactBootstrap.NavItem,
+	                    null,
+	                    _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { to: '/patients' },
+	                        'Patients'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _reactBootstrap.NavItem,
+	                    null,
+	                    _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { to: '/products' },
+	                        'Products'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _reactBootstrap.NavItem,
+	                    null,
+	                    _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { to: '/calculator' },
+	                        'Calulator'
+	                    )
+	                )
+	            )
+	        );
+	    }
 	});
 
 	exports.default = NavigationBar;
@@ -45227,6 +45243,215 @@
 	        );
 	    }
 	});
+
+/***/ },
+/* 495 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _reactBootstrap = __webpack_require__(168);
+
+	var _enums = __webpack_require__(496);
+
+	var _enums2 = _interopRequireDefault(_enums);
+
+	var _indexCalculator = __webpack_require__(497);
+
+	var _indexCalculator2 = _interopRequireDefault(_indexCalculator);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	module.exports = _react2.default.createClass({
+	    displayName: 'exports',
+	    getInitialState: function getInitialState() {
+	        return {
+	            weight: 65,
+	            height: 180,
+	            age: 23,
+	            sex: _enums2.default.sex.male,
+	            physicalActivityRate: 1.6,
+	            waistCircumference: 0.5,
+	            hipCircumference: 1
+	        };
+	    },
+	    weightChanged: function weightChanged(event) {
+	        var weight = Math.min(Math.max(event.target.value, 0), 400);
+
+	        this.setState({ weight: weight });
+	    },
+	    heightChanged: function heightChanged(event) {
+	        var height = Math.min(Math.max(event.target.value, 0), 272);
+
+	        this.setState({ height: height });
+	    },
+	    ageChanged: function ageChanged(event) {
+	        var age = Math.min(Math.max(event.target.value, 0), 122);
+
+	        this.setState({ age: age });
+	    },
+	    physicalActivityRateChanged: function physicalActivityRateChanged(event) {
+	        var physicalActivityRate = Math.min(Math.max(event.target.value, 0), 16);
+
+	        this.setState({ physicalActivityRate: physicalActivityRate });
+	    },
+	    sexChanged: function sexChanged(event) {
+	        this.setState({ sex: event.target.value });
+	    },
+	    waistCircumferenceChanged: function waistCircumferenceChanged(event) {
+	        this.setState({ waistCircumference: event.target.value });
+	    },
+	    hipCircumferenceChanged: function hipCircumferenceChanged(event) {
+	        this.setState({ hipCircumference: event.target.value });
+	    },
+	    calculateBmi: function calculateBmi() {
+	        return _indexCalculator2.default.calculateBmi(this.state.weight, this.state.height).toFixed(2);
+	    },
+	    calculateBmr: function calculateBmr() {
+	        return _indexCalculator2.default.calculateBmr(this.state.weight, this.state.height, this.state.age, this.state.sex).toFixed(2);
+	    },
+	    calculateTmr: function calculateTmr() {
+	        return _indexCalculator2.default.calculateTmr(this.state.weight, this.state.height, this.state.age, this.state.sex, this.state.physicalActivityRate).toFixed(2);
+	    },
+	    calculateWhr: function calculateWhr() {
+	        return _indexCalculator2.default.calculateWhr(this.state.waistCircumference, this.state.hipCircumference).toFixed(2);
+	    },
+	    getObesityType: function getObesityType() {
+	        return _indexCalculator2.default.getObesityType(this.state.waistCircumference, this.state.hipCircumference, this.state.sex);
+	    },
+	    render: function render() {
+	        return _react2.default.createElement(
+	            _reactBootstrap.Panel,
+	            { header: _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'heart' }),
+	                    ' Calculator'
+	                ) },
+	            _react2.default.createElement(
+	                _reactBootstrap.Row,
+	                null,
+	                _react2.default.createElement(
+	                    _reactBootstrap.Col,
+	                    { md: 6 },
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Panel,
+	                        { header: 'Data' },
+	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'kg', label: 'Weight', min: '1',
+	                            onChange: this.weightChanged, type: 'number', value: this.state.weight
+	                        }),
+	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'cm', label: 'Height', min: '1',
+	                            onChange: this.heightChanged, type: 'number', value: this.state.height
+	                        }),
+	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'years', label: 'Age', min: '1',
+	                            onChange: this.ageChanged, type: 'number', value: this.state.age
+	                        }),
+	                        _react2.default.createElement(_reactBootstrap.Input, { label: 'Physical Activity Rate', min: '0.1', onChange: this.physicalActivityRateChanged,
+	                            step: '0.1', type: 'number', value: this.state.physicalActivityRate
+	                        }),
+	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'cm', label: 'Waist Circumference', onChange: this.waistCircumferenceChanged,
+	                            step: '0.1', type: 'number', value: this.state.waistCircumference
+	                        }),
+	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'cm', label: 'Hip Circumference', onChange: this.hipCircumferenceChanged,
+	                            step: '0.1', type: 'number', value: this.state.hipCircumference
+	                        }),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'input-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                'Gender'
+	                            ),
+	                            _react2.default.createElement(_reactBootstrap.Input, { checked: this.state.sex == _enums2.default.sex.male, label: 'Male', name: 'sex',
+	                                onChange: this.sexChanged, type: 'radio', value: _enums2.default.sex.male
+	                            }),
+	                            _react2.default.createElement(_reactBootstrap.Input, { checked: this.state.sex == _enums2.default.sex.female, label: 'Female', name: 'sex',
+	                                onChange: this.sexChanged, type: 'radio', value: _enums2.default.sex.female
+	                            })
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _reactBootstrap.Col,
+	                    { md: 6 },
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Panel,
+	                        { header: 'Results' },
+	                        _react2.default.createElement(_reactBootstrap.Input, { label: 'BMI (Body Mass Index)', readOnly: true, type: 'number',
+	                            value: this.calculateBmi()
+	                        }),
+	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'kcal / day', label: 'BMR (Basal Metabolic Rate)', readOnly: true,
+	                            type: 'number', value: this.calculateBmr()
+	                        }),
+	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'kcal / day', label: 'TMR (Total Metabolic Rate)', readOnly: true,
+	                            type: 'number', value: this.calculateTmr()
+	                        }),
+	                        _react2.default.createElement(_reactBootstrap.Input, { label: 'WHR (Waist to Hip Ratio)', readOnly: true, type: 'number',
+	                            value: this.calculateWhr()
+	                        }),
+	                        _react2.default.createElement(_reactBootstrap.Input, { label: 'Obesity Type', readOnly: true, type: 'text',
+	                            value: this.getObesityType()
+	                        })
+	                    )
+	                )
+	            )
+	        );
+	    }
+	});
+
+/***/ },
+/* 496 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = {
+		sex: {
+			male: 0,
+			female: 1
+		}
+	};
+
+/***/ },
+/* 497 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var Enums = __webpack_require__(496);
+
+	module.exports = {
+		calculateBmi: function calculateBmi(weight, height) {
+			return weight / Math.pow(height / 100, 2);
+		},
+		calculateBmr: function calculateBmr(weight, height, age, sex) {
+			if (sex == Enums.sex.male) {
+				return 66.4730 + (13.7516 * weight + 5.0033 * height - 6.7550 * age);
+			}
+
+			return 655.0955 + (9.5634 * weight + 1.8496 * height - 4.6756 * age);
+		},
+		calculateTmr: function calculateTmr(weight, height, age, sex, physicalActivityRate) {
+			return this.calculateBmr(weight, height, age, sex, physicalActivityRate) * physicalActivityRate;
+		},
+		calculateWhr: function calculateWhr(waistCircumference, hipCircumference) {
+			return waistCircumference / hipCircumference;
+		},
+		getObesityType: function getObesityType(waistCircumference, hipCircumference, sex) {
+			var whr = this.calculateWhr(waistCircumference, hipCircumference);
+
+			if (sex == Enums.sex.male) {
+				return whr >= 1 ? 'Apple' : 'Pineapple';
+			}
+
+			return whr >= 0.8 ? 'Apple' : 'Pineapple';
+		}
+	};
 
 /***/ }
 /******/ ]);
