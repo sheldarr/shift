@@ -54,6 +54,10 @@
 
 	var _navigationBar2 = _interopRequireDefault(_navigationBar);
 
+	var _notFound = __webpack_require__(494);
+
+	var _notFound2 = _interopRequireDefault(_notFound);
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -66,7 +70,6 @@
 
 	// import Calculator from './pages/calculator.jsx';
 	// var Menu = require('./pages/menu.jsx');
-	// var NotFound = require('./pages/notFound.jsx');
 	// var Patients = require('./pages/patients.jsx');
 	// var Patient = require('./pages/patient.jsx');
 	// var Products = require('./pages/products.jsx');
@@ -98,7 +101,11 @@
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRouter.Router,
 	    { history: _reactRouter.browserHistory },
-	    _react2.default.createElement(_reactRouter.Route, { component: App, path: '/' })
+	    _react2.default.createElement(
+	        _reactRouter.Route,
+	        { component: App, path: '/' },
+	        _react2.default.createElement(_reactRouter.Route, { path: '*', component: _notFound2.default })
+	    )
 	), document.getElementById('root'));
 
 /***/ },
@@ -45195,6 +45202,31 @@
 	});
 
 	exports.default = NavigationBar;
+
+/***/ },
+/* 494 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _reactBootstrap = __webpack_require__(168);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	module.exports = _react2.default.createClass({
+	    displayName: 'exports',
+	    render: function render() {
+	        return _react2.default.createElement(
+	            _reactBootstrap.Panel,
+	            { header: '404' },
+	            'Page not found :('
+	        );
+	    }
+	});
 
 /***/ }
 /******/ ]);

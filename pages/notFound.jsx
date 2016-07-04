@@ -1,15 +1,14 @@
-'use strict'
+'use strict';
 
-var React = require('react');
-
-var Panel = require('react-bootstrap').Panel;
+import {Panel} from 'react-bootstrap';
+import React from 'react';
 
 module.exports = React.createClass({
-	render() {
-		return(
-			<Panel header="404">
-				Page not found :(
-			</Panel>
-		);
-	}
-})
+    render () {
+        return (
+            <Panel header="404">
+                {'Page not found :('}
+            </Panel>
+        );
+    }
+});
