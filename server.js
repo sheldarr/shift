@@ -15,12 +15,12 @@ const logger = new (winston.Logger)({
     transports: [
         new (winston.transports.Console)(),
         new (winston.transports.File)({
-            filename: path.resolve(__dirname, 'log', 'server.log')
+            filename: path.resolve(__dirname, 'logs', 'server.log')
         })
     ]
 });
 
-const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'log', 'api.log'), {
+const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'logs', 'api.log'), {
     flags: 'a'
 });
 
