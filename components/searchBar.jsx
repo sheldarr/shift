@@ -1,26 +1,25 @@
-'use strict'
+'use strict';
 
-var React = require('react');
+import {ControlLabel, FormControl, FormGroup, Glyphicon, InputGroup} from 'react-bootstrap';
 
-var Glyphicon = require('react-bootstrap').Glyphicon;
-var Input = require('react-bootstrap').Input;
-
-var innerGlyphicon = <Glyphicon glyph="search" />;
+import React from 'react';
 
 module.exports = React.createClass({
-	propTypes: {
-	    onChange: React.PropTypes.func.isRequired,
-	    placeholder: React.PropTypes.string.isRequired
-	},
-	handleChange(event) {
-    	this.props.onChange(event.target.value);
-	},
-	render() {
-		return (
-			<Input type="text" 
-				addonBefore={innerGlyphicon}
-				onChange={this.handleChange}
-				placeholder={this.props.placeholder} />
-		)
-	}
-})
+    propTypes: {
+        onChange: React.PropTypes.func.isRequired,
+        placeholder: React.PropTypes.string.isRequired
+    },
+    handleChange (event) {
+        this.props.onChange(event.target.value);
+    },
+    render () {
+        return (
+            <FormGroup>
+                <InputGroup>
+                    <InputGroup.Addon><Glyphicon glyph="search"/></InputGroup.Addon>
+                    <FormControl onChange={this.handleChange} placeholder={this.props.placeholder} type="text"/>
+                </InputGroup>
+            </FormGroup>
+        );
+    }
+});
