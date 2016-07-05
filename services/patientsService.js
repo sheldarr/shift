@@ -6,7 +6,7 @@ module.exports = {
 	getAll() {
 		return new Promise(function(resolve, reject) {
 			Request
-				.get('http://localhost:8088/api/patient')
+				.get('http://localhost:3030/api/patient')
 				.end((err, res) => {
 					if (res.ok) {
 						resolve(res.body);
@@ -19,7 +19,7 @@ module.exports = {
 	getById(id) {
 		return new Promise(function(resolve, reject) {
 			Request
-				.get(`http://localhost:8088/api/patient/${id}`)
+				.get(`http://localhost:3030/api/patient/${id}`)
 				.end(function(err, res){
 					if (res.ok) {
 						resolve(res.body);
@@ -32,7 +32,7 @@ module.exports = {
 	create(patient) {
 		return new Promise(function(resolve, reject) {
 			Request
-				.post('http://localhost:8088/api/patient')
+				.post('http://localhost:3030/api/patient')
 				.send(patient)
 				.end((err, res) => {
 					if (res.ok) {
@@ -46,7 +46,7 @@ module.exports = {
 	delete(id) {
 		return new Promise(function(resolve, reject) {
 			Request
-				.del(`http://localhost:8088/api/patient/${id}`)
+				.del(`http://localhost:3030/api/patient/${id}`)
 				.end(function(err, res){
 					if (res.ok) {
 						resolve(res.body);

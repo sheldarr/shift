@@ -6,7 +6,7 @@ module.exports = {
 	create(patientId, menu) {
 		return new Promise(function(resolve, reject) {
 			Request
-				.post(`http://localhost:8088/api/patient/${patientId}/menu`)
+				.post(`http://localhost:3030/api/patient/${patientId}/menu`)
 				.send(menu)
 				.end((err, res) => {
 					if (res.ok) {
@@ -20,7 +20,7 @@ module.exports = {
 	getById(patientId, menuId) {
 		return new Promise(function(resolve, reject) {
 			Request
-				.get(`http://localhost:8088/api/patient/${patientId}/menu/${menuId}`)
+				.get(`http://localhost:3030/api/patient/${patientId}/menu/${menuId}`)
 				.end((err, res) => {
 					if (res.ok) {
 						resolve(res.body);
