@@ -1,6 +1,6 @@
 'use strict';
 
-import {ControlLabel, FormControl, FormGroup, Glyphicon, InputGroup} from 'react-bootstrap';
+import {FormControl, FormGroup, Glyphicon, InputGroup} from 'react-bootstrap';
 
 import React from 'react';
 
