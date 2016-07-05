@@ -1,8 +1,8 @@
 'use strict';
 
-import {Col, ControlLabel, FormControl, Glyphicon, Input, InputGroup, Panel, Row} from 'react-bootstrap';
+import {Col, ControlLabel, FormControl, FormGroup, Glyphicon, Input, InputGroup, Panel, Radio, Row} from 'react-bootstrap';
 
-import Enums from '../api/enums';
+import Enums from '../api/enums.js';
 import IndexCalculator from '../logic/indexCalculator';
 import React from 'react';
 
@@ -68,56 +68,94 @@ module.exports = React.createClass({
                 <Row>
                     <Col md={6}>
                         <Panel header="Data">
-                            <ControlLabel>{'Weight'}</ControlLabel>
-                            <InputGroup>
-                                <FormControl min="1" onChange={this.weightChanged} type="number"
-                                    value={this.state.weight}
+                            <FormGroup>
+                                <ControlLabel>{'Weight'}</ControlLabel>
+                                <InputGroup>
+                                    <FormControl min="1" onChange={this.weightChanged} type="number"
+                                        value={this.state.weight}
+                                    />
+                                    <InputGroup.Addon>{'kg'}</InputGroup.Addon>
+                                </InputGroup>
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>{'Height'}</ControlLabel>
+                                <InputGroup>
+                                    <FormControl min="1" onChange={this.heightChanged} type="number"
+                                        value={this.state.height}
+                                    />
+                                    <InputGroup.Addon>{'cm'}</InputGroup.Addon>
+                                </InputGroup>
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>{'Age'}</ControlLabel>
+                                <InputGroup>
+                                    <FormControl min="1" onChange={this.ageChanged} type="number"
+                                        value={this.state.age}
+                                    />
+                                    <InputGroup.Addon>{'years'}</InputGroup.Addon>
+                                </InputGroup>
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>{'Physical Activity Rate'}</ControlLabel>
+                                <FormControl min="0.1" onChange={this.physicalActivityRateChanged} step="0.1"
+                                    type="number" value={this.state.physicalActivityRate}
                                 />
-                                <InputGroup.Addon>{'kg'}</InputGroup.Addon>
-                            </InputGroup>
-                            <Input addonAfter="cm" label="Height" min="1"
-                                onChange={this.heightChanged} type="number" value={this.state.height}
-                            />
-                            <Input addonAfter="years" label="Age" min="1"
-                                onChange={this.ageChanged} type="number" value={this.state.age}
-                            />
-                            <Input label="Physical Activity Rate" min="0.1" onChange={this.physicalActivityRateChanged}
-                                step="0.1" type="number" value={this.state.physicalActivityRate}
-                            />
-                            <Input addonAfter="cm" label="Waist Circumference" onChange={this.waistCircumferenceChanged}
-                                step="0.1" type="number" value={this.state.waistCircumference}
-                            />
-                            <Input addonAfter="cm" label="Hip Circumference" onChange={this.hipCircumferenceChanged}
-                                step="0.1" type="number" value={this.state.hipCircumference}
-                            />
-                            <div className="input-group">
-                                <label>{'Gender'}</label>
-                                <Input checked={this.state.sex == Enums.sex.male} label="Male" name="sex"
-                                    onChange={this.sexChanged} type="radio" value={Enums.sex.male}
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>{'Waist Circumference'}</ControlLabel>
+                                <FormControl min="0.1" onChange={this.waistCircumferenceChanged} step="0.1"
+                                    type="number" value={this.state.waistCircumference}
                                 />
-                                <Input checked={this.state.sex == Enums.sex.female} label="Female" name="sex"
-                                    onChange={this.sexChanged} type="radio" value={Enums.sex.female}
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>{'Hip Circumference'}</ControlLabel>
+                                <FormControl min="0.1" onChange={this.hipCircumferenceChanged} step="0.1"
+                                    type="number" value={this.state.hipCircumference}
                                 />
-                            </div>
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>{'Gender'}</ControlLabel>
+                                <Radio checked={this.state.sex == Enums.sex.male} name="sex"
+                                    onChange={this.sexChanged} value={Enums.sex.male}
+                                >
+                                {'Male'}
+                                </Radio>
+                                <Radio checked={this.state.sex == Enums.sex.female} name="sex"
+                                    onChange={this.sexChanged} value={Enums.sex.female}
+                                >
+                                {'Female'}
+                                </Radio>
+                            </FormGroup>
                         </Panel>
                     </Col>
                     <Col md={6}>
                         <Panel header="Results">
-                            <Input label="BMI (Body Mass Index)" readOnly type="number"
-                                value={this.calculateBmi()}
-                            />
-                            <Input addonAfter="kcal / day" label="BMR (Basal Metabolic Rate)" readOnly
-                                type="number" value={this.calculateBmr()}
-                            />
-                            <Input addonAfter="kcal / day" label="TMR (Total Metabolic Rate)" readOnly
-                                type="number" value={this.calculateTmr()}
-                            />
-                            <Input label="WHR (Waist to Hip Ratio)" readOnly type="number"
-                                value={this.calculateWhr()}
-                            />
-                            <Input label="Obesity Type" readOnly type="text"
-                                value={this.getObesityType()}
-                            />
+                            <FormGroup>
+                                <ControlLabel>{'BMI (Body Mass Index)'}</ControlLabel>
+                                <FormControl readOnly type="number" value={this.calculateBmi()}/>
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>{'BMR (Basal Metabolic Rate)'}</ControlLabel>
+                                <InputGroup>
+                                    <FormControl readOnly type="number" value={this.calculateBmr()}/>
+                                    <InputGroup.Addon>{'kcal / day'}</InputGroup.Addon>
+                                </InputGroup>
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>{'TMR (Total Metabolic Rate)'}</ControlLabel>
+                                <InputGroup>
+                                    <FormControl readOnly type="number" value={this.calculateTmr()}/>
+                                    <InputGroup.Addon>{'kcal / day'}</InputGroup.Addon>
+                                </InputGroup>
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>{'WHR (Waist to Hip Ratio)'}</ControlLabel>
+                                <FormControl readOnly type="number" value={this.calculateWhr()}/>
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>{'Obesity Type'}</ControlLabel>
+                                <FormControl readOnly type="text" value={this.getObesityType()}/>
+                            </FormGroup>
                         </Panel>
                     </Col>
                 </Row>

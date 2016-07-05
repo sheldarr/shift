@@ -45246,51 +45246,126 @@
 	                        _reactBootstrap.Panel,
 	                        { header: 'Data' },
 	                        _react2.default.createElement(
-	                            _reactBootstrap.ControlLabel,
+	                            _reactBootstrap.FormGroup,
 	                            null,
-	                            'Weight'
-	                        ),
-	                        _react2.default.createElement(
-	                            _reactBootstrap.InputGroup,
-	                            null,
-	                            _react2.default.createElement(_reactBootstrap.FormControl, { min: '1', onChange: this.weightChanged, type: 'number',
-	                                value: this.state.weight
-	                            }),
 	                            _react2.default.createElement(
-	                                _reactBootstrap.InputGroup.Addon,
+	                                _reactBootstrap.ControlLabel,
 	                                null,
-	                                'kg'
+	                                'Weight'
+	                            ),
+	                            _react2.default.createElement(
+	                                _reactBootstrap.InputGroup,
+	                                null,
+	                                _react2.default.createElement(_reactBootstrap.FormControl, { min: '1', onChange: this.weightChanged, type: 'number',
+	                                    value: this.state.weight
+	                                }),
+	                                _react2.default.createElement(
+	                                    _reactBootstrap.InputGroup.Addon,
+	                                    null,
+	                                    'kg'
+	                                )
 	                            )
 	                        ),
-	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'cm', label: 'Height', min: '1',
-	                            onChange: this.heightChanged, type: 'number', value: this.state.height
-	                        }),
-	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'years', label: 'Age', min: '1',
-	                            onChange: this.ageChanged, type: 'number', value: this.state.age
-	                        }),
-	                        _react2.default.createElement(_reactBootstrap.Input, { label: 'Physical Activity Rate', min: '0.1', onChange: this.physicalActivityRateChanged,
-	                            step: '0.1', type: 'number', value: this.state.physicalActivityRate
-	                        }),
-	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'cm', label: 'Waist Circumference', onChange: this.waistCircumferenceChanged,
-	                            step: '0.1', type: 'number', value: this.state.waistCircumference
-	                        }),
-	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'cm', label: 'Hip Circumference', onChange: this.hipCircumferenceChanged,
-	                            step: '0.1', type: 'number', value: this.state.hipCircumference
-	                        }),
 	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'input-group' },
+	                            _reactBootstrap.FormGroup,
+	                            null,
 	                            _react2.default.createElement(
-	                                'label',
+	                                _reactBootstrap.ControlLabel,
+	                                null,
+	                                'Height'
+	                            ),
+	                            _react2.default.createElement(
+	                                _reactBootstrap.InputGroup,
+	                                null,
+	                                _react2.default.createElement(_reactBootstrap.FormControl, { min: '1', onChange: this.heightChanged, type: 'number',
+	                                    value: this.state.height
+	                                }),
+	                                _react2.default.createElement(
+	                                    _reactBootstrap.InputGroup.Addon,
+	                                    null,
+	                                    'cm'
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.FormGroup,
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactBootstrap.ControlLabel,
+	                                null,
+	                                'Age'
+	                            ),
+	                            _react2.default.createElement(
+	                                _reactBootstrap.InputGroup,
+	                                null,
+	                                _react2.default.createElement(_reactBootstrap.FormControl, { min: '1', onChange: this.ageChanged, type: 'number',
+	                                    value: this.state.age
+	                                }),
+	                                _react2.default.createElement(
+	                                    _reactBootstrap.InputGroup.Addon,
+	                                    null,
+	                                    'years'
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.FormGroup,
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactBootstrap.ControlLabel,
+	                                null,
+	                                'Physical Activity Rate'
+	                            ),
+	                            _react2.default.createElement(_reactBootstrap.FormControl, { min: '0.1', onChange: this.physicalActivityRateChanged, step: '0.1',
+	                                type: 'number', value: this.state.physicalActivityRate
+	                            })
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.FormGroup,
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactBootstrap.ControlLabel,
+	                                null,
+	                                'Waist Circumference'
+	                            ),
+	                            _react2.default.createElement(_reactBootstrap.FormControl, { min: '0.1', onChange: this.waistCircumferenceChanged, step: '0.1',
+	                                type: 'number', value: this.state.waistCircumference
+	                            })
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.FormGroup,
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactBootstrap.ControlLabel,
+	                                null,
+	                                'Hip Circumference'
+	                            ),
+	                            _react2.default.createElement(_reactBootstrap.FormControl, { min: '0.1', onChange: this.hipCircumferenceChanged, step: '0.1',
+	                                type: 'number', value: this.state.hipCircumference
+	                            })
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.FormGroup,
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactBootstrap.ControlLabel,
 	                                null,
 	                                'Gender'
 	                            ),
-	                            _react2.default.createElement(_reactBootstrap.Input, { checked: this.state.sex == _enums2.default.sex.male, label: 'Male', name: 'sex',
-	                                onChange: this.sexChanged, type: 'radio', value: _enums2.default.sex.male
-	                            }),
-	                            _react2.default.createElement(_reactBootstrap.Input, { checked: this.state.sex == _enums2.default.sex.female, label: 'Female', name: 'sex',
-	                                onChange: this.sexChanged, type: 'radio', value: _enums2.default.sex.female
-	                            })
+	                            _react2.default.createElement(
+	                                _reactBootstrap.Radio,
+	                                { checked: this.state.sex == _enums2.default.sex.male, name: 'sex',
+	                                    onChange: this.sexChanged, value: _enums2.default.sex.male
+	                                },
+	                                'Male'
+	                            ),
+	                            _react2.default.createElement(
+	                                _reactBootstrap.Radio,
+	                                { checked: this.state.sex == _enums2.default.sex.female, name: 'sex',
+	                                    onChange: this.sexChanged, value: _enums2.default.sex.female
+	                                },
+	                                'Female'
+	                            )
 	                        )
 	                    )
 	                ),
@@ -45300,21 +45375,74 @@
 	                    _react2.default.createElement(
 	                        _reactBootstrap.Panel,
 	                        { header: 'Results' },
-	                        _react2.default.createElement(_reactBootstrap.Input, { label: 'BMI (Body Mass Index)', readOnly: true, type: 'number',
-	                            value: this.calculateBmi()
-	                        }),
-	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'kcal / day', label: 'BMR (Basal Metabolic Rate)', readOnly: true,
-	                            type: 'number', value: this.calculateBmr()
-	                        }),
-	                        _react2.default.createElement(_reactBootstrap.Input, { addonAfter: 'kcal / day', label: 'TMR (Total Metabolic Rate)', readOnly: true,
-	                            type: 'number', value: this.calculateTmr()
-	                        }),
-	                        _react2.default.createElement(_reactBootstrap.Input, { label: 'WHR (Waist to Hip Ratio)', readOnly: true, type: 'number',
-	                            value: this.calculateWhr()
-	                        }),
-	                        _react2.default.createElement(_reactBootstrap.Input, { label: 'Obesity Type', readOnly: true, type: 'text',
-	                            value: this.getObesityType()
-	                        })
+	                        _react2.default.createElement(
+	                            _reactBootstrap.FormGroup,
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactBootstrap.ControlLabel,
+	                                null,
+	                                'BMI (Body Mass Index)'
+	                            ),
+	                            _react2.default.createElement(_reactBootstrap.FormControl, { readOnly: true, type: 'number', value: this.calculateBmi() })
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.FormGroup,
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactBootstrap.ControlLabel,
+	                                null,
+	                                'BMR (Basal Metabolic Rate)'
+	                            ),
+	                            _react2.default.createElement(
+	                                _reactBootstrap.InputGroup,
+	                                null,
+	                                _react2.default.createElement(_reactBootstrap.FormControl, { readOnly: true, type: 'number', value: this.calculateBmr() }),
+	                                _react2.default.createElement(
+	                                    _reactBootstrap.InputGroup.Addon,
+	                                    null,
+	                                    'kcal / day'
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.FormGroup,
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactBootstrap.ControlLabel,
+	                                null,
+	                                'TMR (Total Metabolic Rate)'
+	                            ),
+	                            _react2.default.createElement(
+	                                _reactBootstrap.InputGroup,
+	                                null,
+	                                _react2.default.createElement(_reactBootstrap.FormControl, { readOnly: true, type: 'number', value: this.calculateTmr() }),
+	                                _react2.default.createElement(
+	                                    _reactBootstrap.InputGroup.Addon,
+	                                    null,
+	                                    'kcal / day'
+	                                )
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.FormGroup,
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactBootstrap.ControlLabel,
+	                                null,
+	                                'WHR (Waist to Hip Ratio)'
+	                            ),
+	                            _react2.default.createElement(_reactBootstrap.FormControl, { readOnly: true, type: 'number', value: this.calculateWhr() })
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.FormGroup,
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactBootstrap.ControlLabel,
+	                                null,
+	                                'Obesity Type'
+	                            ),
+	                            _react2.default.createElement(_reactBootstrap.FormControl, { readOnly: true, type: 'text', value: this.getObesityType() })
+	                        )
 	                    )
 	                )
 	            )
@@ -45328,12 +45456,18 @@
 
 	'use strict';
 
-	module.exports = {
-		sex: {
-			male: 0,
-			female: 1
-		}
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var enums = {
+	    sex: {
+	        male: 0,
+	        female: 1
+	    }
 	};
+
+	module.exports = enums;
+	exports.default = enums;
 
 /***/ },
 /* 495 */

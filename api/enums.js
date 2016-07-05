@@ -1,8 +1,11 @@
-'use strict'
+'use strict';
 
-module.exports = {
-	sex: {
-		male: 0,
-		female: 1
-	}
-}
+const enums = {
+    sex: {
+        male: 0,
+        female: 1
+    }
+};
+
+module.exports = enums;
+export default enums;
