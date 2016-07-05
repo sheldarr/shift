@@ -6,6 +6,7 @@ import {Route, Router, browserHistory} from 'react-router';
 import Calculator from './pages/calculator.jsx';
 import NavigationBar from './components/navigationBar.jsx';
 import NotFound from './pages/notFound.jsx';
+import Products from './pages/products.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -41,7 +42,7 @@ ReactDOM.render((
             {/* <Route path="/patients" component={Patients}/>*/}
             {/* <Route path="/patient/:patientId" component={Patient}/>*/}
             {/* <Route path="/patient/:patientId/menu/:menuId" component={Menu}/>*/}
-            {/* <Route path="/products" component={Products}/>*/}
+            <Route component={Products} path="/products"/>
             <Route component={Calculator} path="/calculator"/>
             <Route component={NotFound} path="*"/>
         </Route>

@@ -1,63 +1,52 @@
-'use strict'
+'use strict';
 
-var _ = require('lodash');
-var React = require('react');
-var Request = require('superagent');
+import {Glyphicon, Panel} from 'react-bootstrap';
 
-var Button = require('react-bootstrap').Button;
-var Glyphicon = require('react-bootstrap').Glyphicon;
-var Panel = require('react-bootstrap').Panel;
+import CreateProduct from '../components/product/create.jsx';
+import ProductsList from '../components/productsList.jsx';
+import ProductsService from '../services/productsService';
+import React from 'react';
+import SearchBar from '../components/searchBar.jsx';
+import _ from 'lodash';
 
-var CreateProduct = require('../components/product/create');
-var ProductsList = require('../components/productsList');
-var ProductsService = require('../services/productsService');
-var SearchBar = require('../components/searchBar');
-
-module.exports = React.createClass({
-	getInitialState() {
-		return {
-			searchExpression: '',
-			products: [],
-			filteredProducts: [],
-		}
-	},
-	searchExpressionChanged(searchExpression) {
-		this.setState({
-			searchExpression: searchExpression,
-		});
-
-		this.refreshFilter();
+const Products = React.createClass({
+    getInitialState () {
+        return {searchExpression: '', products: [], filteredProducts: []};
     },
-	componentDidMount() {
-		this.refreshList();
-  	},
-    refreshList() {
-    	ProductsService.getAll()
-			.then(response => {
-				this.setState({
-		   			products: response,
-   			   		filteredProducts: response
-		   		})
-			})
-			.catch(error => { 
-				alert('Api error ' + error)
-			});
+
+    componentDidMount () {
+        this.refreshList();
     },
-    refreshFilter() {
-    	this.setState({
-			filteredProducts: _.filter(this.state.products, product =>
-				product.name.toLowerCase().indexOf(this.state.searchExpression.toLowerCase()) > -1)
-		});
+
+    searchExpressionChanged (searchExpression) {
+        this.setState({searchExpression});
+
+        this.refreshFilter();
     },
-	render() {
-		return (
-			<Panel header={<span><Glyphicon glyph="list" /> Products</span>}>
-    		 	<CreateProduct onHide={this.refreshList} />
-        		<SearchBar searchExpression={this.state.searchExpression}
-        			placeholder="Search product"
-    		 		onChange={this.searchExpressionChanged} />
-        		<ProductsList products={this.state.filteredProducts} />
-			</Panel>
-		)
-	}
-})
+
+    refreshList () {
+        ProductsService.getAll().then((response) => {
+            this.setState({products: response, filteredProducts: response});
+        }).catch((error) => {
+            alert(`Api error ${error}`);
+        });
+    },
+
+    refreshFilter () {
+        this.setState({
+            filteredProducts: _.filter(this.state.products, (product) => product.name.toLowerCase().indexOf(this.state.searchExpression.toLowerCase()) > -1)
+        });
+    },
+
+    render () {
+        return (
+            <Panel header={<span><Glyphicon glyph="list"/>{' Products'}</span>}>
+                <CreateProduct onHide={this.refreshList}/>
+                <SearchBar onChange={this.searchExpressionChanged} placeholder="Search product" searchExpression={this.state.searchExpression}/>
+                <ProductsList products={this.state.filteredProducts}/>
+            </Panel>
+        );
+    }
+});
+
+export default Products;
