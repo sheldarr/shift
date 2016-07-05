@@ -63727,7 +63727,7 @@
 	module.exports = {
 		getAll: function getAll() {
 			return new Promise(function (resolve, reject) {
-				Request.get('http://localhost:8088/api/product').end(function (err, res) {
+				Request.get('http://localhost:3030/api/product').end(function (err, res) {
 					if (res.ok) {
 						resolve(res.body);
 					} else {
@@ -63738,7 +63738,7 @@
 		},
 		getById: function getById(id) {
 			return new Promise(function (resolve, reject) {
-				Request.get('http://localhost:8088/api/product/' + id).end(function (err, res) {
+				Request.get('http://localhost:3030/api/product/' + id).end(function (err, res) {
 					if (res.ok) {
 						resolve(res.body);
 					} else {
@@ -63749,7 +63749,7 @@
 		},
 		create: function create(product) {
 			return new Promise(function (resolve, reject) {
-				Request.post('http://localhost:8088/api/product').send(product).end(function (err, res) {
+				Request.post('http://localhost:3030/api/product').send(product).end(function (err, res) {
 					if (res.ok) {
 						resolve();
 					} else {

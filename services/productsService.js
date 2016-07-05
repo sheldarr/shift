@@ -6,7 +6,7 @@ module.exports = {
 	getAll() {
 		return new Promise(function(resolve, reject) {
 			Request
-				.get('http://localhost:8088/api/product')
+				.get('http://localhost:3030/api/product')
 				.end((err, res) => {
 					if (res.ok) {
 						resolve(res.body);
@@ -19,7 +19,7 @@ module.exports = {
 	getById(id) {
 		return new Promise(function(resolve, reject) {
 			Request
-				.get(`http://localhost:8088/api/product/${id}`)
+				.get(`http://localhost:3030/api/product/${id}`)
 				.end(function(err, res){
 					if (res.ok) {
 						resolve(res.body);
@@ -32,7 +32,7 @@ module.exports = {
 	create(product) {
 		return new Promise(function(resolve, reject) {
 			Request
-				.post('http://localhost:8088/api/product')
+				.post('http://localhost:3030/api/product')
 				.send(product)
 				.end((err, res) => {
 					if (res.ok) {
