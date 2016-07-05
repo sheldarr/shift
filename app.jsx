@@ -15,6 +15,10 @@ import ReactDOM from 'react-dom';
 // var Products = require('./pages/products.jsx');
 
 const App = React.createClass({
+    propTypes: {
+        children: React.PropTypes.element.isRequired
+    },
+
     render () {
         return (
             <div>

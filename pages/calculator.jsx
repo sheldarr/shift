@@ -1,6 +1,6 @@
 'use strict';
 
-import {Col, Glyphicon, Input, Panel, Row} from 'react-bootstrap';
+import {Col, ControlLabel, FormControl, Glyphicon, Input, InputGroup, Panel, Row} from 'react-bootstrap';
 
 import Enums from '../api/enums';
 import IndexCalculator from '../logic/indexCalculator';
@@ -68,9 +68,13 @@ module.exports = React.createClass({
                 <Row>
                     <Col md={6}>
                         <Panel header="Data">
-                            <Input addonAfter="kg" label="Weight" min="1"
-                                onChange={this.weightChanged} type="number" value={this.state.weight}
-                            />
+                            <ControlLabel>{'Weight'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl min="1" onChange={this.weightChanged} type="number"
+                                    value={this.state.weight}
+                                />
+                                <InputGroup.Addon>{'kg'}</InputGroup.Addon>
+                            </InputGroup>
                             <Input addonAfter="cm" label="Height" min="1"
                                 onChange={this.heightChanged} type="number" value={this.state.height}
                             />

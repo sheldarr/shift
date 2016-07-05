@@ -22,7 +22,7 @@ const NavigationBar = React.createClass({
                         <Link to={'/products'}>{'Products'}</Link>
                     </NavItem>
                     <NavItem>
-                        <Link to={'/calculator'}>{'Calulator'}</Link>
+                        <Link to={'/calculator'}>{'Calculator'}</Link>
                     </NavItem>
                 </Nav>
             </Navbar>
