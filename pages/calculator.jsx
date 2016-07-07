@@ -1,6 +1,6 @@
 'use strict';
 
-import {Col, ControlLabel, FormControl, FormGroup, Glyphicon, Input, InputGroup, Panel, Radio, Row} from 'react-bootstrap';
+import {Col, ControlLabel, FormControl, FormGroup, Glyphicon, InputGroup, Panel, Radio, Row} from 'react-bootstrap';
 
 import Enums from '../api/enums.js';
 import IndexCalculator from '../logic/indexCalculator';
