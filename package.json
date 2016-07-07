@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "node ./server.js"
+    "start": "node ./server.js",
+    "watch": "webpack --progress --color --watch"
   },
   "name": "Shift",
   "version": "0.0.1",
