@@ -1,14 +1,15 @@
 'use strict';
 
-import {Button, Col, Glyphicon, Input, Modal, Row} from 'react-bootstrap';
+import {Button, Col, ControlLabel, FormControl, FormGroup, Glyphicon, InputGroup, Modal, Row} from 'react-bootstrap';
 
 import ProductsService from '../../services/productsService';
 import React from 'react';
 
-module.exports = React.createClass({
+const CreateProduct = React.createClass({
     propTypes: {
         onHide: React.PropTypes.func.isRequired
     },
+
     getInitialState () {
         return {
             showModal: false,
@@ -33,6 +34,7 @@ module.exports = React.createClass({
             vitaminC: 0
         };
     },
+
     showModal () {
         this.setState({
             showModal: true,
@@ -57,9 +59,11 @@ module.exports = React.createClass({
             vitaminC: 0
         });
     },
+
     hideModal () {
         this.setState({showModal: false});
     },
+
     createProduct () {
         ProductsService.create({
             id: Math.floor((Math.random() * 65535) + 1),
@@ -89,115 +93,280 @@ module.exports = React.createClass({
             alert(`Api error ${error}`);
         });
     },
-    nameChanged(event) {
-        this.setState({name: event.target.value})
+
+    nameChanged (event) {
+        this.setState({name: event.target.value});
     },
-    energyValueChanged(event) {
-        this.setState({energyValue: event.target.value})
+
+    energyValueChanged (event) {
+        this.setState({energyValue: event.target.value});
     },
-    proteinChanged(event) {
-        this.setState({protein: event.target.value})
+
+    proteinChanged (event) {
+        this.setState({protein: event.target.value});
     },
-    fatChanged(event) {
-        this.setState({fat: event.target.value})
+
+    fatChanged (event) {
+        this.setState({fat: event.target.value});
     },
-    carbohydratesChanged(event) {
-        this.setState({carbohydrates: event.target.value})
+
+    carbohydratesChanged (event) {
+        this.setState({carbohydrates: event.target.value});
     },
-    fiberChanged(event) {
-        this.setState({fiber: event.target.value})
+
+    fiberChanged (event) {
+        this.setState({fiber: event.target.value});
     },
-    sodiumChanged(event) {
-        this.setState({sodium: event.target.value})
+
+    sodiumChanged (event) {
+        this.setState({sodium: event.target.value});
     },
-    potassiumChanged(event) {
-        this.setState({potassium: event.target.value})
+
+    potassiumChanged (event) {
+        this.setState({potassium: event.target.value});
     },
-    calciumChanged(event) {
-        this.setState({calcium: event.target.value})
+
+    calciumChanged (event) {
+        this.setState({calcium: event.target.value});
     },
-    phosphorusChanged(event) {
-        this.setState({phosphorus: event.target.value})
+
+    phosphorusChanged (event) {
+        this.setState({phosphorus: event.target.value});
     },
-    ironChanged(event) {
-        this.setState({iron: event.target.value})
+
+    ironChanged (event) {
+        this.setState({iron: event.target.value});
     },
-    magnesiumChanged(event) {
-        this.setState({magnesium: event.target.value})
+
+    magnesiumChanged (event) {
+        this.setState({magnesium: event.target.value});
     },
-    vitaminAChanged(event) {
-        this.setState({vitaminA: event.target.value})
+
+    vitaminAChanged (event) {
+        this.setState({vitaminA: event.target.value});
     },
-    betaCaroteneChanged(event) {
-        this.setState({betaCarotene: event.target.value})
+
+    betaCaroteneChanged (event) {
+        this.setState({betaCarotene: event.target.value});
     },
-    vitaminEChanged(event) {
-        this.setState({vitaminE: event.target.value})
+
+    vitaminEChanged (event) {
+        this.setState({vitaminE: event.target.value});
     },
-    thiamineChanged(event) {
-        this.setState({thiamine: event.target.value})
+
+    thiamineChanged (event) {
+        this.setState({thiamine: event.target.value});
     },
-    riboflavinChanged(event) {
-        this.setState({riboflavin: event.target.value})
+
+    riboflavinChanged (event) {
+        this.setState({riboflavin: event.target.value});
     },
-    niacinChanged(event) {
-        this.setState({niacin: event.target.value})
+
+    niacinChanged (event) {
+        this.setState({niacin: event.target.value});
     },
-    vitaminCChanged(event) {
-        this.setState({vitaminC: event.target.value})
+
+    vitaminCChanged (event) {
+        this.setState({vitaminC: event.target.value});
     },
-    render() {
+
+    render () {
         return (
             <div className="pull-right">
-                <Button bsStyle="success" style={{
-                    marginLeft: 20
-                }} onClick={this.showModal}>
+                <Button bsStyle="success" onClick={this.showModal} style={{marginLeft: 20}}>
                     <Glyphicon glyph="plus"/>
-                    Create product
+                    {'Create product'}
                 </Button>
-                <Modal show={this.state.showModal} onHide={this.hideModal}>
+                <Modal onHide={this.hideModal} show={this.state.showModal}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Create product</Modal.Title>
+                        <Modal.Title>{'Create product'}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <Input type="text" label="Name" value={this.state.name} onChange={this.nameChanged}/>
+                        <FormGroup>
+                            <ControlLabel>{'Name'}</ControlLabel>
+                            <FormControl onChange={this.nameChanged} readOnly type="number"
+                                value={this.state.name}
+                            />
+                        </FormGroup>
                         <Row>
                             <Col md={4}>
-                                <Input type="number" label="Energy Value" addonAfter="kcal" value={this.state.energyValue} onChange={this.energyValueChanged}/>
-                                <Input type="number" label="Protein" addonAfter="g" value={this.state.protein} onChange={this.proteinChanged}/>
-                                <Input type="number" label="Fat" addonAfter="g" value={this.state.fat} onChange={this.fatChanged}/>
-                                <Input type="number" label="Carbohydrates" addonAfter="g" value={this.state.carbohydrates} onChange={this.carbohydratesChanged}/>
-                                <Input type="number" label="Fiber" addonAfter="g" value={this.state.fiber} onChange={this.fiberChanged}/>
-                                <Input type="number" label="Sodium" addonAfter="mg" value={this.state.sodium} onChange={this.sodiumChanged}/>
+                                <FormGroup>
+                                    <ControlLabel>{'Energy Value'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.energyValueChanged} readOnly type="number"
+                                            value={this.state.energyValue}
+                                        />
+                                        <InputGroup.Addon>{'kcal'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Protein'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.proteinChanged} readOnly type="number"
+                                            value={this.state.protein}
+                                        />
+                                        <InputGroup.Addon>{'g'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Fat'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.fatChanged} readOnly type="number"
+                                            value={this.state.fat}
+                                        />
+                                        <InputGroup.Addon>{'g'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Carbohydrates'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.carbohydratesChanged} readOnly type="number"
+                                            value={this.state.carbohydrates}
+                                        />
+                                        <InputGroup.Addon>{'g'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Fiber'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.fiberChanged} readOnly type="number"
+                                            value={this.state.fiber}
+                                        />
+                                        <InputGroup.Addon>{'g'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Sodium'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.sodiumChanged} readOnly type="number"
+                                            value={this.state.sodium}
+                                        />
+                                        <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
                             </Col>
                             <Col md={4}>
-                                <Input type="number" label="Potassium" addonAfter="mg" value={this.state.potassium} onChange={this.potassiumChanged}/>
-                                <Input type="number" label="Calcium" addonAfter="mg" value={this.state.calcium} onChange={this.calciumChanged}/>
-                                <Input type="number" label="Phosphorus" addonAfter="mg" value={this.state.phosphorus} onChange={this.phosphorusChanged}/>
-                                <Input type="number" label="Iron" addonAfter="mg" value={this.state.iron} onChange={this.ironChanged}/>
-                                <Input type="number" label="Magnesium" addonAfter="mg" value={this.state.magnesium} onChange={this.magnesiumChanged}/>
-                                <Input type="number" label="Vitamin A" addonAfter="μg" value={this.state.vitaminA} onChange={this.vitaminAChanged}/>
+                                <FormGroup>
+                                    <ControlLabel>{'Potassium'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.potassiumChanged} readOnly type="number"
+                                            value={this.state.potassium}
+                                        />
+                                        <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Potassium'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.calciumChanged} readOnly type="number"
+                                            value={this.state.calcium}
+                                        />
+                                        <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Phosphorus'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.phosphorusChanged} readOnly type="number"
+                                            value={this.state.phosphorus}
+                                        />
+                                        <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Iron'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.ironChanged} readOnly type="number"
+                                            value={this.state.iron}
+                                        />
+                                        <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Magnesium'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.magnesiumChanged} readOnly type="number"
+                                            value={this.state.magnesium}
+                                        />
+                                        <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Vitamin A'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.vitaminAChanged} readOnly type="number"
+                                            value={this.state.vitaminA}
+                                        />
+                                        <InputGroup.Addon>{'μg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
                             </Col>
                             <Col md={4}>
-                                <Input type="number" label="Beta Carotene" addonAfter="μg" value={this.state.betaCarotene} onChange={this.betaCaroteneChanged}/>
-                                <Input type="number" label="Vitamin E" addonAfter="mg" value={this.state.vitaminE} onChange={this.vitaminEChanged}/>
-                                <Input type="number" label="Thiamine" addonAfter="mg" value={this.state.thiamine} onChange={this.thiamineChanged}/>
-                                <Input type="number" label="Riboflavin" addonAfter="mg" value={this.state.riboflavin} onChange={this.riboflavinChanged}/>
-                                <Input type="number" label="Niacin" addonAfter="mg" value={this.state.niacin} onChange={this.niacinChanged}/>
-                                <Input type="number" label="Vitamin C" addonAfter="mg" value={this.state.vitaminC} onChange={this.vitaminCChanged}/>
+                                <FormGroup>
+                                    <ControlLabel>{'Beta Caroten'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.betaCaroteneChanged} readOnly type="number"
+                                            value={this.state.betaCarotene}
+                                        />
+                                        <InputGroup.Addon>{'μg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Vitamin E'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.vitaminEChanged} readOnly type="number"
+                                            value={this.state.vitaminE}
+                                        />
+                                        <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Thiamine'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.thiamineChanged} readOnly type="number"
+                                            value={this.state.thiamine}
+                                        />
+                                        <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Riboflavin'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.riboflavinChanged} readOnly type="number"
+                                            value={this.state.riboflavin}
+                                        />
+                                        <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Niacin'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.niacinChanged} readOnly type="number"
+                                            value={this.state.niacin}
+                                        />
+                                        <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Vitamin C'}</ControlLabel>
+                                    <InputGroup>
+                                        <FormControl onChange={this.vitaminCChanged} readOnly type="number"
+                                            value={this.state.vitaminC}
+                                        />
+                                        <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                    </InputGroup>
+                                </FormGroup>
                             </Col>
                         </Row>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button bsStyle="success" onClick={this.createProduct}>
                             <Glyphicon glyph="plus"/>
-                            Create
+                            {'Create'}
                         </Button>
-                        <Button bsStyle="danger" style={{
-                            marginLeft: 20
-                        }} onClick={this.hideModal}>
+                        <Button bsStyle="danger" onClick={this.hideModal} style={{marginLeft: 20}}>
                             <Glyphicon glyph="remove"/>
-                            Cancel
+                            {'Cancel'}
                         </Button>
                     </Modal.Footer>
                 </Modal>
@@ -205,3 +374,6 @@ module.exports = React.createClass({
         );
     }
 });
+
+export default CreateProduct;
+

@@ -25,8 +25,8 @@ const Products = React.createClass({
     },
 
     refreshList () {
-        ProductsService.getAll().then((response) => {
-            this.setState({products: response, filteredProducts: response});
+        ProductsService.getAll().then((products) => {
+            this.setState({products, filteredProducts: products});
         }).catch((error) => {
             alert(`Api error ${error}`);
         });

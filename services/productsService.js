@@ -1,46 +1,32 @@
-'use strict'
+'use strict';
 
-var Request = require('superagent');
+const productsService = {
+    getAll () {
+        return fetch('http://localhost:3030/api/product', {
+            method: 'get'
+        }).then((response) => {
+            return response.json();
+        });
+    },
 
-module.exports = {
-	getAll() {
-		return new Promise(function(resolve, reject) {
-			Request
-				.get('http://localhost:3030/api/product')
-				.end((err, res) => {
-					if (res.ok) {
-						resolve(res.body);
-					} else {
-						reject(res.text);
-					}
-				});
-		});
-	},
-	getById(id) {
-		return new Promise(function(resolve, reject) {
-			Request
-				.get(`http://localhost:3030/api/product/${id}`)
-				.end(function(err, res){
-					if (res.ok) {
-						resolve(res.body);
-					} else {
-						reject(res.text);
-					}
-				});
-		});
-	},
-	create(product) {
-		return new Promise(function(resolve, reject) {
-			Request
-				.post('http://localhost:3030/api/product')
-				.send(product)
-				.end((err, res) => {
-					if (res.ok) {
-						resolve();
-					} else {
-						reject(res.text);
-					}
-				});
-		});
-	}
-}
+    getById (id) {
+        return fetch(`http://localhost:3030/api/product/${id}`, {
+            method: 'get'
+        }).then((response) => {
+            return response.json();
+        });
+    },
+
+    create (product) {
+        return fetch('http://localhost:3030/api/product', {
+            body: JSON.stringify(product),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'post'
+        });
+    }
+};
+
+export default productsService;
+
