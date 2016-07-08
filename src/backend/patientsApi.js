@@ -1,95 +1,108 @@
-const _ = require('lodash');
 const express = require('express');
 const fs = require('fs');
-const router = express.Router();
+const winston = require('winston');
 
-router.get('/patient', (req, res) => {
-    fs.readFile('./data/patients.json', 'utf8', (err, data) => {
-        if (err) {
-            console.log(err);
+const router = new express.Router();
+
+router.get('/patient', (request, response) => {
+    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+        if (error) {
+            winston.error(error);
         }
 
-        res.json(JSON.parse(data));
+        response.json(JSON.parse(data));
     });
 });
 
-router.get('/patient/:id', (req, res) => {
-    fs.readFile('./data/patients.json', 'utf8', function (err, data) {
-        if (err) {
-            console.log(err);
+router.get('/patient/:id', (request, response) => {
+    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+        if (error) {
+            winston.error(error);
         }
 
         const patients = JSON.parse(data);
 
-        const patient = _.find(patients, patient => patient.id == req.params.id);
+        const patient = patients.find((patient) => {
+            return patient.id == request.params.id;
+        });
 
-        res.json(patient);
+        response.json(patient);
     });
 });
 
-router.post('/patient/', function (req, res) {
-    fs.readFile('./data/patients.json', 'utf8', (err, data) => {
-        if (err) {
-            console.log(err);
+router.post('/patient/', (request, response) => {
+    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+        if (error) {
+            winston.error(error);
         }
 
         const patients = JSON.parse(data);
 
-        patients.push(req.body);
+        patients.push(request.body);
 
         fs.writeFile('./data/patients.json', JSON.stringify(patients));
 
-        res.sendStatus(200);
+        response.sendStatus(200);
     });
 });
 
-router.delete('/patient/:id', (req, res) => {
-    fs.readFile('./data/patients.json', 'utf8', (err, data) => {
-        if (err) {
-            console.log(err);
+router.delete('/patient/:id', (request, response) => {
+    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+        if (error) {
+            winston.error(error);
         }
 
         const patients = JSON.parse(data);
 
-        _.remove(patients, patient => patient.id == req.params.id);
+        const patient = patients.find((patient) => {
+            return patient.id == request.params.id;
+        });
+
+        patients.splice(patients.indexOf(patient), 1);
 
         fs.writeFile('./data/patients.json', JSON.stringify(patients));
 
-        res.sendStatus(200);
+        response.sendStatus(200);
     });
 });
 
-router.post('/patient/:id/menu', (req, res) => {
-    fs.readFile('./data/patients.json', 'utf8', (err, data) => {
-        if (err) {
-            console.log(err);
+router.post('/patient/:id/menu', (request, response) => {
+    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+        if (error) {
+            winston.error(error);
         }
 
         const patients = JSON.parse(data);
 
-        const patient = _.find(patients, (patient) => patient.id == req.params.id);
+        const patient = patients.find((patient) => {
+            return patient.id == request.params.id;
+        });
 
-        patient.menus.push(req.body);
+        patient.menus.push(request.body);
 
         fs.writeFile('./data/patients.json', JSON.stringify(patients));
 
-        res.sendStatus(200);
+        response.sendStatus(200);
     });
 });
 
-router.get('/patient/:patientId/menu/:menuId', (req, res) => {
-    fs.readFile('./data/patients.json', 'utf8', (err, data) => {
-        if (err) {
-            console.log(err);
+router.get('/patient/:patientId/menu/:menuId', (request, response) => {
+    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+        if (error) {
+            winston.error(error);
         }
 
         const patients = JSON.parse(data);
 
-        const patient = _.find(patients, patient => patient.id == req.params.patientId);
+        const patient = patients.find((patient) => {
+            return patient.id == request.params.patientId;
+        });
 
-        const menu = _.find(patient.menus, menu => menu.id == req.params.menuId);
+        const menu = patient.menus.find((menu) => {
+            return menu.id == request.params.menuId;
+        });
 
-        res.json(menu);
+        response.json(menu);
     });
 });
 

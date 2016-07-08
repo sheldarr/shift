@@ -11,14 +11,7 @@ const productsApi = require('./src/backend/productsApi');
 
 const port = 3030;
 
-const logger = new (winston.Logger)({
-    transports: [
-        new (winston.transports.Console)(),
-        new (winston.transports.File)({
-            filename: path.resolve(__dirname, 'logs', 'server.log')
-        })
-    ]
-});
+winston.add(winston.transports.File, {filename: path.resolve(__dirname, 'logs', 'server.log')});
 
 const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'logs', 'api.log'), {
     flags: 'a'
@@ -53,5 +46,5 @@ app.get('*', (request, response) => {
 });
 
 app.listen(port, () => {
-    logger.info(`PID ${process.pid} Server is running on port: ${port}`);
+    winston.info(`PID ${process.pid} Server is running on port: ${port}`);
 });

@@ -1,30 +1,32 @@
 const express = require('express');
 const fs = require('fs');
-const router = express.Router();
+const winston = require('winston');
 
-router.get('/product', (req, res) => {
-    fs.readFile('./data/products.json', 'utf8', (err, data) => {
-        if (err) {
-            console.log(err);
+const router = new express.Router();
+
+router.get('/product', (request, response) => {
+    fs.readFile('./data/products.json', 'utf8', (error, data) => {
+        if (error) {
+            winston.error(error);
         }
 
-        res.json(JSON.parse(data));
+        response.json(JSON.parse(data));
     });
 });
 
-router.post('/product/', (req, res) => {
-    fs.readFile('./data/products.json', 'utf8', (err, data) => {
-        if (err) {
-            console.log(err);
+router.post('/product/', (request, response) => {
+    fs.readFile('./data/products.json', 'utf8', (error, data) => {
+        if (error) {
+            winston.error(error);
         }
 
         const products = JSON.parse(data);
 
-        products.push(req.body);
+        products.push(request.body);
 
         fs.writeFile('./data/products.json', JSON.stringify(products));
 
-        res.sendStatus(200);
+        response.sendStatus(200);
     });
 });
 
