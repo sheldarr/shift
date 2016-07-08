@@ -45161,7 +45161,7 @@
 
 	var _reactBootstrap = __webpack_require__(1);
 
-	var _indexCalculator = __webpack_require__(495);
+	var _indexCalculator = __webpack_require__(494);
 
 	var _indexCalculator2 = _interopRequireDefault(_indexCalculator);
 
@@ -45169,7 +45169,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _constants = __webpack_require__(505);
+	var _constants = __webpack_require__(495);
 
 	var _constants2 = _interopRequireDefault(_constants);
 
@@ -45456,41 +45456,68 @@
 	});
 
 /***/ },
-/* 494 */,
-/* 495 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var constants = __webpack_require__(505);
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
 
-	module.exports = {
-		calculateBmi: function calculateBmi(weight, height) {
-			return weight / Math.pow(height / 100, 2);
-		},
-		calculateBmr: function calculateBmr(weight, height, age, sex) {
-			if (sex == constants.sex.male) {
-				return 66.4730 + (13.7516 * weight + 5.0033 * height - 6.7550 * age);
-			}
+	var _constants = __webpack_require__(495);
 
-			return 655.0955 + (9.5634 * weight + 1.8496 * height - 4.6756 * age);
-		},
-		calculateTmr: function calculateTmr(weight, height, age, sex, physicalActivityRate) {
-			return this.calculateBmr(weight, height, age, sex, physicalActivityRate) * physicalActivityRate;
-		},
-		calculateWhr: function calculateWhr(waistCircumference, hipCircumference) {
-			return waistCircumference / hipCircumference;
-		},
-		getObesityType: function getObesityType(waistCircumference, hipCircumference, sex) {
-			var whr = this.calculateWhr(waistCircumference, hipCircumference);
+	var _constants2 = _interopRequireDefault(_constants);
 
-			if (sex == constants.sex.male) {
-				return whr >= 1 ? 'Apple' : 'Pineapple';
-			}
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-			return whr >= 0.8 ? 'Apple' : 'Pineapple';
-		}
+	var indexCalculator = {
+	    calculateBmi: function calculateBmi(weight, height) {
+	        return weight / Math.pow(height / 100, 2);
+	    },
+	    calculateBmr: function calculateBmr(weight, height, age, sex) {
+	        if (sex == _constants2.default.sex.male) {
+	            return 66.4730 + (13.7516 * weight + 5.0033 * height - 6.7550 * age);
+	        }
+
+	        return 655.0955 + (9.5634 * weight + 1.8496 * height - 4.6756 * age);
+	    },
+	    calculateTmr: function calculateTmr(weight, height, age, sex, physicalActivityRate) {
+	        return this.calculateBmr(weight, height, age, sex, physicalActivityRate) * physicalActivityRate;
+	    },
+	    calculateWhr: function calculateWhr(waistCircumference, hipCircumference) {
+	        return waistCircumference / hipCircumference;
+	    },
+	    getObesityType: function getObesityType(waistCircumference, hipCircumference, sex) {
+	        var whr = this.calculateWhr(waistCircumference, hipCircumference);
+
+	        if (sex == _constants2.default.sex.male) {
+	            return whr >= 1 ? 'Apple' : 'Pineapple';
+	        }
+
+	        return whr >= 0.8 ? 'Apple' : 'Pineapple';
+	    }
 	};
+
+	exports.default = indexCalculator;
+
+/***/ },
+/* 495 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var constants = {
+	    sex: {
+	        male: 0,
+	        female: 1
+	    }
+	};
+
+	exports.default = constants;
 
 /***/ },
 /* 496 */
@@ -63006,24 +63033,6 @@
 		return module;
 	}
 
-
-/***/ },
-/* 505 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	var constants = {
-	    sex: {
-	        male: 0,
-	        female: 1
-	    }
-	};
-
-	exports.default = constants;
 
 /***/ }
 /******/ ]);
