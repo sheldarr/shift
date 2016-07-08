@@ -10,6 +10,7 @@ const menuService = {
             method: 'post'
         });
     },
+
     getById (patientId, menuId) {
         return fetch(`http://localhost:3030/api/patient/${patientId}/menu/${menuId}`, {
             method: 'get'

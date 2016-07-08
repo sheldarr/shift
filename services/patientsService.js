@@ -1,59 +1,37 @@
-'use strict'
+'use strict';
 
-var Request = require('superagent');
+const patientsService = {
+    getAll () {
+        return fetch('http://localhost:3030/api/patient', {
+            method: 'get'
+        }).then((response) => {
+            return response.json();
+        });
+    },
 
-module.exports = {
-	getAll() {
-		return new Promise(function(resolve, reject) {
-			Request
-				.get('http://localhost:3030/api/patient')
-				.end((err, res) => {
-					if (res.ok) {
-						resolve(res.body);
-					} else {
-						reject(res.text);
-					}
-				});
-		});
-	},
-	getById(id) {
-		return new Promise(function(resolve, reject) {
-			Request
-				.get(`http://localhost:3030/api/patient/${id}`)
-				.end(function(err, res){
-					if (res.ok) {
-						resolve(res.body);
-					} else {
-						reject(res.text);
-					}
-				});
-		});
-	},
-	create(patient) {
-		return new Promise(function(resolve, reject) {
-			Request
-				.post('http://localhost:3030/api/patient')
-				.send(patient)
-				.end((err, res) => {
-					if (res.ok) {
-						resolve();
-					} else {
-						reject(res.text);
-					}
-				});
-		});
-	},
-	delete(id) {
-		return new Promise(function(resolve, reject) {
-			Request
-				.del(`http://localhost:3030/api/patient/${id}`)
-				.end(function(err, res){
-					if (res.ok) {
-						resolve(res.body);
-					} else {
-						reject(res.text);
-					}
-				});
-		});
-	}
-}
+    getById (id) {
+        return fetch(`http://localhost:3030/api/patient/${id}`, {
+            method: 'get'
+        }).then((response) => {
+            return response.json();
+        });
+    },
+
+    create (patient) {
+        return fetch('http://localhost:3030/api/patient', {
+            body: JSON.stringify(patient),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'post'
+        });
+    },
+
+    delete (id) {
+        return fetch(`http://localhost:3030/api/patient/${id}`, {
+            method: 'delete'
+        });
+    }
+};
+
+export default patientsService;
