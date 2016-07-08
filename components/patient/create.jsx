@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var Enums = require('../../api/enums');
+var constants = require('../../constants');
 var moment = require('moment');
 
 var Button = require('react-bootstrap').Button;
@@ -22,7 +22,7 @@ module.exports = React.createClass({
 	        surname: '',
 	       	dateOfBirth: moment().format("YYYY-MM-DD"),
 	      	telephone: '',
-	      	email: '', 	
+	      	email: '',
 	        sex: 0
 	    };
 	},
@@ -36,7 +36,7 @@ module.exports = React.createClass({
 	        surname: '',
 	       	dateOfBirth: moment().format("YYYY-MM-DD"),
 	      	telephone: '',
-	      	email: '', 	
+	      	email: '',
 	        sex: 0
 		});
 	},
@@ -59,7 +59,7 @@ module.exports = React.createClass({
 			this.props.onHide();
 			this.hideModal();
 		})
-		.catch(error => { 
+		.catch(error => {
 			alert('Api error ' + error)
 		});
 	},
@@ -122,8 +122,8 @@ module.exports = React.createClass({
 						</Row>
 						<div className="input-group">
 			  				<label>Gender</label>
-			  				<Input type="radio" label="Male" value={Enums.sex.male} checked={this.state.sex == Enums.sex.male} name="sex" onChange={this.sexChanged} />
-			 				<Input type="radio" label="Female" value={Enums.sex.female} checked={this.state.sex == Enums.sex.female} name="sex" onChange={this.sexChanged} />
+			  				<Input type="radio" label="Male" value={constants.sex.male} checked={this.state.sex == constants.sex.male} name="sex" onChange={this.sexChanged} />
+			 				<Input type="radio" label="Female" value={constants.sex.female} checked={this.state.sex == constants.sex.female} name="sex" onChange={this.sexChanged} />
 						</div>
 					</Modal.Body>
 					<Modal.Footer>

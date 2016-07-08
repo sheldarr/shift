@@ -2,7 +2,6 @@
 
 var React = require('react');
 
-var Enums = require('../../api/enums');
 var moment = require('moment');
 
 var Col = require('react-bootstrap').Col;
@@ -20,11 +19,11 @@ module.exports = React.createClass({
 		return (IndexCalculator.calculateBmi(this.props.measurement.weight,
 			this.props.measurement.height)).toFixed(2);
 	},
-	calculateBmr() {	
+	calculateBmr() {
 		var age = this.calculateAge();
 
 		return (IndexCalculator.calculateBmr(this.props.measurement.weight,
-			this.props.measurement.height, age, 
+			this.props.measurement.height, age,
 			this.props.measurement.sex)).toFixed(2);
 	},
 	calculateTmr() {

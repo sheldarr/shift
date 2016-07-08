@@ -45161,10 +45161,6 @@
 
 	var _reactBootstrap = __webpack_require__(1);
 
-	var _enums = __webpack_require__(494);
-
-	var _enums2 = _interopRequireDefault(_enums);
-
 	var _indexCalculator = __webpack_require__(495);
 
 	var _indexCalculator2 = _interopRequireDefault(_indexCalculator);
@@ -45172,6 +45168,10 @@
 	var _react = __webpack_require__(21);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _constants = __webpack_require__(505);
+
+	var _constants2 = _interopRequireDefault(_constants);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45182,7 +45182,7 @@
 	            weight: 65,
 	            height: 180,
 	            age: 23,
-	            sex: _enums2.default.sex.male,
+	            sex: _constants2.default.sex.male,
 	            physicalActivityRate: 1.6,
 	            waistCircumference: 0.5,
 	            hipCircumference: 1
@@ -45359,15 +45359,15 @@
 	                            ),
 	                            _react2.default.createElement(
 	                                _reactBootstrap.Radio,
-	                                { checked: this.state.sex == _enums2.default.sex.male, name: 'sex',
-	                                    onChange: this.sexChanged, value: _enums2.default.sex.male
+	                                { checked: this.state.sex == _constants2.default.sex.male, name: 'sex',
+	                                    onChange: this.sexChanged, value: _constants2.default.sex.male
 	                                },
 	                                'Male'
 	                            ),
 	                            _react2.default.createElement(
 	                                _reactBootstrap.Radio,
-	                                { checked: this.state.sex == _enums2.default.sex.female, name: 'sex',
-	                                    onChange: this.sexChanged, value: _enums2.default.sex.female
+	                                { checked: this.state.sex == _constants2.default.sex.female, name: 'sex',
+	                                    onChange: this.sexChanged, value: _constants2.default.sex.female
 	                                },
 	                                'Female'
 	                            )
@@ -45456,38 +45456,20 @@
 	});
 
 /***/ },
-/* 494 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	var enums = {
-	    sex: {
-	        male: 0,
-	        female: 1
-	    }
-	};
-
-	module.exports = enums;
-	exports.default = enums;
-
-/***/ },
+/* 494 */,
 /* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Enums = __webpack_require__(494);
+	var constants = __webpack_require__(505);
 
 	module.exports = {
 		calculateBmi: function calculateBmi(weight, height) {
 			return weight / Math.pow(height / 100, 2);
 		},
 		calculateBmr: function calculateBmr(weight, height, age, sex) {
-			if (sex == Enums.sex.male) {
+			if (sex == constants.sex.male) {
 				return 66.4730 + (13.7516 * weight + 5.0033 * height - 6.7550 * age);
 			}
 
@@ -45502,7 +45484,7 @@
 		getObesityType: function getObesityType(waistCircumference, hipCircumference, sex) {
 			var whr = this.calculateWhr(waistCircumference, hipCircumference);
 
-			if (sex == Enums.sex.male) {
+			if (sex == constants.sex.male) {
 				return whr >= 1 ? 'Apple' : 'Pineapple';
 			}
 
@@ -63024,6 +63006,24 @@
 		return module;
 	}
 
+
+/***/ },
+/* 505 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var constants = {
+	    sex: {
+	        male: 0,
+	        female: 1
+	    }
+	};
+
+	exports.default = constants;
 
 /***/ }
 /******/ ]);

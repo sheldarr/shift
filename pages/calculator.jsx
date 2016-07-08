@@ -2,9 +2,10 @@
 
 import {Col, ControlLabel, FormControl, FormGroup, Glyphicon, InputGroup, Panel, Radio, Row} from 'react-bootstrap';
 
-import Enums from '../api/enums.js';
 import IndexCalculator from '../logic/indexCalculator';
 import React from 'react';
+
+import constants from '../constants';
 
 module.exports = React.createClass({
     getInitialState () {
@@ -12,7 +13,7 @@ module.exports = React.createClass({
             weight: 65,
             height: 180,
             age: 23,
-            sex: Enums.sex.male,
+            sex: constants.sex.male,
             physicalActivityRate: 1.6,
             waistCircumference: 0.5,
             hipCircumference: 1
@@ -115,13 +116,13 @@ module.exports = React.createClass({
                             </FormGroup>
                             <FormGroup>
                                 <ControlLabel>{'Gender'}</ControlLabel>
-                                <Radio checked={this.state.sex == Enums.sex.male} name="sex"
-                                    onChange={this.sexChanged} value={Enums.sex.male}
+                                <Radio checked={this.state.sex == constants.sex.male} name="sex"
+                                    onChange={this.sexChanged} value={constants.sex.male}
                                 >
                                 {'Male'}
                                 </Radio>
-                                <Radio checked={this.state.sex == Enums.sex.female} name="sex"
-                                    onChange={this.sexChanged} value={Enums.sex.female}
+                                <Radio checked={this.state.sex == constants.sex.female} name="sex"
+                                    onChange={this.sexChanged} value={constants.sex.female}
                                 >
                                 {'Female'}
                                 </Radio>

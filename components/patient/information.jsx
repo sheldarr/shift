@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
 var React = require('react');
 
-var Enums = require('../../api/enums');
+var constants = require('../../constants');
 var moment = require('moment');
 
 var Col = require('react-bootstrap').Col;
@@ -35,8 +35,8 @@ module.exports = React.createClass({
 				</Row>
 				<div className="input-group">
 	  				<label>Gender</label>
-	  				<Input type="radio" label="Male" disabled value={Enums.sex.male} checked={this.props.patient.sex == Enums.sex.male} name="sex" />
-	 				<Input type="radio" label="Female" disabled value={Enums.sex.female} checked={this.props.patient.sex == Enums.sex.female} name="sex" />
+	  				<Input type="radio" label="Male" disabled value={constants.sex.male} checked={this.props.patient.sex == constants.sex.male} name="sex" />
+	 				<Input type="radio" label="Female" disabled value={constants.sex.female} checked={this.props.patient.sex == constants.sex.female} name="sex" />
 				</div>
 			</Panel>
 		);
