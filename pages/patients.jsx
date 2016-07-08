@@ -1,63 +1,54 @@
-'use strict'
+'use strict';
 
-var _ = require('lodash');
-var React = require('react');
-var Request = require('superagent');
+import {Glyphicon, Panel} from 'react-bootstrap';                                                           // Button?
 
-var Button = require('react-bootstrap').Button;
-var Glyphicon = require('react-bootstrap').Glyphicon;
-var Panel = require('react-bootstrap').Panel;
+import CreatePatient from '../components/patient/create';
+import PatientsList from '../components/patientsList';
+import PatientsService from '../services/patientsService';
+import React from 'react';
+                                                                                                            // import Request from 'superagent';
+import SearchBar from '../components/searchBar';
+import _ from 'lodash';
 
-var CreatePatient = require('../components/patient/create');
-var PatientsList = require('../components/patientsList');
-var PatientsService = require('../services/patientsService');
-var SearchBar = require('../components/searchBar');
-
-module.exports = React.createClass({
-	getInitialState() {
-	    return {
-	    	searchExpression: '',
-	        patients: [],
-    	  	filteredPatients: []
-	    };
-	},
-	componentDidMount() {
-	    this.refreshList();
-  	},
-	searchExpressionChanged(searchExpression) {
-		this.setState({
-			searchExpression: searchExpression,
-		});
-
-		this.refreshFilter();
+const Patients = React.createClass({
+    getInitialState () {
+        return {searchExpression: '', patients: [], filteredPatients: []};
     },
-    refreshList() {
-    	PatientsService.getAll()
-			.then(response => {
-				this.setState({
-		   			patients: response,
-   			   		filteredPatients: response
-		   		})
-			})
-			.catch(error => { 
-				alert('Api error ' + error)
-			});
+
+    componentDidMount () {
+        this.refreshList();
     },
-    refreshFilter() {
-    	this.setState({
-			filteredPatients: _.filter(this.state.patients, patient =>
-				patient.name.toLowerCase().indexOf(this.state.searchExpression.toLowerCase()) > -1)
-		});
+
+    searchExpressionChanged (searchExpression) {
+        this.setState({searchExpression});
+
+        this.refreshFilter();
     },
-	render() {
-		return(
-			<Panel header={<span><Glyphicon glyph="list" /> Patients</span>}>
-				<CreatePatient onHide={this.refreshList} />
-				<SearchBar searchExpression={this.state.searchExpression}
-					placeholder="Search patient"
-    		 		onChange={this.searchExpressionChanged} />
-				<PatientsList patients={this.state.filteredPatients} onChange={this.refreshList}/>
-			</Panel>
+
+    refreshList () {
+        PatientsService.getAll().then((response) => {
+            this.setState({patients: response, filteredPatients: response});
+        }).catch((error) => {
+            alert(`Api error ${error}`);
+        });
+    },
+
+    refreshFilter () {
+        this.setState({
+            filteredPatients: _.filter(this.state.patients, (patient) =>
+                patient.name.toLowerCase().indexOf(this.state.searchExpression.toLowerCase()) > -1)
+        });
+    },
+
+    render () {
+        return (
+            <Panel header={<span><Glyphicon glyph="list" />{' Patients'}</span>}>
+                <CreatePatient onHide={this.refreshList} />
+                <SearchBar onChange={this.searchExpressionChanged} placeholder="Search patient" searchExpression={this.state.searchExpression}/>
+                <PatientsList onChange={this.refreshList} patients={this.state.filteredPatients}/>
+            </Panel>
 		);
-	}
-})
+    }
+});
+
+export default Patients;
