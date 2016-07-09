@@ -6,14 +6,11 @@ import {Route, Router, browserHistory} from 'react-router';
 import Calculator from './pages/calculator.jsx';
 import NavigationBar from './components/navigationBar.jsx';
 import NotFound from './pages/notFound.jsx';
+// import Patient from './pages/patient.jsx';
 import Patients from './pages/patients.jsx';
 import Products from './pages/products.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-// var Menu = require('./pages/menu.jsx');
-// var Patient = require('./pages/patient.jsx');
-// var Products = require('./pages/products.jsx');
 
 const App = React.createClass({
     propTypes: {

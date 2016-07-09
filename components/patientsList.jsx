@@ -1,65 +1,63 @@
-'use string'
+'use string';
 
-var React = require('react');
+import {Button, Glyphicon, Table} from 'react-bootstrap';
 
-var Button = require('react-bootstrap').Button;
-var Glyphicon = require('react-bootstrap').Glyphicon;
-var Table = require('react-bootstrap').Table;
-
-var RemovePatient = require('./removePatient');
+import React from 'react';
+import RemovePatient from './removePatient.jsx';
 
 module.exports = React.createClass({
-	propTypes: {
-		patients: React.PropTypes.array.isRequired,
-		onChange: React.PropTypes.func.isRequired
-	},
-	render() {
-		return (
-			<Table striped hover>
-				<thead>
-					<tr>
-						<td>Id</td>
-						<td>Name</td>
-						<td>Surname</td>
-						<td>Date of birth</td>
-						<td>Telephone</td>
-						<td>Email</td>
-						<td></td>
-					</tr>
-				</thead>
-				<tbody>
-					{this.props.patients.map(patient => 
-						<tr key={patient.id}>
-							<td>
+    propTypes: {
+        onChange: React.PropTypes.func.isRequired,
+        patients: React.PropTypes.array.isRequired
+    },
+
+    render () {
+        return (
+            <Table hover striped>
+                <thead>
+                    <tr>
+                        <td>{'Id'}</td>
+                        <td>{'Name'}</td>
+                        <td>{'Surname'}</td>
+                        <td>{'Date of birth'}</td>
+                        <td>{'Telephone'}</td>
+                        <td>{'Email'}</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.props.patients.map((patient) =>
+                        <tr key={patient.id}>
+                            <td>
 								{patient.id}
-							</td>
-							<td>
+                            </td>
+                            <td>
 								{patient.name}
-							</td>
-							<td>
+                            </td>
+                            <td>
 								{patient.surname}
-							</td>
-							<td>
+                            </td>
+                            <td>
 								{patient.dateOfBirth}
-							</td>
-							<td>
+                            </td>
+                            <td>
 								{patient.telephone}
-							</td>
-							<td>
+                            </td>
+                            <td>
 								{patient.email}
-							</td>
-							<td>
-								<div className="pull-right">
-									 <Button bsStyle="primary" style={{marginRight: 10}} href={`#/patient/${patient.id}`}>
-									 	<Glyphicon glyph="option-horizontal" /> Details
-								 	</Button>
-								 	<RemovePatient onRemove={this.props.onChange} patient={patient}/>
-							 	</div>
-							</td>
-						</tr>
+                            </td>
+                            <td>
+                                <div className="pull-right">
+                                    <Button bsStyle="primary" href={`#/patient/${patient.id}`} style={{marginRight: 10}}>
+                                        <Glyphicon glyph="option-horizontal" /> {'Details'}
+                                    </Button>
+                                    <RemovePatient onRemove={this.props.onChange} patient={patient}/>
+                                </div>
+                            </td>
+                        </tr>
 					)}
-				</tbody>
-			</Table>
+                </tbody>
+            </Table>
 		);
-	}
+    }
 });

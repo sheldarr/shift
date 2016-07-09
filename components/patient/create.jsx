@@ -1,141 +1,151 @@
-'use strict'
+'use strict';
 
-var React = require('react');
+import {Button, Col, Glyphicon, Input, Modal, Row} from 'react-bootstrap';
 
-var Enums = require('../../api/enums');
-var moment = require('moment');
-
-var Button = require('react-bootstrap').Button;
-var Col = require('react-bootstrap').Col;
-var Glyphicon = require('react-bootstrap').Glyphicon;
-var Input = require('react-bootstrap').Input;
-var Modal = require('react-bootstrap').Modal;
-var Row = require('react-bootstrap').Row;
-
-var PatientsService = require('../../services/patientsService');
+import Enums from '../../api/enums';
+import PatientsService from '../../services/patientsService';
+import React from 'react';
+import moment from 'moment';
 
 module.exports = React.createClass({
-	getInitialState() {
-	    return {
-	        showModal: false,
-	        name: '',
-	        surname: '',
-	       	dateOfBirth: moment().format("YYYY-MM-DD"),
-	      	telephone: '',
-	      	email: '', 	
-	        sex: 0
-	    };
-	},
-	propTypes: {
-	    onHide: React.PropTypes.func.isRequired
-	},
-	showModal() {
-		this.setState({
-		   showModal: true,
-	        name: '',
-	        surname: '',
-	       	dateOfBirth: moment().format("YYYY-MM-DD"),
-	      	telephone: '',
-	      	email: '', 	
-	        sex: 0
-		});
-	},
-	hideModal() {
-		this.setState({
-			showModal: false
-		});
-	},
-	createPatient() {
-		PatientsService.create({
-			id: Math.floor((Math.random() * 65535) + 1),
-			name: this.state.name,
-			surname: this.state.surname,
-			dateOfBirth: this.state.dateOfBirth,
-			telephone: this.state.telephone,
-			email: this.state.email,
-			sex: this.state.sex
-		})
-		.then(response => {
-			this.props.onHide();
-			this.hideModal();
-		})
-		.catch(error => { 
-			alert('Api error ' + error)
-		});
-	},
-	nameChanged(event) {
-		this.setState({
-			name: event.target.value
-		})
-	},
-	surnameChanged(event) {
-		this.setState({
-			surname: event.target.value
-		})
-	},
-	dateOfBirthChanged(event) {
-		this.setState({
-			dateOfBirth: moment(event.target.value).format("YYYY-MM-DD")
-		})
-	},
-	telephoneChanged(event) {
-		this.setState({
-			telephone: event.target.value
-		})
-	},
-	emailChanged(event) {
-		this.setState({
-			email: event.target.value
-		})
-	},
-	sexChanged(event) {
-		this.setState({
-			sex: event.target.value
-		})
-	},
-	calculateAge() {
-		return moment().diff(this.state.dateOfBirth, 'years');
-	},
-	render() {
-		return (
-			<div className="pull-right">
-				<Button bsStyle="success" style={{marginLeft: 20}} onClick={this.showModal}>
-						<Glyphicon glyph="plus"/> Create patient
-				</Button>
-				<Modal show={this.state.showModal} onHide={this.hideModal}>
-					<Modal.Header closeButton>
-						<Modal.Title>Create patient</Modal.Title>
-					</Modal.Header>
-					<Modal.Body>
-						<Row>
-							<Col md={6}>
-								<Input type="text" label="Name" value={this.state.name} onChange={this.nameChanged} />
-								<label>Date of birth</label>
-								<Input type="date" value={this.state.dateOfBirth} onChange={this.dateOfBirthChanged} />
-								<Input type="text" label="Telephone" value={this.state.telephone} onChange={this.telephoneChanged} />
-							</Col>
-							<Col md={6}>
-								<Input type="text" label="Surname" value={this.state.surname} onChange={this.surnameChanged} />
-								<Input type="text" label="Age" addonAfter="years" readOnly value={this.calculateAge()} />
-								<Input type="email" label="Email" value={this.state.email} onChange={this.emailChanged}/>
-							</Col>
-						</Row>
-						<div className="input-group">
-			  				<label>Gender</label>
-			  				<Input type="radio" label="Male" value={Enums.sex.male} checked={this.state.sex == Enums.sex.male} name="sex" onChange={this.sexChanged} />
-			 				<Input type="radio" label="Female" value={Enums.sex.female} checked={this.state.sex == Enums.sex.female} name="sex" onChange={this.sexChanged} />
-						</div>
-					</Modal.Body>
-					<Modal.Footer>
-						<Button bsStyle="success" onClick={this.createPatient}>
-							<Glyphicon glyph="plus"/> Create
-						</Button>
-						<Button bsStyle="danger" style={{marginLeft: 20}} onClick={this.hideModal}>
-							<Glyphicon glyph="remove"/> Cancel
-						</Button>
-					</Modal.Footer>
-				</Modal>
-			</div>
-		);
-	}
+    propTypes: {
+        onHide: React.PropTypes.func.isRequired
+    },
+
+    getInitialState () {
+        return {
+            showModal: false,
+            name: '',
+            surname: '',
+            dateOfBirth: moment().format('YYYY-MM-DD'),
+            telephone: '',
+            emial: '',
+            sex: 0
+        };
+    },
+
+    showModal () {
+        this.setState({
+            showModal: true,
+            name: '',
+            surname: '',
+            dateOfBirth: moment().format('YYYY-MM-DD'),
+            telephone: '',
+            email: '',
+            sex: 0
+        });
+    },
+
+    hideModal () {
+        this.setState({showModal: false});
+    },
+
+    createPatient () {
+        PatientsService.create({
+            id: Math.floor((Math.random() * 65535) + 1),
+            name: this.state.name,
+            surname: this.state.surname,
+            dateOfBirth: this.state.dateOfBirth,
+            telephone: this.state.telephone,
+            email: this.state.email,
+            sex: this.state.sex
+        }).then(() => {
+            this.props.onHide();
+            this.hideModal();
+        }).catch((error) => {
+            alert(`Api error ${error}`);
+        });
+    },
+
+    nameChange (event) {
+        this.setState({name: event.target.value});
+    },
+
+    surnameChanged (event) {
+        this.setState({surname: event.target.value});
+    },
+
+    dateOfBirthChanged (event) {
+        this.setState({dateOfBirth: moment(event.target.value).format('YYYY-MM-DD')});
+    },
+
+    telephoneChanged (event) {
+        this.setState({telephone: event.target.value});
+    },
+
+    emailChanged (event) {
+        this.setState({email: event.target.value});
+    },
+
+    sexChanged (event) {
+        this.setState({sex: event.target.value});
+    },
+
+    calculateAge () {
+        return moment().diff(this.state.dateOfBirth, 'years');
+    },
+
+
+    render () {
+        return (
+            <div className="pull-right">
+                <Button bsStyle="success" onClick={this.showModal} style={{marginLeft: 20}} >
+                    <Glyphicon glyph="plus"/> {' Create patient'}
+                </Button>
+                <Modal onHide={this.hideModal} show={this.state.showModal} >
+                    <Modal.Header closeButton>
+                        <Modal.Title>
+                            {' Create patient'}
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Row>
+                            <Col md={6}>
+                                <Input label="Name" onChange={this.nameChanged} type="text"
+                                    value={this.state.name}
+                                />
+                                <label>{' Date of birth'}</label>
+                                <Input onChange={this.dateOfBirthChanged} type="date" value={this.state.dateOfBirth} />
+                                <Input label="Telephone" onChange={this.telephoneChanged} type="text"
+                                    value={this.state.telephone}
+                                />
+                            </Col>
+                            <Col md={6}>
+                                <Input label="Surname" onChange={this.surnameChanged} type="text"
+                                    value={this.state.surname}
+                                />
+                                <Input addonAfter="years" label="Age"
+                                    type="text" readOnly value={this.calculateAge()}
+                                />
+                                <Input label="Email" onChange={this.emailChanged} type="email"
+                                    value={this.state.email}
+                                />
+                            </Col>
+                        </Row>
+                        <div className="input-group">
+                            <label>{' Gender'}</label>
+                            <Input checked={this.state.sex === Enums.sex.male} label="Male" name="sex"
+                                onChange={this.sexChanged}
+                                type="radio"
+                                value={Enums.sex.male}
+                            />
+                            <Input checked={this.state.sex === Enums.sex.female} label="Female" name="sex"
+                                onChange={this.sexChanged}
+                                type="radio"
+                                value={Enums.sex.female}
+                            />
+                        </div>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button bsStyle="success" onClick={this.createPatient}>
+                            <Glyphicon glyph="plus"/> {' Create'}
+                        </Button>
+                        <Button bsStyle="danger" onClick={this.hideModal} style={{marginLeft: 20}}>
+                            <Glyphicon glyph="remove"/> {' Cancel'}
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </div>
+        );
+    }
 });

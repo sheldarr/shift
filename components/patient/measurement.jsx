@@ -1,76 +1,78 @@
-'use strict'
+'use strict';
 
-var React = require('react');
+import {Col, Input, Panel, Row} from 'react-bootstrap';
 
-var Enums = require('../../api/enums');
-var moment = require('moment');
-
-var Col = require('react-bootstrap').Col;
-var Input = require('react-bootstrap').Input;
-var Panel = require('react-bootstrap').Panel;
-var Row = require('react-bootstrap').Row;
-
-var IndexCalculator = require('../../logic/indexCalculator');
+import IndexCalculator from '../../logic/indexCalculator';
+import React from 'react';
+import moment from 'moment';
 
 module.exports = React.createClass({
-	propTypes() {
-		measurement: React.PropTypes.object.isRequired
-	},
-	calculateBmi() {
-		return (IndexCalculator.calculateBmi(this.props.measurement.weight,
-			this.props.measurement.height)).toFixed(2);
-	},
-	calculateBmr() {	
-		var age = this.calculateAge();
+    propTypes: {
+        measurement: React.PropTypes.object.isRequired
+    },
 
-		return (IndexCalculator.calculateBmr(this.props.measurement.weight,
-			this.props.measurement.height, age, 
-			this.props.measurement.sex)).toFixed(2);
-	},
-	calculateTmr() {
-		var age = this.calculateAge();
+    calculateBmi () {
+        return (IndexCalculator.calculateBmi(this.props.measurement.weight, this.props.measurement.height)).toFixed(2);
+    },
 
-		return (IndexCalculator.calculateTmr(this.props.measurement.weight,
-			this.props.measurement.height, age,
-			this.props.measurement.sex, this.props.measurement.physicalActivityRate)).toFixed(2);
-	},
-	getBmiCategory() {
-		return IndexCalculator.getBmiCategory(this.props.measurement.weight,
-			this.props.measurement.height);
-	},
-	calculateWhr() {
-		return (IndexCalculator.calculateWhr(this.props.measurement.waistCircumference,
-			this.props.measurement.hipCircumference)).toFixed(2);
-	},
-	getObesityType() {
-		return IndexCalculator.getObesityType(this.props.measurement.waistCircumference,
-			this.props.measurement.hipCircumference, this.props.measurement.sex);
-	},
-	calculateAge() {
-		return moment().diff(this.props.measurement.dateOfBirth, 'years');
-	},
-	render() {
-		return (
-			<Panel header={`Measurement ${this.props.measurement.date}`}>
-				<Row>
-					<Col md={6}>
-						<Input type="number" label="Weight" addonAfter="kg" readOnly value={this.props.measurement.weight} />
-						<Input type="number" label="Height" addonAfter="cm" readOnly value={this.props.measurement.height} />
-						<Input type="number" label="Physical activity rate" readOnly value={this.props.measurement.physicalActivityRate} />
-						<Input type="number" label="Waist Circumference" addonAfter="cm" readOnly value={this.props.measurement.waistCircumference} />
-						<Input type="number" label="Hip Circumference" addonAfter="cm" readOnly value={this.props.measurement.hipCircumference} />
-					</Col>
-					<Col md={6}>
-						<Input type="number" label="BMI (Body Mass Index)" readOnly value={this.calculateBmi()} />
-						<Input type="number" label="BMR (Basal Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateBmr()} />
-						<Input type="number" label="TMR (Total Metabolic Rate)" addonAfter="kcal / day" readOnly value={this.calculateTmr()} />
-						<Input type="number" label="WHR (Waist to Hip Ratio)" readOnly value={this.calculateWhr()} />
-						<Input type="text" label="Obesity Type" readOnly value={this.getObesityType()} />
-					</Col>
-				</Row>
-			</Panel>
-		);
-	}
-})
+    calculateBmr () {
+        const age = this.calculateAge();
 
+        return (IndexCalculator.calculateBmr(this.props.measurement.weight,
+            this.props.measurement.height, age,
+            this.props.measurement.sex)).toFixed(2);
+    },
 
+    calculateTmr () {
+        const age = this.calculateAge();
+
+        return (IndexCalculator.calculateTmr(this.props.measurement.weight,
+            this.props.measurement.height, age,
+            this.props.measurement.sex, this.props.measurement.physicalActivityRate)).toFixed(2);
+    },
+
+    getBmiCategory () {
+        return IndexCalculator.getBmiCategory(this.props.measurement.weight,
+            this.props.measurement.height);
+    },
+
+    calculateWhr () {
+        return (IndexCalculator.calculateWhr(this.props.measurement.waistCircumference,
+            this.props.measurement.hipCircumference)).toFixed(2);
+    },
+
+    getObesityType () {
+        return IndexCalculator.getObesityType(this.props.measurement.waistCircumference,
+            this.props.measurement.hipCircumference, this.props.measurement.sex);
+    },
+
+    calculateAge () {
+        return moment().diff(this.props.measurement.dateOfBirth, 'years');
+    },
+
+    render () {
+        return (
+            <Panel header={`Measurement ${this.props.measurement.date}`}>
+                <Row>
+                    <Col md={6}>
+                        <Input addonAfter="kg" label="Weight" type="number"
+                            readOnly value={this.props.measurement.weight}
+                        />
+                        <Input addonAfter="cm" label="Height" type="number" readOnly value={this.props.measurement.height} />
+                        <Input label="Physical activity rate" type="number" readOnly value={this.props.measurement.physicalActivityRate} />
+                        <Input addonAfter="cm" label="Waist Circumference" type="number"
+                            readOnly value={this.props.measurement.waistCircumference} />
+                        <Input addonAfter="cm" label="Hip Circumference" type="number" readOnly value={this.props.measurement.hipCircumference} />
+                    </Col>
+                    <Col md={6}>
+                        <Input label="BMI (Body Mass Index)" type="number" readOnly value={this.calculateBmi()} />
+                        <Input addonAfter="kcal / day" label="BMR (Basal Metabolic Rate)" type="number" readOnly value={this.calculateBmr()} />
+                        <Input addonAfter="kcal / day" label="TMR (Total Metabolic Rate)" type="number" readOnly value={this.calculateTmr()} />
+                        <Input label="WHR (Waist to Hip Ratio)" type="number" readOnly value={this.calculateWhr()} />
+                        <Input label="Obesity Type" type="text" readOnly value={this.getObesityType()} />
+                    </Col>
+                </Row>
+            </Panel>
+        );
+    }
+});

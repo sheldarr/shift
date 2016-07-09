@@ -1,44 +1,45 @@
-'use strict'
+'use strict';
 
-var React = require('react');
+import {Col, Input, Panel, Row} from 'react-bootstrap';
 
-var Enums = require('../../api/enums');
-var moment = require('moment');
-
-var Col = require('react-bootstrap').Col;
-var Input = require('react-bootstrap').Input;
-var Panel = require('react-bootstrap').Panel;
-var Row = require('react-bootstrap').Row;
+import Enums from '../../api/enums';
+import React from 'react';
+import moment from 'moment';
 
 module.exports = React.createClass({
-	propTypes() {
-		patient: React.PropTypes.object.isRequired
-	},
-	calculateAge() {
-		return moment().diff(this.props.patient.dateOfBirth, 'years');
-	},
-	render() {
-		return (
-			<Panel header="Information">
-				<Row>
-					<Col md={6}>
-						<Input type="text" label="Name" readOnly value={this.props.patient.name} />
-						<label>Date of birth</label>
-						<Input type="date" readOnly value={this.props.patient.dateOfBirth} />
-						<Input type="text" label="Telephone" readOnly value={this.props.patient.telephone} />
-					</Col>
-					<Col md={6}>
-						<Input type="text" label="Surname" readOnly value={this.props.patient.surname} />
-						<Input type="text" label="Age" addonAfter="years" readOnly value={this.calculateAge()} />
-						<Input type="email" label="Email" readOnly value={this.props.patient.email} />
-					</Col>
-				</Row>
-				<div className="input-group">
-	  				<label>Gender</label>
-	  				<Input type="radio" label="Male" disabled value={Enums.sex.male} checked={this.props.patient.sex == Enums.sex.male} name="sex" />
-	 				<Input type="radio" label="Female" disabled value={Enums.sex.female} checked={this.props.patient.sex == Enums.sex.female} name="sex" />
-				</div>
-			</Panel>
+    propTypes: {
+        patient: React.propTypes.object.isRequired
+    },
+
+    calculateAge () {
+        return moment().diff(this.props.patient.dateOfBirth, 'years');
+    },
+
+    render () {
+        return (
+            <Panel header="Information">
+                <Row>
+                    <Col md={6}>
+                        <Input label="Name" type="text"
+                            readOnly value={this.props.patient.name} />
+                        <label>{' Date of birth'}</label>
+                        <Input type="date" readOnly value={this.props.patient.dateOfBirth} />
+                        <Input label="Telephone" type="text" readOnly value={this.props.patient.telephone} />
+                    </Col>
+                    <Col md={6}>
+                        <Input label="Surname" type="text" readOnly value={this.props.patient.surname} />
+                        <Input addonAfter="years" label="Age" type="text" readOnly value={this.calculateAge()} />
+                        <Input label="Email" type="email" readOnly value={this.props.patient.email} />
+                    </Col>
+                </Row>
+                <div className="input-group">
+                    <label>{' Gender'}</label>
+                    <Input checked={this.props.patient.sex === Enums.sex.male} disabled value={Enums.sex.male}
+                        label="Male" name="sex" type="radio" />
+                    <Input checked={this.props.patient.sex === Enums.sex.female} label="Female" name="sex"
+                        type="radio" disabled value={Enums.sex.female} />
+                </div>
+            </Panel>
 		);
-	}
-})
+    }
+});

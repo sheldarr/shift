@@ -1,60 +1,58 @@
-'use strict'
+'use strict';
 
-var React = require('react');
+import {Button, Glyphicon} from 'react-bootstrap';
 
-var Button = require('react-bootstrap').Button;
-var Glyphicon = require('react-bootstrap').Glyphicon;
-var Modal = require('react-bootstrap').Modal;
-
-var Request = require('superagent');
-
-var PatientsService = require('../services/patientsService');
-var ConfirmationModal = require('./confirmationModal');
+import ConfirmationModal from './confirmationModal.jsx';
+import PatientsService from '../services/patientsService';
+import React from 'react';
 
 module.exports = React.createClass({
-	getInitialState() {
-	    return {
-	        showModal: false,
-	    };
-	},
-	propTypes: {
-	    onRemove: React.PropTypes.func.isRequired,
-	    patient: React.PropTypes.object.isRequired,
-	},
-	showModal() {
-		this.setState({
-			showModal: true,
-		});
-	},
-	hideModal(confirmed) {
-		if(confirmed) {
-			this.removePatient()
-		}
+    propTypes: {
+        onRemove: React.PropTypes.func.isRequired,
+        patient: React.PropTypes.object.isRequired
+    },
 
-		this.setState({
-			showModal: false
-		});
-	},
-	removePatient() {
-		PatientsService.delete(this.props.patient.id)
-			.then(response => {
-				this.props.onRemove();
-			})
-			.catch(error => { 
-				alert('Api error ' + error)
-			});
-	},
-	render() {
-		return (
-			<div className="pull-right">
-				<Button bsStyle="danger" onClick={this.showModal}>
-						<Glyphicon glyph="remove"/> Remove
-				</Button>
-				<ConfirmationModal show={this.state.showModal} 
-					onHide={this.hideModal}
-					title="Remove patient"
-					body={`Do you really want to remove patient ${this.props.patient.name}?`} />
-			</div>
+    getInitialState () {
+        return {
+            showModal: false
+        };
+    },
+
+    showModal () {
+        this.setState({
+            showModal: true
+        });
+    },
+
+    hideModal (confirmed) {
+        if (confirmed) {
+            this.removePatient();
+        }
+
+        this.setState({
+            showModal: false
+        });
+    },
+
+    removePatient () {
+        PatientsService.delete(this.props.patient.id)
+        .then(() => {
+            this.props.onRemove();
+        }).catch((error) => {
+            alert(`Api error ${error}`);
+        });
+    },
+
+    render () {
+        return (
+            <div className="pull-right">
+                <Button bsStyle="danger" onClick={this.showModal}>
+                    <Glyphicon glyph="remove"/> {'Remove'}
+                </Button>
+                <ConfirmationModal body={`Do you really want to remove patient ${this.props.patient.name}?`} onHide={this.hideModal} show={this.state.showModal}
+                    title="Remove patient"
+                />
+            </div>
 		);
-	}
+    }
 });

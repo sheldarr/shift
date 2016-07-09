@@ -1,13 +1,12 @@
 'use strict';
 
-import {Glyphicon, Panel} from 'react-bootstrap';                                                           // Button?
+import {Glyphicon, Panel} from 'react-bootstrap';
 
-import CreatePatient from '../components/patient/create';
-import PatientsList from '../components/patientsList';
+import CreatePatient from '../components/patient/create.jsx';
+import PatientsList from '../components/patientsList.jsx';
 import PatientsService from '../services/patientsService';
 import React from 'react';
-                                                                                                            // import Request from 'superagent';
-import SearchBar from '../components/searchBar';
+import SearchBar from '../components/searchBar.jsx';
 import _ from 'lodash';
 
 const Patients = React.createClass({

@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-var React = require('react');
+import React from 'react';
 
 var Button = require('react-bootstrap').Button;
 var Col = require('react-bootstrap').Col;
@@ -13,11 +13,11 @@ var Row = require('react-bootstrap').Row;
 
 var Enums = require('../api/enums');
 
-var CreateMenu = require('../components/createMenu');
-var MenusList = require('../components/menusList');
+var CreateMenu = require('../components/createMenu.jsx');
+var MenusList = require('../components/menusList.jsx');
 var PatientsService = require('../services/patientsService');
-var PatientInformation = require('../components/patient/information');
-var PatientMeasurement = require('../components/patient/measurement')
+var PatientInformation = require('../components/patient/information.jsx');
+var PatientMeasurement = require('../components/patient/measurement.jsx')
 
 module.exports = React.createClass({
 	getInitialState() {
@@ -40,7 +40,7 @@ module.exports = React.createClass({
 	        		hipCircumference: 0
 	        	}],
 	        	menus: []
-	        }  
+	        }
 	    };
 	},
 	componentDidMount() {
@@ -53,7 +53,7 @@ module.exports = React.createClass({
 		   			patient: response,
 		   		});
 			})
-			.catch(error => { 
+			.catch(error => {
 				alert('Api error ' + error)
 			});
   	},
@@ -64,7 +64,7 @@ module.exports = React.createClass({
 					<Col md={6}>
 						<PatientInformation patient={this.state.patient} />
 					</Col>
-					<Col md={6}>						
+					<Col md={6}>
 						<PatientMeasurement measurement={_.last(this.state.patient.measurements)} />
 					</Col>
 				</Row>
