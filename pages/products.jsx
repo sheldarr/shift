@@ -4,7 +4,7 @@ import {Glyphicon, Panel} from 'react-bootstrap';
 
 import CreateProduct from '../components/product/create.jsx';
 import ProductsList from '../components/productsList.jsx';
-import ProductsService from '../services/productsService';
+import ProductsService from '../src/frontend/services/productsService';
 import React from 'react';
 import SearchBar from '../components/searchBar.jsx';
 import _ from 'lodash';

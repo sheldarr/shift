@@ -9,7 +9,7 @@ var Modal = require('react-bootstrap').Modal;
 
 var moment = require('moment');
 
-var MenuService = require('../services/menuService');
+var MenuService = require('../src/frontend/services/menuService');
 
 module.exports = React.createClass({
 	getInitialState() {
@@ -60,7 +60,7 @@ module.exports = React.createClass({
 			this.props.onHide();
 			this.hideModal();
 		})
-		.catch(error => { 
+		.catch(error => {
 			alert('Api error ' + error)
 		});
 	},

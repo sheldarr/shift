@@ -15,7 +15,7 @@ var constants = require('../src/commons/constants');
 
 var CreateMenu = require('../components/createMenu');
 var MenusList = require('../components/menusList');
-var PatientsService = require('../services/patientsService');
+var PatientsService = require('../src/frontend/services/patientsService');
 var PatientInformation = require('../components/patient/information');
 var PatientMeasurement = require('../components/patient/measurement')
 

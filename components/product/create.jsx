@@ -2,7 +2,7 @@
 
 import {Button, Col, ControlLabel, FormControl, FormGroup, Glyphicon, InputGroup, Modal, Row} from 'react-bootstrap';
 
-import ProductsService from '../../services/productsService';
+import ProductsService from '../../src/frontend/services/productsService';
 import React from 'react';
 
 const CreateProduct = React.createClass({

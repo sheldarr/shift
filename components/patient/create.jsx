@@ -12,7 +12,7 @@ var Input = require('react-bootstrap').Input;
 var Modal = require('react-bootstrap').Modal;
 var Row = require('react-bootstrap').Row;
 
-var PatientsService = require('../../services/patientsService');
+var PatientsService = require('../../src/frontend/services/patientsService');
 
 module.exports = React.createClass({
 	getInitialState() {

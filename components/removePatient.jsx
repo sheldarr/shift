@@ -8,7 +8,7 @@ var Modal = require('react-bootstrap').Modal;
 
 var Request = require('superagent');
 
-var PatientsService = require('../services/patientsService');
+var PatientsService = require('../src/frontend/services/patientsService');
 var ConfirmationModal = require('./confirmationModal');
 
 module.exports = React.createClass({
@@ -40,7 +40,7 @@ module.exports = React.createClass({
 			.then(response => {
 				this.props.onRemove();
 			})
-			.catch(error => { 
+			.catch(error => {
 				alert('Api error ' + error)
 			});
 	},
@@ -50,7 +50,7 @@ module.exports = React.createClass({
 				<Button bsStyle="danger" onClick={this.showModal}>
 						<Glyphicon glyph="remove"/> Remove
 				</Button>
-				<ConfirmationModal show={this.state.showModal} 
+				<ConfirmationModal show={this.state.showModal}
 					onHide={this.hideModal}
 					title="Remove patient"
 					body={`Do you really want to remove patient ${this.props.patient.name}?`} />

@@ -10,7 +10,7 @@ var Panel = require('react-bootstrap').Panel;
 
 var CreatePatient = require('../components/patient/create');
 var PatientsList = require('../components/patientsList');
-var PatientsService = require('../services/patientsService');
+var PatientsService = require('../src/frontend/services/patientsService');
 var SearchBar = require('../components/searchBar');
 
 module.exports = React.createClass({
@@ -39,7 +39,7 @@ module.exports = React.createClass({
    			   		filteredPatients: response
 		   		})
 			})
-			.catch(error => { 
+			.catch(error => {
 				alert('Api error ' + error)
 			});
     },
