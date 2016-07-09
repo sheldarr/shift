@@ -1,6 +1,9 @@
 # Logs
 *.log
 
+# Bundle
+bundle.js
+
 # Runtime data
 pids
 *.pid
