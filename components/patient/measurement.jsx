@@ -9,7 +9,7 @@ var Input = require('react-bootstrap').Input;
 var Panel = require('react-bootstrap').Panel;
 var Row = require('react-bootstrap').Row;
 
-var IndexCalculator = require('../../logic/indexCalculator');
+var IndexCalculator = require('../../src/commons/indexCalculator');
 
 module.exports = React.createClass({
 	propTypes() {

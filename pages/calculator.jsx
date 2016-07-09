@@ -2,7 +2,7 @@
 
 import {Col, ControlLabel, FormControl, FormGroup, Glyphicon, InputGroup, Panel, Radio, Row} from 'react-bootstrap';
 
-import IndexCalculator from '../logic/indexCalculator';
+import IndexCalculator from '../src/commons/indexCalculator';
 import React from 'react';
 
 import constants from '../src/commons/constants';
