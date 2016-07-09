@@ -11,9 +11,9 @@ const productsApi = require('./src/backend/productsApi');
 
 const port = 3030;
 
-winston.add(winston.transports.File, {filename: path.resolve(__dirname, 'logs', 'server.log')});
+winston.add(winston.transports.File, {filename: path.resolve(__dirname, 'var', 'logs', 'server.log')});
 
-const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'logs', 'api.log'), {
+const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'var', 'logs', 'api.log'), {
     flags: 'a'
 });
 

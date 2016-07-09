@@ -45169,7 +45169,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _constants = __webpack_require__(505);
+	var _constants = __webpack_require__(495);
 
 	var _constants2 = _interopRequireDefault(_constants);
 
@@ -45465,7 +45465,7 @@
 	    value: true
 	});
 
-	var _constants = __webpack_require__(505);
+	var _constants = __webpack_require__(495);
 
 	var _constants2 = _interopRequireDefault(_constants);
 
@@ -45502,7 +45502,24 @@
 	exports.default = indexCalculator;
 
 /***/ },
-/* 495 */,
+/* 495 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var constants = {
+	    sex: {
+	        male: 0,
+	        female: 1
+	    }
+	};
+
+	exports.default = constants;
+
+/***/ },
 /* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -45623,7 +45640,7 @@
 
 	var _productsList2 = _interopRequireDefault(_productsList);
 
-	var _productsService = __webpack_require__(506);
+	var _productsService = __webpack_require__(500);
 
 	var _productsService2 = _interopRequireDefault(_productsService);
 
@@ -45702,7 +45719,7 @@
 
 	var _reactBootstrap = __webpack_require__(1);
 
-	var _productsService = __webpack_require__(506);
+	var _productsService = __webpack_require__(500);
 
 	var _productsService2 = _interopRequireDefault(_productsService);
 
@@ -46314,7 +46331,43 @@
 	exports.default = CreateProduct;
 
 /***/ },
-/* 500 */,
+/* 500 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var productsService = {
+	    getAll: function getAll() {
+	        return fetch('http://localhost:3030/api/product', {
+	            method: 'get'
+	        }).then(function (response) {
+	            return response.json();
+	        });
+	    },
+	    getById: function getById(id) {
+	        return fetch('http://localhost:3030/api/product/' + id, {
+	            method: 'get'
+	        }).then(function (response) {
+	            return response.json();
+	        });
+	    },
+	    create: function create(product) {
+	        return fetch('http://localhost:3030/api/product', {
+	            body: JSON.stringify(product),
+	            headers: {
+	                'Content-Type': 'application/json'
+	            },
+	            method: 'post'
+	        });
+	    }
+	};
+
+	exports.default = productsService;
+
+/***/ },
 /* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -62980,61 +63033,6 @@
 		return module;
 	}
 
-
-/***/ },
-/* 505 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	var constants = {
-	    sex: {
-	        male: 0,
-	        female: 1
-	    }
-	};
-
-	exports.default = constants;
-
-/***/ },
-/* 506 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	var productsService = {
-	    getAll: function getAll() {
-	        return fetch('http://localhost:3030/api/product', {
-	            method: 'get'
-	        }).then(function (response) {
-	            return response.json();
-	        });
-	    },
-	    getById: function getById(id) {
-	        return fetch('http://localhost:3030/api/product/' + id, {
-	            method: 'get'
-	        }).then(function (response) {
-	            return response.json();
-	        });
-	    },
-	    create: function create(product) {
-	        return fetch('http://localhost:3030/api/product', {
-	            body: JSON.stringify(product),
-	            headers: {
-	                'Content-Type': 'application/json'
-	            },
-	            method: 'post'
-	        });
-	    }
-	};
-
-	exports.default = productsService;
 
 /***/ }
 /******/ ]);

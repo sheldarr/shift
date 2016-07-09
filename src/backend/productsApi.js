@@ -5,7 +5,7 @@ const winston = require('winston');
 const router = new express.Router();
 
 router.get('/product', (request, response) => {
-    fs.readFile('./data/products.json', 'utf8', (error, data) => {
+    fs.readFile('./var/data/products.json', 'utf8', (error, data) => {
         if (error) {
             winston.error(error);
         }
@@ -15,7 +15,7 @@ router.get('/product', (request, response) => {
 });
 
 router.post('/product/', (request, response) => {
-    fs.readFile('./data/products.json', 'utf8', (error, data) => {
+    fs.readFile('./var/data/products.json', 'utf8', (error, data) => {
         if (error) {
             winston.error(error);
         }
@@ -24,7 +24,7 @@ router.post('/product/', (request, response) => {
 
         products.push(request.body);
 
-        fs.writeFile('./data/products.json', JSON.stringify(products));
+        fs.writeFile('./var/data/products.json', JSON.stringify(products));
 
         response.sendStatus(200);
     });

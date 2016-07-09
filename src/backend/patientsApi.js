@@ -5,7 +5,7 @@ const winston = require('winston');
 const router = new express.Router();
 
 router.get('/patient', (request, response) => {
-    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+    fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
             winston.error(error);
         }
@@ -15,7 +15,7 @@ router.get('/patient', (request, response) => {
 });
 
 router.get('/patient/:id', (request, response) => {
-    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+    fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
             winston.error(error);
         }
@@ -31,7 +31,7 @@ router.get('/patient/:id', (request, response) => {
 });
 
 router.post('/patient/', (request, response) => {
-    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+    fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
             winston.error(error);
         }
@@ -40,14 +40,14 @@ router.post('/patient/', (request, response) => {
 
         patients.push(request.body);
 
-        fs.writeFile('./data/patients.json', JSON.stringify(patients));
+        fs.writeFile('./var/data/patients.json', JSON.stringify(patients));
 
         response.sendStatus(200);
     });
 });
 
 router.delete('/patient/:id', (request, response) => {
-    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+    fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
             winston.error(error);
         }
@@ -60,14 +60,14 @@ router.delete('/patient/:id', (request, response) => {
 
         patients.splice(patients.indexOf(patient), 1);
 
-        fs.writeFile('./data/patients.json', JSON.stringify(patients));
+        fs.writeFile('./var/data/patients.json', JSON.stringify(patients));
 
         response.sendStatus(200);
     });
 });
 
 router.post('/patient/:id/menu', (request, response) => {
-    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+    fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
             winston.error(error);
         }
@@ -80,14 +80,14 @@ router.post('/patient/:id/menu', (request, response) => {
 
         patient.menus.push(request.body);
 
-        fs.writeFile('./data/patients.json', JSON.stringify(patients));
+        fs.writeFile('./var/data/patients.json', JSON.stringify(patients));
 
         response.sendStatus(200);
     });
 });
 
 router.get('/patient/:patientId/menu/:menuId', (request, response) => {
-    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+    fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
             winston.error(error);
         }
