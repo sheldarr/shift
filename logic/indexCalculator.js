@@ -1,6 +1,6 @@
 'use strict';
 
-import constants from '../constants';
+import constants from '../src/commons/constants';
 
 const indexCalculator = {
     calculateBmi (weight, height) {

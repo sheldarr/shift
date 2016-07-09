@@ -11,7 +11,7 @@ var Panel = require('react-bootstrap').Panel;
 var Request = require('superagent');
 var Row = require('react-bootstrap').Row;
 
-var constants = require('../constants');
+var constants = require('../src/commons/constants');
 
 var CreateMenu = require('../components/createMenu');
 var MenusList = require('../components/menusList');

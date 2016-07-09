@@ -5,7 +5,7 @@ import {Col, ControlLabel, FormControl, FormGroup, Glyphicon, InputGroup, Panel,
 import IndexCalculator from '../logic/indexCalculator';
 import React from 'react';
 
-import constants from '../constants';
+import constants from '../src/commons/constants';
 
 module.exports = React.createClass({
     getInitialState () {

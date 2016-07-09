@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var constants = require('../../constants');
+var constants = require('../../src/commons/constants');
 var moment = require('moment');
 
 var Col = require('react-bootstrap').Col;

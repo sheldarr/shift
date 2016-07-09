@@ -45169,7 +45169,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _constants = __webpack_require__(495);
+	var _constants = __webpack_require__(505);
 
 	var _constants2 = _interopRequireDefault(_constants);
 
@@ -45465,7 +45465,7 @@
 	    value: true
 	});
 
-	var _constants = __webpack_require__(495);
+	var _constants = __webpack_require__(505);
 
 	var _constants2 = _interopRequireDefault(_constants);
 
@@ -45502,24 +45502,7 @@
 	exports.default = indexCalculator;
 
 /***/ },
-/* 495 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	var constants = {
-	    sex: {
-	        male: 0,
-	        female: 1
-	    }
-	};
-
-	exports.default = constants;
-
-/***/ },
+/* 495 */,
 /* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -63033,6 +63016,24 @@
 		return module;
 	}
 
+
+/***/ },
+/* 505 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var constants = {
+	    sex: {
+	        male: 0,
+	        female: 1
+	    }
+	};
+
+	exports.default = constants;
 
 /***/ }
 /******/ ]);
