@@ -115,7 +115,7 @@ module.exports = React.createClass({
                                     value={this.state.surname}
                                 />
                                 <Input addonAfter="years" label="Age"
-                                    type="text" readOnly value={this.calculateAge()}
+                                    readOnly type="text" value={this.calculateAge()}
                                 />
                                 <Input label="Email" onChange={this.emailChanged} type="email"
                                     value={this.state.email}

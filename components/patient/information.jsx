@@ -20,24 +20,35 @@ module.exports = React.createClass({
             <Panel header="Information">
                 <Row>
                     <Col md={6}>
-                        <Input label="Name" type="text"
-                            readOnly value={this.props.patient.name} />
-                        <label>{' Date of birth'}</label>
-                        <Input type="date" readOnly value={this.props.patient.dateOfBirth} />
-                        <Input label="Telephone" type="text" readOnly value={this.props.patient.telephone} />
+                        <Input label="Name" readOnly type="text"
+                            value={this.props.patient.name}
+                        />
+                        <label>{'Date of birth'}</label>
+                        <Input readOnly type="date" value={this.props.patient.dateOfBirth} />
+                        <Input label="Telephone" readOnly type="text"
+                            value={this.props.patient.telephone}
+                        />
                     </Col>
                     <Col md={6}>
-                        <Input label="Surname" type="text" readOnly value={this.props.patient.surname} />
-                        <Input addonAfter="years" label="Age" type="text" readOnly value={this.calculateAge()} />
-                        <Input label="Email" type="email" readOnly value={this.props.patient.email} />
+                        <Input label="Surname" readOnly type="text"
+                            value={this.props.patient.surname}
+                        />
+                        <Input addonAfter="years" label="Age" readOnly
+                            type="text" value={this.calculateAge()}
+                        />
+                        <Input label="Email" readOnly type="email"
+                            value={this.props.patient.email}
+                        />
                     </Col>
                 </Row>
                 <div className="input-group">
                     <label>{' Gender'}</label>
-                    <Input checked={this.props.patient.sex === Enums.sex.male} disabled value={Enums.sex.male}
-                        label="Male" name="sex" type="radio" />
-                    <Input checked={this.props.patient.sex === Enums.sex.female} label="Female" name="sex"
-                        type="radio" disabled value={Enums.sex.female} />
+                    <Input checked={this.props.patient.sex === Enums.sex.male} disabled label="Male"
+                        name="sex" type="radio" value={Enums.sex.male}
+                    />
+                    <Input checked={this.props.patient.sex === Enums.sex.female} disabled label="Female"
+                        name="sex" type="radio" value={Enums.sex.female}
+                    />
                 </div>
             </Panel>
 		);

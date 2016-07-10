@@ -55,21 +55,38 @@ module.exports = React.createClass({
             <Panel header={`Measurement ${this.props.measurement.date}`}>
                 <Row>
                     <Col md={6}>
-                        <Input addonAfter="kg" label="Weight" type="number"
-                            readOnly value={this.props.measurement.weight}
+                        <Input addonAfter="kg" label="Weight" readOnly
+                            type="number" value={this.props.measurement.weight}
                         />
-                        <Input addonAfter="cm" label="Height" type="number" readOnly value={this.props.measurement.height} />
-                        <Input label="Physical activity rate" type="number" readOnly value={this.props.measurement.physicalActivityRate} />
-                        <Input addonAfter="cm" label="Waist Circumference" type="number"
-                            readOnly value={this.props.measurement.waistCircumference} />
-                        <Input addonAfter="cm" label="Hip Circumference" type="number" readOnly value={this.props.measurement.hipCircumference} />
+                        <Input addonAfter="cm" label="Height" readOnly
+                            type="number" value={this.props.measurement.height}
+                        />
+                        <Input label="Physical activity rate" readOnly type="number"
+                            value={this.props.measurement.physicalActivityRate}
+                        />
+                        <Input addonAfter="cm" label="Waist Circumference" readOnly
+                            type="number" value={this.props.measurement.waistCircumference}
+                        />
+                        <Input addonAfter="cm" label="Hip Circumference" readOnly
+                            type="number" value={this.props.measurement.hipCircumference}
+                        />
                     </Col>
                     <Col md={6}>
-                        <Input label="BMI (Body Mass Index)" type="number" readOnly value={this.calculateBmi()} />
-                        <Input addonAfter="kcal / day" label="BMR (Basal Metabolic Rate)" type="number" readOnly value={this.calculateBmr()} />
-                        <Input addonAfter="kcal / day" label="TMR (Total Metabolic Rate)" type="number" readOnly value={this.calculateTmr()} />
-                        <Input label="WHR (Waist to Hip Ratio)" type="number" readOnly value={this.calculateWhr()} />
-                        <Input label="Obesity Type" type="text" readOnly value={this.getObesityType()} />
+                        <Input label="BMI (Body Mass Index)" readOnly type="number"
+                            value={this.calculateBmi()}
+                        />
+                        <Input addonAfter="kcal / day" label="BMR (Basal Metabolic Rate)" readOnly
+                            type="number" value={this.calculateBmr()}
+                        />
+                        <Input addonAfter="kcal / day" label="TMR (Total Metabolic Rate)" readOnly
+                            type="number" value={this.calculateTmr()}
+                        />
+                        <Input label="WHR (Waist to Hip Ratio)" readOnly type="number"
+                            value={this.calculateWhr()}
+                        />
+                        <Input label="Obesity Type" readOnly type="text"
+                            value={this.getObesityType()}
+                        />
                     </Col>
                 </Row>
             </Panel>
