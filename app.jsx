@@ -6,7 +6,7 @@ import {Route, Router, browserHistory} from 'react-router';
 import Calculator from './pages/calculator.jsx';
 import NavigationBar from './components/navigationBar.jsx';
 import NotFound from './pages/notFound.jsx';
-// import Patient from './pages/patient.jsx';
+import Notifications from './src/frontend/components/notifications.jsx';
 import Patients from './pages/patients.jsx';
 import Products from './pages/products.jsx';
 import React from 'react';
@@ -22,6 +22,11 @@ const App = React.createClass({
             <div>
                 <NavigationBar/>
                 <Grid>
+                    <Row>
+                        <Col>
+                            <Notifications/>
+                        </Col>
+                    </Row>
                     <Row>
                         <Col>
                             {this.props.children}

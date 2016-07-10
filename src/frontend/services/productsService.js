@@ -1,12 +1,17 @@
 'use strict';
 
+import checkForErrors from '../checkForErrors';
+import notifyAboutErrors from '../notifyAboutErrors';
+
 const productsService = {
     getAll () {
         return fetch('http://localhost:3030/api/product', {
             method: 'get'
-        }).then((response) => {
+        }).then(checkForErrors)
+        .then((response) => {
             return response.json();
-        });
+        })
+        .catch(notifyAboutErrors);
     },
 
     getById (id) {
