@@ -78095,7 +78095,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactBootstrap = __webpack_require__(1);
+	var _reactable = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"reactable\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -78107,177 +78107,36 @@
 	    },
 
 	    render: function render() {
+	        var columns = [{
+	            key: 'id',
+	            label: 'Id'
+	        }, {
+	            key: 'name',
+	            label: 'Name'
+	        }, {
+	            key: 'energyValue',
+	            label: 'Energy Value [kcal]'
+	        }, {
+	            key: 'protein',
+	            label: 'Protein [g]'
+	        }, {
+	            key: 'fat',
+	            label: 'Fat [g]'
+	        }, {
+	            key: 'carbohydrates',
+	            label: 'Carbohydrates [g]'
+	        }, {
+	            key: 'fiber',
+	            label: 'Fiber [g]'
+	        }];
+
 	        return _react2.default.createElement(
-	            _reactBootstrap.Table,
-	            { hover: true, striped: true },
-	            _react2.default.createElement(
-	                'thead',
-	                null,
-	                _react2.default.createElement(
-	                    'tr',
-	                    null,
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Name'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Energy Value [kcal]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Protein [g]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Fat [g]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Carbohydrates [g]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Fiber [g]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Sodium [mg]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Potasium [mg]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Calcium [mg]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Phosphorus [mg]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Iron [mg]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Magnesium [mg]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Vitamin A [μg]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Beta Carotene [μg]'
-	                    ),
-	                    _react2.default.createElement(
-	                        'td',
-	                        null,
-	                        'Vitamin E [mg]'
-	                    )
-	                )
-	            ),
-	            _react2.default.createElement(
-	                'tbody',
-	                null,
-	                this.props.products.map(function (product) {
-	                    return _react2.default.createElement(
-	                        'tr',
-	                        { key: product.id },
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.name
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.energyValue
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.protein
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.fat
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.carbohydrates
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.fiber
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.sodium
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.potassium
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.calcium
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.phosphorus
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.iron
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.magnesium
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.vitaminA
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.betaCarotene
-	                        ),
-	                        _react2.default.createElement(
-	                            'td',
-	                            null,
-	                            product.vitaminE
-	                        )
-	                    );
-	                })
-	            )
+	            'div',
+	            { className: 'table-responsive' },
+	            _react2.default.createElement(_reactable.Table, { className: 'table table-condensed  table-hover table-striped', columns: columns, currentPage: 1,
+	                data: this.props.products, filterable: ['id', 'name'], itemsPerPage: 16,
+	                noDataText: 'No records.', pageButtonLimit: 10, sortable: true
+	            })
 	        );
 	    }
 	});
