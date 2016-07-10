@@ -38,7 +38,7 @@ ReactDOM.render((
         <Route component={App} path="/">
             {/* <Route path="/patient/:patientId" component={Patient}/>*/}
             {/* <Route path="/patient/:patientId/menu/:menuId" component={Menu}/>*/}
-            <Route component={Patients} path="/patients/"/>
+            <Route component={Patients} path="/patients"/>
             <Route component={Products} path="/products"/>
             <Route component={Calculator} path="/calculator"/>
             <Route component={NotFound} path="*"/>
