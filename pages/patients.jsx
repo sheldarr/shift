@@ -4,7 +4,7 @@ import {Glyphicon, Panel} from 'react-bootstrap';
 
 import CreatePatient from '../components/patient/create.jsx';
 import PatientsList from '../components/patientsList.jsx';
-import PatientsService from '../services/patientsService';
+import PatientsService from '../src/frontend/services/patientsService';
 import React from 'react';
 import SearchBar from '../components/searchBar.jsx';
 import _ from 'lodash';

@@ -3,7 +3,7 @@
 import {Button, Glyphicon} from 'react-bootstrap';
 
 import ConfirmationModal from './confirmationModal.jsx';
-import PatientsService from '../services/patientsService';
+import PatientsService from '../src/frontend/services/patientsService';
 import React from 'react';
 
 module.exports = React.createClass({

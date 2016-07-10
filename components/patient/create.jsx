@@ -2,8 +2,9 @@
 
 import {Button, Col, Glyphicon, Input, Modal, Row} from 'react-bootstrap';
 
-import Enums from '../../api/enums';
-import PatientsService from '../../services/patientsService';
+import Contants from '../../src/commons/constants/index';
+// import Enums from '../../api/enums';
+import PatientsService from '../../src/frontend/services/patientsService';
 import React from 'react';
 import moment from 'moment';
 
@@ -57,7 +58,7 @@ module.exports = React.createClass({
         });
     },
 
-    nameChange (event) {
+    nameChanged (event) {
         this.setState({name: event.target.value});
     },
 
@@ -124,15 +125,15 @@ module.exports = React.createClass({
                         </Row>
                         <div className="input-group">
                             <label>{' Gender'}</label>
-                            <Input checked={this.state.sex === Enums.sex.male} label="Male" name="sex"
+                            <Input checked={this.state.sex === Contants.sex.male} label="Male" name="sex"
                                 onChange={this.sexChanged}
                                 type="radio"
-                                value={Enums.sex.male}
+                                value={Contants.sex.male}
                             />
-                            <Input checked={this.state.sex === Enums.sex.female} label="Female" name="sex"
+                            <Input checked={this.state.sex === Contants.sex.female} label="Female" name="sex"
                                 onChange={this.sexChanged}
                                 type="radio"
-                                value={Enums.sex.female}
+                                value={Contants.sex.female}
                             />
                         </div>
                     </Modal.Body>

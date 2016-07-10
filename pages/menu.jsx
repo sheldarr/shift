@@ -2,8 +2,8 @@
 
 import {Glyphicon, Panel} from 'react-bootstrap';
 
-import MenuService from '../services/menuService';
-import PatientService from '../services/patientsService';
+import MenuService from '../src/frontend/services/menuService';
+import PatientService from '../src/frontend/services/patientsService';
 import React from 'react';
 
 module.exports = React.createClass({
