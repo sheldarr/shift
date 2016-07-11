@@ -1,36 +1,22 @@
 'use strict';
 
+import fetchService from './fetchService';
+
 const patientsService = {
     getAll () {
-        return fetch('http://localhost:3030/api/patient', {
-            method: 'get'
-        }).then((response) => {
-            return response.json();
-        });
+        return fetchService.get('http://localhost:3030/api/patient');
     },
 
     getById (id) {
-        return fetch(`http://localhost:3030/api/patient/${id}`, {
-            method: 'get'
-        }).then((response) => {
-            return response.json();
-        });
+        return fetchService.get(`http://localhost:3030/api/patient/${id}`);
     },
 
     create (patient) {
-        return fetch('http://localhost:3030/api/patient', {
-            body: JSON.stringify(patient),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'post'
-        });
+        return fetchService.post('http://localhost:3030/api/patient', patient);
     },
 
     delete (id) {
-        return fetch(`http://localhost:3030/api/patient/${id}`, {
-            method: 'delete'
-        });
+        return fetchService.delete(`http://localhost:3030/api/patient/${id}`);
     }
 };
 

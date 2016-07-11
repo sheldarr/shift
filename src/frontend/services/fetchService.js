@@ -22,6 +22,13 @@ const notifyAboutErrors = (error) => {
 };
 
 const fetchService = {
+    delete (url) {
+        return fetch(url, {method: 'delete'})
+            .then(checkForErrors)
+            .then(parseAsJson)
+            .catch(notifyAboutErrors);
+    },
+
     get (url) {
         return fetch(url, {method: 'get'})
             .then(checkForErrors)

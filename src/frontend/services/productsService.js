@@ -12,13 +12,7 @@ const productsService = {
     },
 
     create (product) {
-        return fetch('http://localhost:3030/api/product', {
-            body: JSON.stringify(product),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'post'
-        });
+        return fetchService.post('http://localhost:3030/api/product', product);
     }
 };
 

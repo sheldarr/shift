@@ -1,22 +1,14 @@
 'use strict';
 
+import fetchService from './fetchService';
+
 const menuService = {
     create (patientId, menu) {
-        return fetch(`http://localhost:3030/api/patient/${patientId}/menu`, {
-            body: JSON.stringify(menu),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'post'
-        });
+        return fetchService.post(`http://localhost:3030/api/patient/${patientId}/menu`, menu);
     },
 
     getById (patientId, menuId) {
-        return fetch(`http://localhost:3030/api/patient/${patientId}/menu/${menuId}`, {
-            method: 'get'
-        }).then((response) => {
-            return response.json();
-        });
+        return fetchService.get(`http://localhost:3030/api/patient/${patientId}/menu/${menuId}`);
     }
 };
 
