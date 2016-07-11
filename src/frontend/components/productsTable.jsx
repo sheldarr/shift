@@ -3,8 +3,9 @@
 import React from 'react';
 import {Table} from 'reactable';
 
-module.exports = React.createClass({
+const ProductsTable = React.createClass({
     propTypes: {
+        filterBy: React.PropTypes.string.isRequired,
         products: React.PropTypes.array.isRequired
     },
 
@@ -43,10 +44,14 @@ module.exports = React.createClass({
         return (
             <div className="table-responsive">
                 <Table className="table table-condensed  table-hover table-striped" columns={columns} currentPage={1}
-                    data={this.props.products} filterable={['id', 'name']} itemsPerPage={16}
+                    data={this.props.products} defaultSort={{column: 'name', direction: 'asc'}} filterBy={this.props.filterBy}
+                    filterable={['id', 'name']} hideFilterInput itemsPerPage={16}
                     noDataText="No records." pageButtonLimit={10} sortable
                 />
             </div>
         );
     }
 });
+
+export default ProductsTable;
+
