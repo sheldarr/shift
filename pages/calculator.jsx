@@ -116,12 +116,12 @@ module.exports = React.createClass({
                             </FormGroup>
                             <FormGroup>
                                 <ControlLabel>{'Gender'}</ControlLabel>
-                                <Radio checked={this.state.sex === constants.sex.male} name="sex"
+                                <Radio checked={this.state.sex == constants.sex.male} name="sex"
                                     onChange={this.sexChanged} value={constants.sex.male}
                                 >
                                 {'Male'}
                                 </Radio>
-                                <Radio checked={this.state.sex === constants.sex.female} name="sex"
+                                <Radio checked={this.state.sex == constants.sex.female} name="sex"
                                     onChange={this.sexChanged} value={constants.sex.female}
                                 >
                                 {'Female'}
