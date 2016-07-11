@@ -1,0 +1,14 @@
+table .reactable-header-sortable {
+}
+
+table .reactable-header-sort-asc:after {
+    content: "\f0de";
+    font-family: FontAwesome;
+    padding-left: 0.5em;
+}
+
+table .reactable-header-sort-desc:after {
+    content: "\f0dd";
+    font-family: FontAwesome;
+    padding-left: 0.5em;
+}
