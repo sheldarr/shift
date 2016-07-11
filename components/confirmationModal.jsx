@@ -1,6 +1,6 @@
 'use strict';
 
-import {Button, Glyphicon, Modal} from 'react-bootstrap';
+import {Button, Modal} from 'react-bootstrap';
 
 import React from 'react';
 
@@ -31,11 +31,9 @@ const ConfirmationModal = React.createClass({
                 </Modal.Body>
                 <Modal.Footer>
                     <Button bsStyle="success" onClick={this.confirm}>
-                        <Glyphicon glyph="ok"/>
                         {'Confirm'}
                     </Button>
                     <Button bsStyle="danger" onClick={this.cancel} style={{marginLeft: 20}}>
-                        <Glyphicon glyph="remove"/>
                         {'Cancel'}
                     </Button>
                 </Modal.Footer>

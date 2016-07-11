@@ -1,6 +1,6 @@
 'use strict';
 
-import {FormControl, FormGroup, Glyphicon, InputGroup} from 'react-bootstrap';
+import {FormControl, FormGroup, InputGroup} from 'react-bootstrap';
 
 import React from 'react';
 
@@ -16,7 +16,6 @@ module.exports = React.createClass({
         return (
             <FormGroup>
                 <InputGroup>
-                    <InputGroup.Addon><Glyphicon glyph="search"/></InputGroup.Addon>
                     <FormControl onChange={this.handleChange} placeholder={this.props.placeholder} type="text"/>
                 </InputGroup>
             </FormGroup>

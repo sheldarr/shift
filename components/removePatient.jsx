@@ -1,6 +1,6 @@
 'use strict';
 
-import {Button, Glyphicon} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 
 import ConfirmationModal from './confirmationModal.jsx';
 import PatientsService from '../src/frontend/services/patientsService';
@@ -47,7 +47,7 @@ module.exports = React.createClass({
         return (
             <div className="pull-right">
                 <Button bsStyle="danger" onClick={this.showModal}>
-                    <Glyphicon glyph="remove"/> {'Remove'}
+                    {'Remove'}
                 </Button>
                 <ConfirmationModal body={`Do you really want to remove patient ${this.props.patient.name}?`} onHide={this.hideModal} show={this.state.showModal}
                     title="Remove patient"

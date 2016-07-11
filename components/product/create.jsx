@@ -1,6 +1,6 @@
 'use strict';
 
-import {Button, Col, ControlLabel, FormControl, FormGroup, Glyphicon, InputGroup, Modal, Row} from 'react-bootstrap';
+import {Button, Col, ControlLabel, FormControl, FormGroup, InputGroup, Modal, Row} from 'react-bootstrap';
 
 import ProductsService from '../../src/frontend/services/productsService';
 import React from 'react';
@@ -174,7 +174,6 @@ const CreateProduct = React.createClass({
         return (
             <div className="pull-right">
                 <Button bsStyle="success" onClick={this.showModal} style={{marginLeft: 20}}>
-                    <Glyphicon glyph="plus"/>
                     {'Create product'}
                 </Button>
                 <Modal onHide={this.hideModal} show={this.state.showModal}>
@@ -361,11 +360,9 @@ const CreateProduct = React.createClass({
                     </Modal.Body>
                     <Modal.Footer>
                         <Button bsStyle="success" onClick={this.createProduct}>
-                            <Glyphicon glyph="plus"/>
                             {'Create'}
                         </Button>
                         <Button bsStyle="danger" onClick={this.hideModal} style={{marginLeft: 20}}>
-                            <Glyphicon glyph="remove"/>
                             {'Cancel'}
                         </Button>
                     </Modal.Footer>

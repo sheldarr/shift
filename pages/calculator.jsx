@@ -1,6 +1,6 @@
 'use strict';
 
-import {Col, ControlLabel, FormControl, FormGroup, Glyphicon, InputGroup, Panel, Radio, Row} from 'react-bootstrap';
+import {Col, ControlLabel, FormControl, FormGroup, InputGroup, Panel, Radio, Row} from 'react-bootstrap';
 
 import IndexCalculator from '../src/commons/indexCalculator';
 import React from 'react';
@@ -65,7 +65,7 @@ module.exports = React.createClass({
     },
     render () {
         return (
-            <Panel header={<span><Glyphicon glyph="heart"/>{' Calculator'}</span>}>
+            <Panel header={'Calculator'}>
                 <Row>
                     <Col md={6}>
                         <Panel header="Data">

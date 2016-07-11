@@ -1,6 +1,6 @@
 'use strict';
 
-import {Button, Col, Glyphicon, Panel, Row} from 'react-bootstrap';
+import {Button, Col, Panel, Row} from 'react-bootstrap';
 
 import CreateMenu from '../components/createMenu';
 import Enums from '../api/enums';
@@ -52,7 +52,7 @@ module.exports = React.createClass({
 
     render () {
         return (
-            <Panel header={<span><Glyphicon glyph="user" /> {this.state.patient.name}</span>}>
+            <Panel header={this.state.patient.name}>
                 <Row>
                     <Col md={6}>
                         <PatientInformation patient={this.state.patient} />
@@ -74,7 +74,7 @@ module.exports = React.createClass({
                 <Row>
                     <Col md={12}>
                         <Button bsStyle="primary" href="#/patients">
-                            <Glyphicon glyph="arrow-left" /> {'Back'}
+                            {'Back'}
                         </Button>
                     </Col>
                 </Row>

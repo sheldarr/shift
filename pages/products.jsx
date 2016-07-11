@@ -1,6 +1,6 @@
 'use strict';
 
-import {Glyphicon, Panel} from 'react-bootstrap';
+import {Panel} from 'react-bootstrap';
 
 import CreateProduct from '../components/product/create.jsx';
 import ProductsList from '../components/productsList.jsx';
@@ -40,7 +40,7 @@ const Products = React.createClass({
 
     render () {
         return (
-            <Panel header={<span><Glyphicon glyph="list"/>{' Products'}</span>}>
+            <Panel header={'Products'}>
                 <CreateProduct onHide={this.refreshList}/>
                 <SearchBar onChange={this.searchExpressionChanged} placeholder="Search product" searchExpression={this.state.searchExpression}/>
                 <ProductsList products={this.state.filteredProducts}/>

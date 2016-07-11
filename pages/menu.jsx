@@ -1,6 +1,6 @@
 'use strict';
 
-import {Glyphicon, Panel} from 'react-bootstrap';
+import {Panel} from 'react-bootstrap';
 
 import MenuService from '../src/frontend/services/menuService';
 import PatientService from '../src/frontend/services/patientsService';
@@ -50,7 +50,7 @@ module.exports = React.createClass({
 
     render () {
         return (
-            <Panel header={<span><Glyphicon glyph="list"/>{this.state.menu.name} </span>}/>
+            <Panel header={this.state.menu.name}/>
         );
     }
 });

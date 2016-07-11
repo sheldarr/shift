@@ -1,9 +1,8 @@
 'use strict';
 
-import {Button, Col, Glyphicon, Input, Modal, Row} from 'react-bootstrap';
+import {Button, Col, Input, Modal, Row} from 'react-bootstrap';
 
 import Contants from '../../src/commons/constants/index';
-// import Enums from '../../api/enums';
 import PatientsService from '../../src/frontend/services/patientsService';
 import React from 'react';
 import moment from 'moment';
@@ -91,7 +90,7 @@ module.exports = React.createClass({
         return (
             <div className="pull-right">
                 <Button bsStyle="success" onClick={this.showModal} style={{marginLeft: 20}} >
-                    <Glyphicon glyph="plus"/> {' Create patient'}
+                    {' Create patient'}
                 </Button>
                 <Modal onHide={this.hideModal} show={this.state.showModal} >
                     <Modal.Header closeButton>
@@ -139,10 +138,10 @@ module.exports = React.createClass({
                     </Modal.Body>
                     <Modal.Footer>
                         <Button bsStyle="success" onClick={this.createPatient}>
-                            <Glyphicon glyph="plus"/> {' Create'}
+                            {' Create'}
                         </Button>
                         <Button bsStyle="danger" onClick={this.hideModal} style={{marginLeft: 20}}>
-                            <Glyphicon glyph="remove"/> {' Cancel'}
+                            {' Cancel'}
                         </Button>
                     </Modal.Footer>
                 </Modal>

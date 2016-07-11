@@ -1,6 +1,6 @@
 'use strict';
 
-import {Glyphicon, Panel} from 'react-bootstrap';
+import {Panel} from 'react-bootstrap';
 
 import CreatePatient from '../components/patient/create.jsx';
 import PatientsList from '../components/patientsList.jsx';
@@ -41,7 +41,7 @@ const Patients = React.createClass({
 
     render () {
         return (
-            <Panel header={<span><Glyphicon glyph="list" />{' Patients'}</span>}>
+            <Panel header={'Patients'}>
                 <CreatePatient onHide={this.refreshList} />
                 <SearchBar onChange={this.searchExpressionChanged} placeholder="Search patient" searchExpression={this.state.searchExpression}/>
                 <PatientsList onChange={this.refreshList} patients={this.state.filteredPatients}/>

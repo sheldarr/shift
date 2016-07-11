@@ -1,6 +1,6 @@
 'use string';
 
-import {Button, Glyphicon, Table} from 'react-bootstrap';
+import {Button, Table} from 'react-bootstrap';
 
 import React from 'react';
 
@@ -23,7 +23,7 @@ module.exports = React.createClass({
                     </tr>
                 </thead>
                 <tbody>
-                {this.props.menus.map((menu) =>
+                {this.props.menus.map((menu) => 
                     <tr key={menu.id}>
                         <td>
                             {menu.id}
@@ -40,8 +40,7 @@ module.exports = React.createClass({
                         <td>
                             <div className="pull-right">
                                 <Button bsStyle="primary" href={`#/patient/${this.props.patientId}/menu/${menu.id}`}>
-                                    style={{marginRight: 10}}
-                                    <Glyphicon glyph="pencil" /> {'Edit'}
+                                    {'Edit'}
                                 </Button>
                             </div>
                         </td>

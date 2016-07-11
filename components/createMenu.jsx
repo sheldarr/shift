@@ -1,6 +1,6 @@
 'use strict';
 
-import {Button, Glyphicon, Input, Modal} from 'react-bootstrap';
+import {Button, Input, Modal} from 'react-bootstrap';
 
 import MenuService from '../services/menuService';
 import React from 'react';
@@ -69,7 +69,7 @@ module.exports = React.createClass({
         return (
             <div>
                 <Button block bsStyle="success" onClick={this.showModal} >
-                    <Glyphicon glyph="plus"/> {'Create menu'}
+                    {'Create menu'}
                 </Button>
                 <Modal onHide={this.hideModal} show={this.state.showModal}>
                     <Modal.Header closeButton>
@@ -87,10 +87,10 @@ module.exports = React.createClass({
                     </Modal.Body>
                     <Modal.Footer>
                         <Button bsStyle="success" onClick={this.createMenu}>
-                            <Glyphicon glyph="plus"/> {'Create'}
+                            {'Create'}
                         </Button>
                         <Button bsStyle="danger" onClick={this.hideModal} style={{marginLeft: 20}}>
-                            <Glyphicon glyph="remove"/> {'Cancel'}
+                            {'Cancel'}
                         </Button>
                     </Modal.Footer>
                 </Modal>

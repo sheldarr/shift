@@ -1,6 +1,6 @@
 'use string';
 
-import {Button, Glyphicon, Table} from 'react-bootstrap';
+import {Button, Table} from 'react-bootstrap';
 
 import React from 'react';
 import RemovePatient from './removePatient.jsx';
@@ -49,7 +49,7 @@ module.exports = React.createClass({
                             <td>
                                 <div className="pull-right">
                                     <Button bsStyle="primary" href={`#/patient/${patient.id}`} style={{marginRight: 10}}>
-                                        <Glyphicon glyph="option-horizontal" /> {'Details'}
+                                        {'Details'}
                                     </Button>
                                     <RemovePatient onRemove={this.props.onChange} patient={patient}/>
                                 </div>
