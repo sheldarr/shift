@@ -1,6 +1,8 @@
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const fs = require('fs');
+const i18n = require('i18n');
 const morgan = require('morgan');
 const path = require('path');
 const process = require('process');
@@ -11,7 +13,24 @@ const productsApi = require('./src/backend/productsApi');
 
 const port = 3030;
 
-winston.add(winston.transports.File, {filename: path.resolve(__dirname, 'var', 'logs', 'server.log')});
+i18n.configure({
+    cookie: 'language',
+    defaultLocale: 'pl',
+    directory: path.resolve(__dirname, 'public', 'locales'),
+    logDebugFn (message) {
+        winston.debug(message);
+    },
+    logWarnFn (message) {
+        winston.warn(message);
+    },
+    logErrorFn (message) {
+        winston.error(message);
+    }
+});
+
+winston.add(winston.transports.File, {
+    filename: path.resolve(__dirname, 'var', 'logs', 'server.log')
+});
 
 const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'var', 'logs', 'api.log'), {
     flags: 'a'
@@ -23,6 +42,8 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(i18n.init);
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');

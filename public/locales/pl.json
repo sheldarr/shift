@@ -1,0 +1,10 @@
+{
+    "pages": {
+        "calculator": {
+            "data": "Data",
+            "results": "Results",
+            "weight": "Weight",
+            "height": "Height"
+        }
+    }
+}
