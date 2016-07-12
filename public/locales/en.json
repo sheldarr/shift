@@ -1,9 +1,0 @@
-{
-	"calculator": {
-		"hello": "hello",
-		"world": "world"
-	},
-	"calculator.hello": "calculator.hello",
-	"calculator.world": "calculator.world",
-	"": ""
-}

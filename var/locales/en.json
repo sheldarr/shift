@@ -1,10 +1,33 @@
 {
     "pages": {
         "calculator": {
+            "age": "Age",
+            "calculator": "Calculator",
             "data": "Data",
             "results": "Results",
             "weight": "Weight",
-            "height": "Height"
+            "height": "Height",
+            "gender": "Gender",
+            "obesityType": "Obesity Type",
+            "bmi": "BMI (Body Mass Index)",
+            "bmr": "BMR (Basal Metabolic Rate)",
+            "tmr": "TMR (Total Metabolic Rate)",
+            "whr": "WHR (Waist to Hip Ratio)",
+            "physicalActivityRate": "Physical Activity Rate",
+            "waistCircumference": "Waist Circumference",
+            "hipCircumference": "Hip Circumference"
+        }
+    },
+    "commons": {
+        "genders": {
+            "male": "male",
+            "female": "female"
+        },
+        "units": {
+            "cm": "cm",
+            "kg": "kg",
+            "years": "years",
+            "kcalPerDay": "kcal / day"
         }
     }
 }
