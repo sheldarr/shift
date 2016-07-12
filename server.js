@@ -36,35 +36,35 @@ const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'var', 'logs',
     flags: 'a'
 });
 
-const app = express();
+const application = express();
 
-app.use(bodyParser.urlencoded({
+application.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(bodyParser.json());
-app.use(cookieParser());
-app.use(i18n.init);
+application.use(bodyParser.json());
+application.use(cookieParser());
+application.use(i18n.init);
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,OPTIONS');
+application.use((request, response, next) => {
+    response.header('Access-Control-Allow-Origin', '*');
+    response.header('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,OPTIONS');
     next();
 });
 
-app.use(morgan('combined', {
+application.use(morgan('combined', {
     stream: apiLogStream
 }));
 
-app.use('/bin', express.static('bin'));
-app.use('/public', express.static('public'));
+application.use('/bin', express.static('bin'));
+application.use('/public', express.static('public'));
 
-app.use('/api', patientsApi);
-app.use('/api', productsApi);
+application.use('/api', patientsApi);
+application.use('/api', productsApi);
 
-app.get('*', (request, response) => {
+application.get('*', (request, response) => {
     response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
-app.listen(port, () => {
+application.listen(port, () => {
     winston.info(`PID ${process.pid} Server is running on port: ${port}`);
 });
