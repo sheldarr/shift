@@ -1,10 +1,9 @@
 {
-    "pages": {
-        "calculator": {
-            "data": "Data",
-            "results": "Results",
-            "weight": "Weight",
-            "height": "Height"
-        }
-    }
+	"calculator": {
+		"hello": "hello",
+		"world": "world"
+	},
+	"calculator.hello": "calculator.hello",
+	"calculator.world": "calculator.world",
+	"": ""
 }

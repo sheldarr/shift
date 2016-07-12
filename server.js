@@ -10,13 +10,14 @@ const winston = require('winston');
 
 const patientsApi = require('./src/backend/patientsApi');
 const productsApi = require('./src/backend/productsApi');
+const resourcesApi = require('./src/backend/resourcesApi');
 
 const port = 3030;
 
 i18n.configure({
     cookie: 'language',
     defaultLocale: 'pl',
-    directory: path.resolve(__dirname, 'public', 'locales'),
+    directory: path.resolve(__dirname, 'var', 'locales'),
     logDebugFn (message) {
         winston.debug(message);
     },
@@ -25,7 +26,8 @@ i18n.configure({
     },
     logErrorFn (message) {
         winston.error(message);
-    }
+    },
+    objectNotation: true
 });
 
 winston.add(winston.transports.File, {
@@ -60,6 +62,7 @@ application.use('/public', express.static('public'));
 
 application.use('/api', patientsApi);
 application.use('/api', productsApi);
+application.use('/api', resourcesApi);
 
 application.get('*', (request, response) => {
     response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
