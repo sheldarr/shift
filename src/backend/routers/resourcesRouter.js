@@ -1,8 +1,8 @@
 const express = require('express');
 
-const router = new express.Router();
+const resourcesRouter = new express.Router();
 
-router.get('/resources', (request, response) => {
+resourcesRouter.get('/resources', (request, response) => {
     const resources = Object.assign({},
         response.__('commons'),
         response.__('pages')
@@ -11,7 +11,7 @@ router.get('/resources', (request, response) => {
     response.json(resources);
 });
 
-router.get('/resources/:page', (request, response) => {
+resourcesRouter.get('/resources/:page', (request, response) => {
     const resources = Object.assign({},
         response.__('commons'),
         response.__(`pages.${request.params.page}`)
@@ -20,4 +20,4 @@ router.get('/resources/:page', (request, response) => {
     response.json(resources);
 });
 
-module.exports = router;
+module.exports = resourcesRouter;

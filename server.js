@@ -8,9 +8,9 @@ const path = require('path');
 const process = require('process');
 const winston = require('winston');
 
-const patientsApi = require('./src/backend/patientsApi');
-const productsApi = require('./src/backend/productsApi');
-const resourcesApi = require('./src/backend/resourcesApi');
+const patientsRouter = require('./src/backend/routers/patientsRouter');
+const productsRouter = require('./src/backend/routers/productsRouter');
+const resourcesRouter = require('./src/backend/routers/resourcesRouter');
 
 const port = 3030;
 
@@ -18,13 +18,13 @@ i18n.configure({
     cookie: 'language',
     defaultLocale: 'pl',
     directory: path.resolve(__dirname, 'var', 'locales'),
-    logDebugFn(message) {
+    logDebugFn (message) {
         winston.debug(message);
     },
-    logWarnFn(message) {
+    logWarnFn (message) {
         winston.warn(message);
     },
-    logErrorFn(message) {
+    logErrorFn (message) {
         winston.error(message);
     },
     objectNotation: true
@@ -60,9 +60,9 @@ application.use(morgan('combined', {
 application.use('/bin', express.static('bin'));
 application.use('/public', express.static('public'));
 
-application.use('/api', patientsApi);
-application.use('/api', productsApi);
-application.use('/api', resourcesApi);
+application.use('/api', patientsRouter);
+application.use('/api', productsRouter);
+application.use('/api', resourcesRouter);
 
 application.get('*', (request, response) => {
     response.sendFile(path.resolve(__dirname, 'public', 'index.html'));

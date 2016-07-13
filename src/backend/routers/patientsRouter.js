@@ -1,9 +1,9 @@
 const express = require('express');
 const fs = require('fs');
 
-const router = new express.Router();
+const patientsRouter = new express.Router();
 
-router.get('/patient', (request, response, next) => {
+patientsRouter.get('/patient', (request, response, next) => {
     fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
             return next(error);
@@ -13,7 +13,7 @@ router.get('/patient', (request, response, next) => {
     });
 });
 
-router.get('/patient/:id', (request, response, next) => {
+patientsRouter.get('/patient/:id', (request, response, next) => {
     fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
             return next(error);
@@ -29,7 +29,7 @@ router.get('/patient/:id', (request, response, next) => {
     });
 });
 
-router.post('/patient/', (request, response, next) => {
+patientsRouter.post('/patient/', (request, response, next) => {
     fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
             return next(error);
@@ -45,7 +45,7 @@ router.post('/patient/', (request, response, next) => {
     });
 });
 
-router.delete('/patient/:id', (request, response, next) => {
+patientsRouter.delete('/patient/:id', (request, response, next) => {
     fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
             return next(error);
@@ -65,7 +65,7 @@ router.delete('/patient/:id', (request, response, next) => {
     });
 });
 
-router.post('/patient/:id/menu', (request, response, next) => {
+patientsRouter.post('/patient/:id/menu', (request, response, next) => {
     fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
             return next(error);
@@ -85,7 +85,7 @@ router.post('/patient/:id/menu', (request, response, next) => {
     });
 });
 
-router.get('/patient/:patientId/menu/:menuId', (request, response, next) => {
+patientsRouter.get('/patient/:patientId/menu/:menuId', (request, response, next) => {
     fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
             return next(error);
@@ -105,4 +105,4 @@ router.get('/patient/:patientId/menu/:menuId', (request, response, next) => {
     });
 });
 
-module.exports = router;
+module.exports = patientsRouter;
