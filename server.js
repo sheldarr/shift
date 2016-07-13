@@ -18,13 +18,13 @@ i18n.configure({
     cookie: 'language',
     defaultLocale: 'pl',
     directory: path.resolve(__dirname, 'var', 'locales'),
-    logDebugFn (message) {
+    logDebugFn(message) {
         winston.debug(message);
     },
-    logWarnFn (message) {
+    logWarnFn(message) {
         winston.warn(message);
     },
-    logErrorFn (message) {
+    logErrorFn(message) {
         winston.error(message);
     },
     objectNotation: true
@@ -66,6 +66,16 @@ application.use('/api', resourcesApi);
 
 application.get('*', (request, response) => {
     response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
+
+application.use((error, request, response, next) => {
+    if (response.headersSent) {
+        return next(error);
+    }
+
+    winston.error(error);
+
+    response.status(500);
 });
 
 application.listen(port, () => {

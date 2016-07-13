@@ -3,7 +3,7 @@ import uuid from 'node-uuid';
 
 const checkForErrors = (response) => {
     if (!response.ok) {
-        throw Error(response.statusText);
+        throw new Error(`${response.status} ${response.statusText}`);
     }
 
     return response;
@@ -16,7 +16,7 @@ const parseAsJson = (response) => {
 const notifyAboutErrors = (error) => {
     notificationsService.add({
         id: uuid.v4(),
-        message: error,
+        message: error.message,
         type: 'danger'
     });
 };

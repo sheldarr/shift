@@ -1,23 +1,22 @@
 const express = require('express');
 const fs = require('fs');
-const winston = require('winston');
 
 const router = new express.Router();
 
-router.get('/patient', (request, response) => {
+router.get('/patient', (request, response, next) => {
     fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
-            winston.error(error);
+            return next(error);
         }
 
         response.json(JSON.parse(data));
     });
 });
 
-router.get('/patient/:id', (request, response) => {
+router.get('/patient/:id', (request, response, next) => {
     fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
-            winston.error(error);
+            return next(error);
         }
 
         const patients = JSON.parse(data);
@@ -30,10 +29,10 @@ router.get('/patient/:id', (request, response) => {
     });
 });
 
-router.post('/patient/', (request, response) => {
+router.post('/patient/', (request, response, next) => {
     fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
-            winston.error(error);
+            return next(error);
         }
 
         const patients = JSON.parse(data);
@@ -46,10 +45,10 @@ router.post('/patient/', (request, response) => {
     });
 });
 
-router.delete('/patient/:id', (request, response) => {
+router.delete('/patient/:id', (request, response, next) => {
     fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
-            winston.error(error);
+            return next(error);
         }
 
         const patients = JSON.parse(data);
@@ -66,10 +65,10 @@ router.delete('/patient/:id', (request, response) => {
     });
 });
 
-router.post('/patient/:id/menu', (request, response) => {
+router.post('/patient/:id/menu', (request, response, next) => {
     fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
-            winston.error(error);
+            return next(error);
         }
 
         const patients = JSON.parse(data);
@@ -86,10 +85,10 @@ router.post('/patient/:id/menu', (request, response) => {
     });
 });
 
-router.get('/patient/:patientId/menu/:menuId', (request, response) => {
+router.get('/patient/:patientId/menu/:menuId', (request, response, next) => {
     fs.readFile('./var/data/patients.json', 'utf8', (error, data) => {
         if (error) {
-            winston.error(error);
+            return next(error);
         }
 
         const patients = JSON.parse(data);

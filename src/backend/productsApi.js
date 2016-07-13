@@ -1,23 +1,22 @@
 const express = require('express');
 const fs = require('fs');
-const winston = require('winston');
 
 const router = new express.Router();
 
-router.get('/product', (request, response) => {
+router.get('/product', (request, response, next) => {
     fs.readFile('./var/data/products.json', 'utf8', (error, data) => {
         if (error) {
-            winston.error(error);
+            return next(error);
         }
 
         response.json(JSON.parse(data));
     });
 });
 
-router.post('/product/', (request, response) => {
+router.post('/product/', (request, response, next) => {
     fs.readFile('./var/data/products.json', 'utf8', (error, data) => {
         if (error) {
-            winston.error(error);
+            return next(error);
         }
 
         const products = JSON.parse(data);
