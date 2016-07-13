@@ -23,23 +23,34 @@ const notifyAboutErrors = (error) => {
 
 const fetchService = {
     delete (url) {
-        return fetch(url, {method: 'delete'})
-            .then(checkForErrors)
-            .then(parseAsJson)
-            .catch(notifyAboutErrors);
+        return fetch(url, {
+            headers: {
+                'Accept-Language': navigator.browserLanguage | navigator.language
+            },
+            method: 'delete'
+        })
+        .then(checkForErrors)
+        .then(parseAsJson)
+        .catch(notifyAboutErrors);
     },
 
     get (url) {
-        return fetch(url, {method: 'get'})
-            .then(checkForErrors)
-            .then(parseAsJson)
-            .catch(notifyAboutErrors);
+        return fetch(url, {
+            headers: {
+                'Accept-Language': navigator.browserLanguage | navigator.language
+            },
+            method: 'get'
+        })
+        .then(checkForErrors)
+        .then(parseAsJson)
+        .catch(notifyAboutErrors);
     },
 
     post (url, body) {
         const options = {
             body: JSON.stringify(body),
             headers: {
+                'Accept-Language': navigator.browserLanguage | navigator.language,
                 'Content-Type': 'application/json'
             },
             method: 'post'

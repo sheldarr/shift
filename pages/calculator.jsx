@@ -152,7 +152,7 @@ module.exports = React.createClass({
                         </Panel>
                     </Col>
                     <Col md={6}>
-                        <Panel header="Results">
+                        <Panel header={this.state.resources.results}>
                             <FormGroup>
                                 <ControlLabel>{this.state.resources.bmi}</ControlLabel>
                                 <FormControl readOnly type="number" value={this.calculateBmi()}/>

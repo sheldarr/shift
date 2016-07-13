@@ -15,6 +15,7 @@ const resourcesRouter = require('./src/backend/routers/resourcesRouter');
 const port = 3030;
 
 i18n.configure({
+    autoReload: true,
     cookie: 'language',
     defaultLocale: 'pl',
     directory: path.resolve(__dirname, 'var', 'locales'),
