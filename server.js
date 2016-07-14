@@ -78,7 +78,6 @@ const basicStrategy = new BasicStrategy((username, password, done) => {
 passport.use(basicStrategy);
 
 application.get('*', (request, response) => {
-    winston.info(`Get ${JSON.stringify(request.user)}`);
     response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 

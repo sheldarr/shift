@@ -5,12 +5,13 @@ const winston = require('winston');
 
 const authRouter = new express.Router();
 
-authRouter.get('/auth', (request, response) => {
+authRouter.get('/auth/user', (request, response) => {
     if (request.user) {
         response.json(request.user);
+        return;
     }
 
-    response.sendStatus(401);
+    return response.json({});
 });
 
 authRouter.get('/auth/basic', passport.authenticate('basic'), (request, response) => {

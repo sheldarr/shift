@@ -1,11 +1,25 @@
 'use strict';
 
-import {Nav, NavItem, Navbar} from 'react-bootstrap';
 import {Link} from 'react-router';
+import {Navbar} from 'react-bootstrap';
 
 import React from 'react';
+import authService from '../src/frontend/services/authService';
 
 const NavigationBar = React.createClass({
+    getInitialState () {
+        return {
+            user: undefined
+        };
+    },
+
+    componentWillMount () {
+        authService.getUser()
+            .then((user) => {
+                this.setState(user);
+            });
+    },
+
     render () {
         return (
             <Navbar>
@@ -14,17 +28,20 @@ const NavigationBar = React.createClass({
                         <Link to={'/'}>{'Shift'}</Link>
                     </Navbar.Brand>
                 </Navbar.Header>
-                <Nav>
-                    <NavItem>
+                <Navbar.Collapse>
+                    <Navbar.Text>
+                        {this.state.user ? `Logged in as ${this.state.user.name}` : ''}
+                    </Navbar.Text>
+                    <Navbar.Text>
                         <Link to={'/patients'}>{'Patients'}</Link>
-                    </NavItem>
-                    <NavItem>
+                    </Navbar.Text>
+                    <Navbar.Text>
                         <Link to={'/products'}>{'Products'}</Link>
-                    </NavItem>
-                    <NavItem>
+                    </Navbar.Text>
+                    <Navbar.Text>
                         <Link to={'/calculator'}>{'Calculator'}</Link>
-                    </NavItem>
-                </Nav>
+                    </Navbar.Text>
+                </Navbar.Collapse>
             </Navbar>
         );
     }
