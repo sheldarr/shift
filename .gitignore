@@ -1,6 +1,12 @@
 # Logs
 *.log
 
+# Certificates
+
+*.crt
+*.key
+*.pem
+
 # Bundle
 bundle.js
 

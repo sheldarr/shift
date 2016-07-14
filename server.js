@@ -1,7 +1,10 @@
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const credentialsProvider = require('./src/backend/credentialsProvider');
 const express = require('express');
 const fs = require('fs');
+const http = require('http');
+const https = require('https');
 const i18n = require('i18n');
 const morgan = require('morgan');
 const path = require('path');
@@ -12,7 +15,8 @@ const patientsRouter = require('./src/backend/routers/patientsRouter');
 const productsRouter = require('./src/backend/routers/productsRouter');
 const resourcesRouter = require('./src/backend/routers/resourcesRouter');
 
-const port = 3030;
+const httpPort = 3030;
+const httpsPort = 3033;
 
 i18n.configure({
     autoReload: true,
@@ -48,12 +52,6 @@ application.use(bodyParser.json());
 application.use(cookieParser());
 application.use(i18n.init);
 
-application.use((request, response, next) => {
-    response.header('Access-Control-Allow-Origin', '*');
-    response.header('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,OPTIONS');
-    next();
-});
-
 application.use(morgan('combined', {
     stream: apiLogStream
 }));
@@ -79,6 +77,18 @@ application.use((error, request, response, next) => {
     response.status(500);
 });
 
-application.listen(port, () => {
-    winston.info(`PID ${process.pid} Server is running on port: ${port}`);
+const httpServer = http.createServer(application);
+
+httpServer.listen(httpPort, () => {
+    winston.info(`PID ${process.pid} Http server is running on port: ${httpPort}`);
 });
+
+const credentials = credentialsProvider.get();
+
+if (credentials) {
+    const httpsServer = https.createServer(credentials, application);
+
+    httpsServer.listen(httpsPort, () => {
+        winston.info(`PID ${process.pid} Https server is running on port: ${httpsPort}`);
+    });
+}
