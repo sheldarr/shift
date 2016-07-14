@@ -19,7 +19,7 @@ module.exports = React.createClass({
             surname: '',
             dateOfBirth: moment().format('YYYY-MM-DD'),
             telephone: '',
-            emial: '',
+            email: '',
             sex: 0
         };
     },
