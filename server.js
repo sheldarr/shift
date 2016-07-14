@@ -6,7 +6,7 @@ const express = require('express');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
-const i18n = require('i18n');
+const internationalization = require('./src/backend/middleware/internationalization');
 const morgan = require('morgan');
 const path = require('path');
 const passport = require('passport');
@@ -14,30 +14,13 @@ const process = require('process');
 const session = require('express-session');
 const winston = require('winston');
 
-
+const authRouter = require('./src/backend/routers/authRouter');
 const patientsRouter = require('./src/backend/routers/patientsRouter');
 const productsRouter = require('./src/backend/routers/productsRouter');
 const resourcesRouter = require('./src/backend/routers/resourcesRouter');
 
 const httpPort = 3030;
 const httpsPort = 3033;
-
-i18n.configure({
-    autoReload: true,
-    cookie: 'language',
-    defaultLocale: 'pl',
-    directory: path.resolve(__dirname, 'var', 'locales'),
-    logDebugFn (message) {
-        winston.debug(message);
-    },
-    logWarnFn (message) {
-        winston.warn(message);
-    },
-    logErrorFn (message) {
-        winston.error(message);
-    },
-    objectNotation: true
-});
 
 winston.add(winston.transports.File, {
     filename: path.resolve(__dirname, 'var', 'logs', 'server.log')
@@ -48,6 +31,10 @@ const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'var', 'logs',
 });
 
 const application = express();
+
+application.use(morgan('combined', {
+    stream: apiLogStream
+}));
 
 application.use(bodyParser.urlencoded({
     extended: true
@@ -70,15 +57,12 @@ passport.deserializeUser((id, done) => {
     done(null, {id});
 });
 
-application.use(i18n.init);
-
-application.use(morgan('combined', {
-    stream: apiLogStream
-}));
+application.use(internationalization);
 
 application.use('/bin', express.static('bin'));
 application.use('/public', express.static('public'));
 
+application.use('/', authRouter);
 application.use('/api', patientsRouter);
 application.use('/api', productsRouter);
 application.use('/api', resourcesRouter);
@@ -92,18 +76,6 @@ const basicStrategy = new BasicStrategy((username, password, done) => {
 });
 
 passport.use(basicStrategy);
-
-application.get('/auth/basic', passport.authenticate('basic'), (request, response) => {
-    winston.info(`Login ${JSON.stringify(request.user)}`);
-    response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-});
-
-application.get('/auth/logout', (request, response) => {
-    winston.info(`Logout ${request.user}`);
-
-    request.logOut();
-    response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-});
 
 application.get('*', (request, response) => {
     winston.info(`Get ${JSON.stringify(request.user)}`);
