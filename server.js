@@ -1,3 +1,4 @@
+const BasicStrategy = require('passport-http').BasicStrategy;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const credentialsProvider = require('./src/backend/credentialsProvider');
@@ -8,8 +9,11 @@ const https = require('https');
 const i18n = require('i18n');
 const morgan = require('morgan');
 const path = require('path');
+const passport = require('passport');
 const process = require('process');
+const session = require('express-session');
 const winston = require('winston');
+
 
 const patientsRouter = require('./src/backend/routers/patientsRouter');
 const productsRouter = require('./src/backend/routers/productsRouter');
@@ -50,6 +54,22 @@ application.use(bodyParser.urlencoded({
 }));
 application.use(bodyParser.json());
 application.use(cookieParser());
+application.use(session({
+    resave: true,
+    saveUninitialized: true,
+    secret: 'keyboard cat'
+}));
+application.use(passport.initialize());
+application.use(passport.session());
+
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+    done(null, {id});
+});
+
 application.use(i18n.init);
 
 application.use(morgan('combined', {
@@ -63,7 +83,30 @@ application.use('/api', patientsRouter);
 application.use('/api', productsRouter);
 application.use('/api', resourcesRouter);
 
+const basicStrategy = new BasicStrategy((username, password, done) => {
+    return done(null, {
+        id: '1234-5678-8765-4321',
+        username,
+        password
+    });
+});
+
+passport.use(basicStrategy);
+
+application.get('/auth/basic', passport.authenticate('basic'), (request, response) => {
+    winston.info(`Login ${JSON.stringify(request.user)}`);
+    response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
+
+application.get('/auth/logout', (request, response) => {
+    winston.info(`Logout ${request.user}`);
+
+    request.logOut();
+    response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
+
 application.get('*', (request, response) => {
+    winston.info(`Get ${JSON.stringify(request.user)}`);
     response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
