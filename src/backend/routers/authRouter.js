@@ -1,6 +1,5 @@
 const express = require('express');
 const passport = require('passport');
-const path = require('path');
 const winston = require('winston');
 
 const authRouter = new express.Router();
@@ -15,15 +14,20 @@ authRouter.get('/auth/user', (request, response) => {
 });
 
 authRouter.get('/auth/basic', passport.authenticate('basic'), (request, response) => {
-    winston.info(`Login ${JSON.stringify(request.user)}`);
-    response.sendFile(path.resolve(__dirname, '../../..', 'public', 'index.html'));
+    winston.info(`Basic Login ${JSON.stringify(request.user)}`);
+    response.redirect('/');
+});
+
+authRouter.post('/auth/local', passport.authenticate('basic'), (request, response) => {
+    winston.info(`Local Login ${JSON.stringify(request.user)}`);
+    response.redirect('/');
 });
 
 authRouter.get('/auth/logout', (request, response) => {
     winston.info(`Logout ${request.user}`);
 
     request.logOut();
-    response.sendFile(path.resolve(__dirname, '../../..', 'public', 'index.html'));
+    response.redirect('/');
 });
 
 module.exports = authRouter;
