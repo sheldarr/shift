@@ -4,6 +4,7 @@ import {Col, Grid, Row} from 'react-bootstrap';
 import {Route, Router, browserHistory} from 'react-router';
 
 import Calculator from './pages/calculator.jsx';
+import Login from './src/frontend/pages/login.jsx';
 import NavigationBar from './components/navigationBar.jsx';
 import NotFound from './pages/notFound.jsx';
 import Notifications from './src/frontend/components/notifications.jsx';
@@ -46,6 +47,7 @@ ReactDOM.render((
             <Route component={Patients} path="/patients"/>
             <Route component={Products} path="/products"/>
             <Route component={Calculator} path="/calculator"/>
+            <Route component={Login} path="/login"/>
             <Route component={NotFound} path="*"/>
         </Route>
     </Router>

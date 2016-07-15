@@ -1,5 +1,4 @@
 const fs = require('fs');
-const winston = require('winston');
 
 const usersRepository = {
     getById (id) {
