@@ -26,7 +26,7 @@ authRouter.post('/auth/local', passport.authenticate('basic'), (request, respons
 authRouter.get('/auth/logout', (request, response) => {
     winston.info(`Logout ${request.user}`);
 
-    request.logOut();
+    request.logout();
     response.redirect('/');
 });
 

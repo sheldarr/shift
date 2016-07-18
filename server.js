@@ -37,15 +37,14 @@ const application = express();
 application.use(morgan('combined', {
     stream: apiLogStream
 }));
-
+application.use(cookieParser());
 application.use(bodyParser.urlencoded({
     extended: true
 }));
 application.use(bodyParser.json());
-application.use(cookieParser());
 application.use(session({
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
     secret: 'keyboard cat'
 }));
 application.use(passport.initialize());
