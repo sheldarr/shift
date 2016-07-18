@@ -18,7 +18,7 @@ authRouter.get('/auth/basic', passport.authenticate('basic'), (request, response
     response.redirect('/');
 });
 
-authRouter.post('/auth/local', passport.authenticate('basic'), (request, response) => {
+authRouter.post('/auth/local', passport.authenticate('local'), (request, response) => {
     winston.info(`Local Login ${JSON.stringify(request.user)}`);
     response.redirect('/');
 });
