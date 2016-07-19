@@ -38,7 +38,7 @@ const Login = React.createClass({
                             />
                         </FormGroup>
                         <Col md={4} mdPush={4}>
-                            <Button block bsStyle="primary">{'Login'}</Button>
+                            <Button block bsStyle="primary" disabled={!this.state.username || !this.state.password}>{'Login'}</Button>
                         </Col>
                     </Panel>
                 </Col>
