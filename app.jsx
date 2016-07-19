@@ -32,6 +32,10 @@ const App = React.createClass({
     },
 
     componentDidUpdate () {
+        if (this.state.user) {
+            return;
+        }
+
         this.fetchUser();
     },
 
@@ -39,7 +43,6 @@ const App = React.createClass({
         authService.getUser()
             .then((user) => {
                 if (user) {
-                    console.log(user);
                     this.setState({user});
                 }
             });

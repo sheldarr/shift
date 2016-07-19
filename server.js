@@ -44,7 +44,7 @@ application.use(bodyParser.urlencoded({
 application.use(bodyParser.json());
 application.use(session({
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     secret: 'keyboard cat'
 }));
 application.use(passport.initialize());
@@ -80,7 +80,7 @@ const localStrategy = new LocalStrategy(verifyUser);
 passport.serializeUser((user, done) => {
     winston.info(`Serializing user ${JSON.stringify(user)}`);
 
-    done(null, {id: user.id, roles: user.roles});
+    done(null, user);
 });
 
 passport.deserializeUser((serializedUser, done) => {
@@ -89,8 +89,6 @@ passport.deserializeUser((serializedUser, done) => {
     const user = usersRepository.getById(serializedUser.id);
 
     winston.info(`Deserialized user ${JSON.stringify(user)}`);
-
-    return done (null, {fake: 'user'});
 
     if (user) {
         return done(null, user);

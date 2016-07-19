@@ -24,6 +24,7 @@ const notifyAboutErrors = (error) => {
 const fetchService = {
     delete (url) {
         return fetch(url, {
+            credentials: 'include',
             headers: {
                 'Accept-Language': navigator.browserLanguage | navigator.language
             },
@@ -36,6 +37,7 @@ const fetchService = {
 
     get (url) {
         return fetch(url, {
+            credentials: 'include',
             headers: {
                 'Accept-Language': navigator.browserLanguage | navigator.language
             },
@@ -49,6 +51,7 @@ const fetchService = {
     post (url, body) {
         const options = {
             body: JSON.stringify(body),
+            credentials: 'include',
             headers: {
                 'Accept-Language': navigator.browserLanguage | navigator.language,
                 'Content-Type': 'application/json'
