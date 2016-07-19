@@ -5,6 +5,8 @@ const winston = require('winston');
 const authRouter = new express.Router();
 
 authRouter.get('/auth/user', (request, response) => {
+    response.cookie('custom-cookie-user', 'test', {maxAge: 36000});
+
     if (request.user) {
         response.json(request.user);
         return;
@@ -20,7 +22,8 @@ authRouter.get('/auth/basic', passport.authenticate('basic'), (request, response
 
 authRouter.post('/auth/local', passport.authenticate('local'), (request, response) => {
     winston.info(`Local Login ${JSON.stringify(request.user)}`);
-    response.redirect('/');
+    response.cookie('custom-cookie', 'test', {maxAge: 36000});
+    response.status(200).redirect('/');
 });
 
 authRouter.get('/auth/logout', (request, response) => {

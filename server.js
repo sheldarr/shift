@@ -61,22 +61,40 @@ application.use('/api', productsRouter);
 application.use('/api', resourcesRouter);
 
 const verifyUser = (username, password, done) => {
+    winston.info(`Verifying user {${username}, ${password}}`);
+
     const user = usersRepository.getByUsernameAndPassword(username, password);
 
-    return done(null, user);
+    winston.info(`Verified user ${JSON.stringify(user)}`);
+
+    if (user) {
+        return done(null, user);
+    }
+
+    return done(null, false);
 };
 
 const basicStrategy = new BasicStrategy(verifyUser);
 const localStrategy = new LocalStrategy(verifyUser);
 
 passport.serializeUser((user, done) => {
+    winston.info(`Serializing user ${JSON.stringify(user)}`);
+
     done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
+    winston.info(`Deserializing user ${id}`);
+
     const user = usersRepository.getById(id);
 
-    done(null, user);
+    winston.info(`Deserialized user ${JSON.stringify(user)}`);
+
+    if (user) {
+        return done(null, user);
+    }
+
+    return done(null, false);
 });
 
 passport.use(basicStrategy);

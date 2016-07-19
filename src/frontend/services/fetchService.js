@@ -2,6 +2,9 @@ import notificationsService from './notificationsService';
 import uuid from 'node-uuid';
 
 const checkForErrors = (response) => {
+    console.log(response.ok);
+    console.log(response.status);
+
     if (!response.ok) {
         throw new Error(`${response.status} ${response.statusText}`);
     }
@@ -14,11 +17,14 @@ const parseAsJson = (response) => {
 };
 
 const notifyAboutErrors = (error) => {
-    notificationsService.add({
-        id: uuid.v4(),
-        message: error.message,
-        type: 'danger'
-    });
+    console.log('notyfing error');
+    console.log(JSON.stringify(error));
+
+    // notificationsService.add({
+    //     id: uuid.v4(),
+    //     message: error.message,
+    //     type: 'danger'
+    // });
 };
 
 const fetchService = {

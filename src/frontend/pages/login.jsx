@@ -1,6 +1,6 @@
 'use strict';
 
-import {Button, Col, ControlLabel, FormControl, FormGroup, Panel, Row} from 'react-bootstrap';
+import {Button, Col, ControlLabel, Form, FormControl, FormGroup, Panel, Row} from 'react-bootstrap';
 
 import React from 'react';
 
@@ -25,21 +25,27 @@ const Login = React.createClass({
             <Row>
                 <Col md={6} mdPush={3}>
                     <Panel header={'Login'}>
-                        <FormGroup>
-                            <ControlLabel>{'Username'}</ControlLabel>
-                            <FormControl onChange={this.usernameChanged} type="text"
-                                value={this.state.username}
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <ControlLabel>{'Password'}</ControlLabel>
-                            <FormControl min="1" onChange={this.passwordChanged} type="password"
-                                value={this.state.password}
-                            />
-                        </FormGroup>
-                        <Col md={4} mdPush={4}>
-                            <Button block bsStyle="primary" disabled={!this.state.username || !this.state.password}>{'Login'}</Button>
-                        </Col>
+                        <Form action="/auth/local" method="POST">
+                            <FormGroup>
+                                <ControlLabel>{'Username'}</ControlLabel>
+                                <FormControl name="username" onChange={this.usernameChanged} type="text"
+                                    value={this.state.username}
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <ControlLabel>{'Password'}</ControlLabel>
+                                <FormControl min="1" name="password" onChange={this.passwordChanged}
+                                    type="password" value={this.state.password}
+                                />
+                            </FormGroup>
+                            <Col md={4} mdPush={4}>
+                                <Button block bsStyle="primary" disabled={!this.state.username || !this.state.password}
+                                    type="submit"
+                                >
+                                    {'Login'}
+                                </Button>
+                            </Col>
+                        </Form>
                     </Panel>
                 </Col>
             </Row>
