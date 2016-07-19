@@ -2,6 +2,7 @@
     {
         "id": "db1bdf9c-d6d2-4cf0-bfe0-36ae906e2f0d",
         "username": "metroid",
-        "password": "nes"
+        "password": "nes",
+        "roles": ["DIETICIAN", "PATIENT"]
     }
 ]

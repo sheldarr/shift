@@ -34,8 +34,8 @@ const Login = React.createClass({
                             </FormGroup>
                             <FormGroup>
                                 <ControlLabel>{'Password'}</ControlLabel>
-                                <FormControl min="1" name="password" onChange={this.passwordChanged}
-                                    type="password" value={this.state.password}
+                                <FormControl name="password" onChange={this.passwordChanged} type="password"
+                                    value={this.state.password}
                                 />
                             </FormGroup>
                             <Col md={4} mdPush={4}>

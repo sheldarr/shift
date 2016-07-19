@@ -7,10 +7,13 @@ const authService = {
         return fetchService.get('http://localhost:3030/auth/user');
     },
 
+    loggedIn () {
+        return fetchService.get('http://localhost:3030/auth/loggedIn');
+    },
+
     logout () {
         return fetchService.post('http://localhost:3030/auth/logout');
     }
 };
 
 export default authService;
-

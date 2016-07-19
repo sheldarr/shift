@@ -80,15 +80,17 @@ const localStrategy = new LocalStrategy(verifyUser);
 passport.serializeUser((user, done) => {
     winston.info(`Serializing user ${JSON.stringify(user)}`);
 
-    done(null, user.id);
+    done(null, {id: user.id, roles: user.roles});
 });
 
-passport.deserializeUser((id, done) => {
-    winston.info(`Deserializing user ${id}`);
+passport.deserializeUser((serializedUser, done) => {
+    winston.info(`Deserializing user ${JSON.stringify(serializedUser)}`);
 
-    const user = usersRepository.getById(id);
+    const user = usersRepository.getById(serializedUser.id);
 
     winston.info(`Deserialized user ${JSON.stringify(user)}`);
+
+    return done (null, {fake: 'user'});
 
     if (user) {
         return done(null, user);

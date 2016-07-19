@@ -3,28 +3,23 @@ const passport = require('passport');
 const winston = require('winston');
 
 const authRouter = new express.Router();
+const redirects = {successRedirect: '/', failureRedirect: '/login'};
 
 authRouter.get('/auth/user', (request, response) => {
-    response.cookie('custom-cookie-user', 'test', {maxAge: 36000});
+        winston.info(request.user)
+        winston.info(response.user)
 
     if (request.user) {
         response.json(request.user);
         return;
     }
 
-    return response.json({});
+    return response.sendStatus(401);
 });
 
-authRouter.get('/auth/basic', passport.authenticate('basic'), (request, response) => {
-    winston.info(`Basic Login ${JSON.stringify(request.user)}`);
-    response.redirect('/');
-});
+authRouter.get('/auth/basic', passport.authenticate('basic', redirects));
 
-authRouter.post('/auth/local', passport.authenticate('local'), (request, response) => {
-    winston.info(`Local Login ${JSON.stringify(request.user)}`);
-    response.cookie('custom-cookie', 'test', {maxAge: 36000});
-    response.status(200).redirect('/');
-});
+authRouter.post('/auth/local', passport.authenticate('local', redirects));
 
 authRouter.get('/auth/logout', (request, response) => {
     winston.info(`Logout ${request.user}`);

@@ -4,20 +4,10 @@ import {Link} from 'react-router';
 import {Navbar} from 'react-bootstrap';
 
 import React from 'react';
-import authService from '../src/frontend/services/authService';
 
 const NavigationBar = React.createClass({
-    getInitialState () {
-        return {
-            user: undefined
-        };
-    },
-
-    componentWillMount () {
-        authService.getUser()
-            .then((user) => {
-                this.setState(user);
-            });
+    propTypes: {
+        user: React.PropTypes.object
     },
 
     render () {
@@ -30,16 +20,19 @@ const NavigationBar = React.createClass({
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Navbar.Text>
-                        {this.state.user ? `Logged in as ${this.state.user.name}` : ''}
-                    </Navbar.Text>
-                    <Navbar.Text>
                         <Link to={'/patients'}>{'Patients'}</Link>
                     </Navbar.Text>
                     <Navbar.Text>
                         <Link to={'/products'}>{'Products'}</Link>
                     </Navbar.Text>
-                    <Navbar.Text>
+                    <Navbar.Text >
                         <Link to={'/calculator'}>{'Calculator'}</Link>
+                    </Navbar.Text>
+                    <Navbar.Text pullRight>
+                    {this.props.user
+                        ? <span><Link to={'/login'}>{this.props.user.username}</Link><Link to={'/auth/logout'}>{'Logout'}</Link></span>
+                        : <Link to={'/login'}>{'Login'}</Link>
+                    }
                     </Navbar.Text>
                 </Navbar.Collapse>
             </Navbar>
