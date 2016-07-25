@@ -22,8 +22,10 @@ patientsRouter.get('/patient/:id', (request, response, next) => {
         const patients = JSON.parse(data);
 
         const patient = patients.find((patient) => {
-            return patient.id === request.params.id;
+            return patient.id.toString() === request.params.id.toString();
         });
+
+        console.log(patient);
 
         response.json(patient);
     });

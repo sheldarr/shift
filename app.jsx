@@ -9,6 +9,7 @@ import Login from './src/frontend/pages/login.jsx';
 import NavigationBar from './components/navigationBar.jsx';
 import NotFound from './pages/notFound.jsx';
 import Notifications from './src/frontend/components/notifications.jsx';
+import Patient from './src/frontend/pages/patient.jsx';
 import Patients from './pages/patients.jsx';
 import Products from './pages/products.jsx';
 import React from 'react';
@@ -88,7 +89,7 @@ ReactDOM.render((
         <Route component={App} path="/">
             <IndexRedirect to="/dashboard" />
             <Route component={Dashboard} path="/dashboard"/>
-            {/* <Route path="/patient/:patientId" component={Patient}/>*/}
+            <Route component={Patient} path="/patient/:patientId"/>
             {/* <Route path="/patient/:patientId/menu/:menuId" component={Menu}/>*/}
             <Route component={Patients} path="/patients"/>
             <Route component={Products} path="/products"/>
