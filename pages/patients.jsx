@@ -10,14 +10,14 @@ import SearchBar from '../components/searchBar.jsx';
 const Patients = React.createClass({
     getInitialState () {
         return {searchExpression: '', patients: []};
-        },
+    },
 
     componentDidMount () {
         this.refreshList();
     },
 
     searchExpressionChanged (searchExpression) {
-        this.setState( {searchExpression} );
+        this.setState({searchExpression});
     },
 
     refreshList () {
@@ -33,7 +33,7 @@ const Patients = React.createClass({
                 <SearchBar onChange={this.searchExpressionChanged} placeholder="Search patient" searchExpression={this.state.searchExpression}/>
                 <PatientsTable filterBy={this.state.searchExpression} patients={this.state.patients}/>
             </Panel>
-		);
+        );
     }
 });
 
