@@ -9,23 +9,20 @@ import SearchBar from '../components/searchBar.jsx';
 
 const Patients = React.createClass({
     getInitialState () {
-        return {searchExpression: '', patients: [], filteredPatients: []};
-    },
+        return {searchExpression: '', patients: []};
+        },
 
     componentDidMount () {
         this.refreshList();
     },
 
     searchExpressionChanged (searchExpression) {
-        this.setState({searchExpression});
-        this.refreshFilter();
+        this.setState( {searchExpression} );
     },
 
     refreshList () {
-        PatientsService.getAll().then((response) => {
-            this.setState({patients: response, filteredPatients: response});
-        }).catch((error) => {
-            alert(`Api error ${error}`);
+        PatientsService.getAll().then((patients) => {
+            this.setState({patients});
         });
     },
 
