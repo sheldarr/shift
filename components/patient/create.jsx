@@ -103,42 +103,44 @@ module.exports = React.createClass({
                             <Col md={6}>
                                 <FormGroup>
                                     <ControlLabel>{'Name'}</ControlLabel>
-                                        <InputGroup>
-                                            <FormControl onChange={this.nameChanged} type="text" value={this.state.name}/>
-                                        </InputGroup>
+                                    <InputGroup>
+                                        <FormControl onChange={this.nameChanged} type="text" value={this.state.name}/>
+                                    </InputGroup>
                                 </FormGroup>
                                 <FormGroup>
                                     <ControlLabel>{'Date of birth'}</ControlLabel>
-                                        <InputGroup>
-                                            <FormControl onChange={this.dateOfBirthChanged} type="date" value={this.state.dateOfBirth}/>
-                                        </InputGroup>
+                                    <InputGroup>
+                                        <FormControl onChange={this.dateOfBirthChanged} type="date" value={this.state.dateOfBirth}/>
+                                    </InputGroup>
                                 </FormGroup>
                                 <FormGroup>
                                     <ControlLabel>{'Telephone'}</ControlLabel>
-                                        <InputGroup>
-                                            <FormControl onChange={this.telephoneChanged} type="text" value={this.state.telephone}/>
-                                        </InputGroup>
+                                    <InputGroup>
+                                        <FormControl onChange={this.telephoneChanged} type="text" value={this.state.telephone}/>
+                                    </InputGroup>
                                 </FormGroup>
                             </Col>
                             <Col md={6}>
                                 <FormGroup>
                                     <ControlLabel>{'Surname'}</ControlLabel>
-                                        <InputGroup>
-                                            <FormControl onChange={this.surnameChanged} type="text" value={this.state.surname}/>
-                                        </InputGroup>
+                                    <InputGroup>
+                                        <FormControl onChange={this.surnameChanged} type="text" value={this.state.surname}/>
+                                    </InputGroup>
                                 </FormGroup>
                                 <FormGroup>
                                     <ControlLabel>{'Age'}</ControlLabel>
-                                        <InputGroup>
-                                            <FormControl onChange={this.surnameChanged} readOnly type="text" value={this.calculateAge()}/>
-                                            <InputGroup.Addon>{'years'}</InputGroup.Addon>
-                                        </InputGroup>
+                                    <InputGroup>
+                                        <FormControl onChange={this.surnameChanged} readOnly type="text"
+                                            value={this.calculateAge()}
+                                        />
+                                        <InputGroup.Addon>{'years'}</InputGroup.Addon>
+                                    </InputGroup>
                                 </FormGroup>
                                 <FormGroup>
                                     <ControlLabel>{'Email'}</ControlLabel>
-                                        <InputGroup>
-                                            <FormControl onChange={this.emailChanged} type="email" value={this.state.email}/>
-                                        </InputGroup>
+                                    <InputGroup>
+                                        <FormControl onChange={this.emailChanged} type="email" value={this.state.email}/>
+                                    </InputGroup>
                                 </FormGroup>
                             </Col>
                         </Row>
@@ -147,13 +149,13 @@ module.exports = React.createClass({
                             <Radio checked={this.state.sex === Contants.sex.male} inline name="sex"
                                 onChange={this.sexChanged}
                                 type="radio"
-                                value={Contants.sex.male}>Male
-                            </Radio>
+                                value={Contants.sex.male}
+                            >{'Male'}</Radio>
                             <Radio checked={this.state.sex === Contants.sex.female} inline name="sex"
                                 onChange={this.sexChanged}
                                 type="radio"
-                                value={Contants.sex.female}>Female
-                            </Radio>
+                                value={Contants.sex.female}
+                            >{'Female'}</Radio>
                         </FormGroup>
                     </Modal.Body>
                     <Modal.Footer>
