@@ -1,14 +1,14 @@
 'use strict';
 
-import {Col, Input, Panel, Row} from 'react-bootstrap';
+import {Col, ControlLabel, FormControl, FormGroup, InputGroup, Panel, Radio, Row} from 'react-bootstrap';
 
-import Enums from '../../api/enums';
+import Constants from '../../src/commons/constants';
 import React from 'react';
 import moment from 'moment';
 
 module.exports = React.createClass({
     propTypes: {
-        patient: React.propTypes.object.isRequired
+        patient: React.PropTypes.object.isRequired
     },
 
     calculateAge () {
@@ -19,38 +19,66 @@ module.exports = React.createClass({
         return (
             <Panel header="Information">
                 <Row>
-                    <Col md={6}>
-                        <Input label="Name" readOnly type="text"
-                            value={this.props.patient.name}
-                        />
-                        <label>{'Date of birth'}</label>
-                        <Input readOnly type="date" value={this.props.patient.dateOfBirth} />
-                        <Input label="Telephone" readOnly type="text"
-                            value={this.props.patient.telephone}
-                        />
+                    <Col md={5} mdOffset={1}>
+                        <FormGroup>
+                            <ControlLabel>{'Name'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="text" value={this.props.patient.name}/>
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>{'Date of birth'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="date" value={this.props.patient.dateOfBirth || ''}/>
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>{'Telephone'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="text" value={this.props.patient.telephone || ''}/>
+                            </InputGroup>
+                        </FormGroup>
                     </Col>
-                    <Col md={6}>
-                        <Input label="Surname" readOnly type="text"
-                            value={this.props.patient.surname}
-                        />
-                        <Input addonAfter="years" label="Age" readOnly
-                            type="text" value={this.calculateAge()}
-                        />
-                        <Input label="Email" readOnly type="email"
-                            value={this.props.patient.email}
-                        />
+                    <Col md={5}>
+                        <FormGroup>
+                            <ControlLabel>{'Surname'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="text"
+                                    value={this.props.patient.surname || ''}
+                                />
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>{'Age'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="text"
+                                    value={this.calculateAge()}
+                                />
+                                <InputGroup.Addon>{'years'}</InputGroup.Addon>
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>{'Email'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="email" value={this.props.patient.email || ''} />
+                            </InputGroup>
+                        </FormGroup>
                     </Col>
                 </Row>
-                <div className="input-group">
-                    <label>{' Gender'}</label>
-                    <Input checked={this.props.patient.sex === Enums.sex.male} disabled label="Male"
-                        name="sex" type="radio" value={Enums.sex.male}
-                    />
-                    <Input checked={this.props.patient.sex === Enums.sex.female} disabled label="Female"
-                        name="sex" type="radio" value={Enums.sex.female}
-                    />
-                </div>
+                <FormGroup>
+                    <label>{'Gender'}</label>
+                    <Radio checked={this.props.patient.sex === Constants.sex.male} disabled inline
+                        name="sex"
+                        type="radio"
+                        value={Constants.sex.male}
+                    >{'Male'}</Radio>
+                    <Radio checked={this.props.patient.sex === Constants.sex.female} disabled inline
+                        name="sex"
+                        type="radio"
+                        value={Constants.sex.female}
+                    >{'Female'}</Radio>
+                </FormGroup>
             </Panel>
-		);
+        );
     }
 });
