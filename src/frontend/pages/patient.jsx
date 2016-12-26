@@ -4,10 +4,11 @@ import {Button, Col, Panel, Row} from 'react-bootstrap';
 
 // import CreateMenu from '../components/createMenu';
 import Constants from '../../commons/constants';
+import MenusList from '../../../components/menusList.jsx';
 import PatientInformation from '../../../components/patient/information.jsx';
 import PatientMeasurement from '../../../components/patient/measurement.jsx';
 import React from 'react';
-// import MenusList from '../components/menusList.jsx';
+
 import patientsService from '../services/patientsService';
 
 module.exports = React.createClass({
@@ -64,10 +65,10 @@ module.exports = React.createClass({
                 <Row>
                     <Col md={12}>
                         <Panel header="Menus">
-                            {/* <MenusList menus={this.state.patient.menus}
+                            <MenusList menus={this.state.patient.menus}
                                 patientId={this.state.patient.id}
                             />
-                            <CreateMenu onHide={this.reloadPatient} patientId={this.state.patient.id} />*/}
+                            {/* <CreateMenu onHide={this.reloadPatient} patientId={this.state.patient.id} />*/}
                         </Panel>
                     </Col>
                 </Row>
@@ -79,6 +80,6 @@ module.exports = React.createClass({
                     </Col>
                 </Row>
             </Panel>
-		);
+        );
     }
 });

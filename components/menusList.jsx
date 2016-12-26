@@ -19,35 +19,27 @@ module.exports = React.createClass({
                         <td>{'Name'}</td>
                         <td>{'Days'}</td>
                         <td>{'Start date'}</td>
-                        <td></td>
+                        <td />
                     </tr>
                 </thead>
                 <tbody>
-                {this.props.menus.map((menu) => 
-                    <tr key={menu.id}>
-                        <td>
-                            {menu.id}
-                        </td>
-                        <td>
-							{menu.name}
-                        </td>
-                        <td>
-                            {menu.days}
-                        </td>
-                        <td>
-							{new Date(menu.startDate).toDateString()}
-                        </td>
-                        <td>
-                            <div className="pull-right">
-                                <Button bsStyle="primary" href={`#/patient/${this.props.patientId}/menu/${menu.id}`}>
-                                    {'Edit'}
-                                </Button>
-                            </div>
-                        </td>
-                    </tr>
+                    {this.props.menus.map((menu) =>
+                        <tr key={menu.id}>
+                            <td>{menu.id}</td>
+                            <td>{menu.name}</td>
+                            <td>{menu.days}</td>
+                            <td>{new Date(menu.startDate).toDateString()}</td>
+                            <td>
+                                <div className="pull-right">
+                                    <Button bsStyle="primary" href={`#/patient/${this.props.patientId}/menu/${menu.id}`}>
+                                        {'Edit'}
+                                    </Button>
+                                </div>
+                            </td>
+                        </tr>
                 )}
                 </tbody>
             </Table>
-		);
+        );
     }
 });
