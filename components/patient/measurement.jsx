@@ -1,8 +1,8 @@
 'use strict';
 
-import {Col, Input, Panel, Row} from 'react-bootstrap';
+import {Col, ControlLabel, FormControl, FormGroup, InputGroup, Panel, Row} from 'react-bootstrap';
 
-import IndexCalculator from '../../logic/indexCalculator';
+import IndexCalculator from '../../src/commons/indexCalculator';
 import React from 'react';
 import moment from 'moment';
 
@@ -55,38 +55,94 @@ module.exports = React.createClass({
             <Panel header={`Measurement ${this.props.measurement.date}`}>
                 <Row>
                     <Col md={6}>
-                        <Input addonAfter="kg" label="Weight" readOnly
-                            type="number" value={this.props.measurement.weight}
-                        />
-                        <Input addonAfter="cm" label="Height" readOnly
-                            type="number" value={this.props.measurement.height}
-                        />
-                        <Input label="Physical activity rate" readOnly type="number"
-                            value={this.props.measurement.physicalActivityRate}
-                        />
-                        <Input addonAfter="cm" label="Waist Circumference" readOnly
-                            type="number" value={this.props.measurement.waistCircumference}
-                        />
-                        <Input addonAfter="cm" label="Hip Circumference" readOnly
-                            type="number" value={this.props.measurement.hipCircumference}
-                        />
+                        <FormGroup>
+                            <ControlLabel>{'Weight'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="number"
+                                    value={this.props.measurement.weight}
+                                />
+                            <InputGroup.Addon>{'kg'}</InputGroup.Addon>
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>{'Height'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="number"
+                                    value={this.props.measurement.height}
+                                />
+                                <InputGroup.Addon>{'cm'}</InputGroup.Addon>
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>{'Physical activity rate'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="number"
+                                    value={this.props.measurement.physicalActivityRate}
+                                />
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>{'Waist Circumference'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="number"
+                                    value={this.props.measurement.waistCircumference}
+                                />
+                                <InputGroup.Addon>{'cm'}</InputGroup.Addon>
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>{'Hip Circumference'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="number"
+                                    value={this.props.measurement.hipCircumference}
+                                />
+                                <InputGroup.Addon>{'cm'}</InputGroup.Addon>
+                            </InputGroup>
+                        </FormGroup>
                     </Col>
                     <Col md={6}>
-                        <Input label="BMI (Body Mass Index)" readOnly type="number"
-                            value={this.calculateBmi()}
-                        />
-                        <Input addonAfter="kcal / day" label="BMR (Basal Metabolic Rate)" readOnly
-                            type="number" value={this.calculateBmr()}
-                        />
-                        <Input addonAfter="kcal / day" label="TMR (Total Metabolic Rate)" readOnly
-                            type="number" value={this.calculateTmr()}
-                        />
-                        <Input label="WHR (Waist to Hip Ratio)" readOnly type="number"
-                            value={this.calculateWhr()}
-                        />
-                        <Input label="Obesity Type" readOnly type="text"
-                            value={this.getObesityType()}
-                        />
+                        <FormGroup>
+                            <ControlLabel>{'BMI (Body Mass Index)'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="number"
+                                    value={this.calculateBmi()}
+                                />
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>{'BMR (Basal Metabolic Rate)'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="number"
+                                    value={this.calculateBmr()}
+                                />
+                                <InputGroup.Addon>{'kcal / day'}</InputGroup.Addon>
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>{'TMR (Total Metabolic Rate)'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="number"
+                                    value={this.calculateTmr()}
+                                />
+                                <InputGroup.Addon>{'kcal / day'}</InputGroup.Addon>
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>{'WHR (Waist to Hip Ratio)'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="number"
+                                    value={this.calculateTmr()}
+                                />
+                            </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>{'Obesity Type'}</ControlLabel>
+                            <InputGroup>
+                                <FormControl readOnly type="text"
+                                    value={this.getObesityType()}
+                                />
+                            </InputGroup>
+                        </FormGroup>
                     </Col>
                 </Row>
             </Panel>

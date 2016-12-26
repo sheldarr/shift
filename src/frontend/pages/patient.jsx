@@ -5,9 +5,9 @@ import {Button, Col, Panel, Row} from 'react-bootstrap';
 // import CreateMenu from '../components/createMenu';
 import Constants from '../../commons/constants';
 import PatientInformation from '../../../components/patient/information.jsx';
+import PatientMeasurement from '../../../components/patient/measurement.jsx';
 import React from 'react';
 // import MenusList from '../components/menusList.jsx';
-// import PatientMeasurement from '../components/patient/measurement.jsx';
 import patientsService from '../services/patientsService';
 
 module.exports = React.createClass({
@@ -58,7 +58,7 @@ module.exports = React.createClass({
                         <PatientInformation patient={this.state.patient} />
                     </Col>
                     <Col md={6}>
-                        {/* <PatientMeasurement measurement={this.state.patient.measurements[this.state.patient.measurements.length - 1]} />*/}
+                        <PatientMeasurement measurement={this.state.patient.measurements[this.state.patient.measurements.length - 1]} />
                     </Col>
                 </Row>
                 <Row>

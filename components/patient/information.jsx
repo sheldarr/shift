@@ -19,7 +19,7 @@ module.exports = React.createClass({
         return (
             <Panel header="Information">
                 <Row>
-                    <Col md={5} mdOffset={1}>
+                    <Col md={6}>
                         <FormGroup>
                             <ControlLabel>{'Name'}</ControlLabel>
                             <InputGroup>
@@ -39,7 +39,7 @@ module.exports = React.createClass({
                             </InputGroup>
                         </FormGroup>
                     </Col>
-                    <Col md={5}>
+                    <Col md={6}>
                         <FormGroup>
                             <ControlLabel>{'Surname'}</ControlLabel>
                             <InputGroup>
