@@ -1,6 +1,6 @@
 'use strict';
 
-import {Button, Glyphicon} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 
 import ConfirmationModal from './confirmationModal.jsx';
 import PatientsService from '../src/frontend/services/patientsService';
