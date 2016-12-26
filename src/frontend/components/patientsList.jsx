@@ -48,7 +48,7 @@ const PatientsList = React.createClass({
                             </td>
                             <td>
                                 <div className="pull-right">
-                                    <Button bsStyle="primary" href={`#/patient/${patient.id}`} style={{marginRight: 10}}>
+                                    <Button bsStyle="primary" href={`/patient/${patient.id}`} style={{marginRight: 10}}>
                                         {'Details'}
                                     </Button>
                                     <RemovePatient onRemove={this.props.onChange} patient={patient}/>
