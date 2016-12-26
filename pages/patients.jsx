@@ -41,7 +41,7 @@ const Patients = React.createClass({
             <Panel header={'Patients'}>
                 <CreatePatient onHide={this.refreshList} />
                 <SearchBar onChange={this.searchExpressionChanged} placeholder="Search patient" searchExpression={this.state.searchExpression}/>
-                <PatientsList onChange={this.refreshList} patients={this.state.patients}/>
+                <PatientsList onChange={this.refreshList} patients={this.state.filteredPatients}/>
             </Panel>
         );
     }

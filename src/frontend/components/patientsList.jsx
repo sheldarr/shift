@@ -11,22 +11,18 @@ const PatientsList = React.createClass({
         patients: React.PropTypes.array.isRequired
     },
 
-    debug () {
-        console.log(RemovePatient);
-    },
-
     render () {
         return (
             <Table hover striped>
                 <thead>
                     <tr>
-                        <td onClick={this.debug}>{'Id'}</td>
+                        <td>{'Id'}</td>
                         <td>{'Name'}</td>
                         <td>{'Surname'}</td>
                         <td>{'Date of birth'}</td>
                         <td>{'Telephone'}</td>
                         <td>{'Email'}</td>
-                        <td></td>
+                        <td />
                     </tr>
                 </thead>
                 <tbody>
