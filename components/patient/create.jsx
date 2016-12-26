@@ -1,6 +1,6 @@
 'use strict';
 
-import {Button, Col, Input, Modal, Row} from 'react-bootstrap';
+import {Button, Col, ControlLabel, FormControl, FormGroup, InputGroup, Modal, Row, Radio} from 'react-bootstrap';
 
 import Contants from '../../src/commons/constants/index';
 import PatientsService from '../../src/frontend/services/patientsService';
@@ -101,40 +101,60 @@ module.exports = React.createClass({
                     <Modal.Body>
                         <Row>
                             <Col md={6}>
-                                <Input label="Name" onChange={this.nameChanged} type="text"
-                                    value={this.state.name}
-                                />
-                                <label>{' Date of birth'}</label>
-                                <Input onChange={this.dateOfBirthChanged} type="date" value={this.state.dateOfBirth} />
-                                <Input label="Telephone" onChange={this.telephoneChanged} type="text"
-                                    value={this.state.telephone}
-                                />
+                                <FormGroup>
+                                    <ControlLabel>{'Name'}</ControlLabel>
+                                        <InputGroup>
+                                            <FormControl onChange={this.nameChanged} type="text" value={this.state.name}/>
+                                        </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Date of birth'}</ControlLabel>
+                                        <InputGroup>
+                                            <FormControl onChange={this.dateOfBirthChanged} type="date" value={this.state.dateOfBirth}/>
+                                        </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Telephone'}</ControlLabel>
+                                        <InputGroup>
+                                            <FormControl onChange={this.telephoneChanged} type="text" value={this.state.telephone}/>
+                                        </InputGroup>
+                                </FormGroup>
                             </Col>
                             <Col md={6}>
-                                <Input label="Surname" onChange={this.surnameChanged} type="text"
-                                    value={this.state.surname}
-                                />
-                                <Input addonAfter="years" label="Age"
-                                    readOnly type="text" value={this.calculateAge()}
-                                />
-                                <Input label="Email" onChange={this.emailChanged} type="email"
-                                    value={this.state.email}
-                                />
+                                <FormGroup>
+                                    <ControlLabel>{'Surname'}</ControlLabel>
+                                        <InputGroup>
+                                            <FormControl onChange={this.surnameChanged} type="text" value={this.state.surname}/>
+                                        </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Age'}</ControlLabel>
+                                        <InputGroup>
+                                            <FormControl onChange={this.surnameChanged} readOnly type="text" value={this.calculateAge()}/>
+                                            <InputGroup.Addon>{'years'}</InputGroup.Addon>
+                                        </InputGroup>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Email'}</ControlLabel>
+                                        <InputGroup>
+                                            <FormControl onChange={this.emailChanged} type="email" value={this.state.email}/>
+                                        </InputGroup>
+                                </FormGroup>
                             </Col>
                         </Row>
-                        <div className="input-group">
-                            <label>{' Gender'}</label>
-                            <Input checked={this.state.sex === Contants.sex.male} label="Male" name="sex"
+                        <FormGroup>
+                            <label>{'Gender'}</label>
+                            <Radio checked={this.state.sex === Contants.sex.male} inline name="sex"
                                 onChange={this.sexChanged}
                                 type="radio"
-                                value={Contants.sex.male}
-                            />
-                            <Input checked={this.state.sex === Contants.sex.female} label="Female" name="sex"
+                                value={Contants.sex.male}>Male
+                            </Radio>
+                            <Radio checked={this.state.sex === Contants.sex.female} inline name="sex"
                                 onChange={this.sexChanged}
                                 type="radio"
-                                value={Contants.sex.female}
-                            />
-                        </div>
+                                value={Contants.sex.female}>Female
+                            </Radio>
+                        </FormGroup>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button bsStyle="success" onClick={this.createPatient}>
