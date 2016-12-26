@@ -1,12 +1,12 @@
 'use strict';
 
-import {Button} from 'react-bootstrap';
+import {Button, Glyphicon} from 'react-bootstrap';
 
 import ConfirmationModal from './confirmationModal.jsx';
 import PatientsService from '../src/frontend/services/patientsService';
 import React from 'react';
 
-module.exports = React.createClass({
+const RemovePatient = React.createClass({
     propTypes: {
         onRemove: React.PropTypes.func.isRequired,
         patient: React.PropTypes.object.isRequired
@@ -53,6 +53,8 @@ module.exports = React.createClass({
                     title="Remove patient"
                 />
             </div>
-		);
+        );
     }
 });
+
+export default RemovePatient;

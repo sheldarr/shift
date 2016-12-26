@@ -100,7 +100,7 @@ module.exports = React.createClass({
                     </Modal.Header>
                     <Modal.Body>
                         <Row>
-                            <Col md={6}>
+                            <Col md={5} mdOffset={1}>
                                 <FormGroup>
                                     <ControlLabel>{'Name'}</ControlLabel>
                                     <InputGroup>
@@ -120,7 +120,7 @@ module.exports = React.createClass({
                                     </InputGroup>
                                 </FormGroup>
                             </Col>
-                            <Col md={6}>
+                            <Col md={5}>
                                 <FormGroup>
                                     <ControlLabel>{'Surname'}</ControlLabel>
                                     <InputGroup>

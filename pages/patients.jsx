@@ -2,14 +2,15 @@
 
 import CreatePatient from '../components/patient/create.jsx';
 import {Panel} from 'react-bootstrap';
+import PatientsList from '../src/frontend/components/patientsList.jsx';
 import PatientsService from '../src/frontend/services/patientsService';
-import PatientsTable from '../src/frontend/components/patientsTable.jsx';
 import React from 'react';
 import SearchBar from '../components/searchBar.jsx';
+import _ from 'lodash';
 
 const Patients = React.createClass({
     getInitialState () {
-        return {searchExpression: '', patients: []};
+        return {searchExpression: '', patients: [], filteredPatients: []};
     },
 
     componentDidMount () {
@@ -18,11 +19,20 @@ const Patients = React.createClass({
 
     searchExpressionChanged (searchExpression) {
         this.setState({searchExpression});
+
+        this.refreshFilter();
     },
 
     refreshList () {
-        PatientsService.getAll().then((patients) => {
-            this.setState({patients});
+        PatientsService.getAll().then((response) => {
+            this.setState({patients: response, filteredPatients: response});
+        });
+    },
+
+    refreshFilter () {
+        this.setState({
+            filteredPatients: _.filter(this.state.patients, (patient) =>
+                patient.name.toLowerCase().indexOf(this.state.searchExpression.toLowerCase()) > -1)
         });
     },
 
@@ -31,7 +41,7 @@ const Patients = React.createClass({
             <Panel header={'Patients'}>
                 <CreatePatient onHide={this.refreshList} />
                 <SearchBar onChange={this.searchExpressionChanged} placeholder="Search patient" searchExpression={this.state.searchExpression}/>
-                <PatientsTable filterBy={this.state.searchExpression} patients={this.state.patients}/>
+                <PatientsList onChange={this.refreshList} patients={this.state.patients}/>
             </Panel>
         );
     }
