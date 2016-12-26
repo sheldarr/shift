@@ -16,12 +16,12 @@ const PatientsList = React.createClass({
             <Table hover striped>
                 <thead>
                     <tr>
-                        <td>{'Id'}</td>
-                        <td>{'Name'}</td>
-                        <td>{'Surname'}</td>
-                        <td>{'Date of birth'}</td>
-                        <td>{'Telephone'}</td>
-                        <td>{'Email'}</td>
+                        <td><b>{'Id'}</b></td>
+                        <td><b>{'Name'}</b></td>
+                        <td><b>{'Surname'}</b></td>
+                        <td><b>{'Date of birth'}</b></td>
+                        <td><b>{'Telephone'}</b></td>
+                        <td><b>{'Email'}</b></td>
                         <td />
                     </tr>
                 </thead>
