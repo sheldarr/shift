@@ -19,5 +19,7 @@
     "plugins": [
         "react"
     ],
-    "rules": {}
+    "rules": {
+        "react/display-name": 0
+    }
 }
