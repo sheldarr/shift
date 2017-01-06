@@ -1,5 +1,5 @@
 import notificationsService from './notificationsService';
-import uuid from 'node-uuid';
+import uuid from 'uuid';
 
 const checkForErrors = (response) => {
     if (!response.ok) {
