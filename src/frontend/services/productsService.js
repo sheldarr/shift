@@ -3,16 +3,16 @@
 import fetchService from './fetchService';
 
 const productsService = {
-    getAll () {
-        return fetchService.get('http://localhost:3030/api/product');
+    getAll (callback) {
+        return fetchService.get('http://localhost:3030/api/product', callback);
     },
 
-    getById (id) {
-        return fetchService.get(`http://localhost:3030/api/product/${id}`);
+    getById (id, callback) {
+        return fetchService.get(`http://localhost:3030/api/product/${id}`, callback);
     },
 
-    create (product) {
-        return fetchService.post('http://localhost:3030/api/product', product);
+    create (product, callback) {
+        return fetchService.post('http://localhost:3030/api/product', product, callback);
     }
 };
 

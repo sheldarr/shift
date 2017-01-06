@@ -3,12 +3,12 @@
 import fetchService from './fetchService';
 
 const menuService = {
-    create (patientId, menu) {
-        return fetchService.post(`http://localhost:3030/api/patient/${patientId}/menu`, menu);
+    create (patientId, menu, callback) {
+        return fetchService.post(`http://localhost:3030/api/patient/${patientId}/menu`, menu, callback);
     },
 
-    getById (patientId, menuId) {
-        return fetchService.get(`http://localhost:3030/api/patient/${patientId}/menu/${menuId}`);
+    getById (patientId, menuId, callback) {
+        return fetchService.get(`http://localhost:3030/api/patient/${patientId}/menu/${menuId}`, callback);
     }
 };
 

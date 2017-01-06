@@ -86,11 +86,9 @@ const CreateProduct = React.createClass({
             riboflavin: this.state.riboflavin,
             niacin: this.state.niacin,
             vitaminC: this.state.vitaminC
-        }).then(() => {
+        }, () => {
             this.props.onHide();
             this.hideModal();
-        }).catch((error) => {
-            alert(`Api error ${error}`);
         });
     },
 

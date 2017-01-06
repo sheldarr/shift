@@ -22,8 +22,8 @@ const Products = React.createClass({
     },
 
     refreshList () {
-        ProductsService.getAll().then((products) => {
-            this.setState({products});
+        ProductsService.getAll((error, response) => {
+            this.setState({products: response.body});
         });
     },
 
