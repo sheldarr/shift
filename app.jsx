@@ -49,20 +49,6 @@ const App = React.createClass({
             });
     },
 
-    requiresRoles (roles, nextState, replace) {
-        if (this.state.user) {
-            const userHasPermission = roles.some((role) => {
-                return this.state.user.roles.includes(role);
-            });
-
-            if (!userHasPermission) {
-                replace({pathname: '/login'});
-            }
-        }
-
-        replace({pathname: '/'});
-    },
-
     render () {
         return (
             <div>

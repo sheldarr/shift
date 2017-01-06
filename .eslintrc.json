@@ -20,6 +20,7 @@
         "react"
     ],
     "rules": {
+        "semi": [2, "always", {"omitLastInOneLineBlock": true}],
         "react/display-name": 0
     }
 }
