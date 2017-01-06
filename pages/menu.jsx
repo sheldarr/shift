@@ -3,7 +3,7 @@
 import {Panel} from 'react-bootstrap';
 
 import MenuService from '../src/frontend/services/menuService';
-import PatientService from '../src/frontend/services/patientsService';
+import PatientsService from '../src/frontend/services/patientsService';
 import React from 'react';
 
 module.exports = React.createClass({
@@ -36,15 +36,12 @@ module.exports = React.createClass({
     },
 
     refreshMenu () {
-        PatientService.getById(this.props.params.patientId).then((response) => {
-            this.setState({patient: response});
-        }).catch((error) => {
-            alert(`Api error ${error}`);
+        PatientsService.getById(this.props.params.patientId, (error, request) => {
+            this.setState({patient: request.body});
         });
-        MenuService.getById(this.props.params.patientId, this.props.params.menuId).then((response) => {
-            this.setState({menu: response});
-        }).catch((error) => {
-            alert(`Api error ${error}`);
+
+        MenuService.getById(this.props.params.patientId, this.props.params.menuId, (error, request) => {
+            this.setState({menu: request.body});
         });
     },
 

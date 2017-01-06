@@ -3,20 +3,20 @@
 import fetchService from './fetchService';
 
 const patientsService = {
-    getAll () {
-        return fetchService.get('http://localhost:3030/api/patient');
+    getAll (callback) {
+        return fetchService.get('http://localhost:3030/api/patient', callback);
     },
 
-    getById (id) {
-        return fetchService.get(`http://localhost:3030/api/patient/${id}`);
+    getById (id, callback) {
+        return fetchService.get(`http://localhost:3030/api/patient/${id}`, callback);
     },
 
-    create (patient) {
-        return fetchService.post('http://localhost:3030/api/patient', patient);
+    create (patient, callback) {
+        return fetchService.post('http://localhost:3030/api/patient', patient, callback);
     },
 
-    delete (id) {
-        return fetchService.delete(`http://localhost:3030/api/patient/${id}`);
+    delete (id, callback) {
+        return fetchService.delete(`http://localhost:3030/api/patient/${id}`, callback);
     }
 };
 

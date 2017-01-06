@@ -7,7 +7,7 @@ import React from 'react';
 module.exports = React.createClass({
     propTypes: {
         menus: React.PropTypes.array.isRequired,
-        patientId: React.PropTypes.number.isRequired
+        patientId: React.PropTypes.string.isRequired
     },
 
     render () {

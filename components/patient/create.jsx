@@ -49,11 +49,9 @@ module.exports = React.createClass({
             telephone: this.state.telephone,
             email: this.state.email,
             sex: this.state.sex
-        }).then(() => {
+        }, () => {
             this.props.onHide();
             this.hideModal();
-        }).catch((error) => {
-            alert(`Api error ${error}`);
         });
     },
 

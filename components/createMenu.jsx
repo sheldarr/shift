@@ -9,7 +9,7 @@ import moment from 'moment';
 module.exports = React.createClass({
     propTypes: {
         onHide: React.PropTypes.func.isRequired,
-        patientId: React.PropTypes.number.isRequired
+        patientId: React.PropTypes.string.isRequired
     },
 
     getInitialState () {
@@ -57,11 +57,9 @@ module.exports = React.createClass({
             name: this.state.name,
             days: this.state.days,
             startDate: this.state.startDate
-        }).then(() => {
+        }, () => {
             this.props.onHide();
             this.hideModal();
-        }).catch((error) => {
-            alert(`Api error ${error}`);
         });
     },
 

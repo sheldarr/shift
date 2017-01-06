@@ -35,11 +35,8 @@ const RemovePatient = React.createClass({
     },
 
     removePatient () {
-        PatientsService.delete(this.props.patient.id)
-        .then(() => {
+        PatientsService.delete(this.props.patient.id, () => {
             this.props.onRemove();
-        }).catch((error) => {
-            alert(`Api error ${error}`);
         });
     },
 

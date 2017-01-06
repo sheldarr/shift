@@ -45,10 +45,9 @@ module.exports = React.createClass({
     },
 
     reloadPatient () {
-        patientsService.getById(this.props.params.patientId)
-            .then((patient) => {
-                this.setState({patient});
-            });
+        patientsService.getById(this.props.params.patientId, (error, request) => {
+            this.setState({patient: request.body});
+        });
     },
 
     render () {

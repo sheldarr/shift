@@ -24,8 +24,8 @@ const Patients = React.createClass({
     },
 
     refreshList () {
-        PatientsService.getAll().then((response) => {
-            this.setState({patients: response, filteredPatients: response});
+        PatientsService.getAll((error, request) => {
+            this.setState({patients: request.body, filteredPatients: request.body});
         });
     },
 
