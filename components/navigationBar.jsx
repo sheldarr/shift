@@ -30,7 +30,7 @@ const NavigationBar = React.createClass({
                     </Navbar.Text>
                     <Navbar.Text pullRight>
                     {this.props.user
-                        ? <span><Link to={'/login'}>{this.props.user.username}</Link></span>
+                        ? <span>{this.props.user.username}</span>
                         : <Link to={'/login'}>{'Login'}</Link>
                     }
                     </Navbar.Text>
