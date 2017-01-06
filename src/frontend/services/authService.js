@@ -3,8 +3,8 @@
 import fetchService from './fetchService';
 
 const authService = {
-    getUser () {
-        return fetchService.get('http://localhost:3030/auth/user');
+    getUser (callback) {
+        return fetchService.get('http://localhost:3030/auth/user', callback);
     },
 
     loggedIn () {

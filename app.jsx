@@ -41,12 +41,17 @@ const App = React.createClass({
     },
 
     fetchUser () {
-        authService.getUser()
-            .then((user) => {
-                if (user) {
-                    this.setState({user});
-                }
-            });
+        authService.getUser((error, response) => {
+            let user = response.body;
+
+            if(response.statusCode === 401 && this.props.location.pathname !== '/login') {
+                browserHistory.push('/login');
+            }
+
+            if (user) {
+                this.setState({user});
+            }
+        });
     },
 
     render () {
@@ -72,16 +77,18 @@ const App = React.createClass({
 
 ReactDOM.render((
     <Router history={browserHistory}>
-        <Route component={App} path="/">
-            <IndexRedirect to="/dashboard" />
-            <Route component={Dashboard} path="/dashboard"/>
-            <Route component={Patient} path="/patient/:patientId"/>
-            {/* <Route path="/patient/:patientId/menu/:menuId" component={Menu}/>*/}
-            <Route component={Patients} path="/patients"/>
-            <Route component={Products} path="/products"/>
-            <Route component={Calculator} path="/calculator"/>
-            <Route component={Login} path="/login"/>
-            <Route component={NotFound} path="*"/>
+        <Route path="/">
+            <Route component={App}>
+                <Route component={Dashboard} path="dashboard"/>
+                <Route component={Patient} path="patient/:patientId"/>
+                <Route component={Patients} path="patients"/>
+                <Route component={Products} path="products"/>
+                <Route component={Calculator} path="calculator"/>
+                {/* <Route component={NotFound} path="*"/> */}
+                {/* <IndexRedirect to="dashboard" /> */}
+                {/* <Route path="/patient/:patientId/menu/:menuId" component={Menu}/>*/}
+            </Route>
+            <Route component={Login} path="login"/>
         </Route>
     </Router>
 ), document.getElementById('root'));

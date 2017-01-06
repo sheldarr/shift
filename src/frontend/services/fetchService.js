@@ -1,67 +1,26 @@
-import notificationsService from './notificationsService';
-import uuid from 'uuid';
-
-const checkForErrors = (response) => {
-    if (!response.ok) {
-        throw new Error(`${response.status} ${response.statusText}`);
-    }
-
-    return response;
-};
-
-const parseAsJson = (response) => {
-    return response.json();
-};
-
-const notifyAboutErrors = (error) => {
-    notificationsService.add({
-        id: uuid.v4(),
-        message: error.message,
-        type: 'danger'
-    });
-};
+import request from 'superagent';
 
 const fetchService = {
-    delete (url) {
-        return fetch(url, {
-            credentials: 'include',
-            headers: {
-                'Accept-Language': navigator.browserLanguage | navigator.language
-            },
-            method: 'delete'
-        })
-        .then(checkForErrors)
-        .then(parseAsJson)
-        .catch(notifyAboutErrors);
+    delete (url, callback) {
+        return request
+            .del(url)
+            .set({'Accept-Language': navigator.browserLanguage | navigator.language})
+            .end(callback);
     },
 
-    get (url) {
-        return fetch(url, {
-            credentials: 'include',
-            headers: {
-                'Accept-Language': navigator.browserLanguage | navigator.language
-            },
-            method: 'get'
-        })
-        .then(checkForErrors)
-        .then(parseAsJson)
-        .catch(notifyAboutErrors);
+    get (url, callback) {
+        return request
+            .get(url)
+            .set({'Accept-Language': navigator.browserLanguage | navigator.language})
+            .end(callback);
     },
 
-    post (url, body) {
-        const options = {
-            body: JSON.stringify(body),
-            credentials: 'include',
-            headers: {
-                'Accept-Language': navigator.browserLanguage | navigator.language,
-                'Content-Type': 'application/json'
-            },
-            method: 'post'
-        };
-
-        return fetch(url, options)
-            .then(checkForErrors)
-            .then(notifyAboutErrors);
+    post (url, body, callback) {
+        return request
+            .post(url)
+            .set({'Accept-Language': navigator.browserLanguage | navigator.language})
+            .send(body)
+            .end(callback);
     }
 };
 
