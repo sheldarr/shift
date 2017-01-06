@@ -2,7 +2,6 @@
   "scripts": {
     "lint": "eslint components/** pages/** src/** server.js",
     "start": "forever ./server.js",
-    "start:dev": "nodemon ./server.js",
     "watch": "webpack --progress --color --watch"
   },
   "name": "Shift",
@@ -35,7 +34,6 @@
     "eslint": "^3.12.2",
     "eslint-plugin-react": "^6.8.0",
     "forever": "^0.15.3",
-    "nodemon": "^1.11.0",
     "webpack": "^1.14.0"
   },
   "description": "Simple utility application for dieticians",
