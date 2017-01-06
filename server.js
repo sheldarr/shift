@@ -52,7 +52,7 @@ application.use(passport.session());
 
 application.use(internationalization);
 
-application.use('/bin', express.static('bin'));
+application.use('/build', express.static('build'));
 application.use('/public', express.static('public'));
 
 application.use('/', authRouter);
