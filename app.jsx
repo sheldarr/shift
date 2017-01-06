@@ -19,7 +19,8 @@ import authService from './src/frontend/services/authService';
 
 const App = React.createClass({
     propTypes: {
-        children: React.PropTypes.element.isRequired
+        children: React.PropTypes.element.isRequired,
+        location: React.PropTypes.object.isRequired
     },
 
     getInitialState () {
@@ -78,6 +79,7 @@ const App = React.createClass({
 ReactDOM.render((
     <Router history={browserHistory}>
         <Route path="/">
+            <Route component={Login} path="login"/>
             <Route component={App}>
                 <IndexRedirect to="dashboard" />
                 <Route component={Dashboard} path="dashboard"/>
@@ -85,10 +87,8 @@ ReactDOM.render((
                 <Route component={Patients} path="patients"/>
                 <Route component={Products} path="products"/>
                 <Route component={Calculator} path="calculator"/>
-                {/* <Route component={NotFound} path="*"/> */}
-                {/* <Route path="/patient/:patientId/menu/:menuId" component={Menu}/>*/}
+                <Route component={NotFound} path="*"/>
             </Route>
-            <Route component={Login} path="login"/>
         </Route>
     </Router>
 ), document.getElementById('root'));
