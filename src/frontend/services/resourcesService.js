@@ -3,12 +3,12 @@
 import fetchService from './fetchService';
 
 const resourcesService = {
-    getAll () {
-        return fetchService.get('http://localhost:3030/api/resources');
+    getAll (callback) {
+        return fetchService.get('http://localhost:3030/api/resources', callback);
     },
 
-    getByPage (page) {
-        return fetchService.get(`http://localhost:3030/api/resources/${page}`);
+    getByPage (page, callback) {
+        return fetchService.get(`http://localhost:3030/api/resources/${page}`, callback);
     }
 };
 

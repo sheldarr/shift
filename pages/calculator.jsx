@@ -23,9 +23,8 @@ module.exports = React.createClass({
     },
 
     componentDidMount () {
-        resourcesService.getByPage('calculator')
-            .then((resources) => {
-                this.setState({resources});
+        resourcesService.getByPage('calculator', (error, request) => {
+                this.setState({resources: request.body});
             });
     },
 
