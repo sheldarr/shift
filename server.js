@@ -1,8 +1,8 @@
-const BasicStrategy = require('passport-http').BasicStrategy;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const credentialsProvider = require('./src/backend/credentialsProvider');
 const express = require('express');
+const session = require('express-session');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
@@ -12,7 +12,6 @@ const morgan = require('morgan');
 const path = require('path');
 const passport = require('passport');
 const process = require('process');
-const session = require('express-session');
 const usersRepository = require('./src/backend/repositories/usersRepository');
 const winston = require('winston');
 
@@ -42,11 +41,7 @@ application.use(bodyParser.urlencoded({
     extended: true
 }));
 application.use(bodyParser.json());
-application.use(session({
-    resave: false,
-    saveUninitialized: true,
-    secret: 'keyboard cat'
-}));
+application.use(session({secret: 'keyboard cat'}));
 application.use(passport.initialize());
 application.use(passport.session());
 
@@ -74,7 +69,6 @@ const verifyUser = (username, password, done) => {
     return done(null, false);
 };
 
-const basicStrategy = new BasicStrategy(verifyUser);
 const localStrategy = new LocalStrategy(verifyUser);
 
 passport.serializeUser((user, done) => {
@@ -97,7 +91,6 @@ passport.deserializeUser((serializedUser, done) => {
     return done(null, false);
 });
 
-passport.use(basicStrategy);
 passport.use(localStrategy);
 
 application.get('*', (request, response) => {

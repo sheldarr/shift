@@ -7,10 +7,6 @@ const authService = {
         return fetchService.get('http://localhost:3030/auth/user', callback);
     },
 
-    loggedIn () {
-        return fetchService.get('http://localhost:3030/auth/loggedIn');
-    },
-
     logout () {
         return fetchService.post('http://localhost:3030/auth/logout');
     }

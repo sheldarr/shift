@@ -79,13 +79,13 @@ ReactDOM.render((
     <Router history={browserHistory}>
         <Route path="/">
             <Route component={App}>
+                <IndexRedirect to="dashboard" />
                 <Route component={Dashboard} path="dashboard"/>
                 <Route component={Patient} path="patient/:patientId"/>
                 <Route component={Patients} path="patients"/>
                 <Route component={Products} path="products"/>
                 <Route component={Calculator} path="calculator"/>
                 {/* <Route component={NotFound} path="*"/> */}
-                {/* <IndexRedirect to="dashboard" /> */}
                 {/* <Route path="/patient/:patientId/menu/:menuId" component={Menu}/>*/}
             </Route>
             <Route component={Login} path="login"/>
