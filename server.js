@@ -35,7 +35,11 @@ application.use(morgan('combined', {stream: apiLogStream}));
 application.use(cookieParser());
 application.use(bodyParser.urlencoded({extended: true}));
 application.use(bodyParser.json());
-application.use(session({secret: 'keyboard cat'}));
+application.use(session({
+    resave: true,
+    saveUninitialized: true,
+    secret: 'keyboard cat'
+}));
 application.use(passport.initialize());
 application.use(passport.session());
 
