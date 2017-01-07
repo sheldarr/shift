@@ -2,7 +2,7 @@
 
 import {Col, ControlLabel, FormControl, FormGroup, InputGroup, Panel, Radio, Row} from 'react-bootstrap';
 
-import Constants from '../../src/commons/constants';
+import Constants from '../../../commons/constants';
 import React from 'react';
 import moment from 'moment';
 

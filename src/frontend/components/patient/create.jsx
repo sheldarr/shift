@@ -2,8 +2,8 @@
 
 import {Button, Col, ControlLabel, FormControl, FormGroup, InputGroup, Modal, Row, Radio} from 'react-bootstrap';
 
-import Contants from '../../src/commons/constants/index';
-import PatientsService from '../../src/frontend/services/patientsService';
+import Contants from '../../../commons/constants/index';
+import PatientsService from '../../services/patientsService';
 import React from 'react';
 import moment from 'moment';
 

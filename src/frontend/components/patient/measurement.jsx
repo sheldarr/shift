@@ -2,7 +2,7 @@
 
 import {Col, ControlLabel, FormControl, FormGroup, InputGroup, Panel, Row} from 'react-bootstrap';
 
-import IndexCalculator from '../../src/commons/indexCalculator';
+import IndexCalculator from '../../../commons/indexCalculator';
 import React from 'react';
 import moment from 'moment';
 

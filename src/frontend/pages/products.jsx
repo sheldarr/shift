@@ -3,8 +3,8 @@
 import {Panel} from 'react-bootstrap';
 
 import CreateProduct from '../components/product/create.jsx';
-import ProductsService from '../src/frontend/services/productsService';
-import ProductsTable from '../src/frontend/components/productsTable.jsx';
+import ProductsService from '../services/productsService';
+import ProductsTable from '../components/productsTable.jsx';
 import React from 'react';
 import SearchBar from '../components/searchBar.jsx';
 

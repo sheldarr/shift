@@ -2,8 +2,8 @@
 
 import {Panel} from 'react-bootstrap';
 
-import MenuService from '../src/frontend/services/menuService';
-import PatientsService from '../src/frontend/services/patientsService';
+import MenuService from '../../services/menuService';
+import PatientsService from '../../services/patientsService';
 import React from 'react';
 
 module.exports = React.createClass({

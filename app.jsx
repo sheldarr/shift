@@ -6,12 +6,12 @@ import {IndexRedirect, Route, Router, browserHistory} from 'react-router';
 import Calculator from './src/frontend/pages/calculator.jsx';
 import Dashboard from './src/frontend/pages/dashboard.jsx';
 import Login from './src/frontend/pages/login.jsx';
-import NavigationBar from './components/navigationBar.jsx';
+import NavigationBar from './src/frontend/components/navigationBar.jsx';
 import NotFound from './src/frontend/pages/notFound.jsx';
 import Notifications from './src/frontend/components/notifications.jsx';
 import Patient from './src/frontend/pages/patient.jsx';
-import Patients from './pages/patients.jsx';
-import Products from './pages/products.jsx';
+import Patients from './src/frontend/pages/patients.jsx';
+import Products from './src/frontend/pages/products.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
 

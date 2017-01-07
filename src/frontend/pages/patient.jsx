@@ -2,11 +2,10 @@
 
 import {Button, Col, Panel, Row} from 'react-bootstrap';
 
-// import CreateMenu from '../components/createMenu';
 import Constants from '../../commons/constants';
 import MenusList from '../../../components/menusList.jsx';
-import PatientInformation from '../../../components/patient/information.jsx';
-import PatientMeasurement from '../../../components/patient/measurement.jsx';
+import PatientInformation from '../components/patient/information.jsx';
+import PatientMeasurement from '../components/patient/measurement.jsx';
 import React from 'react';
 
 import patientsService from '../services/patientsService';
