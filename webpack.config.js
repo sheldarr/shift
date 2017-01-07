@@ -1,3 +1,5 @@
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+
 module.exports = {
     entry: './app.jsx',
     output: {
@@ -5,13 +7,16 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        loaders: [{
-            test: /\.jsx?$/,
-            exclude: /(node_modules)/,
-            loader: 'babel',
-            query: {
-                presets: ['react', 'es2015']
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules)/,
+                loader: 'babel',
+                query: {
+                    presets: ['react', 'es2015']
+                }
             }
-        }]
-    }
+        ]
+    },
+    plugins: [new ProgressBarPlugin()]
 };
