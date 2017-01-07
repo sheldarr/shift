@@ -1,13 +1,15 @@
 'use strict';
 
 import React from 'react';
+import {Panel} from 'react-bootstrap';
+
 
 const Dashboard = React.createClass({
     render () {
         return (
-            <div>
-                {'Dashboard'}
-            </div>
+            <Panel header={'Dashboard'}>
+                <p>{'...'}</p>
+            </Panel>
 		);
     }
 });
