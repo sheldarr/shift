@@ -27,19 +27,13 @@ winston.add(winston.transports.File, {
     filename: path.resolve(__dirname, 'var', 'logs', 'server.log')
 });
 
-const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'var', 'logs', 'api.log'), {
-    flags: 'a'
-});
+const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'var', 'logs', 'api.log'), {flags: 'a'});
 
 const application = express();
 
-application.use(morgan('combined', {
-    stream: apiLogStream
-}));
+application.use(morgan('combined', {stream: apiLogStream}));
 application.use(cookieParser());
-application.use(bodyParser.urlencoded({
-    extended: true
-}));
+application.use(bodyParser.urlencoded({extended: true}));
 application.use(bodyParser.json());
 application.use(session({secret: 'keyboard cat'}));
 application.use(passport.initialize());
@@ -107,18 +101,21 @@ application.use((error, request, response, next) => {
     response.status(500);
 });
 
-const httpServer = http.createServer(application);
+if (process.env.NODE_ENV === "production") {
+    const credentials = credentialsProvider.get();
 
-httpServer.listen(httpPort, () => {
-    winston.info(`PID ${process.pid} Http server is running on port: ${httpPort}`);
-});
+    if (credentials) {
+        const httpsServer = https.createServer(credentials, application);
 
-const credentials = credentialsProvider.get();
+        httpsServer.listen(httpsPort, () => {
+            winston.info(`PID ${process.pid} Https server is running on port: ${httpsPort}`);
+        });
+    }
+} else {
+    const httpServer = http.createServer(application);
 
-if (credentials) {
-    const httpsServer = https.createServer(credentials, application);
-
-    httpsServer.listen(httpsPort, () => {
-        winston.info(`PID ${process.pid} Https server is running on port: ${httpsPort}`);
+    httpServer.listen(httpPort, () => {
+        winston.info(`PID ${process.pid} Http server is running on port: ${httpPort}`);
     });
+
 }
