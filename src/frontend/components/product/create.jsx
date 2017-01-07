@@ -300,20 +300,6 @@ const CreateProduct = React.createClass({
                                             <InputGroup.Addon>{'mg'}</InputGroup.Addon>
                                         </InputGroup>
                                     </FormGroup>
-                                    <FormGroup>
-                                        <ControlLabel>{'Magnesium'}</ControlLabel>
-                                        <InputGroup>
-                                            <FormControl onChange={this.magnesiumChanged} type="number" value={this.state.magnesium}/>
-                                            <InputGroup.Addon>{'mg'}</InputGroup.Addon>
-                                        </InputGroup>
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <ControlLabel>{'Vitamin A'}</ControlLabel>
-                                        <InputGroup>
-                                            <FormControl onChange={this.vitaminAChanged} type="number" value={this.state.vitaminA}/>
-                                            <InputGroup.Addon>{'μg'}</InputGroup.Addon>
-                                        </InputGroup>
-                                    </FormGroup>
                                 </Col>
                                 <Col md={4}>
                                     <FormGroup>
@@ -342,6 +328,22 @@ const CreateProduct = React.createClass({
                                         <InputGroup>
                                             <FormControl onChange={this.riboflavinChanged} type="number" value={this.state.riboflavin}/>
                                             <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                        </InputGroup>
+                                    </FormGroup>
+                                </Col>
+                                <Col md={4}>
+                                    <FormGroup>
+                                        <ControlLabel>{'Magnesium'}</ControlLabel>
+                                        <InputGroup>
+                                            <FormControl onChange={this.magnesiumChanged} type="number" value={this.state.magnesium}/>
+                                            <InputGroup.Addon>{'mg'}</InputGroup.Addon>
+                                        </InputGroup>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <ControlLabel>{'Vitamin A'}</ControlLabel>
+                                        <InputGroup>
+                                            <FormControl onChange={this.vitaminAChanged} type="number" value={this.state.vitaminA}/>
+                                            <InputGroup.Addon>{'μg'}</InputGroup.Addon>
                                         </InputGroup>
                                     </FormGroup>
                                     <FormGroup>
