@@ -2,6 +2,7 @@
 
 import {Button} from 'react-bootstrap';
 
+import toastsService from '../../services/toastsService';
 import ConfirmationModal from '../confirmationModal.jsx';
 import PatientsService from '../../services/patientsService';
 import React from 'react';
@@ -35,7 +36,9 @@ const RemovePatient = React.createClass({
     },
 
     removePatient () {
-        PatientsService.delete(this.props.patient.id, () => {
+        PatientsService.delete(this.props.patient.id, (error) => {
+            error ? toastsService.error('Patient delete failed')
+                : toastsService.success('Patient successfully deleted');
             this.props.onRemove();
         });
     },

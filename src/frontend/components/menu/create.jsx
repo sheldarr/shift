@@ -2,6 +2,7 @@
 
 import {Button, Input, Modal} from 'react-bootstrap';
 
+import toastsService from '../services/toastsService';
 import MenuService from '../services/menuService';
 import React from 'react';
 import moment from 'moment';
@@ -57,7 +58,9 @@ module.exports = React.createClass({
             name: this.state.name,
             days: this.state.days,
             startDate: this.state.startDate
-        }, () => {
+        }, (error) => {
+            error ? toastsService.error('Menu creation failed')
+                : toastsService.success('Menu successfully created');
             this.props.onHide();
             this.hideModal();
         });

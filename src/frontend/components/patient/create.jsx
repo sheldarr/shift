@@ -2,6 +2,7 @@
 
 import {Button, Col, ControlLabel, FormControl, FormGroup, InputGroup, Modal, Row, Radio} from 'react-bootstrap';
 
+import toastsService from '../../services/toastsService';
 import Contants from '../../../commons/constants/index';
 import PatientsService from '../../services/patientsService';
 import React from 'react';
@@ -49,7 +50,9 @@ module.exports = React.createClass({
             telephone: this.state.telephone,
             email: this.state.email,
             sex: this.state.sex
-        }, () => {
+        }, (error) => {
+            error ? toastsService.error('Patient creation failed')
+                : toastsService.success('Patient successfully created');
             this.props.onHide();
             this.hideModal();
         });

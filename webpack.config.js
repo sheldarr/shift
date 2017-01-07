@@ -23,7 +23,7 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin([
             {
-                from: './node_modules/toastr/build/toastr.min.css'
+                from: './node_modules/toastr/build/toastr.min.css',
                 to: './public/css'
             }
         ]),

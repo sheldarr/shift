@@ -12,6 +12,7 @@ import {
     Row
 } from 'react-bootstrap';
 
+import toastsService from '../../services/toastsService';
 import ProductsService from '../../services/productsService';
 import React from 'react';
 import uuid from 'uuid';
@@ -106,7 +107,9 @@ const CreateProduct = React.createClass({
             riboflavin: this.state.riboflavin,
             niacin: this.state.niacin,
             vitaminC: this.state.vitaminC
-        }, () => {
+        }, (error) => {
+            error ? toastsService.error('Product creation failed')
+                : toastsService.success('Product successfully created');
             this.props.onHide();
             this.hideModal();
         });
