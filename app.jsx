@@ -7,7 +7,7 @@ import Calculator from './src/frontend/pages/calculator.jsx';
 import Dashboard from './src/frontend/pages/dashboard.jsx';
 import Login from './src/frontend/pages/login.jsx';
 import NavigationBar from './components/navigationBar.jsx';
-import NotFound from './pages/notFound.jsx';
+import NotFound from './src/frontend/pages/notFound.jsx';
 import Notifications from './src/frontend/components/notifications.jsx';
 import Patient from './src/frontend/pages/patient.jsx';
 import Patients from './pages/patients.jsx';
