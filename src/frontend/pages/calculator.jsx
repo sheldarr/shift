@@ -2,11 +2,11 @@
 
 import {Col, ControlLabel, FormControl, FormGroup, InputGroup, Panel, Radio, Row} from 'react-bootstrap';
 
-import IndexCalculator from '../src/commons/indexCalculator';
+import IndexCalculator from '../../commons/indexCalculator';
 import React from 'react';
 
-import constants from '../src/commons/constants';
-import resourcesService from '../src/frontend/services/resourcesService';
+import constants from '../../commons/constants';
+import resourcesService from '../../frontend/services/resourcesService';
 
 module.exports = React.createClass({
     getInitialState () {

@@ -3,7 +3,7 @@
 import {Col, Grid, Row} from 'react-bootstrap';
 import {IndexRedirect, Route, Router, browserHistory} from 'react-router';
 
-import Calculator from './pages/calculator.jsx';
+import Calculator from './src/frontend/pages/calculator.jsx';
 import Dashboard from './src/frontend/pages/dashboard.jsx';
 import Login from './src/frontend/pages/login.jsx';
 import NavigationBar from './components/navigationBar.jsx';
