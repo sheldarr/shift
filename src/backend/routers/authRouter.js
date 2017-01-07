@@ -32,4 +32,10 @@ authRouter.post('/auth/login', (request, response, next) => {
     })(request, response, next);
 });
 
+authRouter.post('/auth/logout', function(request, response) {
+    request.logout();
+
+    response.sendStatus(200);
+});
+
 module.exports = authRouter;

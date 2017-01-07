@@ -59,7 +59,7 @@ const Login = React.createClass({
                             {this.state.displayError
                                 ? (
                                     <Alert bsStyle="danger">
-                                        Wrong username or password.
+                                        {'Wrong username or password.'}
                                     </Alert>
                                 )
                                 : null

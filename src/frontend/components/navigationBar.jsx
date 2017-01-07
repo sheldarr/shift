@@ -1,16 +1,25 @@
 'use strict';
 
 import {Link} from 'react-router';
-import {Navbar} from 'react-bootstrap';
+import {Button, Navbar} from 'react-bootstrap';
 
 import React from 'react';
+
+import authService from '../services/authService';
+import {browserHistory} from 'react-router';
 
 const NavigationBar = React.createClass({
     propTypes: {
         user: React.PropTypes.object
     },
 
-    render () {
+    logout() {
+        authService.logout(() => {
+            browserHistory.push('/login');
+        });
+    },
+
+    render() {
         return (
             <Navbar>
                 <Navbar.Header>
@@ -28,11 +37,15 @@ const NavigationBar = React.createClass({
                     <Navbar.Text >
                         <Link to={'/calculator'}>{'Calculator'}</Link>
                     </Navbar.Text>
+                    <Navbar.Form pullRight>
+                        <Button bsStyle="primary" onClick={this.logout}>
+                            {'Logout'}
+                        </Button>
+                    </Navbar.Form>
                     <Navbar.Text pullRight>
-                    {this.props.user
-                        ? <span>{this.props.user.username}</span>
-                        : <Link to={'/login'}>{'Login'}</Link>
-                    }
+                        {`Signed in as: ${this.props.user
+                            ? this.props.user.username
+                            : ''}`}
                     </Navbar.Text>
                 </Navbar.Collapse>
             </Navbar>
