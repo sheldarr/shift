@@ -3,7 +3,7 @@
 import {Button, Col, Panel, Row} from 'react-bootstrap';
 
 import Constants from '../../commons/constants';
-import MenusList from '../../../components/menusList.jsx';
+import MenusList from '../components/menusList.jsx';
 import PatientInformation from '../components/patient/information.jsx';
 import PatientMeasurement from '../components/patient/measurement.jsx';
 import React from 'react';
@@ -66,7 +66,6 @@ module.exports = React.createClass({
                             <MenusList menus={this.state.patient.menus}
                                 patientId={this.state.patient.id}
                             />
-                            {/* <CreateMenu onHide={this.reloadPatient} patientId={this.state.patient.id} />*/}
                         </Panel>
                     </Col>
                 </Row>

@@ -3,7 +3,7 @@
 import {Button, Table} from 'react-bootstrap';
 
 import React from 'react';
-import RemovePatient from './../../../components/removePatient.jsx';
+import RemovePatient from './patient/remove.jsx';
 
 const PatientsList = React.createClass({
     propTypes: {

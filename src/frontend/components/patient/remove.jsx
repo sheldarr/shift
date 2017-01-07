@@ -2,8 +2,8 @@
 
 import {Button} from 'react-bootstrap';
 
-import ConfirmationModal from './confirmationModal.jsx';
-import PatientsService from '../src/frontend/services/patientsService';
+import ConfirmationModal from '../confirmationModal.jsx';
+import PatientsService from '../../services/patientsService';
 import React from 'react';
 
 const RemovePatient = React.createClass({
