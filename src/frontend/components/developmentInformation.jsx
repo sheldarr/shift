@@ -10,6 +10,9 @@ const DevelopmentInformation = React.createClass({
             : (
                 <Panel header={'Development Information'}>
                     <p>{`process.env.NODE_ENV=${process.env.NODE_ENV}`}</p>
+                    <p>{`userAgent=${navigator.userAgent}`}</p>
+                    <p>{`platform=${navigator.platform}`}</p>
+                    <p>{`languages=${navigator.languages}`}</p>
                 </Panel>
             ));
     }
