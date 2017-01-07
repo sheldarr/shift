@@ -8,6 +8,8 @@ import React from 'react';
 import authService from '../services/authService';
 import {browserHistory} from 'react-router';
 
+import toastr from 'toastr';
+
 const NavigationBar = React.createClass({
     propTypes: {
         user: React.PropTypes.object
@@ -40,6 +42,9 @@ const NavigationBar = React.createClass({
                     <Navbar.Form pullRight>
                         <Button bsStyle="primary" onClick={this.logout}>
                             {'Logout'}
+                        </Button>
+                        <Button bsStyle="primary" onClick={() => toastr.info('KEK')}>
+                            {'KEK'}
                         </Button>
                     </Navbar.Form>
                     <Navbar.Text pullRight>
