@@ -1,6 +1,15 @@
 'use strict';
 
-import {Col, ControlLabel, FormControl, FormGroup, InputGroup, Panel, Radio, Row} from 'react-bootstrap';
+import {
+    Col,
+    ControlLabel,
+    FormControl,
+    FormGroup,
+    InputGroup,
+    Panel,
+    Radio,
+    Row
+} from 'react-bootstrap';
 
 import Constants from '../../../commons/constants';
 import React from 'react';
@@ -11,11 +20,11 @@ module.exports = React.createClass({
         patient: React.PropTypes.object.isRequired
     },
 
-    calculateAge () {
+    calculateAge() {
         return moment().diff(this.props.patient.dateOfBirth, 'years');
     },
 
-    render () {
+    render() {
         return (
             <Panel header="Information">
                 <Row>
@@ -43,41 +52,37 @@ module.exports = React.createClass({
                         <FormGroup>
                             <ControlLabel>{'Surname'}</ControlLabel>
                             <InputGroup>
-                                <FormControl readOnly type="text"
-                                    value={this.props.patient.surname || ''}
-                                />
+                                <FormControl readOnly type="text" value={this.props.patient.surname || ''}/>
                             </InputGroup>
                         </FormGroup>
                         <FormGroup>
                             <ControlLabel>{'Age'}</ControlLabel>
                             <InputGroup>
-                                <FormControl readOnly type="text"
-                                    value={this.calculateAge()}
-                                />
+                                <FormControl readOnly type="text" value={this.calculateAge()}/>
                                 <InputGroup.Addon>{'years'}</InputGroup.Addon>
                             </InputGroup>
                         </FormGroup>
                         <FormGroup>
                             <ControlLabel>{'Email'}</ControlLabel>
                             <InputGroup>
-                                <FormControl readOnly type="email" value={this.props.patient.email || ''} />
+                                <FormControl readOnly type="email" value={this.props.patient.email || ''}/>
                             </InputGroup>
                         </FormGroup>
                     </Col>
                 </Row>
-                <FormGroup>
-                    <label>{'Gender'}</label>
-                    <Radio checked={this.props.patient.sex === Constants.sex.male} disabled inline
-                        name="sex"
-                        type="radio"
-                        value={Constants.sex.male}
-                    >{'Male'}</Radio>
-                    <Radio checked={this.props.patient.sex === Constants.sex.female} disabled inline
-                        name="sex"
-                        type="radio"
-                        value={Constants.sex.female}
-                    >{'Female'}</Radio>
-                </FormGroup>
+                <Row>
+                    <Col md={6}>
+                        <p>{'Gender'}</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={6}>
+                        <FormGroup>
+                            <Radio checked={this.props.patient.sex === Constants.sex.male} disabled inline name="sex" type="radio" value={Constants.sex.male}>{'Male'}</Radio>
+                            <Radio checked={this.props.patient.sex === Constants.sex.female} disabled inline name="sex" type="radio" value={Constants.sex.female}>{'Female'}</Radio>
+                        </FormGroup>
+                    </Col>
+                </Row>
             </Panel>
         );
     }

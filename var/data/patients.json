@@ -5,7 +5,7 @@
     "dateOfBirth": "1970-01-01",
     "telephone": "123 456 789",
     "email": "mario@dot.net",
-    "sex": 0,
+    "sex": "male",
     "measurements": [{
         "id": 1,
         "date": "01-01-2015",
@@ -61,7 +61,7 @@
     "dateOfBirth": "1970-01-01",
     "telephone": "123 456 789",
     "email": "clayman@dot.net",
-    "sex": 0,
+    "sex": "male",
     "weight": 82,
     "height": 178,
     "physicalActivityRate": 1.2,
@@ -95,52 +95,4 @@
         "days": 14,
         "startDate": 1444478040000
     }]
-}, {
-    "id": 34925,
-    "name": "Adam",
-    "surname": "Mickiewicz",
-    "dateOfBirth": "1985-12-26",
-    "telephone": "123456567",
-    "email": "adas.m@dot.net",
-    "sex": 0
-}, {
-    "id": 40514,
-    "name": "Miłosz",
-    "surname": "Sosna",
-    "dateOfBirth": "1970-12-26",
-    "telephone": "790372666",
-    "email": "m.sosna@malpa.com",
-    "sex": 0
-}, {
-    "id": 5879,
-    "name": "andrzej",
-    "surname": "Waligóra",
-    "dateOfBirth": "2009-12-26",
-    "telephone": "757393292",
-    "email": "a.wali@gmail.com",
-    "sex": 0
-}, {
-    "id": 52235,
-    "name": "adas",
-    "surname": "Miałczyński",
-    "dateOfBirth": "1857-12-26",
-    "telephone": "757999047",
-    "email": "a.mial@gmail.com",
-    "sex": 0
-}, {
-    "id": 13389,
-    "name": "Andrzej",
-    "surname": "Gołota",
-    "dateOfBirth": "2009-03-30",
-    "telephone": "531461611",
-    "email": "a.golota@gmail.com",
-    "sex": 0
-}, {
-    "id": 43169,
-    "name": "GrubasJebany",
-    "surname": "PaJakiHipis",
-    "dateOfBirth": "1992-12-21",
-    "telephone": "123456789",
-    "email": "pootas@ulotka.pl",
-    "sex": 0
 }]

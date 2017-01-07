@@ -3,7 +3,7 @@
 import {Button, Col, ControlLabel, FormControl, FormGroup, InputGroup, Modal, Row, Radio} from 'react-bootstrap';
 
 import toastsService from '../../services/toastsService';
-import Contants from '../../../commons/constants/index';
+import Constants from '../../../commons/constants/index';
 import PatientsService from '../../services/patientsService';
 import React from 'react';
 import moment from 'moment';
@@ -21,7 +21,7 @@ module.exports = React.createClass({
             dateOfBirth: moment().format('YYYY-MM-DD'),
             telephone: '',
             email: '',
-            sex: 0
+            sex: Constants.sex.male
         };
     },
 
@@ -33,7 +33,7 @@ module.exports = React.createClass({
             dateOfBirth: moment().format('YYYY-MM-DD'),
             telephone: '',
             email: '',
-            sex: 0
+            sex: Constants.sex.male
         });
     },
 
@@ -85,7 +85,6 @@ module.exports = React.createClass({
     calculateAge () {
         return moment().diff(this.state.dateOfBirth, 'years');
     },
-
 
     render () {
         return (
@@ -145,25 +144,33 @@ module.exports = React.createClass({
                                 </FormGroup>
                             </Col>
                         </Row>
-                        <FormGroup>
-                            <label>{'Gender'}</label>
-                            <Radio checked={this.state.sex === Contants.sex.male} inline name="sex"
-                                onChange={this.sexChanged}
-                                type="radio"
-                                value={Contants.sex.male}
-                            >{'Male'}</Radio>
-                            <Radio checked={this.state.sex === Contants.sex.female} inline name="sex"
-                                onChange={this.sexChanged}
-                                type="radio"
-                                value={Contants.sex.female}
-                            >{'Female'}</Radio>
-                        </FormGroup>
+                        <Row>
+                            <Col md={5} mdOffset={1}>
+                                <p>{'Gender'}</p>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={5} mdOffset={1}>
+                                <FormGroup>
+                                    <Radio checked={this.state.sex === Constants.sex.male} inline name="sex"
+                                        onChange={this.sexChanged}
+                                        type="radio"
+                                        value={Constants.sex.male}
+                                    >{'Male'}</Radio>
+                                    <Radio checked={this.state.sex === Constants.sex.female} inline name="sex"
+                                        onChange={this.sexChanged}
+                                        type="radio"
+                                        value={Constants.sex.female}
+                                    >{'Female'}</Radio>
+                                </FormGroup>
+                            </Col>
+                        </Row>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button bsStyle="success" onClick={this.createPatient}>
                             {' Create'}
                         </Button>
-                        <Button bsStyle="danger" onClick={this.hideModal} style={{marginLeft: 20}}>
+                        <Button bsStyle="danger" onClick={this.hideModal} style={{marginLeft: '1rem'}}>
                             {' Cancel'}
                         </Button>
                     </Modal.Footer>
