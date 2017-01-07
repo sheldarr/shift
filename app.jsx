@@ -3,6 +3,7 @@
 import {Col, Grid, Row} from 'react-bootstrap';
 import {IndexRedirect, Route, Router, browserHistory} from 'react-router';
 
+import DevelopmentInformation from './src/frontend/components/developmentInformation.jsx';
 import Calculator from './src/frontend/pages/calculator.jsx';
 import Dashboard from './src/frontend/pages/dashboard.jsx';
 import Login from './src/frontend/pages/login.jsx';
@@ -69,6 +70,9 @@ const App = React.createClass({
                         <Col>
                             {this.props.children}
                         </Col>
+                    </Row>
+                    <Row>
+                        <DevelopmentInformation/>
                     </Row>
                 </Grid>
             </div>

@@ -1,3 +1,4 @@
+const DefinePlugin = require('webpack').DefinePlugin;
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
@@ -18,5 +19,9 @@ module.exports = {
             }
         ]
     },
-    plugins: [new ProgressBarPlugin()]
+    plugins: [
+        new ProgressBarPlugin(),
+        new DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    }),]
 };
