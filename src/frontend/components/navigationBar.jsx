@@ -43,9 +43,12 @@ const NavigationBar = React.createClass({
                         </Button>
                     </Navbar.Form>
                     <Navbar.Text pullRight>
-                        {`Signed in as: ${this.props.user
-                            ? this.props.user.username
-                            : ''}`}
+                        {'Signed in as: '}
+                        <strong>
+                            {this.props.user
+                                ? this.props.user.username
+                                : ''}
+                        </strong>
                     </Navbar.Text>
                 </Navbar.Collapse>
             </Navbar>
