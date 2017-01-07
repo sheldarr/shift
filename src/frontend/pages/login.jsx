@@ -30,8 +30,7 @@ const Login = React.createClass({
     },
 
     login() {
-        authService.login(this.state.username, this.state.password, (error, response) => {
-            console.log(error, response);
+        authService.login(this.state.username, this.state.password, (error) => {
             if (error) {
                 this.setState({displayError: true});
                 return;
@@ -45,7 +44,9 @@ const Login = React.createClass({
         return (
             <Grid>
                 <Row>
-                    <Col md={6} mdPush={3} style={{paddingTop: "3rem"}}>
+                    <Col md={6} mdPush={3} style={{
+                        paddingTop: "3rem"
+                    }}>
                         <Panel header={'Login'}>
                             <FormGroup>
                                 <ControlLabel>{'Username'}</ControlLabel>
@@ -62,7 +63,7 @@ const Login = React.createClass({
                                     </Alert>
                                 )
                                 : null
-                            }
+}
                             <Col md={4} mdPush={4}>
                                 <Button block bsStyle="primary" disabled={!this.state.username || !this.state.password} onClick={this.login}>
                                     {'Login'}
