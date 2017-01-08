@@ -9,6 +9,7 @@ const https = require('https');
 const internationalization = require('./src/backend/middleware/internationalization');
 const LocalStrategy = require('passport-local').Strategy;
 const morgan = require('morgan');
+const nconf = require('nconf');
 const path = require('path');
 const passport = require('passport');
 const process = require('process');
@@ -20,12 +21,18 @@ const patientsRouter = require('./src/backend/routers/patientsRouter');
 const productsRouter = require('./src/backend/routers/productsRouter');
 const resourcesRouter = require('./src/backend/routers/resourcesRouter');
 
-const httpPort = 3030;
-const httpsPort = 3033;
+nconf
+    .env()
+    .argv()
+    .file(`./config/${process.env.NODE_ENV}.json`);
 
-winston.add(winston.transports.File, {
-    filename: path.resolve(__dirname, 'var', 'logs', 'server.log')
-});
+nconf.required(['NODE_ENV', 'server', 'server:port', 'server:https']);
+
+if (nconf.get("NODE_ENV") !== 'test') {
+    winston.add(winston.transports.File, {
+        filename: path.resolve(__dirname, 'var', 'logs', 'server.log')
+    });
+}
 
 const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'var', 'logs', 'api.log'), {flags: 'a'});
 
@@ -35,11 +42,7 @@ application.use(morgan('combined', {stream: apiLogStream}));
 application.use(cookieParser());
 application.use(bodyParser.urlencoded({extended: true}));
 application.use(bodyParser.json());
-application.use(session({
-    resave: true,
-    saveUninitialized: true,
-    secret: 'keyboard cat'
-}));
+application.use(session({resave: true, saveUninitialized: true, secret: 'keyboard cat'}));
 application.use(passport.initialize());
 application.use(passport.session());
 
@@ -106,24 +109,19 @@ application.use((error, request, response, next) => {
 });
 
 let server;
+const httpsEnabled = nconf.get('server:https');
+const port = nconf.get('server:port');
 
-if (process.env.NODE_ENV === "production") {
+if (httpsEnabled) {
     const credentials = credentialsProvider.get();
 
-    if (credentials) {
-        server = https.createServer(credentials, application);
-
-        server.listen(httpsPort, () => {
-            winston.info(`PID ${process.pid} Https server is running on port: ${httpsPort}`);
-        });
-    }
+    server = https.createServer(credentials, application);
 } else {
     server = http.createServer(application);
-
-    server.listen(httpPort, () => {
-        winston.info(`PID ${process.pid} Http server is running on port: ${httpPort}`);
-    });
-
 }
+
+server.listen(port, () => {
+    winston.info(`PID ${process.pid} ${httpsEnabled ? 'https' : 'http'} server is running on port: ${port}`);
+});
 
 module.exports = server;

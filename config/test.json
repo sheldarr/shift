@@ -1,0 +1,6 @@
+{
+    "server": {
+        "port": 4040,
+        "https": false
+    }
+}
