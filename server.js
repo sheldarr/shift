@@ -105,21 +105,25 @@ application.use((error, request, response, next) => {
     response.status(500);
 });
 
+let server;
+
 if (process.env.NODE_ENV === "production") {
     const credentials = credentialsProvider.get();
 
     if (credentials) {
-        const httpsServer = https.createServer(credentials, application);
+        server = https.createServer(credentials, application);
 
-        httpsServer.listen(httpsPort, () => {
+        server.listen(httpsPort, () => {
             winston.info(`PID ${process.pid} Https server is running on port: ${httpsPort}`);
         });
     }
 } else {
-    const httpServer = http.createServer(application);
+    server = http.createServer(application);
 
-    httpServer.listen(httpPort, () => {
+    server.listen(httpPort, () => {
         winston.info(`PID ${process.pid} Http server is running on port: ${httpPort}`);
     });
 
 }
+
+module.exports = server;
