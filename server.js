@@ -7,6 +7,7 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 const internationalization = require('./src/backend/middleware/internationalization');
+const errorHandler = require('./src/backend/middleware/errorHandler');
 const LocalStrategy = require('passport-local').Strategy;
 const morgan = require('morgan');
 const nconf = require('nconf');
@@ -98,15 +99,7 @@ application.get('*', (request, response) => {
     response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
-application.use((error, request, response, next) => {
-    if (response.headersSent) {
-        return next(error);
-    }
-
-    winston.error(error);
-
-    response.status(500);
-});
+application.use(errorHandler);
 
 let server;
 const httpsEnabled = nconf.get('server:https');
