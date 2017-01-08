@@ -18,7 +18,7 @@ module.exports = React.createClass({
             physicalActivityRate: 1.6,
             waistCircumference: 0.5,
             hipCircumference: 1,
-            resources: {}
+            resources: {commons: {genders: {}, units: {}}, page: {}}
         };
     },
 
@@ -86,96 +86,96 @@ module.exports = React.createClass({
 
     render () {
         return (
-            <Panel header={this.state.resources.calculator}>
+            <Panel header={this.state.resources.page.calculator}>
                 <Row>
                     <Col md={6}>
-                        <Panel header={this.state.resources.data}>
+                        <Panel header={this.state.resources.page.data}>
                             <FormGroup>
-                                <ControlLabel>{this.state.resources.weight}</ControlLabel>
+                                <ControlLabel>{this.state.resources.page.weight}</ControlLabel>
                                 <InputGroup>
                                     <FormControl min="1" onChange={this.weightChanged} type="number"
                                         value={this.state.weight}
                                     />
-                                    <InputGroup.Addon>{this.state.resources.kg}</InputGroup.Addon>
+                                    <InputGroup.Addon>{this.state.resources.commons.units.kg}</InputGroup.Addon>
                                 </InputGroup>
                             </FormGroup>
                             <FormGroup>
-                                <ControlLabel>{this.state.resources.height}</ControlLabel>
+                                <ControlLabel>{this.state.resources.page.height}</ControlLabel>
                                 <InputGroup>
                                     <FormControl min="1" onChange={this.heightChanged} type="number"
                                         value={this.state.height}
                                     />
-                                    <InputGroup.Addon>{this.state.resources.cm}</InputGroup.Addon>
+                                    <InputGroup.Addon>{this.state.resources.commons.units.cm}</InputGroup.Addon>
                                 </InputGroup>
                             </FormGroup>
                             <FormGroup>
-                                <ControlLabel>{this.state.resources.age}</ControlLabel>
+                                <ControlLabel>{this.state.resources.page.age}</ControlLabel>
                                 <InputGroup>
                                     <FormControl min="1" onChange={this.ageChanged} type="number"
                                         value={this.state.age}
                                     />
-                                    <InputGroup.Addon>{this.state.resources.years}</InputGroup.Addon>
+                                    <InputGroup.Addon>{this.state.resources.commons.units.years}</InputGroup.Addon>
                                 </InputGroup>
                             </FormGroup>
                             <FormGroup>
-                                <ControlLabel>{this.state.resources.physicalActivityRate}</ControlLabel>
+                                <ControlLabel>{this.state.resources.page.physicalActivityRate}</ControlLabel>
                                 <FormControl min="0.1" onChange={this.physicalActivityRateChanged} step="0.1"
                                     type="number" value={this.state.physicalActivityRate}
                                 />
                             </FormGroup>
                             <FormGroup>
-                                <ControlLabel>{this.state.resources.waistCircumference}</ControlLabel>
+                                <ControlLabel>{this.state.resources.page.waistCircumference}</ControlLabel>
                                 <FormControl min="0.1" onChange={this.waistCircumferenceChanged} step="0.1"
                                     type="number" value={this.state.waistCircumference}
                                 />
                             </FormGroup>
                             <FormGroup>
-                                <ControlLabel>{this.state.resources.hipCircumference}</ControlLabel>
+                                <ControlLabel>{this.state.resources.page.hipCircumference}</ControlLabel>
                                 <FormControl min="0.1" onChange={this.hipCircumferenceChanged} step="0.1"
                                     type="number" value={this.state.hipCircumference}
                                 />
                             </FormGroup>
                             <FormGroup>
-                                <ControlLabel>{this.state.resources.gender}</ControlLabel>
+                                <ControlLabel>{this.state.resources.page.gender}</ControlLabel>
                                 <Radio checked={this.state.sex == constants.sex.male} name="sex"
                                     onChange={this.sexChanged} value={constants.sex.male}
                                 >
-                                {this.state.resources.male}
+                                {this.state.resources.commons.genders.male}
                                 </Radio>
                                 <Radio checked={this.state.sex == constants.sex.female} name="sex"
                                     onChange={this.sexChanged} value={constants.sex.female}
                                 >
-                                {this.state.resources.female}
+                                {this.state.resources.commons.genders.female}
                                 </Radio>
                             </FormGroup>
                         </Panel>
                     </Col>
                     <Col md={6}>
-                        <Panel header={this.state.resources.results}>
+                        <Panel header={this.state.resources.page.results}>
                             <FormGroup>
-                                <ControlLabel>{this.state.resources.bmi}</ControlLabel>
+                                <ControlLabel>{this.state.resources.page.bmi}</ControlLabel>
                                 <FormControl readOnly type="number" value={this.calculateBmi()}/>
                             </FormGroup>
                             <FormGroup>
-                                <ControlLabel>{this.state.resources.bmr}</ControlLabel>
+                                <ControlLabel>{this.state.resources.page.bmr}</ControlLabel>
                                 <InputGroup>
                                     <FormControl readOnly type="number" value={this.calculateBmr()}/>
-                                    <InputGroup.Addon>{this.state.resources.kcalPerDay}</InputGroup.Addon>
+                                    <InputGroup.Addon>{this.state.resources.commons.units.kcalPerDay}</InputGroup.Addon>
                                 </InputGroup>
                             </FormGroup>
                             <FormGroup>
-                                <ControlLabel>{this.state.resources.tmr}</ControlLabel>
+                                <ControlLabel>{this.state.resources.page.tmr}</ControlLabel>
                                 <InputGroup>
                                     <FormControl readOnly type="number" value={this.calculateTmr()}/>
-                                    <InputGroup.Addon>{this.state.resources.kcalPerDay}</InputGroup.Addon>
+                                    <InputGroup.Addon>{this.state.resources.commons.units.kcalPerDay}</InputGroup.Addon>
                                 </InputGroup>
                             </FormGroup>
                             <FormGroup>
-                                <ControlLabel>{this.state.resources.whr}</ControlLabel>
+                                <ControlLabel>{this.state.resources.page.whr}</ControlLabel>
                                 <FormControl readOnly type="number" value={this.calculateWhr()}/>
                             </FormGroup>
                             <FormGroup>
-                                <ControlLabel>{this.state.resources.obesityType}</ControlLabel>
+                                <ControlLabel>{this.state.resources.page.obesityType}</ControlLabel>
                                 <FormControl readOnly type="text" value={this.getObesityType()}/>
                             </FormGroup>
                         </Panel>
