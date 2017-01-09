@@ -5,7 +5,7 @@ const server = require('../../../server');
 chai.use(chaiHttp);
 chai.should();
 
-describe('Resources', () => {
+describe('Resources Router', () => {
     describe('GET /resources', () => {
         it('should GET resources for pages and commons', (done) => {
             chai.request(server).get('/api/resources').end((error, response) => {
