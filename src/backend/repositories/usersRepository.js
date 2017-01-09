@@ -1,10 +1,8 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 
 const usersRepository = {
     getById (id) {
-        const data = fs.readFileSync('./data/users.json', 'utf8');
-
-        const users = JSON.parse(data);
+        const users = fs.readJsonSync('./data/users.json', 'utf8');
 
         const user = users.find((user) => {
             return user.id === id;
@@ -14,9 +12,7 @@ const usersRepository = {
     },
 
     getByUsernameAndPassword (username, password) {
-        const data = fs.readFileSync('./data/users.json', 'utf8');
-
-        const users = JSON.parse(data);
+        const users = fs.readJsonSync('./data/users.json', 'utf8');
 
         const user = users.find((user) => {
             return user.username === username && user.password === password;

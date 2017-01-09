@@ -1,25 +1,23 @@
 const express = require('express');
-const fs = require('fs');
+const fs = require('fs-extra');
 
 const patientsRouter = new express.Router();
 
 patientsRouter.get('/patient', (request, response, next) => {
-    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+    fs.readJson('./data/patients.json', 'utf8', (error, patients) => {
         if (error) {
             return next(error);
         }
 
-        response.json(JSON.parse(data));
+        response.json(patients);
     });
 });
 
 patientsRouter.get('/patient/:id', (request, response, next) => {
-    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+    fs.readJson('./data/patients.json', 'utf8', (error, patients) => {
         if (error) {
             return next(error);
         }
-
-        const patients = JSON.parse(data);
 
         const patient = patients.find((patient) => {
             return patient.id.toString() === request.params.id.toString();
@@ -30,28 +28,24 @@ patientsRouter.get('/patient/:id', (request, response, next) => {
 });
 
 patientsRouter.post('/patient/', (request, response, next) => {
-    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+    fs.readJson('./data/patients.json', 'utf8', (error, patients) => {
         if (error) {
             return next(error);
         }
 
-        const patients = JSON.parse(data);
-
         patients.push(request.body);
 
-        fs.writeFile('./data/patients.json', JSON.stringify(patients));
+        fs.writeJson('./data/patients.json', patients);
 
         response.sendStatus(200);
     });
 });
 
 patientsRouter.delete('/patient/:id', (request, response, next) => {
-    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+    fs.readJson('./data/patients.json', 'utf8', (error, patients) => {
         if (error) {
             return next(error);
         }
-
-        const patients = JSON.parse(data);
 
         const patient = patients.find((patient) => {
             return patient.id === request.params.id;
@@ -59,19 +53,17 @@ patientsRouter.delete('/patient/:id', (request, response, next) => {
 
         patients.splice(patients.indexOf(patient), 1);
 
-        fs.writeFile('./data/patients.json', JSON.stringify(patients));
+        fs.writeJson('./data/patients.json', patients);
 
         response.sendStatus(200);
     });
 });
 
 patientsRouter.post('/patient/:id/menu', (request, response, next) => {
-    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+    fs.readJson('./data/patients.json', 'utf8', (error, patients) => {
         if (error) {
             return next(error);
         }
-
-        const patients = JSON.parse(data);
 
         const patient = patients.find((patient) => {
             return patient.id === request.params.id;
@@ -79,19 +71,17 @@ patientsRouter.post('/patient/:id/menu', (request, response, next) => {
 
         patient.menus.push(request.body);
 
-        fs.writeFile('./data/patients.json', JSON.stringify(patients));
+        fs.writeJson('./data/patients.json', patients);
 
         response.sendStatus(200);
     });
 });
 
 patientsRouter.get('/patient/:patientId/menu/:menuId', (request, response, next) => {
-    fs.readFile('./data/patients.json', 'utf8', (error, data) => {
+    fs.readJson('./data/patients.json', 'utf8', (error, patients) => {
         if (error) {
             return next(error);
         }
-
-        const patients = JSON.parse(data);
 
         const patient = patients.find((patient) => {
             return patient.id === request.params.patientId;
