@@ -1,7 +1,5 @@
 # Build
 build
-!build/public/css/.placeholder
-!build/.placeholder
 
 # Certificates
 *.crt
