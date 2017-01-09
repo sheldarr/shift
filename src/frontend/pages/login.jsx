@@ -29,7 +29,9 @@ const Login = React.createClass({
         this.setState({password: event.target.value});
     },
 
-    login() {
+    login(event) {
+        event.preventDefault();
+
         authService.login(this.state.username, this.state.password, (error) => {
             if (error) {
                 this.setState({displayError: true});
@@ -48,27 +50,29 @@ const Login = React.createClass({
                         paddingTop: "3rem"
                     }}>
                         <Panel header={'Login'}>
-                            <FormGroup>
-                                <ControlLabel>{'Username'}</ControlLabel>
-                                <FormControl name="username" onChange={this.usernameChanged} type="text" value={this.state.username}/>
-                            </FormGroup>
-                            <FormGroup>
-                                <ControlLabel>{'Password'}</ControlLabel>
-                                <FormControl name="password" onChange={this.passwordChanged} type="password" value={this.state.password}/>
-                            </FormGroup>
-                            {this.state.displayError
-                                ? (
-                                    <Alert bsStyle="danger">
-                                        {'Wrong username or password.'}
-                                    </Alert>
-                                )
-                                : null
+                            <form onSubmit={this.login}>
+                                <FormGroup>
+                                    <ControlLabel>{'Username'}</ControlLabel>
+                                    <FormControl name="username" onChange={this.usernameChanged} type="text" value={this.state.username}/>
+                                </FormGroup>
+                                <FormGroup>
+                                    <ControlLabel>{'Password'}</ControlLabel>
+                                    <FormControl name="password" onChange={this.passwordChanged} type="password" value={this.state.password}/>
+                                </FormGroup>
+                                {this.state.displayError
+                                    ? (
+                                        <Alert bsStyle="danger">
+                                            {'Wrong username or password.'}
+                                        </Alert>
+                                    )
+                                    : null
 }
-                            <Col md={4} mdPush={4}>
-                                <Button block bsStyle="primary" disabled={!this.state.username || !this.state.password} onClick={this.login}>
-                                    {'Login'}
-                                </Button>
-                            </Col>
+                                <Col md={4} mdPush={4}>
+                                    <Button block bsStyle="primary" disabled={!this.state.username || !this.state.password} type="submit">
+                                        {'Login'}
+                                    </Button>
+                                </Col>
+                            </form>
                         </Panel>
                     </Col>
                 </Row>
