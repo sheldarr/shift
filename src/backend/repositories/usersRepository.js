@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const usersRepository = {
     getById (id) {
-        const data = fs.readFileSync('./var/data/users.json', 'utf8');
+        const data = fs.readFileSync('./data/users.json', 'utf8');
 
         const users = JSON.parse(data);
 
@@ -14,7 +14,7 @@ const usersRepository = {
     },
 
     getByUsernameAndPassword (username, password) {
-        const data = fs.readFileSync('./var/data/users.json', 'utf8');
+        const data = fs.readFileSync('./data/users.json', 'utf8');
 
         const users = JSON.parse(data);
 

@@ -8,6 +8,9 @@ build
 *.key
 *.pem
 
+# Data
+data
+
 # Logs
 logs
 *.log

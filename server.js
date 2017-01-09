@@ -31,11 +31,11 @@ nconf.required(['NODE_ENV', 'server', 'server:port', 'server:https']);
 
 if (nconf.get("NODE_ENV") !== 'test') {
     winston.add(winston.transports.File, {
-        filename: path.resolve(__dirname, 'var', 'logs', 'server.log')
+        filename: path.resolve(__dirname, 'logs', 'server.log')
     });
 }
 
-const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'var', 'logs', 'api.log'), {flags: 'a'});
+const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'logs', 'api.log'), {flags: 'a'});
 
 const application = express();
 

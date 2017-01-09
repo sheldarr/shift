@@ -8,7 +8,8 @@
     "build": "cross-env NODE_ENV=production webpack",
     "build:watch": "cross-env NODE_ENV=production webpack --watch",
     "build:dev": "cross-env NODE_ENV=development webpack",
-    "build:dev:watch": "cross-env NODE_ENV=development webpack --watch"
+    "build:dev:watch": "cross-env NODE_ENV=development webpack --watch",
+    "init": "node ./utils/initializer.js"
   },
   "name": "Shift",
   "version": "0.0.1",

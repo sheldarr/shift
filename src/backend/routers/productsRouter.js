@@ -4,7 +4,7 @@ const fs = require('fs');
 const productsRouter = new express.Router();
 
 productsRouter.get('/product', (request, response, next) => {
-    fs.readFile('./var/data/products.json', 'utf8', (error, data) => {
+    fs.readFile('./data/products.json', 'utf8', (error, data) => {
         if (error) {
             return next(error);
         }
@@ -14,7 +14,7 @@ productsRouter.get('/product', (request, response, next) => {
 });
 
 productsRouter.post('/product/', (request, response, next) => {
-    fs.readFile('./var/data/products.json', 'utf8', (error, data) => {
+    fs.readFile('./data/products.json', 'utf8', (error, data) => {
         if (error) {
             return next(error);
         }
@@ -23,7 +23,7 @@ productsRouter.post('/product/', (request, response, next) => {
 
         products.push(request.body);
 
-        fs.writeFile('./var/data/products.json', JSON.stringify(products));
+        fs.writeFile('./data/products.json', JSON.stringify(products));
 
         response.sendStatus(200);
     });
