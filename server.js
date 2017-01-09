@@ -58,11 +58,7 @@ application.use('/api', productsRouter);
 application.use('/api', resourcesRouter);
 
 const verifyUser = (username, password, done) => {
-    winston.info(`Verifying user {${username}, ${password}}`);
-
     const user = usersRepository.getByUsernameAndPassword(username, password);
-
-    winston.info(`Verified user ${JSON.stringify(user)}`);
 
     if (user) {
         return done(null, user);
@@ -74,17 +70,11 @@ const verifyUser = (username, password, done) => {
 const localStrategy = new LocalStrategy(verifyUser);
 
 passport.serializeUser((user, done) => {
-    winston.info(`Serializing user ${JSON.stringify(user)}`);
-
     done(null, user);
 });
 
 passport.deserializeUser((serializedUser, done) => {
-    winston.info(`Deserializing user ${JSON.stringify(serializedUser)}`);
-
     const user = usersRepository.getById(serializedUser.id);
-
-    winston.info(`Deserialized user ${JSON.stringify(user)}`);
 
     if (user) {
         return done(null, user);
