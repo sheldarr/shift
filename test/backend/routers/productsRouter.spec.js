@@ -71,7 +71,10 @@ describe('Products Router', () => {
         });
 
         it('should not POST invalid product', (done) => {
-            const product = {};
+            const product = {
+                energyValue: "",
+                protein: "string"
+            };
 
             chai.request(server).post('/api/product').send(product).end((error, response) => {
                 response.should.have.status(400);

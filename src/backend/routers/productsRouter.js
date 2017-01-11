@@ -28,75 +28,75 @@ productsRouter.post('/product/', (request, response, next) => {
             validationErrors.push('name');
         }
 
-        if (isNaN(product.energyValue)) {
+        if (isNaN(parseFloat(product.energyValue))) {
             validationErrors.push('energyValue');
         }
 
-        if (isNaN(product.protein)) {
+        if (isNaN(parseFloat(product.protein))) {
             validationErrors.push('protein');
         }
 
-        if (isNaN(product.fat)) {
+        if (isNaN(parseFloat(product.fat))) {
             validationErrors.push('fat');
         }
 
-        if (isNaN(product.carbohydrates)) {
+        if (isNaN(parseFloat(product.carbohydrates))) {
             validationErrors.push('carbohydrates');
         }
 
-        if (isNaN(product.fiber)) {
+        if (isNaN(parseFloat(product.fiber))) {
             validationErrors.push('fiber');
         }
 
-        if (isNaN(product.sodium)) {
+        if (isNaN(parseFloat(product.sodium))) {
             validationErrors.push('sodium');
         }
 
-        if (isNaN(product.potassium)) {
+        if (isNaN(parseFloat(product.potassium))) {
             validationErrors.push('potassium');
         }
 
-        if (isNaN(product.calcium)) {
+        if (isNaN(parseFloat(product.calcium))) {
             validationErrors.push('calcium');
         }
 
-        if (isNaN(product.phosphorus)) {
+        if (isNaN(parseFloat(product.phosphorus))) {
             validationErrors.push('phosphorus');
         }
 
-        if (isNaN(product.iron)) {
+        if (isNaN(parseFloat(product.iron))) {
             validationErrors.push('iron');
         }
 
-        if (isNaN(product.magnesium)) {
+        if (isNaN(parseFloat(product.magnesium))) {
             validationErrors.push('magnesium');
         }
 
-        if (isNaN(product.vitaminA)) {
+        if (isNaN(parseFloat(product.vitaminA))) {
             validationErrors.push('vitaminA');
         }
 
-        if (isNaN(product.betaCarotene)) {
+        if (isNaN(parseFloat(product.betaCarotene))) {
             validationErrors.push('betaCarotene');
         }
 
-        if (isNaN(product.vitaminE)) {
+        if (isNaN(parseFloat(product.vitaminE))) {
             validationErrors.push('vitaminE');
         }
 
-        if (isNaN(product.thiamine)) {
+        if (isNaN(parseFloat(product.thiamine))) {
             validationErrors.push('thiamine');
         }
 
-        if (isNaN(product.riboflavin)) {
+        if (isNaN(parseFloat(product.riboflavin))) {
             validationErrors.push('riboflavin');
         }
 
-        if (isNaN(product.niacin)) {
+        if (isNaN(parseFloat(product.niacin))) {
             validationErrors.push('niacin');
         }
-        
-        if (isNaN(product.vitaminC)) {
+
+        if (isNaN(parseFloat(product.vitaminC))) {
             validationErrors.push('vitaminC');
         }
 
