@@ -11,7 +11,7 @@ describe('Products Router', () => {
             chai.request(server).get('/api/product').end((error, response) => {
                 response.should.have.status(200);
                 response.should.be.json;
-                response.body.should.not.be.empty;
+                response.body.should.not.equal([]);
 
                 done();
             });
