@@ -6,7 +6,8 @@
     "logs": {
         "api": {
             "enabled": true,
-            "filename": "api.production.log"
+            "filename": "api.production.log",
+            "format": "combined"
         },
         "server": {
             "enabled": true,

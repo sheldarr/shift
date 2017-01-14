@@ -6,7 +6,8 @@
     "logs": {
         "api": {
             "enabled": false,
-            "filename": "api.test.log"
+            "filename": "api.test.log",
+            "format": "combined"
         },
         "server": {
             "enabled": false,
