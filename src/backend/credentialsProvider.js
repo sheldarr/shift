@@ -5,8 +5,8 @@ const winston = require('winston');
 const credentialsProvider = {
     get () {
         try {
-            const cert = fs.readFileSync(path.resolve(__dirname, '../..', 'certs', 'cert.pem'), 'utf8');
-            const key = fs.readFileSync(path.resolve(__dirname, '../..', 'certs', 'key.pem'), 'utf8');
+            const cert = fs.readFileSync(path.normalize('../../certs/cert.pem'), 'utf8');
+            const key = fs.readFileSync(path.normalize('../../certs/key.pem'), 'utf8');
 
             return {
                 cert,

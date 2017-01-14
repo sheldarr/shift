@@ -94,7 +94,7 @@ passport.deserializeUser((serializedUserId, done) => {
 passport.use(localStrategy);
 
 application.get('*', (request, response) => {
-    response.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+    response.sendFile(path.normalize('./public/index.html'), { root: __dirname });
 });
 
 application.use(errorHandler);

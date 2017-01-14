@@ -6,7 +6,7 @@ i18n.configure({
     autoReload: true,
     cookie: 'language',
     defaultLocale: 'pl',
-    directory: path.resolve(__dirname, '../../..', 'locales'),
+    directory: path.normalize('./locales'),
     logDebugFn (message) {
         winston.debug(message);
     },
