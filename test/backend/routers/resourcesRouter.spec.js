@@ -20,12 +20,20 @@ describe('Resources Router', () => {
     });
 
     describe('GET /resources/:page', () => {
-        it('should GET resources for specified page and commons', (done) => {
+        it('should GET resources for commons and specified page', (done) => {
             chai.request(server).get('/api/resources/calculator').end((error, response) => {
                 response.should.have.status(200);
                 response.should.be.json;
                 response.body.should.have.property('page');
                 response.body.should.have.property('commons');
+
+                done();
+            });
+        });
+
+        it('should not GET resources for not existing specified page', (done) => {
+            chai.request(server).get('/api/resources/notExistingPage').end((error, response) => {
+                response.should.have.status(404);
 
                 done();
             });

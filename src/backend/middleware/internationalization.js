@@ -16,7 +16,8 @@ i18n.configure({
     logErrorFn (message) {
         winston.error(message);
     },
-    objectNotation: true
+    objectNotation: true,
+    updateFiles: false,
 });
 
 module.exports = i18n.init;

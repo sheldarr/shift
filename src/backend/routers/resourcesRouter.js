@@ -12,8 +12,16 @@ resourcesRouter.get('/resources', (request, response) => {
 });
 
 resourcesRouter.get('/resources/:page', (request, response) => {
+    const pageLocale = `pages.${request.params.page}`;
+    const page = response.__(pageLocale);
+
+    if (pageLocale === page) {
+        response.sendStatus(404);
+        return;
+    }
+
     const resources = Object.assign({}, {
-        page: response.__(`pages.${request.params.page}`),
+        page: page,
         commons: response.__('commons')
     });
 
