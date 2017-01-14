@@ -78,11 +78,11 @@ const verifyUser = (username, password, done) => {
 const localStrategy = new LocalStrategy(verifyUser);
 
 passport.serializeUser((user, done) => {
-    done(null, user);
+    done(null, user.id);
 });
 
-passport.deserializeUser((serializedUser, done) => {
-    const user = usersRepository.getById(serializedUser.id);
+passport.deserializeUser((serializedUserId, done) => {
+    const user = usersRepository.getById(serializedUserId);
 
     if (user) {
         return done(null, user);
