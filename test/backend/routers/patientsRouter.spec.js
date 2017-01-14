@@ -39,5 +39,15 @@ describe('Patients Router', () => {
                 done();
             });
         });
+
+        it('should not GET not existing patient', (done) => {
+            const patientId = "not-existing-patient-id";
+
+            chai.request(server).get(`/api/patient/${patientId}`).end((error, response) => {
+                response.should.have.status(404);
+
+                done();
+            });
+        });
     });
 });

@@ -20,8 +20,13 @@ patientsRouter.get('/patient/:id', (request, response, next) => {
         }
 
         const patient = patients.find((patient) => {
-            return patient.id.toString() === request.params.id.toString();
+            return patient.id === request.params.id;
         });
+
+        if (!patient) {
+            response.sendStatus(404);
+            return;
+        }
 
         response.json(patient);
     });
