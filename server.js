@@ -30,9 +30,9 @@ nconf.required([
     'server:https',
     'logs:api:enabled',
     'logs:api:filename',
+    'logs:api:format',
     'logs:server:enabled',
-    'logs:server:filename',
-    'logs:server:format'
+    'logs:server:filename'
 ]);
 
 if (nconf.get('logs:server:enabled') !== 'test') {
