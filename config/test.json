@@ -2,5 +2,15 @@
     "server": {
         "port": 4040,
         "https": false
+    },
+    "logs": {
+        "api": {
+            "enabled": false,
+            "filename": "api.test.log"
+        },
+        "server": {
+            "enabled": false,
+            "filename": "server.test.log"
+        }
     }
 }

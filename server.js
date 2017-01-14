@@ -22,24 +22,32 @@ const patientsRouter = require('./src/backend/routers/patientsRouter');
 const productsRouter = require('./src/backend/routers/productsRouter');
 const resourcesRouter = require('./src/backend/routers/resourcesRouter');
 
-nconf
-    .env()
-    .argv()
-    .file(`./config/${process.env.NODE_ENV}.json`);
+nconf.env().argv().file(`./config/${process.env.NODE_ENV}.json`);
 
-nconf.required(['NODE_ENV', 'server', 'server:port', 'server:https']);
+nconf.required([
+    'NODE_ENV',
+    'server:port',
+    'server:https',
+    'logs:api:enabled',
+    'logs:api:filename',
+    'logs:server:enabled',
+    'logs:server:filename',
+    'logs:server:format'
+]);
 
-if (nconf.get("NODE_ENV") !== 'test') {
+if (nconf.get('logs:server:enabled') !== 'test') {
     winston.add(winston.transports.File, {
-        filename: path.resolve(__dirname, 'logs', 'server.log')
+        filename: path.normalize(`./logs/${nconf.get('logs:server:filename')}`)
     });
 }
 
-const apiLogStream = fs.createWriteStream(path.resolve(__dirname, 'logs', 'api.log'), {flags: 'a'});
-
 const application = express();
 
-application.use(morgan('combined', {stream: apiLogStream}));
+if (nconf.get('logs:api:enabled')) {
+    const logStream = fs.createWriteStream(path.normalize(`./logs/${nconf.get('logs:api:filename')}`), {flags: 'a'});
+    application.use(morgan(nconf.get('logs:api:format'), {stream: logStream}));
+}
+
 application.use(cookieParser());
 application.use(bodyParser.urlencoded({extended: true}));
 application.use(bodyParser.json());
@@ -104,7 +112,9 @@ if (httpsEnabled) {
 }
 
 server.listen(port, () => {
-    winston.info(`PID ${process.pid} ${httpsEnabled ? 'https' : 'http'} server is running on port: ${port}`);
+    winston.info(`PID ${process.pid} ${httpsEnabled
+        ? 'https'
+        : 'http'} server is running on port: ${port}`);
 });
 
 module.exports = server;

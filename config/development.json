@@ -2,5 +2,16 @@
     "server": {
         "port": 3030,
         "https": false
+    },
+    "logs": {
+        "api": {
+            "enabled": true,
+            "filename": "api.development.log",
+            "format": "combined"
+        },
+        "server": {
+            "enabled": true,
+            "filename": "server.development.log"
+        }
     }
 }
