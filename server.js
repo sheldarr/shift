@@ -35,7 +35,7 @@ nconf.required([
     'logs:server:filename'
 ]);
 
-if (nconf.get('logs:server:enabled') !== 'test') {
+if (nconf.get('logs:server:enabled')) {
     winston.add(winston.transports.File, {
         filename: path.normalize(`./logs/${nconf.get('logs:server:filename')}`)
     });
