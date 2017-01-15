@@ -7,6 +7,7 @@
     "start:dev": "cross-env NODE_ENV=development pm2 start server.js --name='shift'",
     "stop": "pm2 stop 'shift'",
     "restart": "pm2 restart 'shift'",
+    "show": "pm2 show 'shift'",
     "build": "cross-env NODE_ENV=production webpack",
     "build:watch": "cross-env NODE_ENV=production webpack --watch",
     "build:dev": "cross-env NODE_ENV=development webpack",
