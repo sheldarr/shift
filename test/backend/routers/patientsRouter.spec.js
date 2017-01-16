@@ -54,5 +54,25 @@ describe('Patients Router', () => {
                 done();
             });
         });
+
+        it('should DELETE existing patient', (done) => {
+            const patientId = '41e9f68d-67cc-4dca-85bf-ad7da7994f1f';
+
+            chai.request(server).del(`/api/patient/${patientId}`).end((error, response) => {
+                response.should.have.status(200);
+
+                done();
+            });
+        });
+
+        it('should not DELETE not existing patient', (done) => {
+            const patientId = 'not-existing-patient-id';
+
+            chai.request(server).del(`/api/patient/${patientId}`).end((error, response) => {
+                response.should.have.status(404);
+
+                done();
+            });
+        });
     });
 });

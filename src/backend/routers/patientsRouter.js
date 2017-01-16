@@ -56,6 +56,11 @@ patientsRouter.delete('/patient/:id', (request, response, next) => {
             return patient.id === request.params.id;
         });
 
+        if (!patient) {
+            response.sendStatus(404);
+            return;
+        }
+
         patients.splice(patients.indexOf(patient), 1);
 
         fs.writeJson('./data/patients.json', patients);
