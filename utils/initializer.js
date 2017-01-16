@@ -10,9 +10,10 @@ const run = () => {
     });
 };
 
-if(module.parent) {
-    module.exports = {run};
-    process.exit(0);
-}
+module.exports = {
+    run
+};
 
-run();
+if (!module.parent) {
+    run();
+}
