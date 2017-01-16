@@ -1,11 +1,16 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../../../server');
+const initializer = require('../../../utils/initializer');
 
 chai.use(chaiHttp);
 chai.should();
 
 describe('Patients Router', () => {
+    beforeEach(() => {
+        initializer.run();
+    });
+
     describe('GET /patient', () => {
         it('should GET all patients', (done) => {
             chai.request(server).get('/api/patient').end((error, response) => {
