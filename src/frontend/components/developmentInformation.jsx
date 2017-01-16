@@ -5,7 +5,7 @@ import {Panel} from 'react-bootstrap';
 
 const DevelopmentInformation = React.createClass({
     render() {
-        return (process.env.NODE_ENV === "production"
+        return (process.env.NODE_ENV === 'production'
             ? null
             : (
                 <Panel header={'Development Information'}>

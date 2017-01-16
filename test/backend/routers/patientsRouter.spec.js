@@ -24,7 +24,7 @@ describe('Patients Router', () => {
         });
 
         it('should GET patient by id', (done) => {
-            const patientId = "41e9f68d-67cc-4dca-85bf-ad7da7994f1f";
+            const patientId = '41e9f68d-67cc-4dca-85bf-ad7da7994f1f';
 
             chai.request(server).get(`/api/patient/${patientId}`).end((error, response) => {
                 response.should.have.status(200);
@@ -46,7 +46,7 @@ describe('Patients Router', () => {
         });
 
         it('should not GET not existing patient', (done) => {
-            const patientId = "not-existing-patient-id";
+            const patientId = 'not-existing-patient-id';
 
             chai.request(server).get(`/api/patient/${patientId}`).end((error, response) => {
                 response.should.have.status(404);

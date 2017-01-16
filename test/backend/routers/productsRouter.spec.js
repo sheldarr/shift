@@ -21,25 +21,25 @@ describe('Products Router', () => {
     describe('POST /product', () => {
         it('should POST valid product', (done) => {
             const product = {
-                "name": "productName",
-                "energyValue": 1.5,
-                "protein": 2.5,
-                "fat": 3.5,
-                "carbohydrates": 4.5,
-                "fiber": 5.5,
-                "sodium": 6.5,
-                "potassium": 7.5,
-                "calcium": 8.5,
-                "phosphorus": 9.5,
-                "iron": 10.5,
-                "magnesium": 11.5,
-                "vitaminA": 12.5,
-                "betaCarotene": 13.5,
-                "vitaminE": 14.5,
-                "thiamine": 15.5,
-                "riboflavin": 16.5,
-                "niacin": 17.5,
-                "vitaminC": 18.5
+                'name': 'productName',
+                'energyValue': 1.5,
+                'protein': 2.5,
+                'fat': 3.5,
+                'carbohydrates': 4.5,
+                'fiber': 5.5,
+                'sodium': 6.5,
+                'potassium': 7.5,
+                'calcium': 8.5,
+                'phosphorus': 9.5,
+                'iron': 10.5,
+                'magnesium': 11.5,
+                'vitaminA': 12.5,
+                'betaCarotene': 13.5,
+                'vitaminE': 14.5,
+                'thiamine': 15.5,
+                'riboflavin': 16.5,
+                'niacin': 17.5,
+                'vitaminC': 18.5
             };
 
             chai.request(server).post('/api/product').send(product).end((error, response) => {
@@ -72,8 +72,8 @@ describe('Products Router', () => {
 
         it('should not POST invalid product', (done) => {
             const product = {
-                energyValue: "",
-                protein: "string"
+                energyValue: '',
+                protein: 'string'
             };
 
             chai.request(server).post('/api/product').send(product).end((error, response) => {

@@ -47,7 +47,7 @@ const Login = React.createClass({
             <Grid>
                 <Row>
                     <Col md={6} mdPush={3} style={{
-                        paddingTop: "3rem"
+                        paddingTop: '3rem'
                     }}>
                         <Panel header={'Login'}>
                             <form onSubmit={this.login}>
