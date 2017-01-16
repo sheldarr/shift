@@ -58,7 +58,6 @@ application.use(passport.session());
 application.use(internationalization);
 
 application.use('/build', express.static('build'));
-application.use('/public', express.static('public'));
 
 application.use('/', authRouter);
 application.use('/api', patientsRouter);
@@ -94,7 +93,7 @@ passport.deserializeUser((serializedUserId, done) => {
 passport.use(localStrategy);
 
 application.get('*', (request, response) => {
-    response.sendFile(path.normalize('./public/index.html'), { root: __dirname });
+    response.sendFile(path.normalize('./build/index.html'), { root: __dirname });
 });
 
 application.use(errorHandler);

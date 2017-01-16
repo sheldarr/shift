@@ -6,7 +6,10 @@ const https = require('https');
 const fs = require('fs-extra');
 const path = require('path');
 
-const bootstrapPath = path.normalize('./build/public/css/bootstrap.min.css');
+const cssPath = path.normalize('./build/css');
+fs.ensureDirSync(cssPath);
+
+const bootstrapPath = path.normalize(`${cssPath}/bootstrap.min.css`);
 const file = fs.createWriteStream(bootstrapPath);
 
 https.get('https://bootswatch.com/paper/bootstrap.min.css', (response) => {
@@ -40,8 +43,16 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin([
             {
+                from: './public',
+                to: './'
+            },
+            {
+                from: './node_modules/font-awesome/css/font-awesome.min.css',
+                to: './css'
+            },
+            {
                 from: './node_modules/toastr/build/toastr.min.css',
-                to: './public/css'
+                to: './css'
             }
         ]),
         new DefinePlugin({
