@@ -47,10 +47,6 @@ module.exports = {
                 to: './'
             },
             {
-                from: './node_modules/font-awesome/css/font-awesome.min.css',
-                to: './css'
-            },
-            {
                 from: './node_modules/toastr/build/toastr.min.css',
                 to: './css'
             }
