@@ -39,5 +39,25 @@ describe('Recipes Router', () => {
                 done();
             });
         });
+
+        it('should DELETE existing recipe', (done) => {
+            const recipeId = '76faf38a-5ecc-4887-b545-ebdb5060aaa0';
+
+            chai.request(server).del(`/api/recipes/${recipeId}`).end((error, response) => {
+                response.should.have.status(200);
+
+                done();
+            });
+        });
+
+        it('should not DELETE not existing recipe', (done) => {
+            const recipeId = 'not-existing-recipe-id';
+
+            chai.request(server).del(`/api/recipes/${recipeId}`).end((error, response) => {
+                response.should.have.status(404);
+
+                done();
+            });
+        });
     });
 });
