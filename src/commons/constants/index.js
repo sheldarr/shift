@@ -6,6 +6,24 @@ const constants = {
         female: 'female'
     },
     units: {
+        kitchen: {
+            'pitch': {
+                base: 'g',
+                modifier: 0.25
+            },
+            'teaspoon': {
+                base: 'ml',
+                modifier: 5
+            },
+            'spoon': {
+                base: 'ml',
+                modifier: 15
+            },
+            'glass': {
+                base: 'ml',
+                modifier: 250
+            }
+        },
         si: {
             'g': {
                 modifier: 1
