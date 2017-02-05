@@ -1,0 +1,14 @@
+[{
+    "id": "76faf38a-5ecc-4887-b545-ebdb5060aaa0",
+    "ingredients": [{
+        "amount": 1,
+        "productId": 1,
+        "unit": "g"
+    }, {
+        "amount": 2,
+        "productId": 2,
+        "unit": "g"
+    }],
+    "name": "Recipe",
+    "description": "Mix everything together"
+}]

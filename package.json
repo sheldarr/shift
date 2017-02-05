@@ -2,6 +2,7 @@
   "scripts": {
     "lint": "eslint . --ext .js --ext .jsx",
     "lint:fix": "eslint . --ext .js --ext .jsx --fix",
+    "test": "yarn run test:mocha",
     "test:mocha": "cross-env NODE_ENV=test mocha",
     "test:mocha:watch": "cross-env NODE_ENV=test mocha --watch",
     "start": "cross-env NODE_ENV=production pm2 start server.js --name='shift'",
@@ -17,7 +18,7 @@
     "build:dev:watch": "cross-env NODE_ENV=development webpack --watch",
     "init": "node ./utils/initializer.js"
   },
-  "name": "Shift",
+  "name": "shift",
   "version": "0.0.1",
   "dependencies": {
     "body-parser": "^1.15.2",

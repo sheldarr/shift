@@ -20,6 +20,7 @@ const winston = require('winston');
 const authRouter = require('./src/backend/routers/authRouter');
 const patientsRouter = require('./src/backend/routers/patientsRouter');
 const productsRouter = require('./src/backend/routers/productsRouter');
+const recipesRouter = require('./src/backend/routers/recipesRouter');
 const resourcesRouter = require('./src/backend/routers/resourcesRouter');
 
 nconf.env().argv().file(`./config/${process.env.NODE_ENV}.json`);
@@ -62,6 +63,7 @@ application.use('/build', express.static('build'));
 application.use('/', authRouter);
 application.use('/api', patientsRouter);
 application.use('/api', productsRouter);
+application.use('/api', recipesRouter);
 application.use('/api', resourcesRouter);
 
 const verifyUser = (username, password, done) => {
