@@ -13,4 +13,23 @@ recipesRouter.get('/recipes', (request, response, next) => {
     });
 });
 
+recipesRouter.get('/recipes/:id', (request, response, next) => {
+    fs.readJson('./data/recipes.json', 'utf8', (error, recipes) => {
+        if (error) {
+            return next(error);
+        }
+
+        const recipe = recipes.find((recipes) => {
+            return recipes.id === request.params.id;
+        });
+;
+        if (!recipe) {
+            response.sendStatus(404);
+            return;
+        }
+
+        response.json(recipe);
+    });
+});
+
 module.exports = recipesRouter;

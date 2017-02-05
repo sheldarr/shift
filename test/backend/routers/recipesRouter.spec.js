@@ -22,5 +22,22 @@ describe('Recipes Router', () => {
                 done();
             });
         });
+
+        it('should GET recipe by id', (done) => {
+            const recipeId = '76faf38a-5ecc-4887-b545-ebdb5060aaa0';
+
+            chai.request(server).get(`/api/recipes/${recipeId}`).end((error, response) => {
+                response.should.have.status(200);
+                response.should.be.json;
+                response.body.should.be.a('object');
+                response.body.id.should.equal(recipeId);
+
+                response.body.should.have.property('ingredients');
+                response.body.should.have.property('name');
+                response.body.should.have.property('description');
+
+                done();
+            });
+        });
     });
 });
