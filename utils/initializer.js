@@ -2,11 +2,13 @@ const fs = require('fs-extra');
 const path = require('path');
 const winston = require('winston');
 
-const run = () => {
+const run = (done) => {
     fs.copy(path.normalize('./initial-data'), path.normalize('./data'), function(error) {
         if (error) {
             winston.error(error);
         }
+
+        done();
     });
 };
 
@@ -15,5 +17,5 @@ module.exports = {
 };
 
 if (!module.parent) {
-    run();
+    run(() => {});
 }

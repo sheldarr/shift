@@ -7,8 +7,8 @@ chai.use(chaiHttp);
 chai.should();
 
 describe('Patients Router', () => {
-    beforeEach(() => {
-        initializer.run();
+    beforeEach((done) => {
+        initializer.run(done);
     });
 
     describe('GET /patient', () => {

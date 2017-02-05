@@ -22,7 +22,7 @@ recipesRouter.get('/recipes/:id', (request, response, next) => {
         const recipe = recipes.find((recipes) => {
             return recipes.id === request.params.id;
         });
-;
+
         if (!recipe) {
             response.sendStatus(404);
             return;
