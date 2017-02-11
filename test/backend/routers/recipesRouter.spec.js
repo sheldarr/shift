@@ -39,7 +39,9 @@ describe('Recipes Router', () => {
                 done();
             });
         });
+    });
 
+    describe('DELETE /recipes', () => {
         it('should DELETE existing recipe', (done) => {
             const recipeId = '76faf38a-5ecc-4887-b545-ebdb5060aaa0';
 
