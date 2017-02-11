@@ -4,6 +4,8 @@ const uuid = require('uuid');
 
 const recipesRouter = new express.Router();
 
+const ingredientValidator = require('../../commons/validators/ingredientValidator');
+
 recipesRouter.get('/recipes', (request, response, next) => {
     fs.readJson('./data/recipes.json', 'utf8', (error, recipes) => {
         if (error) {
@@ -39,16 +41,20 @@ recipesRouter.post('/recipes/', (request, response, next) => {
             return next(error);
         }
 
-            if (error) {
-            return next(error);
-        }
-
         const recipe = request.body;
 
         const validationErrors = [];
 
         if (!recipe.name) {
             validationErrors.push('name');
+        }
+
+        if (recipe.ingredients) {
+            recipe.ingredients.forEach((ingredient) => {
+                if(!ingredientValidator.validate(ingredient)) {
+                    validationErrors.push('ingredients');
+                }
+            });
         }
 
         if (validationErrors.length) {
@@ -62,7 +68,7 @@ recipesRouter.post('/recipes/', (request, response, next) => {
 
         fs.writeJson('./data/recipes.json', recipes);
 
-        response.sendStatus(200);
+        response.status(201).json(recipe);
     });
 });
 

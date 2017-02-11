@@ -62,4 +62,51 @@ describe('Recipes Router', () => {
             });
         });
     });
+
+     describe('POST /recipes', () => {
+        it('should POST valid recipe', (done) => {
+            const recipe = {
+                name: 'recipeName',
+                description:'description',
+                ingredients: [{
+                    amount: 10,
+                    productId: 1,
+                    unit: 'g'
+                }]
+            };
+
+            chai.request(server).post('/api/recipes').send(recipe).end((error, response) => {
+                response.should.have.status(201);
+                response.should.be.json;
+                response.body.should.be.a('object');
+                response.body.should.have.property('id');
+                response.body.should.have.property('name').equal(recipe.name);
+                response.body.should.have.property('description').equal(recipe.description);
+                response.body.should.have.property('ingredients').deep.equal(recipe.ingredients);
+
+                done();
+            });
+        });
+
+        it('should not POST invalid recipe', (done) => {
+            const recipe = {
+                name: '',
+                description:'',
+                ingredients: [{
+                }]
+            };
+
+            chai.request(server).post('/api/recipes').send(recipe).end((error, response) => {
+                response.should.have.status(400);
+                response.should.be.json;
+                response.body.should.be.a('array');
+                response.body.should.have.members([
+                    'name',
+                    'ingredients'
+                ]);
+
+                done();
+            });
+        });
+     });
 });
