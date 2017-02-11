@@ -54,7 +54,9 @@ describe('Patients Router', () => {
                 done();
             });
         });
+    });
 
+    describe('DELETE /patient', () => {
         it('should DELETE existing patient', (done) => {
             const patientId = '41e9f68d-67cc-4dca-85bf-ad7da7994f1f';
 
