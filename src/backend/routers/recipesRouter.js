@@ -51,7 +51,7 @@ recipesRouter.post('/recipes/', (request, response, next) => {
 
         if (recipe.ingredients) {
             recipe.ingredients.forEach((ingredient) => {
-                if(!ingredientValidator.validate(ingredient)) {
+                if(ingredientValidator.validate(ingredient).length) {
                     validationErrors.push('ingredients');
                 }
             });

@@ -3,12 +3,21 @@ const unitValidator = require('./unitValidator');
 
 const ingredientValidator = {
     validate: (ingredient) => {
-        const amountIsValid = !isNaN(parseFloat(ingredient.amount));
-        const productExists = productsRepository.getById(ingredient.productId);
-        const unitIsValid = unitValidator.validate(ingredient.unit);
+        const validationErrors = [];
+        
+        if(isNaN(parseFloat(ingredient.amount))) {
+            validationErrors.push('amount');
+        }
 
-        console.log(amountIsValid, productExists, unitIsValid);
-        return amountIsValid && productExists && unitIsValid;
+        if(!productsRepository.getById(ingredient.productId)) {
+            validationErrors.push('productId');
+        }
+
+        if(!unitValidator.validate(ingredient.unit)) {
+            validationErrors.push('unit');
+        }
+
+        return validationErrors;
     }
 };
 
