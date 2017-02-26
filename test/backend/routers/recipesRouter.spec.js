@@ -63,11 +63,11 @@ describe('Recipes Router', () => {
         });
     });
 
-     describe('POST /recipes', () => {
+    describe('POST /recipes', () => {
         it('should POST valid recipe', (done) => {
             const recipe = {
                 name: 'recipeName',
-                description:'description',
+                description: 'description',
                 ingredients: [{
                     amount: 10,
                     productId: 1,
@@ -91,9 +91,8 @@ describe('Recipes Router', () => {
         it('should not POST invalid recipe', (done) => {
             const recipe = {
                 name: '',
-                description:'',
-                ingredients: [{
-                }]
+                description: '',
+                ingredients: [{}]
             };
 
             chai.request(server).post('/api/recipes').send(recipe).end((error, response) => {
@@ -108,5 +107,5 @@ describe('Recipes Router', () => {
                 done();
             });
         });
-     });
+    });
 });
