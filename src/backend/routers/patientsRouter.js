@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs-extra');
+const uuid = require('uuid');
 
 const patientsRouter = new express.Router();
 
@@ -38,11 +39,46 @@ patientsRouter.post('/patient/', (request, response, next) => {
             return next(error);
         }
 
-        patients.push(request.body);
+        const patient = request.body;
 
-        fs.writeJson('./data/patients.json', patients);
+        const validationErrors = [];
 
-        response.sendStatus(200);
+        if (!patient.name) {
+            validationErrors.push('name');
+        }
+
+        if (!patient.surname) {
+            validationErrors.push('surname');
+        }
+
+        if (!patient.dateOfBirth) {
+            validationErrors.push('dateOfBirth');
+        }
+
+        if (!patient.telephone) {
+            validationErrors.push('telephone');
+        }
+
+        if (!patient.email) {
+            validationErrors.push('email');
+        }
+
+        if (!patient.sex) {
+            validationErrors.push('sex');
+        }
+
+        if (validationErrors.length) {
+            response.status(400).json(validationErrors);
+            return;
+        }
+
+        patient.id = uuid.v4();
+
+        patients.push(patient);
+
+        fs.writeJson('./data/recipes.json', patients);
+
+        response.status(201).json(patient);
     });
 });
 
